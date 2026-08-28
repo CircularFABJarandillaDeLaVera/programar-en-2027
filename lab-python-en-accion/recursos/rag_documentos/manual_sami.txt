@@ -1,0 +1,5 @@
+Manual de usuario de SAMI.
+
+SAMI (Sistema de Automatización y Monitorización Integrado) es el asistente del centro.
+
+La versión de demostración del sistema se denomina SAMI Faro. Su función principal es organizar notas técnicas, registrar eventos de aula y gestionar pequeñas listas de tareas del taller.

@@ -1,6 +1,6 @@
 {
   "titulo": "Python en Accion",
-  "subtitulo": "5 cosas mas que puedes hacer",
+  "subtitulo": "6 cosas mas que puedes hacer",
   "lema": "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   "experiencias": [
     {
@@ -47,6 +47,15 @@
       "duracion": "10-20 min",
       "ver": "recursos/experiencias/05-tkinter-app.html",
       "descargar": "recursos/scripts/mi_app_tkinter.py"
+    },
+    {
+      "id": "rag-local",
+      "titulo": "RAG local",
+      "nombre": "Tu primer chat con documentos",
+      "resultado": "Documentos -> fragmentos -> contexto -> respuesta",
+      "duracion": "20-30 min",
+      "ver": "recursos/experiencias/06-rag-local.html",
+      "descargar": "recursos/descargas/rag-local.zip"
     }
   ],
   "cierre": [

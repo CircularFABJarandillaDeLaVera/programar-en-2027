@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RAG local · Tu primer chat con documentos</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>RAG local</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 6 · 20-30 min</p>
+            <h1 class="lab-experience__title">Tu primer RAG local</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/rag-local.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: ver cómo Python convierte documentos locales en contexto para que Ollama responda utilizando fuentes visibles y verificables.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿Para qué sirve un RAG?</h2>
+        <p>Un modelo de Inteligencia Artificial puede saber muchísimas cosas generales sobre el mundo, pero <strong>no conoce necesariamente</strong>:</p>
+        <ul class="lab-list">
+          <li>Los documentos o manuales internos de nuestra empresa.</li>
+          <li>Los apuntes y materiales específicos de un curso.</li>
+          <li>Un manual de procedimiento propio o guía de taller.</li>
+          <li>Nuestro catálogo de productos o inventario del centro.</li>
+          <li>Procedimientos propios y reglas particulares de la organización.</li>
+          <li>Documentación que hemos creado nosotros mismos.</li>
+          <li>Información privada, sensible o almacenada únicamente en local.</li>
+          <li>Información reciente que no formaba parte de su entrenamiento público.</li>
+        </ul>
+
+        <h3>El problema con un ejemplo sencillo</h3>
+        <p>Imagina que tenemos 100 documentos en una organización y le preguntamos a la IA:</p>
+        <p><em>"¿Cuál es nuestro procedimiento para devolver un producto defectuoso?"</em></p>
+        <p>No queremos que la IA responda utilizando únicamente lo que aprendió en internet durante su entrenamiento, ni que se invente una política de devoluciones genérica.</p>
+        <p>Queremos un proceso claro en 4 pasos:</p>
+        <ol class="lab-list">
+          <li><strong>Buscar</strong> primero dentro de <em>nuestros propios documentos</em>.</li>
+          <li><strong>Encontrar</strong> los fragmentos específicos relacionados con la pregunta.</li>
+          <li><strong>Entregar</strong> esos fragmentos al modelo como contexto.</li>
+          <li><strong>Pedirle</strong> que responda utilizando exclusivamente esa información.</li>
+        </ol>
+        <p><strong>Eso es la idea fundamental de un RAG:</strong></p>
+        <pre class="lab-code"><code>PREGUNTA
+   ↓
+BUSCAR EN MIS DOCUMENTOS
+   ↓
+ENCONTRAR LA INFORMACIÓN MÁS RELACIONADA
+   ↓
+DÁRSELA A LA IA (CONTEXTO)
+   ↓
+GENERAR LA RESPUESTA CON FUENTES</code></pre>
+        <p>De ahí procede su nombre: <strong>RAG</strong> = <em>Retrieval-Augmented Generation</em> (<strong>Generación Aumentada por Recuperación</strong>).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Ejemplos reales y comprensibles</h2>
+        <p>¿Para qué podría utilizarse un RAG en situaciones reales?</p>
+        <ul class="lab-list">
+          <li><strong>Empresa:</strong> Pregunta a la IA sobre nuestros procedimientos y normativas internas.</li>
+          <li><strong>Curso:</strong> Pregunta sobre los apuntes, materiales y documentación del curso.</li>
+          <li><strong>Soporte técnico:</strong> Busca primero en los manuales técnicos antes de responder al usuario.</li>
+          <li><strong>Catálogo:</strong> Responde utilizando las características y condiciones reales de nuestros productos.</li>
+          <li><strong>Administración / Organización:</strong> Consulta actas, protocolos y documentación interna.</li>
+          <li><strong>Proyecto personal:</strong> Pregunta sobre tus propios documentos, notas y registros de trabajo.</li>
+        </ul>
+        <h3>¿Cuándo NO hace falta un RAG?</h3>
+        <p>No debemos considerar el RAG como una solución obligatoria para cualquier tarea. Si solo queremos preguntarle al modelo algo que ya puede responder con su conocimiento general (por ejemplo, <em>"¿qué es una función en Python?"</em> o <em>"redacta una carta de presentación"</em>), probablemente <strong>no necesitamos un RAG</strong>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>De la idea a los vectores (Embeddings)</h2>
+        <p>Una vez que entendemos para qué sirve, surge el problema técnico siguiente:</p>
+        <p><em>"Vale, tenemos cientos o miles de fragmentos de texto... ¿Cómo sabe Python cuáles están relacionados con nuestra pregunta?"</em></p>
+        <p>Aquí es donde introducimos los <strong>embeddings</strong> de forma intuitiva:</p>
+        <p>Un <strong>embedding</strong> transforma un texto en una lista de números (un vector) que representa aproximadamente su <strong>significado</strong>. Textos con significados parecidos tienden a quedar próximos en ese espacio matemático.</p>
+
+        <h3>La analogía del mapa de significados</h3>
+        <p>Imagina un mapa gigantesco, pero en lugar de tener solo dos dimensiones, tiene cientos. En ese mapa, frases que hablan de cosas parecidas tienden a quedar cerca, aunque no utilicen exactamente las mismas palabras.</p>
+        <p>Por ejemplo:</p>
+        <ul class="lab-list">
+          <li><code>"¿Dónde guardamos la caja de demostración?"</code></li>
+          <li><code>"En el aula, la caja de demostración debe guardarse siempre en la estantería AZUL."</code></li>
+        </ul>
+        <p>Aunque no sean exactamente iguales, ambas frases tratan sobre la ubicación de la caja, por lo que sus vectores quedan matemáticamente muy próximos.</p>
+        <p>En nuestra práctica, el modelo <code>nomic-embed-text</code> genera vectores de <strong>768 dimensiones</strong>. No es necesario comprender la matemática de 768 dimensiones; basta comprender el flujo:</p>
+        <pre class="lab-code"><code>TEXTO DE TUS DOCUMENTOS  ➔  EMBEDDING  ➔  VECTOR
+PREGUNTA DEL USUARIO    ➔  EMBEDDING  ➔  VECTOR</code></pre>
+        <p>Después, Python compara los vectores mediante <strong>similitud coseno</strong> y recupera los fragmentos con mayor puntuación.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Del vector a la respuesta: el flujo completo</h2>
+        <p>Conectamos todo el proceso paso a paso tal como se ejecuta en el script:</p>
+        <ol class="lab-list">
+          <li><strong>Documentos:</strong> Leemos los archivos de texto locales (<code>.txt</code>).</li>
+          <li><strong>Fragmentos:</strong> Dividimos los documentos en bloques manejables con solape.</li>
+          <li><strong>Vectores de fragmentos:</strong> Convertimos cada fragmento en un vector numérico con <code>nomic-embed-text</code>.</li>
+          <li><strong>Vector de la pregunta:</strong> Convertimos la consulta del usuario en otro vector.</li>
+          <li><strong>Comparación:</strong> Calculamos cuáles se parecen más mediante similitud coseno.</li>
+          <li><strong>Top K:</strong> Elegimos los mejores fragmentos (en la práctica, los $K=2$ con mayor puntuación).</li>
+          <li><strong>Construcción de contexto:</strong> Empaquetamos esos fragmentos en un texto ordenado citando sus fuentes.</li>
+          <li><strong>Envío al LLM:</strong> Entregamos contexto + pregunta a <code>llama3.2:1b</code> con la orden de no inventar.</li>
+          <li><strong>Respuesta final:</strong> El modelo redacta la respuesta apoyándose exclusivamente en el contexto recibido.</li>
+        </ol>
+        <pre class="lab-code"><code>DOCUMENTOS
+    ↓
+FRAGMENTOS
+    ↓
+VECTORES
+       ↖
+        comparar ← VECTOR DE LA PREGUNTA
+    ↓
+TOP K
+    ↓
+CONTEXTO
+    ↓
+LLM (llama3.2:1b)
+    ↓
+RESPUESTA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>1. Instalación y preparación del entorno (desde cero en Windows)</h2>
+        <p>Para ejecutar esta práctica en tu ordenador solo necesitas dos componentes gratuitos y locales:</p>
+        <ol class="lab-list">
+          <li><strong>Comprobar Python:</strong> Abre una ventana de PowerShell y escribe <code>python --version</code>. Debes tener instalada una versión de Python 3.10 o superior.</li>
+          <li><strong>Instalar Ollama en Windows:</strong> Descarga el instalador desde la página oficial <strong>ollama.com</strong> y ejecútalo. <em>(Importante: <strong>no es necesaria ninguna cuenta</strong>, ni tarjeta, ni registrarse en ningún servicio web).</em></li>
+          <li><strong>Abrir un PowerShell nuevo:</strong> Cierra la ventana anterior y abre un PowerShell nuevo para que reconozca el nuevo comando del sistema.</li>
+          <li><strong>Comprobar Ollama:</strong> Escribe <code>ollama --version</code> en PowerShell y comprueba que responde con la versión instalada.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>2. Descarga y preparación de los modelos</h2>
+        <p>Necesitamos dos modelos locales especializados, cada uno con una tarea diferente:</p>
+        <ul class="lab-list">
+          <li><code>nomic-embed-text</code>: <strong>Modelo de embeddings (vectorizador).</strong> Transforma textos y preguntas en vectores de 768 números para medir su cercanía semántica. No genera conversación.</li>
+          <li><code>llama3.2:1b</code>: <strong>Modelo de lenguaje (LLM).</strong> Lee el contexto recuperado y redacta la respuesta en lenguaje natural siguiendo la restricción de no inventar.</li>
+        </ul>
+        <p>Descárgalos ejecutando estos comandos en PowerShell (solo se descargan una vez):</p>
+        <pre class="lab-code"><code>ollama pull nomic-embed-text
+ollama pull llama3.2:1b</code></pre>
+        <p>Para comprobar que ambos modelos están listos en tu equipo, ejecuta:</p>
+        <pre class="lab-code"><code>ollama list</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>3. Descarga y preparación de la práctica</h2>
+        <p>Haz clic en el botón superior <strong>DESCARGAR PRÁCTICA</strong> para obtener el archivo <code>rag-local.zip</code>.</p>
+        <p>El paquete ZIP contiene la siguiente estructura limpia:</p>
+        <pre class="lab-code"><code>rag-local/
+├── rag_local_visible.py         (script principal)
+├── requirements-rag.txt         (librería de conexión Python)
+└── rag_documentos/
+    ├── manual_sami.txt          (manual del sistema)
+    ├── tarifas_envio.txt        (tarifas y envíos)
+    └── protocolo_aula.txt       (normas y ubicación de materiales)</code></pre>
+
+        <h3>El truco sencillo de Windows para abrir la terminal</h3>
+        <p>Una vez descomprimido el ZIP en tu equipo:</p>
+        <ol class="lab-list">
+          <li>Abre la carpeta <code>rag-local</code> en el <strong>Explorador de archivos de Windows</strong> (donde ves el archivo <code>rag_local_visible.py</code>).</li>
+          <li>Haz clic con el ratón en la <strong>barra de dirección</strong> superior de la ventana (donde aparece la ruta de la carpeta).</li>
+          <li>Escribe <code>powershell</code> y pulsa la tecla <code>Enter</code>.</li>
+          <li>PowerShell se abrirá automáticamente ubicado dentro de esa carpeta exacta, listo para ejecutar comandos.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>4. Instalar las dependencias de Python</h2>
+        <p>En la ventana de PowerShell que acabas de abrir en la carpeta, ejecuta:</p>
+        <pre class="lab-code"><code>python -m pip install -r requirements-rag.txt</code></pre>
+
+        <h3>Comprender la diferencia técnica</h3>
+        <ul class="lab-list">
+          <li><strong>Ollama (instalado en Windows):</strong> Es el motor y servidor local en segundo plano que ejecuta los modelos de IA en la CPU/GPU de tu ordenador.</li>
+          <li><strong>Paquete <code>ollama</code> de Python (<code>requirements-rag.txt</code>):</strong> Es la librería puente que permite a nuestro script de Python enviar peticiones locales a ese motor y recibir los vectores y las respuestas.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>5. Primera ejecución y lectura de la salida real</h2>
+        <p>Ejecuta el script en PowerShell:</p>
+        <pre class="lab-code"><code>python .\rag_local_visible.py</code></pre>
+
+        <h3>Guía paso a paso de lo que verás en pantalla</h3>
+        <pre class="lab-code"><code>=== DOCUMENTOS CARGADOS ===
+1. manual_sami.txt (304 caracteres)
+2. protocolo_aula.txt (366 caracteres)
+3. tarifas_envio.txt (321 caracteres)
+
+=== FRAGMENTOS CREADOS ===
+[0] manual_sami.txt (fragmento 1)...
+[1] protocolo_aula.txt (fragmento 1)...
+[2] tarifas_envio.txt (fragmento 1)...
+
+=== EMBEDDINGS ===
+Modelo de embeddings: nomic-embed-text
+Embeddings creados: 3 fragmentos
+Dimensión de cada vector: 768
+
+=== CONSULTA ===
+¿En qué estantería debe guardarse la caja de demostración?
+K_FRAGMENTOS = 2
+
+=== FRAGMENTOS RECUPERADOS ===
+1. score=0.6376 | protocolo_aula.txt | fragmento 1
+   Protocolo del aula y almacén. Normas de organización... la caja de demostración debe guardarse siempre en la estantería AZUL...
+
+=== CONTEXTO ENVIADO AL MODELO ===
+[protocolo_aula.txt | fragmento 1] ...
+
+=== RESPUESTA FINAL ===
+La caja de demostración debe guardarse en la estantería AZUL.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>6. Mini-reto: Comprobar el funcionamiento del RAG (AZUL ➔ VERDE)</h2>
+        <p>Vamos a comprobar empíricamente cómo el modelo cambia su respuesta al actualizar nuestros documentos locales:</p>
+        <ol class="lab-list">
+          <li>Comprueba que en la primera ejecución la respuesta del modelo fue <code>estantería AZUL</code>.</li>
+          <li>Abre con el <strong>Bloc de notas</strong> o tu editor favorito el archivo <code>rag_documentos/protocolo_aula.txt</code>.</li>
+          <li>Busca la norma número 2 y cambia únicamente la palabra <strong>AZUL</strong> por <strong>VERDE</strong>:
+            <br><code>2. En el aula, la caja de demostración debe guardarse siempre en la estantería VERDE.</code></li>
+          <li>Guarda los cambios en el archivo de texto (<code>Ctrl + S</code>).</li>
+          <li>Vuelve a tu ventana de PowerShell y ejecuta de nuevo el script:
+            <br><code>python .\rag_local_visible.py</code></li>
+          <li>Observa cómo los fragmentos recuperados y la respuesta final del modelo cambian automáticamente a <code>estantería VERDE</code>.</li>
+        </ol>
+
+        <h3>La pregunta pedagógica fundamental</h3>
+        <p><strong>¿Hemos reentrenado el modelo <code>llama3.2:1b</code>?</strong></p>
+        <p><strong>Respuesta razonada: NO.</strong> El modelo sigue siendo exactamente el mismo archivo descargado en tu disco duro. No se ha modificado ni un solo parámetro interno de la red neuronal. Lo único que ha cambiado es la información viva que Python ha buscado y le ha entregado como contexto dinámico en el prompt en el momento de responder.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>7. Aprendizaje crítico: Recuperación correcta ≠ Respuesta garantizada</h2>
+        <p>Durante la validación de esta práctica aprendimos una lección esencial de ingeniería de datos:</p>
+        <p>Si los documentos de origen contienen instrucciones del reto, comentarios fuera de lugar, datos contradictorios o ruido, el modelo de lenguaje puede verse confundido al redactar la respuesta final, <strong>a pesar de que el recuperador haya encontrado el fragmento correcto con una puntuación muy alta</strong>.</p>
+        <p>Por eso, en un sistema RAG profesional, la limpieza, claridad y estructuración de los documentos originales es tan determinante como la precisión del algoritmo de búsqueda vectorial.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>8. Plan B (Resiliencia en aula)</h2>
+        <p>Si durante la sesión ocurre algún inconveniente técnico, la práctica permite continuar gracias a su diseño transparente:</p>
+        <ul class="lab-list">
+          <li><strong>Si falla el modelo de chat:</strong> El script conserva la fase de embeddings y recuperación por similitud coseno, imprimiendo en pantalla los fragmentos con mayor score y el contexto seleccionado. Puedes pedir a los alumnos que redacten la respuesta leyendo el contexto recuperado en consola.</li>
+          <li><strong>Si falla Ollama por completo:</strong> Pide a los alumnos que lean manualmente los tres archivos de texto en <code>rag_documentos</code>, elijan el fragmento que responde a la pregunta y reconstruyan mentalmente los 4 pasos del RAG.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>9. Qué no entra en esta práctica</h2>
+        <p>Para mantener el foco en la comprensión esencial, en esta experiencia <strong>no se trabaja</strong> con LangChain, LangGraph, ChromaDB obligatorio, bases de datos vectoriales complejas, PDFs pesados, APIs de pago en la nube, claves de acceso ni arquitecturas distribuidas. El objetivo prioritario es comprender el mecanismo fundamental del RAG con código transparente y herramientas locales.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="05-tkinter-app.html">Anterior: Tkinter</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

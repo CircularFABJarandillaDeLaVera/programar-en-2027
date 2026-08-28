@@ -1,0 +1,7 @@
+Tarifas y servicios de mensajería para prototipos y materiales.
+
+Lista de costes en créditos del centro:
+
+- Envío básico estándar de una caja de demostración o kit de piezas: 4 créditos.
+- Envío especial urgente con entrega en el mismo día: 9 créditos.
+- Embalaje acolchado para componentes frágiles: 1 crédito adicional.
