@@ -14,7 +14,10 @@
     .brand { align-items: center; color: inherit; display: flex; gap: var(--cf-space-2); text-decoration: none; }
     .brand img { height: 52px; width: auto; }
     .brand span { color: var(--cf-color-text-muted); display: block; font-family: var(--cf-font-label); font-size: .82rem; font-weight: 800; text-transform: uppercase; }
-    .hero { background: linear-gradient(135deg, var(--cf-color-surface), var(--cf-color-surface-muted)); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); padding: clamp(28px, 6vw, 64px); }
+    .hero { background: linear-gradient(135deg, var(--cf-color-surface), var(--cf-color-surface-muted)); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); overflow: hidden; padding: clamp(28px, 6vw, 64px); position: relative; }
+    .hero > :not(.cf-center-hero__pattern) { position: relative; }
+    .hero .portal-hero__pattern { mix-blend-mode: multiply; opacity: 0.16; }
+    [data-theme="dark"] .hero .portal-hero__pattern { mix-blend-mode: screen; opacity: 0.10; }
     .hero h1 { font-size: clamp(2.7rem, 7vw, 5.8rem); line-height: .95; margin: 10px 0 16px; max-width: 860px; }
     .hero p { color: var(--cf-color-text-muted); font-size: 1.18rem; line-height: 1.6; margin: 0; max-width: 760px; }
     .grid { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(7, minmax(0, 1fr)); }
@@ -25,6 +28,13 @@
     .optional-lab { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
     .optional-lab h2 { font-family: var(--cf-font-heading); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; margin: 0; }
     .optional-lab p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 780px; }
+    .course-project { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
+    .course-project h2 { font-family: var(--cf-font-heading); font-size: clamp(1.7rem, 3.8vw, 2.8rem); line-height: 1.05; margin: 0; }
+    .course-project p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 820px; }
+    .teacher-copilot { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
+    .teacher-copilot h2 { font-family: var(--cf-font-heading); font-size: clamp(1.6rem, 3.5vw, 2.6rem); line-height: 1.05; margin: 0; }
+    .teacher-copilot p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 760px; }
+    .teacher-copilot__actions { display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
     @media (max-width: 1120px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 720px) { .grid, .tools { grid-template-columns: 1fr; } .shell { padding: var(--cf-space-3); } }
   </style>
@@ -48,19 +58,27 @@
     </header>
 
     <section class="hero">
+      <img class="cf-center-hero__pattern portal-hero__pattern" src="assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--accent">Aprender haciendo + IA</span>
       <h1>Programar con Python en 2027</h1>
       <p>Itinerario progresivo: notebook, script, proyecto y programacion asistida por IA. El Bloque 1 empieza con codigo ejecutable desde el primer minuto.</p>
     </section>
 
+    <section class="course-project" aria-label="Proyecto practico del curso">
+      <span class="cf-chip cf-chip--accent">Proyecto práctico del curso</span>
+      <h2>SAMI</h2>
+      <p><strong>Sistema de Auditoría de Precios y Generación Automatizada de Reportes de Mercado.</strong></p>
+      <p>Construirás este proyecto poco a poco durante el curso. En cada bloque añadirás una nueva parte aplicando lo que acabas de aprender. En el Bloque 5 juntarás varias piezas y usarás librerías reales para trabajar con datos y generar automáticamente un informe PDF.</p>
+    </section>
+
     <section class="grid" aria-label="Bloques del curso">
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque1/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B1 · Fundamentos y logica</h2><p>Print, variables, tipos, operadores, condicionales y bucles.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque2/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B2 · Estructuras de datos</h2><p>Cadenas, listas, tuplas, conjuntos, diccionarios y comprehensions.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque3/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B3 · Funciones y modularidad</h2><p>Def, parametros, return, scope, try/except, archivos y modulos.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque4/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B4 · Programacion orientada a objetos</h2><p>Clases, objetos, metodos, composicion, herencia y polimorfismo.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque5/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B5 · Python aplicado y librerias</h2><p>NumPy · Pandas · Playwright · ReportLab · informes PDF.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque6/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B6 · Entorno profesional</h2><p>Script, VS Code, venv, Git, GitHub, debugger e IA controlada.</p></a>
-      <a class="card cf-card cf-card--interactive" href="bloques/bloque7/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>B7 · Python + IA</h2><p>Programacion asistida critica, SAMI Final, defensa y LangGraph opcional.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque1/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 1 · Fundamentos y logica</h2><p>Print, variables, tipos, operadores, condicionales y bucles.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque2/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 2 · Estructuras de datos</h2><p>Cadenas, listas, tuplas, conjuntos, diccionarios y comprehensions.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque3/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 3 · Funciones y modularidad</h2><p>Def, parametros, return, scope, try/except, archivos y modulos.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque4/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 4 · Programacion orientada a objetos</h2><p>Clases, objetos, metodos, composicion, herencia y polimorfismo.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque5/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 5 · Python aplicado y librerias</h2><p>NumPy · Pandas · Playwright · ReportLab · informes PDF.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque6/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 6 · Entorno profesional</h2><p>Script, VS Code, venv, Git, GitHub, debugger e IA controlada.</p></a>
+      <a class="card cf-card cf-card--interactive" href="bloques/bloque7/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 7 · Python + IA</h2><p>Programacion asistida critica, cierre de SAMI, defensa y LangGraph opcional.</p></a>
     </section>
 
     <section class="optional-lab" aria-label="Lab final opcional">
@@ -68,6 +86,16 @@
       <h2>Python en Accion · 5 cosas mas que puedes hacer</h2>
       <p>Ya sabes Python. Ahora mira todo lo que puedes hacer con el: webcam, imagenes, archivos, Excel y una pequena app grafica.</p>
       <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/index.html">Abrir Lab opcional</a></p>
+    </section>
+
+    <section class="teacher-copilot" aria-label="Crea tu propio Copiloto Profesor">
+      <span class="cf-chip cf-chip--info">Recurso para formadores</span>
+      <h2>CREA TU PROPIO COPILOTO PROFESOR</h2>
+      <p>Pack portable de conocimiento para que el formador cree un asistente especializado en este curso. No es un bloque curricular, no es B8 y no requiere API, backend ni servicios externos.</p>
+      <div class="teacher-copilot__actions">
+        <a class="cf-button cf-button--primary" href="copiloto-profesor/inicio.html">VER</a>
+        <a class="cf-button cf-button--secondary" href="copiloto-profesor/copiloto-profesor-python-2027.zip" download>DESCARGAR PACK</a>
+      </div>
     </section>
 
     <section class="tools">
