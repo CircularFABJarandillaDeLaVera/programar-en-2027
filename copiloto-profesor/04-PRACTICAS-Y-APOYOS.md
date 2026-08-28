@@ -7,6 +7,21 @@ Para cada práctica se detalla:
 * **Puntos Críticos de Bloqueo:** Dónde tropiezan habitualmente los estudiantes.
 * **Estrategia de Pistas en 3 Niveles (Guía Socrática):** Cómo orientar sin dar la solución hecha.
 * **Plan B / Adaptación:** Qué hacer si falta tiempo o el grupo tiene dificultades.
+* **Validación:** resultado esperado, evidencia observable, criterio de éxito, método de comprobación y artefacto cuando exista.
+
+Ficha mínima de validación que debe usar el Copiloto cuando una práctica no la detalle:
+
+- **Resultado esperado:** qué debe verse al ejecutar o revisar la práctica.
+- **Evidencia observable:** salida de consola, archivo generado, tabla filtrada, error controlado o explicación oral del alumno.
+- **Criterio de éxito:** condición mínima para pasar al siguiente paso.
+- **Método de comprobación:** ejecutar, inspeccionar archivo, leer traceback, comparar salida o pedir explicación.
+- **Artefacto:** solo se menciona si existe realmente en los materiales o la práctica lo genera.
+
+Plan B:
+
+- **Técnico:** entorno alternativo, dependencia, archivo o ruta que revisar.
+- **Pedagógico:** simplificar a lectura guiada, predicción de salida o trabajo por parejas.
+- **Temporal:** versión completa, reducida o emergencia de 10-30 minutos.
 
 ---
 
@@ -26,6 +41,9 @@ Para cada práctica se detalla:
   * *Nivel 2:* "Recuerda que `divmod(dividendo, divisor)` te devuelve dos valores: el primero es cuántas cajas llenas y el segundo cuántas te sobran."
   * *Nivel 3:* `cajas, sobran = divmod(29, 6)`
 * **Salida Esperada:** `4 cajas y 5 piezas sobrantes` (porque `4 * 6 = 24`, sobran `5`).
+* **Evidencia Observable:** la consola muestra horas/minutos y cajas/sobrantes sin error.
+* **Criterio de Éxito:** el alumno explica qué valor es cociente y qué valor es resto.
+* **Método de Comprobación:** cambiar 29 por otro número y comprobar mentalmente el resultado.
 * **Plan B:** Si un alumno se bloquea con el desempaquetado doble, permitirle hacer `cajas = 29 // 6` y `sobran = 29 % 6` por separado antes de unificarlos con `divmod()`.
 
 ---
@@ -48,6 +66,7 @@ Para cada práctica se detalla:
   * *Nivel 2:* "Comprueba la indentación (los 4 espacios) dentro de cada bloque de condición."
   * *Nivel 3:* Revisa que los dos puntos `:` estén al final de cada línea de `if`, `elif` y `else`.
 * **Plan B:** Probar con edades de prueba: 8, 14, 70 para validar visualmente que entra por las tres ramas.
+* **Validación:** la evidencia mínima son tres ejecuciones que cubran menor de 12, adulto y mayor de 65; el criterio de éxito es justificar el orden de `if/elif/else`.
 
 ---
 
@@ -66,6 +85,7 @@ Para cada práctica se detalla:
   * *Nivel 2:* "El orden de precedencia matemática divide primero `n3 / 3`. Agrupa la suma entre paréntesis."
   * *Nivel 3:* `(n1 + n2 + n3) / 3`
 * **Plan B:** Si Colab da problemas con la ventana emergente de `input()`, definir las variables directamente como números fijos en la celda (`n1 = 7.5; n2 = 8.0; n3 = 6.5`).
+* **Validación:** la salida debe mostrar una media con dos decimales; el alumno debe detectar el error de paréntesis si se provoca.
 
 ---
 
@@ -84,6 +104,7 @@ Para cada práctica se detalla:
   * *Nivel 1:* "¿Dónde debe crearse la variable `contador`? ¿Dentro o fuera del bucle?"
   * *Nivel 2:* "Si pones `contador = 0` dentro del bucle, se reiniciará a cero en cada vuelta."
   * *Nivel 3:* `range(1, 21)` llega hasta el 20 inclusive.
+* **Validación:** se observan múltiplos de 3 entre 1 y 20 y un total final coherente; el alumno debe explicar por qué `range(1, 21)` incluye 20.
 
 ---
 
@@ -98,6 +119,7 @@ Para cada práctica se detalla:
   inv = texto[::-1]   # "aredarP"
   ```
 * **Pistas:** Recordar que el límite final no se incluye. El paso `-1` indica recorrer de derecha a izquierda.
+* **Validación:** salida esperada `"rade"` y `"aredarP"`; criterio de éxito: explicar inicio, fin y paso.
 
 ---
 
@@ -109,6 +131,7 @@ Para cada práctica se detalla:
   piezas[0] = "Tornillo M4"
   piezas.append("Remache")
   ```
+* **Validación:** la lista final refleja modificación y añadido; criterio de éxito: distinguir modificar el mismo objeto de crear una copia.
 
 ---
 
@@ -123,6 +146,7 @@ Para cada práctica se detalla:
   valor = sensor.get("temperatura", "Dato no disponible")
   ```
 * **Pistas:** Explicar por qué `sensor["temperatura"]` lanzaría un error `KeyError` y cómo `.get()` previene la caída del programa.
+* **Validación:** los duplicados desaparecen y `.get()` devuelve el valor por defecto sin romper el programa.
 
 ---
 
@@ -139,6 +163,7 @@ Para cada práctica se detalla:
 
 ## Proyecto B2: Clasificador e Indexador de Palabras
 * **Objetivo:** Analizar un párrafo de texto, limpiar signos de puntuación, calcular palabras únicas con `set()`, contar frecuencias con un diccionario y listar palabras con longitud superior a 5 letras mediante comprensión.
+* **Artefacto/Evidencia:** texto de entrada, lista de palabras normalizadas, conjunto de únicas, diccionario de frecuencias y explicación de la estructura elegida.
 
 ---
 
@@ -199,6 +224,7 @@ Para cada práctica se detalla:
 
 ## Proyecto B3: SAMI-Lite (Gestor Modular y Persistencia)
 * **Objetivo:** Construir un programa de consola interactivo estructurado en funciones (`registrar_evento()`, `cargar_historial()`, `guardar_historial()`) que permita añadir lecturas de sensores y persistirlas en `eventos.json` y `eventos.csv`.
+* **Artefacto/Evidencia:** módulos `.py`, archivos JSON/CSV generados y ejecución donde el alumno demuestra `return`, manejo de error y lectura/escritura.
 
 ---
 
@@ -242,10 +268,15 @@ Para cada práctica se detalla:
 
 ## Proyecto B4: SAMI-OOP
 * **Objetivo:** Arquitectura orientada a objetos de SAMI con jerarquía `Dispositivo` ➔ `Sensor` / `Actuador`, clase gestora `FabLabManager` (composición) y método polimórfico de exportación de estado.
+* **Artefacto/Evidencia:** clases instanciables, relación de composición, al menos una subclase con `super()` y una llamada polimórfica explicada por el alumno.
 
 ---
 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
+
+Itinerario práctico principal: **NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied**.
+
+BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático si el material actual lo conserva. No debe competir con Playwright ni convertirse en práctica central.
 
 ## Práctica 5.1: Operaciones Vectorizadas con NumPy
 * **Objetivo:** Crear un array NumPy de precios, aplicar un incremento porcentual directo (`precios * 1.05`) y calcular media, desviación y valor máximo sin bucles `for`.
@@ -261,16 +292,19 @@ Para cada práctica se detalla:
 
 ## Práctica 5.2: Carga y Exploración con Pandas (`got_1.csv`)
 * **Objetivo:** Cargar el dataset de Game of Thrones, explorar dimensiones con `.shape`, tipos con `.info()` y primeras filas con `.head()`.
+* **Validación:** el alumno muestra columnas, primeras filas y entiende que `got_1.csv` es dataset didáctico de Pandas, no datos de SAMI-Applied.
 
 ---
 
 ## Práctica 5.3: Filtrado Booleano y Ordenación en Pandas
 * **Objetivo:** Filtrar personajes por casa o puntuación y ordenar descendentemente con `.sort_values(by="Score", ascending=False)`.
+* **Validación:** el filtro usa paréntesis y `&`/`|`, no `and`/`or`; la tabla filtrada tiene sentido y se puede explicar fila a fila.
 
 ---
 
 ## Práctica 5.4: Automatización Web con Playwright
 * **Objetivo:** Navegar a una página web de prueba, esperar a que cargue el selector y extraer el texto de un elemento informativo.
+* **Validación:** se observa el dato extraído o un error diagnosticado; el criterio de éxito incluye cerrar el navegador con `browser.close()`.
 
 ---
 
@@ -286,12 +320,15 @@ Para cada práctica se detalla:
   * *Nivel 3:* "La lista `story` debe recibir elementos Platypus y al final se llama a `doc.build(story)`."
 * **Plan B:** Si no se genera el PDF, comprobar instalación de `reportlab`, ruta de salida, permisos de escritura, existencia del logo y que el archivo PDF no esté abierto en otro programa.
 * **Límite:** `canvas` puede mencionarse como ampliación no evaluable; la práctica obligatoria usa Platypus.
+* **Artefacto/Evidencia:** archivo `factura_2027_001.pdf` generado por el script, con tabla, importes y estructura legible.
+* **Criterio de Éxito:** el alumno puede señalar dónde se definen los datos, dónde se calculan subtotales/IVA/total y dónde se añade cada elemento a `story`.
 
 ---
 
 ## Proyecto B5: SAMI-Applied
 * **Objetivo:** Pipeline integral: simulación o scraping de precios ➔ cálculo estadístico con NumPy ➔ estructuración y filtrado con Pandas ➔ generación real de informe final en PDF con ReportLab Platypus.
 * **Equilibrio:** Playwright -> NumPy -> Pandas -> ReportLab. No convertir SAMI-Applied en un proyecto de facturación.
+* **Artefacto/Evidencia:** CSV o registros de hardware, tabla analizada, resumen por consola y PDF de informe. `got_1.csv` se mantiene fuera del proyecto aplicado.
 
 ---
 
@@ -324,6 +361,7 @@ Para cada práctica se detalla:
 
 ## Proyecto B6: SAMI-Local
 * **Objetivo:** Proyecto local completamente estructurado en disco con su carpeta `venv`, archivo `requirements.txt`, repositorio Git inicializado y ejecución depurada.
+* **Artefacto/Evidencia:** árbol de carpetas reproducible, entorno activo, dependencias declaradas, ejecución por terminal y explicación de al menos un breakpoint.
 
 ---
 
@@ -360,6 +398,7 @@ Para cada práctica se detalla:
   2. `registro-ia.md` (diario de prompts, respuestas de IA y correcciones manuales aplicadas).
   3. `plan-validacion.md` (casos de prueba y resultados obtenidos).
   4. `README-defensa.md` (justificación arquitectónica del sistema).
+* **Criterio de Éxito:** el alumno defiende decisiones propias, identifica aportaciones de IA, muestra pruebas y puede explicar el código sin recitarlo.
 
 ---
 

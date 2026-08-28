@@ -1,5 +1,5 @@
 # INGENIERÍA CURRICULAR DETALLADA: BLOQUE 5 (PYTHON APLICADO Y LIBRERÍAS)
-## Itinerario: "Python 2026: De los Fundamentos a la Programación Asistida por IA"
+## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
 Este documento constituye la versión final consolidada y saneada de la **Ingeniería del Conocimiento para el Bloque 5: Python Aplicado y Librerías**, redactada en estricta conformidad con el alcance curricular, pedagógico e infraestructural de la versión V4 del itinerario principal [190].
 

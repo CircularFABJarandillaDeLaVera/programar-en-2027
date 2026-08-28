@@ -17,6 +17,8 @@ El flujo de todas las experiencias es:
 VER -> PROBAR -> MODIFICAR -> MINI-RETO
 ```
 
+El Copiloto debe indicar resultado esperado, evidencia observable, criterio de éxito y Plan B. No debe afirmar que una experiencia fue ejecutada si solo está descrita en los materiales.
+
 ## 1. OpenCV · Webcam Interactiva
 
 Qué demuestra:
@@ -61,6 +63,12 @@ El profesor puede hacer la demo desde su equipo, leer el código con el grupo o 
 Mini-reto:
 cambiar intensidad de `GaussianBlur`, modificar umbrales de `Canny` o personalizar el nombre de la captura.
 
+Resultado y evidencia:
+ventana de vídeo interactiva; cambio visible entre modos; archivo `captura_opencv.png` solo si se pulsa `S`.
+
+Criterio de éxito:
+el alumno explica el ciclo capturar frame -> procesar -> mostrar -> leer tecla -> liberar recursos.
+
 No forma parte del Lab:
 `CascadeClassifier`, reconocimiento facial, reconocimiento de objetos, YOLO, MediaPipe ni modelos de IA.
 
@@ -96,6 +104,12 @@ Reducir la práctica a abrir, convertir a gris y guardar.
 Mini-reto:
 cambiar el tamaño final, probar otro recorte o variar el orden de transformaciones.
 
+Resultado y evidencia:
+archivo `foto_editada.jpg` generado a partir de la imagen neutra incluida.
+
+Criterio de éxito:
+el alumno distingue archivo original y copia transformada.
+
 ## 3. Automatización Segura de Archivos
 
 Qué demuestra:
@@ -124,6 +138,12 @@ Volver a colocar archivos falsos en la raíz de la carpeta de pruebas o hacer un
 
 Mini-reto:
 añadir una categoría nueva, cambiar nombres de carpetas o registrar por consola cada movimiento.
+
+Resultado y evidencia:
+`lab_archivos_prueba/` queda clasificada en `PDFs`, `Imagenes`, `Codigo`, `Textos` y `Otros`, o se muestra una simulación si `MOVER_ARCHIVOS` está desactivado.
+
+Criterio de éxito:
+el alumno no usa carpetas reales externas y puede explicar cómo decide el script cada destino.
 
 ## 4. openpyxl · Excel Tangible
 
@@ -154,6 +174,12 @@ guardar con otro nombre o reducir a datos + formato si falta tiempo.
 Mini-reto:
 añadir una fila, cambiar el color de encabezados o crear una fórmula nueva.
 
+Resultado y evidencia:
+archivo `ventas_lab.xlsx` creado con datos, fórmulas y formato básico.
+
+Criterio de éxito:
+el alumno abre el libro y reconoce encabezados, filas, fórmula y guardado.
+
 ## 5. Tkinter · Mini App Gráfica
 
 Qué demuestra:
@@ -179,6 +205,12 @@ usar la misma función con `input()` y `print()` en consola.
 
 Mini-reto:
 añadir un segundo campo, cambiar el mensaje o validar que el nombre no esté vacío.
+
+Resultado y evidencia:
+ventana local con entrada, botón y texto de resultado; alternativa por consola si no hay entorno gráfico.
+
+Criterio de éxito:
+el alumno entiende que `command=funcion` registra una acción y `mainloop()` mantiene la ventana escuchando eventos.
 
 ## Cierre Docente
 

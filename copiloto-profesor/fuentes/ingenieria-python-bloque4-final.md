@@ -1,5 +1,5 @@
 # INGENIERÍA CURRICULAR DETALLADA: BLOQUE 4 (PROGRAMACIÓN ORIENTADA A OBJETOS - POO) - FINAL
-## Itinerario: "Python 2026: De los Fundamentos a la Programación Asistida por IA"
+## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
 Este documento contiene la **Ingeniería del Conocimiento específica para el Bloque 4: Programación Orientada a Objetos (POO)**, diseñada en estricta conformidad con el alcance curricular y los estándares pedagógicos definidos en la versión consolidada V4 del itinerario [190].
 

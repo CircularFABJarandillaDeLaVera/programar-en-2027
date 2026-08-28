@@ -1,6 +1,6 @@
 # INGENIERÍA CURRICULAR DETALLADA: BLOQUE 7
 ## "Python + IA"
-### Itinerario: "Python 2026: De los Fundamentos a la Programación Asistida por IA"
+### Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
 Este documento constituye la **Ingeniería del Conocimiento específica para el Bloque 7: Python + IA**, diseñada en estricta conformidad con el alcance curricular, pedagógico e infraestructural de la versión V4 [190].
 

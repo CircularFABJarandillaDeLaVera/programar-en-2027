@@ -4,6 +4,29 @@ Esta guía proporciona al formador de la **Red Circular FAB** el guion pedagógi
 
 ---
 
+## Patrón Docente Condensado de Profesor Plus
+
+Cuando el Copiloto prepare una sesión, debe responder con esta estructura mínima:
+
+1. **Explicación rigurosa:** definición correcta del concepto y por qué se usa.
+2. **Explicación intuitiva:** versión sencilla, sin jerga innecesaria.
+3. **Analogía:** imagen cotidiana que ayude al alumno a recordarlo.
+4. **Mesa/material:** entorno, archivos, dependencias y pantallas que conviene tener abiertas.
+5. **Demostración:** código o flujo que se puede enseñar en directo.
+6. **Errores controlados:** fallo intencionado útil para provocar diagnóstico.
+7. **Pistas:** tres niveles, de pregunta abierta a plantilla mínima.
+8. **Respuestas esperadas:** qué debería contestar o producir el alumno.
+9. **Criterio para continuar:** evidencia observable de que el grupo lo ha entendido.
+10. **Plan B:** técnico, pedagógico y temporal.
+
+Adaptaciones:
+
+- **Completa:** mantiene explicación, práctica, modificación, mini-reto y puesta en común.
+- **Reducida:** conserva solo la idea central, una práctica guiada y una comprobación.
+- **Emergencia:** muestra el resultado, lee el código con el grupo y pide una predicción de salida o diagnóstico.
+
+---
+
 # BLOQUE 1: FUNDAMENTOS Y LÓGICA
 
 ## 1.1. Objetivo Operativo
@@ -231,7 +254,7 @@ Evolucionar de la programación procedural/modular a la Programación Orientada 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
 
 ## 5.1. Objetivo Operativo
-Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv`), automatización y scraping web moderno con **Playwright**, y generación de informes estructurados en PDF con **ReportLab**. Culmina con el hito **SAMI-Applied**.
+Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales siguiendo el itinerario principal **NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied**: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv` como práctica didáctica separada), automatización y scraping web moderno con **Playwright**, y generación real de informes estructurados en PDF con **ReportLab Platypus**. Culmina con el hito **SAMI-Applied**.
 
 ---
 
@@ -240,6 +263,7 @@ Integrar librerías del ecosistema estándar de la ciencia de datos y automatiza
 * **Instalación previa de paquetes:** Celdas iniciales con `!pip install numpy pandas playwright reportlab` y `!playwright install`.
 * **Factura PDF:** Tener localizada la práctica de ReportLab Platypus y comprobar que el logo de ejemplo existe antes de ejecutar el script.
 * **Mensaje clave:** separar datos y presentación. Primero se calculan base imponible, IVA y total; después se maqueta el PDF con `story` y `build()`.
+* **Límite B5:** BeautifulSoup solo puede tratarse como concepto acotado de parsing de HTML estático si aparece en el material actual. No debe competir con el recorrido práctico NumPy -> Pandas -> Playwright -> ReportLab.
 
 ---
 
@@ -252,6 +276,8 @@ Integrar librerías del ecosistema estándar de la ciencia de datos y automatiza
 | **Filtros Booleanos en Pandas** | `filtro = df["Score"] > 80`<br>`df_top = df[filtro]` | **Plantilla perforada de examen:** Creas una máscara de `True` y `False`; al colocarla sobre la tabla, solo pasan los datos que cumplen la condición. | Usar operadores bitwise `&` (AND) y `\|` (OR) con paréntesis obligatorios: `(df["A"] > 5) & (df["B"] == "X")`. |
 | **Playwright (Scraping Web)** | `page.goto(url)`<br>`page.locator("css").inner_text()` | **Un robot con teclado y ratón navegando por ti:** Abre un navegador real, hace clic, espera a que cargue el contenido dinámico y extrae la información visible. | Maneja páginas modernas con JavaScript dinámico sin romperse por retardos de red. |
 | **ReportLab (Informes PDF)** | `SimpleDocTemplate("i.pdf")`<br>`story.append(Paragraph(...))` | **Maquetador de imprenta:** Colocas bloques en fila (título, tabla, párrafo) y la máquina los imprime en un PDF ordenado y limpio. | Es la herramienta canónica del curso para generación física de documentos PDF. |
+
+Resultado esperado en B5: datos procesados, cálculos claros, tabla revisable, factura `factura_2027_001.pdf` o informe PDF generado con Platypus y explicación del alumno sobre qué parte son datos, qué parte son cálculos y qué parte es maquetación.
 
 ---
 

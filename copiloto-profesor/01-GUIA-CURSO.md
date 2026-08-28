@@ -9,7 +9,7 @@ Su propósito es capacitar a ciudadanos, emprendedores, técnicos y profesionale
 ### Objetivos Generales
 1. **Desmitificar la programación:** Transformar la barrera técnica inicial en una habilidad práctica accesible mediante entornos interactivos inmediatos (Google Colab / Jupyter Notebooks).
 2. **Dominar las estructuras esenciales del lenguaje:** Comprender la lógica algorítmica, las colecciones de datos, el paradigma funcional/modular y los fundamentos de la Programación Orientada a Objetos (POO).
-3. **Manejar datos y automatización:** Integrar librerías estándar del ecosistema Python (NumPy, Pandas, Playwright, ReportLab) para resolver casos de negocio reales.
+3. **Manejar datos y automatización:** Integrar librerías del ecosistema Python siguiendo el flujo validado de B5: NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied.
 4. **Dar el salto al entorno profesional:** Migrar con soltura del cuaderno interactivo a proyectos locales estructurados en Visual Studio Code, con entornos virtuales (`venv`), gestión de paquetes (`pip`) y control de versiones básico (`Git`).
 5. **Gobernar el desarrollo asistido por IA (2027):** Integrar asistentes y modelos de lenguaje como copilotos de programación bajo un protocolo estricto de auditoría y validación crítica, erradicando el "desarrollo zombi".
 
@@ -87,7 +87,7 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 | **B2** | **Estructuras de Datos**<br>Colecciones y manipulación | Google Colab / Notebook | Cadenas (slicing bidireccional y reversión), listas y mutabilidad, tuplas (inmutabilidad), sets (unicidad y teoría de conjuntos), diccionarios (claves y `.get()`), comprehensions. | **Clasificador e Indexador de Palabras Clave** (análisis de texto y conteo estructurado). |
 | **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **SAMI-Lite**: Gestor modular de datos de consola con persistencia física en JSON/CSV. |
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
-| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv`), Playwright (automatización web), ReportLab (generación de informes PDF). | **SAMI-Applied**: Pipeline completo: extracción web ➔ cálculo vectorial ➔ análisis tabular ➔ informe PDF. |
+| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: pipeline NumPy -> Pandas -> Playwright -> ReportLab con datos de hardware, sin mezclar `got_1.csv` en el proyecto. |
 | **B6** | **Del Notebook al Entorno Profesional**<br>Desarrollo local | VS Code Local | De `.ipynb` a scripts `.py`, terminal integrada, entornos virtuales (`python -m venv`), gestión con `pip` y `requirements.txt`, control de versiones (`Git/GitHub`), debugger interactivo de VS Code. | **SAMI-Local**: Estructura de paquete profesional en disco local con repositorio Git, virtualenv y depuración con breakpoints. |
 | **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. *(Ampliación: LangGraph)*. | **SAMI Final**: Entrega del sistema completo auditado con `registro-ia.md`, `plan-validacion.md` y `README-defensa.md`. |
 
@@ -102,6 +102,12 @@ Para evitar que los alumnos perciban los bloques como islas inconexas, el curso 
 3. **B5 (SAMI-Applied):** Conecta SAMI a fuentes de datos web mediante Playwright, analiza métricas con NumPy/Pandas y exporta resúmenes ejecutivos en PDF con ReportLab.
 4. **B6 (SAMI-Local):** Monta SAMI como una aplicación de software profesional en su equipo local con VS Code, `venv`, Git y depuración paso a paso.
 5. **B7 (SAMI Final):** Optimiza, amplía y defiende técnicamente el proyecto final utilizando IA como copiloto, documentando exhaustivamente las decisiones tomadas.
+
+Separación obligatoria:
+
+- **SAMI curricular:** hilo de proyectos B3-B7.
+- **SAMI-Applied:** hito concreto de B5 con datos de hardware, análisis y PDF.
+- **Python en Acción:** Lab final opcional, externo a SAMI.
 
 ---
 
@@ -118,6 +124,8 @@ Este Lab no es B8, no forma parte de la evaluación obligatoria y no altera la p
 5. **Tkinter:** construir una pequeña aplicación gráfica con entrada, botón y resultado.
 
 El flujo pedagógico del Lab es siempre: VER -> PROBAR -> MODIFICAR -> MINI-RETO.
+
+El Lab puede motivar y abrir caminos, pero no añade objetivos evaluables por defecto al curso.
 
 ---
 

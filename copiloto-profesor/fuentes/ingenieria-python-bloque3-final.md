@@ -1,5 +1,5 @@
 # INGENIERÍA CURRICULAR DETALLADA (VERSIÓN FINAL): BLOQUE 3 (FUNCIONES Y PROGRAMACIÓN MODULAR)
-## Itinerario: "Python 2026: De los Fundamentos a la Programación Asistida por IA"
+## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
 Este documento contiene la **Ingeniería del Conocimiento específica para el Bloque 3: Funciones y Programación Modular**, diseñada en estricta conformidad con el alcance curricular y los estándares pedagógicos definidos en la versión consolidada V4 del itinerario (respetando de forma estricta el aislamiento curricular) [190].
 

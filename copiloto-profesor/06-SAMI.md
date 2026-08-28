@@ -6,6 +6,12 @@
 
 En lugar de realizar ejercicios aislados y desconectados, el alumno construye y refactoriza incrementalmente una aplicación completa de monitorización y gestión técnica contextualizada en un entorno de fabricación digital y prototipado (como los centros de la **Red Circular FAB**).
 
+Regla de separación:
+
+- **SAMI curricular** es el hilo progresivo B3-B7.
+- **SAMI-Applied** es solo la fase de B5: datos de hardware, análisis con NumPy/Pandas, automatización con Playwright y PDF con ReportLab.
+- **Python en Acción** no forma parte de SAMI, no es B8 y no es evaluable por defecto.
+
 ---
 
 ## 2. Mapa Evolutivo de SAMI a lo Largo del Curso
@@ -58,12 +64,15 @@ graph TD
 
 ### Fase 3: SAMI-Applied (Bloque 5 · Python Aplicado y Librerías)
 * **Objetivo:** Conectar el sistema con datos externos reales y herramientas de análisis científico y generación de documentos.
+* **Itinerario B5:** NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied.
 * **Pipeline de Datos Integrado:**
   1. **Scraping / Adquisición (Playwright):** Automatiza la consulta de precios o disponibilidad de materiales de fabricación digital en un portal web.
   2. **Tratamiento Numérico (NumPy):** Convierte las series de mediciones en arrays `ndarray` para calcular estadísticas vectorizadas (medias, desviaciones, picos de consumo eléctrico en el taller).
   3. **Análisis Tabular (Pandas):** Estructura los registros en un `DataFrame`, realiza filtros condicionales por rango de fechas o umbrales de alerta y ordena por criticidad.
   4. **Informe Ejecutivo (ReportLab):** Genera automáticamente un documento formal `informe_auditoria_sami.pdf` con título, tabla formateada y conclusiones.
      En la versión actual de B5, este informe se genera realmente con ReportLab Platypus mediante `SimpleDocTemplate`, `Paragraph`, `Table`, `TableStyle`, `Spacer`, estilos básicos, `colors`, `A4` y `build()`.
+* **Límite:** la práctica de factura `factura_2027_001.pdf` enseña ReportLab, pero SAMI-Applied no se convierte en un proyecto de facturación.
+* **Evidencia:** registros o CSV de hardware, tabla analizada, resumen por consola y PDF de informe generado.
 
 ---
 

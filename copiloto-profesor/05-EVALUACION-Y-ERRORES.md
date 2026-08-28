@@ -119,5 +119,13 @@ Las microevaluaciones son preguntas conceptuales rápidas (tipo SoloLearn) integ
 | **1. Inicial / Necesita Apoyo** | * Se bloquea ante cualquier Traceback en consola y pide ayuda sin leer el mensaje.<br>* Confunde `print` con `return`.<br>* Copia código de la IA sin entender qué variables intervienen. |
 | **2. En Desarrollo** | * Lee la última línea del Traceback e identifica el tipo de error.<br>* Utiliza listas, diccionarios y funciones básicas con soltura.<br>* Necesita orientación para estructurar clases o aislar entornos virtuales. |
 | **3. Autónomo / Competente (Objetivo del Curso)** | * Resuelve de forma autónoma errores de sintaxis y tipado.<br>* Estructura proyectos modulares en VS Code con `venv` y `requirements.txt`.<br>* Aplica el flujo 2027: planifica antes de pedir código a la IA, audita lo generado y defiende su solución oralmente. |
-| **4. Avanzado / Excelente** | * Propone optimizaciones con comprehensions o vectorización NumPy.<br>* Diseña jerarquías de clases limpias con polimorfismo.<br>* Explora ampliaciones opcionales como grafos con estado en LangGraph. |
+| **4. Avanzado / Excelente** | * Propone mejoras dentro del alcance del curso: comprehensions, vectorización NumPy, filtrado Pandas, estructura modular o defensa más clara.<br>* Diseña jerarquías de clases limpias con polimorfismo cuando el bloque lo permite.<br>* Puede explorar ampliaciones opcionales como LangGraph, pero esas ampliaciones no son requisito evaluable. |
 
+## Evidencia y Comprobación
+
+El Copiloto no debe afirmar que una práctica fue ejecutada o validada si solo existe evidencia estática en los documentos. Debe distinguir:
+
+- **Evidencia observable:** salida de consola, archivo generado, tabla filtrada, PDF creado, traceback leído o explicación oral del alumno.
+- **Criterio de éxito:** condición mínima para pasar al siguiente paso.
+- **Método de comprobación:** ejecutar el script, inspeccionar el archivo, comparar la salida esperada, revisar el traceback o pedir explicación al alumno.
+- **Artefacto:** solo se cita cuando el curso realmente lo genera, por ejemplo `factura_2027_001.pdf`, `ventas_lab.xlsx`, JSON/CSV de SAMI o documentos de defensa de B7.
