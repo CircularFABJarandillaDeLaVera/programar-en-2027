@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Del localhost al móvil · Red local y servidor</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Del localhost al móvil</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 15 · 30-45 min</p>
+            <h1 class="lab-experience__title">Del localhost al móvil</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-roles.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: abrir desde otro dispositivo la aplicación de control horario que se ejecuta en el PC servidor.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva necesidad</h2>
+        <p>Hasta ahora hemos usado la aplicación desde el mismo ordenador donde ejecutamos FastAPI. Ahora queremos abrirla desde un móvil, una tablet u otro PC conectado a la misma red local.</p>
+        <p>Si ya realizaste la Experiencia 14, reutiliza esa misma práctica. La aplicación no necesita cambios de código para esta prueba.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>LOCALHOST</h2>
+        <pre class="lab-code"><code>LOCALHOST
+=
+ESTE MISMO DISPOSITIVO</code></pre>
+        <pre class="lab-code"><code>EN EL PC
+
+localhost:8000
+      ↓
+este PC
+
+EN EL MÓVIL
+
+localhost:8000
+      ↓
+este móvil</code></pre>
+        <p><code>localhost:8000</code> desde el móvil no apunta al PC donde está ejecutándose FastAPI. Apunta al propio móvil.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Cliente y servidor</h2>
+        <pre class="lab-code"><code>PC SERVIDOR
+FastAPI :8000
+     ↑
+     │ Wi-Fi / LAN
+     │
+MÓVIL
+navegador</code></pre>
+        <p>El móvil es el cliente: abre una página y envía peticiones. El PC es el servidor: ejecuta FastAPI y responde.</p>
+        <pre class="lab-code"><code>MÓVIL
+  ↓ HTTP
+FASTAPI
+  ↓
+POSTGRESQL</code></pre>
+        <p>El móvil no se conecta directamente a PostgreSQL. Solo habla con FastAPI.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>IP y puerto</h2>
+        <p>Para entrar desde otro dispositivo necesitamos la IP del servidor y el puerto.</p>
+        <pre class="lab-code"><code>192.168.1.X
+        +
+      8000
+        ↓
+192.168.1.X:8000</code></pre>
+        <p>La URL de la práctica será:</p>
+        <pre class="lab-code"><code>http://IP_DEL_PC:8000/app/fichar/</code></pre>
+        <p>No fijes una IP concreta: cada red tendrá la suya.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arranque local</h2>
+        <pre class="lab-code"><code>uvicorn main:app --reload</code></pre>
+        <p>Este comando sirve para trabajar desde el propio ordenador. Por defecto, Uvicorn escucha en <code>127.0.0.1</code>, que es acceso local.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arranque LAN</h2>
+        <pre class="lab-code"><code>uvicorn main:app --reload --host 0.0.0.0</code></pre>
+        <pre class="lab-code"><code>0.0.0.0
+≠
+URL PARA EL NAVEGADOR</code></pre>
+        <p><code>0.0.0.0</code> significa que Uvicorn escucha en las interfaces de red disponibles. El cliente abre la IP real del servidor.</p>
+        <pre class="lab-code"><code>SERVIDOR ESCUCHA:
+0.0.0.0:8000
+
+CLIENTE ABRE:
+192.168.1.X:8000</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>IPv4 en Windows</h2>
+        <pre class="lab-code"><code>ipconfig</code></pre>
+        <p>Busca el adaptador que estás usando realmente: Wi-Fi o Ethernet. Localiza la dirección IPv4.</p>
+        <p>Alternativa más limpia:</p>
+        <pre class="lab-code"><code>Get-NetIPConfiguration |
+Where-Object { $_.IPv4DefaultGateway -ne $null }</code></pre>
+        <p>No elijas automáticamente interfaces virtuales como WSL, Hyper-V, Docker o VPN.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Windows Firewall</h2>
+        <p>Al aceptar conexiones desde otros dispositivos, Windows puede pedir permiso.</p>
+        <ul class="lab-list">
+          <li>Permite únicamente cuando corresponda.</li>
+          <li>Prefiere red privada.</li>
+          <li>No abras puertos indiscriminadamente.</li>
+          <li>No desactives el firewall.</li>
+        </ul>
+        <p>Si funciona en <code>localhost</code> pero no desde otro dispositivo, revisa arranque con <code>--host 0.0.0.0</code>, IP correcta, misma red, firewall, aislamiento de clientes y VPN.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Sin CORS</h2>
+        <p>No hemos necesitado CORS porque frontend y API salen del mismo FastAPI.</p>
+        <pre class="lab-code"><code>http://IP:8000/app/fichar/
+http://IP:8000/auth/...
+http://IP:8000/fichajes/...</code></pre>
+        <p>El navegador habla con el mismo origen: mismo protocolo, misma IP y mismo puerto.</p>
+        <pre class="lab-code"><code>NO TODA APLICACIÓN CON fetch() NECESITA CORS.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Sesión móvil</h2>
+        <pre class="lab-code"><code>móvil
+ ↓
+cookie de sesión
+ ↓
+FastAPI
+ ↓
+usuario autenticado
+ ↓
+rol
+ ↓
+operación permitida</code></pre>
+        <p>La sesión existente sigue funcionando desde el móvil. No cambiamos autenticación ni autorización. No introducimos JWT.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Geolocalización</h2>
+        <p>En nuestra validación real, el navegador móvil abrió la aplicación, permitió iniciar sesión, permitió fichar y la geolocalización funcionó.</p>
+        <p>Pero no lo conviertas en una afirmación universal. Las APIs sensibles del navegador pueden depender del navegador, del sistema operativo y de las condiciones de seguridad.</p>
+        <p>HTTPS sigue siendo importante para despliegues reales y se abordará cuando aparezca una necesidad concreta.</p>
+        <pre class="lab-code"><code>NO RESOLVER UN PROBLEMA QUE TODAVÍA NO TENEMOS.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PRÁCTICA</h2>
+        <ol class="lab-list">
+          <li>Arranca primero con <code>uvicorn main:app --reload</code>.</li>
+          <li>Comprueba <code>localhost</code> desde el PC.</li>
+          <li>Razona por qué <code>localhost</code> no sirve igual desde el móvil.</li>
+          <li>Para y vuelve a arrancar con <code>uvicorn main:app --reload --host 0.0.0.0</code>.</li>
+          <li>Ejecuta <code>ipconfig</code>.</li>
+          <li>Identifica la IPv4 del adaptador activo.</li>
+          <li>Prueba desde el propio PC <code>http://IP_DEL_PC:8000/app/fichar/</code>.</li>
+          <li>Conecta móvil, tablet u otro PC a la misma red.</li>
+          <li>Abre <code>http://IP_DEL_PC:8000/app/fichar/</code>.</li>
+          <li>Inicia sesión.</li>
+          <li>Realiza un fichaje.</li>
+          <li>Observa si la geolocalización funciona en ese dispositivo.</li>
+          <li>Explica lo ocurrido.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>Diagnostica esta situación antes de modificar código:</p>
+        <pre class="lab-code"><code>En mi PC funciona localhost:8000,
+pero desde el móvil no abre.</code></pre>
+        <p>Puedes pedir ayuda a tu agente:</p>
+        <pre class="lab-code"><code>Analiza esta práctica.
+
+En mi PC funciona http://localhost:8000, pero desde el móvil no puedo abrir la aplicación.
+
+Primero ayúdame a diagnosticar el problema sin modificar código.
+
+Comprueba o dime cómo comprobar:
+- cómo está arrancado Uvicorn;
+- cuál es la IP correcta del PC;
+- si ambos dispositivos están en la misma red;
+- si Windows Firewall puede estar bloqueando;
+- si estoy usando una interfaz virtual;
+- si el puerto 8000 es el correcto.
+
+NO modifiques archivos todavía.</code></pre>
+        <pre class="lab-code"><code>UN PROBLEMA TÉCNICO NO SIEMPRE REQUIERE CAMBIAR CÓDIGO.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <pre class="lab-code"><code>PC
+  ejecuta FastAPI
+
+OTRO DISPOSITIVO
+  abre la interfaz mediante la IP del PC</code></pre>
+        <p>Ahora ya sabemos convertir ese PC en servidor para otros dispositivos de la red.</p>
+        <p>Pero consultar filas de fichajes no es la mejor forma de entender qué está ocurriendo. ¿Cómo mostramos la información de forma clara?</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="14-empresario-trabajador.html">Anterior: Empresario y trabajador</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
