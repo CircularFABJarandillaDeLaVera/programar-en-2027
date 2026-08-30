@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agentes de programacion · Trabajar con control</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Accion</b><span>Agentes de programacion</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 7 · 30-45 min</p>
+            <h1 class="lab-experience__title">Agentes de programacion</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/agentes-programacion.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: aprender a trabajar con un agente de programacion sin perder el control del proyecto, separando analisis, autorizacion, pruebas y revision humana.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Para que sirve esta experiencia</h2>
+        <p>Vas a trabajar con un agente de programacion sobre un proyecto pequeno de Python. El objetivo no es que el agente "haga magia", sino aprender a pedirle ayuda de forma controlada.</p>
+        <p>El proyecto inicial contiene un fallo visible: permite registrar una edad negativa.</p>
+        <pre class="lab-code"><code>Nombre: Luis
+Edad: -15
+Participante registrado: Luis (-15 anos)</code></pre>
+        <p>Al terminar el recorrido guiado, ese caso debe rechazarse:</p>
+        <pre class="lab-code"><code>Error: la edad debe estar entre 0 y 120 anos.</code></pre>
+        <p>Puedes hacer la practica con Codex u otro agente de programacion que tenga acceso a la carpeta del proyecto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>El flujo completo</h2>
+        <pre class="lab-code"><code>ENTENDER
+  ↓
+PEDIR AL AGENTE QUE ANALICE
+  ↓
+AUTORIZAR EL CAMBIO
+  ↓
+git status
+  ↓
+git diff
+  ↓
+EJECUTAR
+  ↓
+PRUEBAS
+  ↓
+REVISION HUMANA
+  ↓
+git commit</code></pre>
+        <p>La idea importante es esta: <strong>analizar no significa autorizar modificaciones</strong>. Primero pedimos al agente que investigue y explique. Solo despues, si el analisis tiene sentido, autorizamos un cambio concreto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>1. Descarga y prepara la practica</h2>
+        <p>Haz clic en <strong>DESCARGAR PRÁCTICA</strong>, descomprime <code>agentes-programacion.zip</code> y abre la carpeta <code>agente-programacion</code>.</p>
+        <p>La carpeta del alumno contiene:</p>
+        <pre class="lab-code"><code>agente-programacion/
+├── app.py
+├── participantes.py
+├── test_participantes.py
+├── README.md
+└── AGENTS.md</code></pre>
+        <p><code>AGENTS.md</code> contiene instrucciones permanentes para orientar al agente dentro de este proyecto: trabajar con cambios pequenos, no anadir dependencias, no eliminar pruebas y explicar que se ha tocado. Es como dejar una nota fija al ayudante antes de empezar.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>2. ENTENDER: comprueba el fallo inicial</h2>
+        <p>Abre PowerShell dentro de la carpeta <code>agente-programacion</code> y ejecuta:</p>
+        <pre class="lab-code"><code>python app.py</code></pre>
+        <p>Prueba este caso:</p>
+        <pre class="lab-code"><code>Nombre: Luis
+Edad: -15</code></pre>
+        <p>Si el programa registra a Luis con <code>-15 anos</code>, has visto el fallo real. Esta comprobacion manual es util porque demuestra un caso concreto, pero no demuestra que todo el programa funcione.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>3. PEDIR AL AGENTE QUE ANALICE</h2>
+        <p>Ahora pide solo analisis. No autorices cambios todavia.</p>
+        <pre class="lab-code"><code>Analiza este proyecto y localiza por que permite registrar edades negativas.
+No modifiques ningun archivo todavia.
+
+Explicame:
+1. donde esta el problema;
+2. que comportamiento produce;
+3. que archivo necesitarias modificar para corregirlo.</code></pre>
+        <p>Un agente puede investigar sin modificar archivos si delimitamos correctamente el alcance. En esta fase esperas una explicacion, no un parche.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>4. AUTORIZAR EL CAMBIO</h2>
+        <p>Si el analisis es correcto, autoriza una modificacion pequena y concreta:</p>
+        <pre class="lab-code"><code>Corrige el problema.
+
+Una edad valida debe estar entre 0 y 120 anos, ambos incluidos.
+Modifica unicamente los archivos estrictamente necesarios.
+No anadas dependencias.
+No hagas ninguna otra mejora.
+Despues explica exactamente que has cambiado.</code></pre>
+        <p>La precision de los requisitos condiciona directamente la solucion que genera el agente. Si le pides poco, puede quedarse corto. Si le pides algo ambiguo, puede cambiar demasiado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>5. git status: que archivos ha tocado</h2>
+        <p>Despues de la modificacion, ejecuta:</p>
+        <pre class="lab-code"><code>git status</code></pre>
+        <p><code>git status</code> responde a la pregunta: <strong>que archivos han cambiado desde el ultimo punto guardado?</strong></p>
+        <p>Aqui revisas si el agente ha tocado solo lo autorizado. Si pediste corregir la edad, lo normal es que cambie <code>participantes.py</code>, no media practica.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>6. git diff: que lineas ha cambiado</h2>
+        <p>Ahora ejecuta:</p>
+        <pre class="lab-code"><code>git diff</code></pre>
+        <p><code>git diff</code> compara la version guardada con la version actual. Muestra exactamente que lineas ha anadido, eliminado o modificado el agente.</p>
+        <p>No debemos asumir que algo funciona porque el agente lo diga. El <code>diff</code> es la revision del codigo real, linea por linea.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>7. EJECUTAR: prueba manual</h2>
+        <p>Ejecuta otra vez:</p>
+        <pre class="lab-code"><code>python app.py</code></pre>
+        <p>Vuelve a probar:</p>
+        <pre class="lab-code"><code>Nombre: Luis
+Edad: -15</code></pre>
+        <p>Ahora deberia aparecer:</p>
+        <pre class="lab-code"><code>Error: la edad debe estar entre 0 y 120 anos.</code></pre>
+        <p>Esta ejecucion manual comprueba un caso real. Es necesaria, pero sigue siendo limitada: un solo caso correcto no demuestra que todo funcione.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>8. PRUEBAS: varios comportamientos</h2>
+        <p>Ejecuta:</p>
+        <pre class="lab-code"><code>python -m unittest -v</code></pre>
+        <p>Las pruebas automaticas comprueban varios comportamientos y ayudan a detectar regresiones: errores que aparecen cuando arreglamos una cosa y rompemos otra.</p>
+        <p>Durante nuestra validacion real, Codex no pudo ejecutar Python en su entorno. La comprobacion final la hizo el usuario en su entorno real y el resultado fue:</p>
+        <pre class="lab-code"><code>7 tests -> OK</code></pre>
+        <p>Leccion importante: si el agente no puede comprobar algo realmente, debe decirlo. Y nosotros no debemos dar por valido un cambio hasta probarlo en un entorno que si pueda ejecutar el proyecto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>9. REVISION HUMANA</h2>
+        <p>Antes de guardar el cambio, revisa:</p>
+        <ul class="lab-list">
+          <li>El problema inicial ya no ocurre.</li>
+          <li><code>git status</code> muestra solo los archivos esperados.</li>
+          <li><code>git diff</code> contiene cambios coherentes con lo autorizado.</li>
+          <li>Las pruebas automaticas pasan.</li>
+          <li>El agente no ha eliminado pruebas ni anadido dependencias.</li>
+        </ul>
+        <p>La revision humana es el momento en el que decides si aceptas el cambio.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>10. git commit: guardar lo validado</h2>
+        <p>Cuando el cambio ya esta revisado y probado:</p>
+        <pre class="lab-code"><code>git add participantes.py
+git commit -m "fix: validar la edad de participantes"</code></pre>
+        <p><code>git commit</code> guarda un estado del proyecto que ya hemos revisado y validado. No es "guardar por guardar"; es crear un punto fiable al que podemos volver.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto: validacion del nombre</h2>
+        <p>Ahora hay un segundo problema para resolver con menos ayuda: el registro debe comprobar tambien el nombre.</p>
+        <p>Un nombre valido debe ser una cadena de texto con mayusculas o minusculas, sin numeros ni caracteres especiales.</p>
+        <h3>Nivel 1: pedir analisis</h3>
+        <p>Pide al agente que localice el problema sin modificar archivos.</p>
+        <h3>Nivel 2: autorizar una solucion</h3>
+        <p>Cuando entiendas la causa, autoriza un cambio concreto. Recuerda incluir limites: modificar solo lo necesario, no anadir dependencias, no hacer mejoras extra y explicar exactamente que se ha cambiado.</p>
+        <h3>Nivel 3: pedir pruebas</h3>
+        <p>Anade pruebas automaticas para comprobar al menos:</p>
+        <ul class="lab-list">
+          <li>Un nombre formado solo por letras es valido.</li>
+          <li>Un nombre vacio es rechazado.</li>
+          <li>Un nombre con numeros es rechazado.</li>
+          <li>Un nombre con caracteres especiales es rechazado.</li>
+        </ul>
+        <h3>Nivel 4: cerrar el ciclo</h3>
+        <pre class="lab-code"><code>git status -> git diff -> ejecucion manual -> pruebas -> revision humana -> git commit</code></pre>
+        <p>El objetivo final no es obedecer al agente. Es aprender a colaborar con el sin dejar de ser responsable del codigo.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="06-rag-local.html">Anterior: RAG local</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

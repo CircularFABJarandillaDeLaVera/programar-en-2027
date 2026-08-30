@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "6 cosas mas que puedes hacer",
+  subtitulo: "7 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -56,6 +56,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "20-30 min",
       ver: "recursos/experiencias/06-rag-local.html",
       descargar: "recursos/descargas/rag-local.zip"
+    },
+    {
+      id: "agentes-programacion",
+      titulo: "Agentes de programacion",
+      nombre: "Trabajar con control",
+      resultado: "Analizar -> autorizar -> revisar -> probar -> guardar",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/07-agentes-programacion.html",
+      descargar: "recursos/descargas/agentes-programacion.zip"
     }
   ],
   cierre: [
