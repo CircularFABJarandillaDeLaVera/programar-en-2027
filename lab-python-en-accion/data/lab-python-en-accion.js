@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "10 cosas mas que puedes hacer",
+  subtitulo: "11 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -92,6 +92,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "45-60 min",
       ver: "recursos/experiencias/10-postgresql.html",
       descargar: "recursos/descargas/postgresql-participantes.zip"
+    },
+    {
+      id: "control-horario",
+      titulo: "Control horario",
+      nombre: "De API de ejemplo a aplicacion real",
+      resultado: "FastAPI -> reglas -> PostgreSQL -> aplicacion real",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/11-control-horario.html",
+      descargar: "recursos/descargas/control-horario.zip"
     }
   ],
   cierre: [

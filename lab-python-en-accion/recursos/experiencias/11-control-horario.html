@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Control horario · De API de ejemplo a aplicación real</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Control horario</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 11 · 45-60 min</p>
+            <h1 class="lab-experience__title">Control horario · De API de ejemplo a aplicación real</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: combinar FastAPI, reglas de negocio y PostgreSQL para construir el núcleo de una aplicación real de entradas y salidas.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>De tecnología a problema real</h2>
+        <p>Hasta ahora has aprendido piezas: una API, Swagger, Docker, PostgreSQL y persistencia. Ahora las usamos juntas para resolver una necesidad concreta.</p>
+        <pre class="lab-code"><code>Python
+   ↓
+FastAPI
+   ↓
+reglas de negocio
+   ↓
+PostgreSQL
+   ↓
+aplicación real</code></pre>
+        <p>El caso es sencillo: una empresa pequeña necesita registrar cuándo entran y salen sus trabajadores.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué vamos a construir</h2>
+        <ol class="lab-list">
+          <li>Crear trabajadores.</li>
+          <li>Registrar una entrada.</li>
+          <li>Registrar una salida.</li>
+          <li>Consultar todos los fichajes.</li>
+          <li>Consultar el historial de un trabajador.</li>
+          <li>Comprobar que los datos permanecen en PostgreSQL.</li>
+        </ol>
+        <pre class="lab-code"><code>Ana
+08:02 -> ENTRADA
+14:07 -> SALIDA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Quién hace qué</h2>
+        <p>Swagger es la página para probar la API. FastAPI es nuestra API. PostgreSQL es donde permanecen los datos.</p>
+        <pre class="lab-code"><code>Swagger
+   ↓
+FastAPI
+   ↓
+reglas de negocio
+   ↓
+PostgreSQL</code></pre>
+        <p>Swagger envía peticiones. FastAPI decide si tienen sentido. PostgreSQL guarda trabajadores y fichajes.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modelo de datos</h2>
+        <p>Ya no basta una sola tabla de ejemplo. Ahora necesitamos separar trabajadores y fichajes.</p>
+        <pre class="lab-code"><code>trabajadores
+     │
+     │ 1
+     ↓
+fichajes
+     muchos</code></pre>
+        <ul class="lab-list">
+          <li><code>trabajadores</code>: guarda quién puede fichar.</li>
+          <li><code>fichajes</code>: guarda cada entrada o salida.</li>
+          <li><code>trabajador_id</code>: indica a qué trabajador pertenece cada fichaje.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Clave foránea</h2>
+        <p>Una clave foránea es el dato que permite relacionar un fichaje con el trabajador al que pertenece.</p>
+        <pre class="lab-code"><code>trabajadores.id = 1
+        ↑
+fichajes.trabajador_id = 1</code></pre>
+        <p>Gracias a esa relación podemos preguntar: “muéstrame los fichajes de Ana”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Reglas de negocio</h2>
+        <p>Una regla de negocio es una condición que la aplicación debe respetar porque tiene sentido en el problema real.</p>
+        <pre class="lab-code"><code>ENTRADA -> ENTRADA  no
+ENTRADA -> SALIDA   sí
+SALIDA sin entrada  no</code></pre>
+        <p>La API no solo guarda datos: también rechaza operaciones que no tienen sentido.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fecha y hora</h2>
+        <p>El trabajador no escribe la hora manualmente. Cuando pulsa fichar entrada o salida, el servidor registra cuándo ocurrió.</p>
+        <pre class="lab-code"><code>POST /fichajes/entrada
+        ↓
+FastAPI recibe la petición
+        ↓
+el servidor genera fecha_hora
+        ↓
+PostgreSQL guarda el fichaje</code></pre>
+        <p>En esta práctica se guarda la fecha y hora en UTC para tener un punto de referencia claro.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>ENTENDER → HACER</h2>
+        <p>La práctica empieza preparando PostgreSQL y arrancando FastAPI. Después abres Swagger en <code>/docs</code> y creas una trabajadora llamada Ana.</p>
+        <pre class="lab-code"><code>POST /trabajadores
+
+{
+  "nombre": "Ana"
+}</code></pre>
+        <p>FastAPI ejecuta un <code>INSERT</code> en la tabla <code>trabajadores</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p>Con Ana creada, registras una entrada y consultas su historial.</p>
+        <pre class="lab-code"><code>POST /fichajes/entrada
+
+{
+  "trabajador_id": 1
+}</code></pre>
+        <pre class="lab-code"><code>GET /trabajadores/1/fichajes</code></pre>
+        <p>Debe aparecer una <code>ENTRADA</code> con fecha y hora generada por el servidor.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>ROMPER UNA REGLA</h2>
+        <p>Si intentas registrar otra entrada seguida, la API debe rechazarla.</p>
+        <pre class="lab-code"><code>ENTRADA
+ENTRADA
+
+No se puede registrar otra ENTRADA sin una SALIDA previa</code></pre>
+        <p>Después registras una salida. Si intentas otra salida seguida, también debe rechazarse.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <p>El historial final debe mostrar entrada y salida en orden.</p>
+        <pre class="lab-code"><code>Ana
+ENTRADA -> fecha/hora
+SALIDA  -> fecha/hora</code></pre>
+        <p>Ahora paras FastAPI, vuelves a arrancarlo y consultas el historial otra vez.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <pre class="lab-code"><code>Los fichajes siguen allí.</code></pre>
+        <p>Esto es distinto de las primeras APIs de ejemplo porque los datos ya no viven en una lista temporal de Python: permanecen en PostgreSQL.</p>
+        <p>Ya no estás probando una tecnología aislada. Has construido el núcleo de una aplicación real.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="10-postgresql.html">Anterior: PostgreSQL</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
