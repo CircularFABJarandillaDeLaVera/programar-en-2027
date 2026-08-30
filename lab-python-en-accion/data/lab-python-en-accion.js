@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "13 cosas mas que puedes hacer",
+  subtitulo: "14 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -119,6 +119,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "45-60 min",
       ver: "recursos/experiencias/13-geolocalizacion-fichaje.html",
       descargar: "recursos/descargas/control-horario-geolocalizado.zip"
+    },
+    {
+      id: "empresario-trabajador",
+      titulo: "Empresario y trabajador",
+      nombre: "Autenticación y autorización",
+      resultado: "Login -> roles -> FastAPI autoriza -> fichaje propio",
+      duracion: "60-75 min",
+      ver: "recursos/experiencias/14-empresario-trabajador.html",
+      descargar: "recursos/descargas/control-horario-roles.zip"
     }
   ],
   cierre: [

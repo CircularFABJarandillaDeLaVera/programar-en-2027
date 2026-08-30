@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Empresario y trabajador · Autenticación y autorización</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Empresario y trabajador</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 14 · 60-75 min</p>
+            <h1 class="lab-experience__title">Empresario y trabajador · Autenticación y autorización</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-roles.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: separar empresa y trabajador, autenticar usuarios y hacer que FastAPI autorice cada operación.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva necesidad</h2>
+        <p>Ya sabemos fichar con una interfaz web y guardar ubicación aproximada. Ahora aparece un problema real: no todas las personas deben poder hacer lo mismo.</p>
+        <pre class="lab-code"><code>EMPRESA
+-> crear trabajadores
+-> consultar fichajes
+
+TRABAJADOR
+-> fichar entrada
+-> fichar salida
+-> ver su propio historial</code></pre>
+        <p>El trabajador no debe poder usar operaciones administrativas aunque conozca la URL.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Cuatro ideas clave</h2>
+        <pre class="lab-code"><code>AUTENTICACIÓN
+¿Quién eres?
+
+AUTORIZACIÓN
+¿Qué puedes hacer?
+
+INTERFAZ
+!=
+SEGURIDAD
+
+EL CLIENTE
+NO DECIDE
+SU IDENTIDAD</code></pre>
+        <p>Autenticarse es demostrar quién eres. Autorizar es comprobar que esa persona puede realizar una operación concreta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Dos interfaces</h2>
+        <pre class="lab-code"><code>/app/empresa/
+  -> crear trabajadores
+  -> ver trabajadores
+  -> consultar fichajes
+
+/app/fichar/
+  -> fichar entrada
+  -> fichar salida
+  -> ubicación opcional
+  -> estado propio
+  -> historial propio</code></pre>
+        <p>Separar pantallas ayuda a que cada persona vea lo que necesita. Pero la autorización real no depende de esas pantallas: depende de FastAPI.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>401 y 403</h2>
+        <pre class="lab-code"><code>401 Unauthorized
+= no estás autenticado
+
+403 Forbidden
+= sabemos quién eres, pero no tienes permiso</code></pre>
+        <p>Si alguien no ha iniciado sesión e intenta usar un endpoint protegido, FastAPI responde <code>401</code>. Si un trabajador autenticado intenta usar una operación de empresa, FastAPI responde <code>403</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Autorización real</h2>
+        <pre class="lab-code"><code>TRABAJADOR
+   ↓
+POST /trabajadores
+   ↓
+FastAPI comprueba rol
+   ↓
+403 FORBIDDEN</code></pre>
+        <p>Ocultar un botón no es autorización. Aunque el trabajador invoque directamente <code>POST /trabajadores</code> desde Swagger o desde otra herramienta, FastAPI comprueba el rol y rechaza la operación.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Identidad del servidor</h2>
+        <pre class="lab-code"><code>cookie
+  ↓
+sesión
+  ↓
+usuario autenticado
+  ↓
+trabajador_id real
+  ↓
+fichaje</code></pre>
+        <p>La interfaz de fichar no decide a qué trabajador pertenece el fichaje. FastAPI lee la sesión, localiza el usuario autenticado y usa el <code>trabajador_id</code> real asociado a ese usuario.</p>
+        <p>Incluso si alguien intenta enviar otro <code>trabajador_id</code>, el servidor no debe usarlo para decidir la identidad.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Trabajador no es usuario</h2>
+        <pre class="lab-code"><code>trabajadores
+  id
+  nombre
+
+usuarios
+  id
+  usuario
+  password_hash
+  rol
+  trabajador_id</code></pre>
+        <p>Un trabajador representa una persona del negocio. Un usuario representa una identidad que puede acceder al sistema.</p>
+        <pre class="lab-code"><code>EMPRESA
+usuario
+rol = EMPRESA
+trabajador_id = NULL
+
+TRABAJADOR
+usuario
+rol = TRABAJADOR
+trabajador_id -> trabajadores.id</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Contraseñas</h2>
+        <p>Una contraseña nunca debe guardarse en texto plano. Tampoco basta con aplicar un SHA-256 directo a la contraseña.</p>
+        <ul class="lab-list">
+          <li>La práctica utiliza PBKDF2.</li>
+          <li>Cada contraseña usa un salt aleatorio.</li>
+          <li>La comparación se hace de forma segura.</li>
+          <li>La base de datos guarda <code>password_hash</code>, no la contraseña original.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Sesión</h2>
+        <pre class="lab-code"><code>login
+ ↓
+FastAPI verifica contraseña
+ ↓
+token aleatorio
+ ↓
+cookie HttpOnly
+ ↓
+servidor conserva sesión
+ ↓
+cada petición puede saber quién es el usuario</code></pre>
+        <p>No usamos JWT, OAuth ni OpenID Connect. Es una solución pedagógica para entender autenticación y autorización antes de introducir sistemas más complejos.</p>
+        <p>Seguimos trabajando en <code>localhost</code> con HTTP. HTTPS llegará más adelante, cuando abordemos acceso real desde móvil.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modelo completo</h2>
+        <pre class="lab-code"><code>trabajadores
+  id
+  nombre
+
+fichajes
+  id
+  trabajador_id
+  tipo
+  fecha_hora
+  latitud
+  longitud
+  precision_m
+
+usuarios
+  id
+  usuario
+  password_hash
+  rol
+  trabajador_id
+
+sesiones
+  token_hash
+  usuario_id
+  creada_en
+  expira_en</code></pre>
+        <p>La base existente evoluciona sin destruir los datos anteriores.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Frontend y backend</h2>
+        <pre class="lab-code"><code>FRONTEND
+-> orienta y comunica
+
+BACKEND
+-> aplica realmente la regla</code></pre>
+        <p>La interfaz puede mostrar mensajes claros cuando una acción no encaja con el estado actual.</p>
+        <pre class="lab-code"><code>Ya has registrado una entrada. Debes registrar la salida antes de volver a entrar.
+
+No puedes registrar una salida porque no hay una entrada pendiente.</code></pre>
+        <p>Pero FastAPI debe seguir rechazando peticiones inválidas si alguien las invoca directamente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <ol class="lab-list">
+          <li>Preparar PostgreSQL y <code>.env</code>.</li>
+          <li>Arrancar FastAPI.</li>
+          <li>Entrar en <code>/app/empresa/</code>.</li>
+          <li>Iniciar sesión como empresa.</li>
+          <li>Crear un trabajador con usuario y contraseña.</li>
+          <li>Entrar en <code>/app/fichar/</code>.</li>
+          <li>Iniciar sesión como trabajador.</li>
+          <li>Fichar ENTRADA y SALIDA.</li>
+          <li>Comprobar que el trabajador solo ve sus propios fichajes.</li>
+          <li>Probar desde Swagger que un trabajador recibe <code>403</code> al intentar <code>POST /trabajadores</code>.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Pruebas validadas</h2>
+        <pre class="lab-code"><code>.\.venv\Scripts\python.exe -m unittest -v test_api.py
+
+Ran 18 tests
+OK</code></pre>
+        <p>Las pruebas cubren login, logout, <code>401</code>, <code>403</code>, fichaje con identidad de sesión, geolocalización opcional y reglas anteriores de entrada/salida.</p>
+        <p>Apareció una advertencia técnica de Starlette relacionada con <code>TestClient</code> y <code>httpx</code>. No es un fallo de los tests y no cambiamos dependencias solo para eliminarla.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>Usa tu agente de programación para hacer un cambio pequeño de autorización. Primero pide análisis:</p>
+        <pre class="lab-code"><code>Analiza esta aplicación.
+
+Quiero que localices dónde se comprueba que solo la empresa puede crear trabajadores.
+
+Explica qué archivo habría que modificar si quisiéramos permitir que la empresa también pudiera consultar el usuario asociado a cada trabajador.
+
+NO modifiques nada todavía.</code></pre>
+        <p>Después, si la propuesta es razonable, autoriza un cambio pequeño:</p>
+        <pre class="lab-code"><code>Aplica únicamente el cambio necesario para que la empresa pueda ver el nombre de usuario asociado a cada trabajador en la respuesta de listado.
+
+Mantén la autorización en FastAPI.
+No permitas que un trabajador vea la lista de trabajadores.
+Añade o adapta las pruebas necesarias.
+No hagas Git.</code></pre>
+        <p>Revisa <code>git diff</code>, ejecuta tests y haz una prueba manual. El objetivo no es confiar en el agente: es dirigirlo, revisar lo que cambia y validar el resultado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <pre class="lab-code"><code>usuario autenticado
+  ↓
+rol comprobado por FastAPI
+  ↓
+operación permitida o rechazada
+  ↓
+fichaje asociado al trabajador real</code></pre>
+        <p>Ya sabemos quién es cada trabajador y qué puede hacer.</p>
+        <p>Pero una pequeña empresa agrícola puede tener varias fincas y el trabajador puede estar hoy en una y mañana en otra. ¿Cómo indicamos en qué finca o lugar está trabajando?</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="13-geolocalizacion-fichaje.html">Anterior: Geolocalización del fichaje</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
