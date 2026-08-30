@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "16 cosas mas que puedes hacer",
+  subtitulo: "17 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -146,6 +146,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "45-60 min",
       ver: "recursos/experiencias/16-dashboard.html",
       descargar: "recursos/descargas/control-horario-dashboard.zip"
+    },
+    {
+      id: "orion-ld",
+      titulo: "Broker de contexto",
+      nombre: "Orion-LD + NGSI-LD",
+      resultado: "histórico -> contexto actual -> entidad NGSI-LD",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/17-orion-ld.html",
+      descargar: "recursos/descargas/fiware-orion-ld.zip"
     }
   ],
   cierre: [

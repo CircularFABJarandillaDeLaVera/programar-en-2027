@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Broker de contexto · Orion-LD + NGSI-LD</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Orion-LD + NGSI-LD</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 17 · 45-60 min</p>
+            <h1 class="lab-experience__title">¿Qué es un broker de contexto?</h1>
+            <p>Orion-LD + NGSI-LD</p>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/fiware-orion-ld.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: comprobar que un histórico de eventos y un contexto actual no responden a la misma pregunta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva pregunta</h2>
+        <p>Venimos de la Experiencia 16. PostgreSQL puede responder qué ocurrió.</p>
+        <pre class="lab-code"><code>08:00 ENTRADA
+10:00 SALIDA
+10:30 ENTRADA</code></pre>
+        <p>Ahora queremos responder otra cosa:</p>
+        <pre class="lab-code"><code>¿CUÁL ES EL ESTADO ACTUAL QUE QUIERO COMPARTIR?</code></pre>
+        <pre class="lab-code"><code>Employee:001
+working = true
+lastEvent = ENTRADA</code></pre>
+        <pre class="lab-code"><code>HISTÓRICO
+!=
+CONTEXTO ACTUAL</code></pre>
+        <p>Esto no significa que Orion-LD sea "una base que solo guarda el último dato". Es la forma en que lo utilizamos en este proyecto para representar y compartir contexto actual.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Broker de contexto</h2>
+        <p>Un broker de contexto es un servicio al que podemos decir cuál es el estado actual de algo y después preguntárselo.</p>
+        <pre class="lab-code"><code>Le decimos:
+Employee:001 está trabajando
+
+Más tarde preguntamos:
+¿Cuál es el estado de Employee:001?
+
+Orion-LD responde:
+contexto actual almacenado</code></pre>
+        <p>No estamos conectando todavía FastAPI. Primero queremos entender qué es el broker y qué le estamos enviando.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>NGSI-LD mínimo</h2>
+        <ul class="lab-list">
+          <li>ENTIDAD: la cosa que representamos.</li>
+          <li>ID: identificador único.</li>
+          <li>TYPE: qué clase de cosa es.</li>
+          <li>PROPERTY: una característica o estado.</li>
+        </ul>
+        <pre class="lab-code"><code>id   = urn:ngsi-ld:Employee:001
+type = Employee</code></pre>
+        <p>Usaremos <code>name</code>, <code>working</code>, <code>lastEvent</code> y <code>lastEventAt</code>. No introducimos todavía relaciones, geolocalización ni conceptos avanzados.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>JSON</h2>
+        <p>El alumno ya conoce JSON. Ahora lo usa para comunicarse con Orion-LD.</p>
+        <pre class="lab-code"><code>{
+  "id": "urn:ngsi-ld:Employee:001",
+  "type": "Employee",
+  "name": {
+    "type": "Property",
+    "value": "Empleado de prueba"
+  },
+  "working": {
+    "type": "Property",
+    "value": false
+  },
+  "lastEvent": {
+    "type": "Property",
+    "value": "SALIDA"
+  },
+  "lastEventAt": {
+    "type": "Property",
+    "value": "2026-01-01T10:00:00Z"
+  }
+}</code></pre>
+        <p>La entidad es ficticia. No usamos datos reales.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Docker</h2>
+        <pre class="lab-code"><code>ORION-LD
++
+MONGODB</code></pre>
+        <p>Orion-LD necesita su propio almacenamiento.</p>
+        <pre class="lab-code"><code>MongoDB de Orion-LD
+!=
+PostgreSQL del control horario</code></pre>
+        <p>MongoDB aquí es infraestructura necesaria para Orion-LD. No lo convertimos en nueva materia del curso.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Secuencia validada</h2>
+        <pre class="lab-code"><code>docker compose up -d
+        ↓
+Orion-LD :1026
+        ↓
+crear Employee:001
+        ↓
+working = false
+        ↓
+consultar
+        ↓
+PATCH
+        ↓
+working = true
+        ↓
+consultar</code></pre>
+        <p>La práctica hace visible el antes y el después.</p>
+        <pre class="lab-code"><code>ANTES
+working = false
+lastEvent = SALIDA
+
+DESPUÉS
+working = true
+lastEvent = ENTRADA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PRÁCTICA</h2>
+        <p>Arranca los servicios:</p>
+        <pre class="lab-code"><code>docker compose up -d</code></pre>
+        <p>Qué le pedimos: arrancar Orion-LD y MongoDB en segundo plano.</p>
+        <p>Comprueba el broker:</p>
+        <pre class="lab-code"><code>Invoke-RestMethod -Uri "http://localhost:1026/version"</code></pre>
+        <p>Qué esperamos:</p>
+        <pre class="lab-code"><code>orionld version : 1.12.0</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Crear entidad</h2>
+        <pre class="lab-code"><code>Invoke-RestMethod `
+  -Method Post `
+  -Uri "http://localhost:1026/ngsi-ld/v1/entities" `
+  -ContentType "application/ld+json" `
+  -InFile "ejemplos/empleado.json"</code></pre>
+        <p>Qué le pedimos: guardar en el broker el contexto inicial de <code>Employee:001</code>.</p>
+        <p>Si repites la práctica y la entidad ya existe, puede aparecer un conflicto. Para repetir desde cero, limpia la entidad de prueba al final.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Consultar</h2>
+        <pre class="lab-code"><code>Invoke-RestMethod `
+  -Uri "http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Employee:001" `
+  -Headers @{ Accept = "application/ld+json" }</code></pre>
+        <p>Qué esperamos observar:</p>
+        <pre class="lab-code"><code>working = false
+lastEvent = SALIDA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modificar</h2>
+        <pre class="lab-code"><code>$actualizacion = @{
+  working = @{
+    type = "Property"
+    value = $true
+  }
+  lastEvent = @{
+    type = "Property"
+    value = "ENTRADA"
+  }
+  lastEventAt = @{
+    type = "Property"
+    value = "2026-01-01T10:30:00Z"
+  }
+  "@context" = @(
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  )
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod `
+  -Method Patch `
+  -Uri "http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Employee:001/attrs" `
+  -ContentType "application/ld+json" `
+  -Body $actualizacion</code></pre>
+        <p>No añadimos una fila histórica como en PostgreSQL. Actualizamos el contexto actual publicado en el broker.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Consultar de nuevo</h2>
+        <pre class="lab-code"><code>ANTES
+Employee:001
+working = false
+lastEvent = SALIDA
+
+DESPUÉS
+Employee:001
+working = true
+lastEvent = ENTRADA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PostgreSQL vs Orion-LD</h2>
+        <pre class="lab-code"><code>POSTGRESQL
+08:00 ENTRADA
+10:00 SALIDA
+10:30 ENTRADA
+
+Pregunta:
+¿Qué ocurrió?</code></pre>
+        <pre class="lab-code"><code>ORION-LD
+Employee:001
+working = true
+lastEvent = ENTRADA
+
+Pregunta:
+¿Qué contexto actual estoy publicando?</code></pre>
+        <p>No compiten. Resuelven necesidades distintas en nuestro proyecto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Privacidad</h2>
+        <p>Interoperable no significa publicar todos los datos.</p>
+        <ul class="lab-list">
+          <li>No publicamos latitud.</li>
+          <li>No publicamos longitud.</li>
+          <li>No publicamos precisión.</li>
+          <li>No publicamos credenciales, sesiones ni hashes.</li>
+          <li>No publicamos el histórico completo.</li>
+        </ul>
+        <p>Solo compartimos lo necesario para el contexto que queremos representar.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Limpiar para repetir</h2>
+        <pre class="lab-code"><code>Invoke-RestMethod `
+  -Method Delete `
+  -Uri "http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Employee:001"</code></pre>
+        <p>Esto borra solo <code>Employee:001</code> para poder volver a crearla.</p>
+        <pre class="lab-code"><code>docker compose down</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>Añade una nueva propiedad ficticia:</p>
+        <pre class="lab-code"><code>statusMessage = Disponible</code></pre>
+        <ol class="lab-list">
+          <li>Analiza la entidad.</li>
+          <li>Decide cómo representar la <code>Property</code>.</li>
+          <li>Modifícala mediante NGSI-LD.</li>
+          <li>Consulta la entidad.</li>
+          <li>Comprueba el resultado.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Validación real</h2>
+        <p>Durante la validación real se comprobó Orion-LD 1.12.0, <code>/version</code>, creación de entidad, consulta inicial, <code>working=false</code>, <code>lastEvent=SALIDA</code>, <code>PATCH</code>, consulta posterior, <code>working=true</code>, <code>lastEvent=ENTRADA</code>, <code>docker compose down</code>, JSON válido, sin datos reales y sin credenciales.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <p>Hemos cambiado el estado de <code>Employee:001</code> manualmente.</p>
+        <p>Pero cuando una persona ficha ENTRADA o SALIDA, nadie debería tener que abrir PowerShell para actualizar Orion-LD.</p>
+        <p>¿Puede nuestra aplicación Python hacerlo automáticamente?</p>
+        <pre class="lab-code"><code>Experiencia 18 · Python conecta PostgreSQL con FIWARE</code></pre>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="16-dashboard.html">Anterior: Del dato al dashboard</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
