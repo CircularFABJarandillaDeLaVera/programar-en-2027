@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "7 cosas mas que puedes hacer",
+  subtitulo: "8 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -65,6 +65,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "30-45 min",
       ver: "recursos/experiencias/07-agentes-programacion.html",
       descargar: "recursos/descargas/agentes-programacion.zip"
+    },
+    {
+      id: "fastapi",
+      titulo: "FastAPI",
+      nombre: "Tu primera API",
+      resultado: "GET -> POST -> Swagger -> tests -> mini-reto DELETE",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/08-fastapi.html",
+      descargar: "recursos/descargas/fastapi-participantes.zip"
     }
   ],
   cierre: [

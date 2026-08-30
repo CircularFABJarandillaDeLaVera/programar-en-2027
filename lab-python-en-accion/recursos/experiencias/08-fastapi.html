@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FastAPI · Tu primera API</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>FastAPI</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 8 · 30-45 min</p>
+            <h1 class="lab-experience__title">Tu primera API con FastAPI</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/fastapi-participantes.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: entender qué es una API, usar Swagger con sentido y ampliar una práctica FastAPI con un mini-reto de eliminación.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué es una API</h2>
+        <p>Una API es una forma acordada para que dos programas se comuniquen. En esta práctica, el navegador habla con FastAPI usando HTTP, y FastAPI ejecuta código Python.</p>
+        <pre class="lab-code"><code>NAVEGADOR / APP
+      ↓ HTTP
+   FASTAPI
+      ↓
+    PYTHON</code></pre>
+        <p>Vas a crear y consultar participantes desde Swagger, una interfaz profesional que FastAPI genera automáticamente en <code>/docs</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Métodos y códigos HTTP</h2>
+        <p>Los métodos indican qué queremos hacer:</p>
+        <ul class="lab-list">
+          <li><code>GET</code> -> consultar.</li>
+          <li><code>POST</code> -> crear o enviar.</li>
+          <li><code>PUT/PATCH</code> -> modificar.</li>
+          <li><code>DELETE</code> -> eliminar.</li>
+        </ul>
+        <p>Los códigos HTTP ayudan a interpretar qué ha ocurrido:</p>
+        <ul class="lab-list">
+          <li><code>200</code> -> correcto.</li>
+          <li><code>201</code> -> creado.</li>
+          <li><code>400</code> -> petición problemática.</li>
+          <li><code>404</code> -> recurso inexistente.</li>
+          <li><code>422</code> -> datos que no cumplen las reglas.</li>
+          <li><code>500</code> -> error del servidor.</li>
+        </ul>
+        <p>No hace falta memorizarlos todos. Piensalos como mensajes del servidor. Además, <code>200</code> no significa necesariamente "encontré lo que tú esperabas"; significa que la petición se procesó correctamente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>1. Ubícate antes de ejecutar</h2>
+        <p>Descarga la práctica, descomprímela, abre PowerShell dentro de la carpeta y ejecuta:</p>
+        <pre class="lab-code"><code>dir</code></pre>
+        <p>Debes ver:</p>
+        <pre class="lab-code"><code>main.py
+modelos.py
+test_api.py
+requirements.txt
+README.md</code></pre>
+        <p>Si no ves esos archivos, no estás en la carpeta correcta todavía.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>2. Crear entorno e instalar</h2>
+        <p>Crea el entorno virtual:</p>
+        <pre class="lab-code"><code>python -m venv .venv</code></pre>
+        <p>Crear un entorno virtual no instala FastAPI ni Uvicorn. Solo prepara una carpeta aislada para instalar paquetes.</p>
+        <p>En algunos Windows, PowerShell bloquea <code>Activate.ps1</code>. No hace falta modificar <code>ExecutionPolicy</code>: puedes usar directamente el Python del entorno.</p>
+        <pre class="lab-code"><code>.\.venv\Scripts\python.exe -m pip install -r requirements.txt</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>3. Arrancar FastAPI</h2>
+        <p>Ejecuta:</p>
+        <pre class="lab-code"><code>.\.venv\Scripts\python.exe -m uvicorn main:app --reload</code></pre>
+        <p>Abre:</p>
+        <pre class="lab-code"><code>http://127.0.0.1:8000/docs</code></pre>
+        <p>Swagger puede impresionar al principio, pero se lee por partes.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>4. Aprender a leer Swagger</h2>
+        <ul class="lab-list">
+          <li><code>Try it out</code> -> preparar una prueba.</li>
+          <li><code>Execute</code> -> enviar la petición.</li>
+          <li><code>Request body</code> -> datos que enviamos.</li>
+          <li><code>Server response</code> -> respuesta del servidor.</li>
+          <li><code>Response body</code> -> contenido recibido.</li>
+          <li><code>Code</code> -> código HTTP.</li>
+        </ul>
+        <p><strong>Ver el ejemplo no significa que sea editable. Primero pulsa Try it out.</strong></p>
+        <p>Swagger puede mostrar una petición <code>curl</code>, pero no necesitas copiarla ni ejecutarla.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>5. GET /participantes</h2>
+        <p>Abre <code>GET /participantes</code>. Aparece <code>No parameters</code>: no hay que pegar nada.</p>
+        <pre class="lab-code"><code>Try it out -> Execute</code></pre>
+        <p>Busca:</p>
+        <pre class="lab-code"><code>Code: 200
+Response body: []</code></pre>
+        <p><code>200 + []</code> significa que la petición ha funcionado y la lista está vacía.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>6. POST /participantes</h2>
+        <p>Abre <code>POST /participantes</code>, pulsa <code>Try it out</code>, edita <code>Request body</code> y usa:</p>
+        <pre class="lab-code"><code>{
+  "nombre": "Ana",
+  "edad": 35
+}</code></pre>
+        <p>Después pulsa <code>Execute</code>. Comprueba <code>Code: 201</code> y el <code>Response body</code>:</p>
+        <pre class="lab-code"><code>{
+  "id": 1,
+  "nombre": "Ana",
+  "edad": 35
+}</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>7. GET y ver a Ana</h2>
+        <p>Repite <code>GET /participantes</code>. Ahora la lista ya no debería estar vacía: debe aparecer Ana.</p>
+        <pre class="lab-code"><code>POST crea
+GET consulta</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>8. ID, 404 y 422</h2>
+        <p>En <code>GET /participantes/{participante_id}</code>, prueba <code>1</code>. Debes recibir <code>200</code> y los datos de Ana.</p>
+        <p>Después prueba <code>999</code>. Debes recibir <code>404</code>, porque ese participante no existe:</p>
+        <pre class="lab-code"><code>{"detail": "Participante no encontrado"}</code></pre>
+        <p>Ahora vuelve a <code>POST /participantes</code> y provoca un <code>422</code> con una edad que no cumple las reglas:</p>
+        <pre class="lab-code"><code>{
+  "nombre": "Luis",
+  "edad": -10
+}</code></pre>
+        <p>FastAPI rechaza esos datos porque <code>modelos.py</code> marca la edad entre 0 y 120.</p>
+        <p>Un warning no es lo mismo que un error. Si las pruebas o el servidor siguen funcionando, lee el mensaje antes de asumir que algo se ha roto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>9. Ejecutar los 6 tests</h2>
+        <p>Detén Uvicorn con <code>Ctrl + C</code> y ejecuta:</p>
+        <pre class="lab-code"><code>.\.venv\Scripts\python.exe -m unittest -v</code></pre>
+        <p>Antes del mini-reto, el objetivo es:</p>
+        <pre class="lab-code"><code>Ran 6 tests
+OK</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto: DELETE</h2>
+        <p>Añade:</p>
+        <pre class="lab-code"><code>DELETE /participantes/{participante_id}</code></pre>
+        <p>Requisitos:</p>
+        <ul class="lab-list">
+          <li>Eliminar si el ID existe.</li>
+          <li>Devolver un mensaje claro.</li>
+          <li>Devolver <code>404</code> si el ID no existe.</li>
+          <li>Añadir un test de eliminación correcta.</li>
+          <li>Añadir otro test para ID inexistente.</li>
+        </ul>
+        <p>No añadas dependencias ni base de datos. No asumas que los IDs posteriores se reutilizan si eliminas un participante: un ID identifica un recurso concreto.</p>
+        <h3>Criterio de éxito manual</h3>
+        <pre class="lab-code"><code>POST Ana
+↓
+GET Ana
+↓
+DELETE Ana
+↓
+GET Ana otra vez
+↓
+404</code></pre>
+        <h3>Criterio de éxito con tests</h3>
+        <p>Durante la validación real, al completar el reto se alcanzó:</p>
+        <pre class="lab-code"><code>Ran 8 tests
+OK</code></pre>
+        <p>La idea final: Swagger ayuda a probar una API con sentido, y los tests ayudan a comprobar que no hemos roto comportamientos que ya funcionaban.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="07-agentes-programacion.html">Anterior: Agentes de programación</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
