@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Una interfaz para fichar · Del Swagger a una aplicación usable</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Interfaz para fichar</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 12 · 45-60 min</p>
+            <h1 class="lab-experience__title">Una interfaz para fichar · Del Swagger a una aplicación que puede usar una persona</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-web.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: añadir una página sencilla al control horario para fichar entrada y salida sin usar Swagger directamente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva necesidad</h2>
+        <p>La API de control horario ya funciona, guarda datos en PostgreSQL y aplica reglas. Pero un trabajador real no va a utilizar Swagger para fichar.</p>
+        <pre class="lab-code"><code>ANTES
+
+Persona -> Swagger -> API</code></pre>
+        <pre class="lab-code"><code>AHORA
+
+Persona -> interfaz web -> API</code></pre>
+        <p>Swagger no desaparece: sigue siendo útil para desarrollar y probar la API. Simplemente ya no será la pantalla pensada para el trabajador.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué vamos a construir</h2>
+        <ol class="lab-list">
+          <li>Abrir una página web.</li>
+          <li>Crear o seleccionar un trabajador.</li>
+          <li>Pulsar <code>FICHAR ENTRADA</code>.</li>
+          <li>Ver una confirmación clara.</li>
+          <li>Pulsar <code>FICHAR SALIDA</code>.</li>
+          <li>Consultar el historial.</li>
+          <li>Comprobar que PostgreSQL conserva los datos.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Quién hace qué</h2>
+        <p>La interfaz solicita y muestra. FastAPI decide y aplica reglas. PostgreSQL guarda.</p>
+        <pre class="lab-code"><code>INTERFAZ
+solicita y muestra
+
+FASTAPI
+decide y aplica reglas
+
+POSTGRESQL
+guarda</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>HTML, CSS y JavaScript</h2>
+        <p>La interfaz tiene tres piezas pequeñas.</p>
+        <ul class="lab-list">
+          <li><code>HTML</code>: coloca el selector, los botones, los mensajes y el historial.</li>
+          <li><code>CSS</code>: hace que la página sea clara y usable también en pantalla estrecha.</li>
+          <li><code>JavaScript</code>: reacciona a los botones y habla con la API.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>fetch()</h2>
+        <p><code>fetch()</code> permite que JavaScript envíe peticiones HTTP a nuestra API.</p>
+        <pre class="lab-code"><code>BOTÓN
+  ↓
+JavaScript
+  ↓
+fetch()
+  ↓
+FastAPI
+  ↓
+PostgreSQL</code></pre>
+        <p>Hasta ahora tú enviabas peticiones desde Swagger. Ahora la página las envía por ti cuando pulsas un botón.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>FastAPI sirve la página</h2>
+        <p>Para mantener la práctica sencilla, FastAPI sirve también los archivos de la interfaz.</p>
+        <pre class="lab-code"><code>FastAPI
+├── API
+└── interfaz en /app/</code></pre>
+        <p>Así no necesitamos otro servidor para la página ni resolver problemas de conexión entre servidores distintos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>ARRANCAR</h2>
+        <p>Primero preparas PostgreSQL y arrancas FastAPI como en la experiencia anterior.</p>
+        <pre class="lab-code"><code>uvicorn main:app --reload</code></pre>
+        <p>Swagger sigue en <code>/docs</code>. La nueva interfaz está en <code>/app/</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>ABRIR</h2>
+        <p>Desde el navegador abres la interfaz y eliges un trabajador. Si no existe, puedes crearlo desde la propia página.</p>
+        <pre class="lab-code"><code>http://127.0.0.1:8000/app/</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>FICHAR</h2>
+        <p>Cuando pulsas entrada, JavaScript envía una petición a FastAPI.</p>
+        <pre class="lab-code"><code>FICHAR ENTRADA
+      ↓
+POST /fichajes/entrada
+      ↓
+FastAPI comprueba la regla
+      ↓
+PostgreSQL guarda el fichaje</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROVOCAR UN ERROR</h2>
+        <p>Si pulsas entrada dos veces seguidas, la interfaz no decide por su cuenta. Pide la operación y FastAPI la rechaza.</p>
+        <pre class="lab-code"><code>ENTRADA -> ENTRADA
+
+No se puede registrar otra ENTRADA sin una SALIDA previa</code></pre>
+        <p>La página transforma esa respuesta en un mensaje comprensible.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR HISTORIAL</h2>
+        <p>Al seleccionar un trabajador, la interfaz consulta su historial y muestra entradas y salidas.</p>
+        <pre class="lab-code"><code>GET /trabajadores/1/fichajes
+
+ENTRADA -> fecha/hora
+SALIDA  -> fecha/hora</code></pre>
+        <p>PostgreSQL guarda la fecha y hora en UTC. El navegador la presenta en hora local para que sea más fácil leerla.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>REINICIAR</h2>
+        <p>Paras FastAPI, lo arrancas otra vez y vuelves a abrir <code>/app/</code>.</p>
+        <pre class="lab-code"><code>Los fichajes siguen apareciendo.</code></pre>
+        <p>La interfaz no guarda los datos. Los datos permanecen porque están en PostgreSQL.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <pre class="lab-code"><code>Hasta ahora teníamos una aplicación que funcionaba.
+Ahora también tenemos una forma sencilla de utilizarla.</code></pre>
+        <p>Y aparece una nueva pregunta para más adelante: si una persona puede fichar desde el móvil, ¿desde dónde está fichando?</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="11-control-horario.html">Anterior: Control horario</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "11 cosas mas que puedes hacer",
+  subtitulo: "12 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -101,6 +101,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "45-60 min",
       ver: "recursos/experiencias/11-control-horario.html",
       descargar: "recursos/descargas/control-horario.zip"
+    },
+    {
+      id: "interfaz-control-horario",
+      titulo: "Interfaz para fichar",
+      nombre: "Del Swagger a una aplicacion usable",
+      resultado: "Interfaz -> fetch() -> FastAPI -> PostgreSQL",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/12-interfaz-control-horario.html",
+      descargar: "recursos/descargas/control-horario-web.zip"
     }
   ],
   cierre: [
