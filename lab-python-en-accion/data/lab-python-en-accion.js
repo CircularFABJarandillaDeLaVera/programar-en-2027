@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "9 cosas mas que puedes hacer",
+  subtitulo: "10 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -83,6 +83,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "30-45 min",
       ver: "recursos/experiencias/09-docker.html",
       descargar: "recursos/descargas/docker-fastapi.zip"
+    },
+    {
+      id: "postgresql",
+      titulo: "PostgreSQL",
+      nombre: "Datos que permanecen",
+      resultado: "FastAPI -> PostgreSQL -> persistencia -> volumen Docker",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/10-postgresql.html",
+      descargar: "recursos/descargas/postgresql-participantes.zip"
     }
   ],
   cierre: [

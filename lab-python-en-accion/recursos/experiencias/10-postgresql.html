@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PostgreSQL · Datos que permanecen</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>PostgreSQL</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 10 · 45-60 min</p>
+            <h1 class="lab-experience__title">PostgreSQL · Datos que permanecen</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/postgresql-participantes.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: conectar la API FastAPI con PostgreSQL, comprobar persistencia y entender por qué un volumen separa el contenedor de sus datos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿Qué problema tenemos?</h2>
+        <p>En la API de participantes ya podíamos crear datos desde Swagger. El problema era dónde vivían esos datos.</p>
+        <p>Swagger es una página web que FastAPI genera automáticamente para ver y probar nuestra API sin tener que programar otra aplicación. Desde aquí podemos ejecutar peticiones como <code>GET</code> y <code>POST</code> y ver la respuesta del servidor. En nuestro proyecto está disponible en <code>/docs</code>.</p>
+        <p><strong>Swagger no es nuestra API ni nuestra base de datos.</strong> Es una interfaz de prueba que utilizamos para enviar peticiones a la API y ver sus respuestas.</p>
+        <pre class="lab-code"><code>SWAGGER
+(página para probar)
+   ↓
+FASTAPI
+(nuestra API)
+   ↓
+POSTGRESQL
+(los datos)</code></pre>
+        <pre class="lab-code"><code>ANTES
+
+Swagger -> FastAPI -> memoria
+                       ↓
+                  desaparece</code></pre>
+        <p>Si la aplicación se paraba, la lista de Python desaparecía con ella.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Memoria vs base de datos</h2>
+        <p>La memoria sirve para trabajar mientras el programa está encendido. Una base de datos sirve para guardar información de forma organizada y recuperarla después.</p>
+        <pre class="lab-code"><code>MEMORIA       -> los datos desaparecen
+BASE DE DATOS -> los datos permanecen</code></pre>
+        <p>PostgreSQL es la base de datos que usaremos en esta práctica.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PostgreSQL</h2>
+        <p>Ahora queremos este recorrido:</p>
+        <pre class="lab-code"><code>DESPUÉS
+
+Swagger -> FastAPI -> psycopg -> PostgreSQL
+                                  ↓
+                                datos</code></pre>
+        <p><code>psycopg</code> es la librería que permite a Python hablar con PostgreSQL.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Tabla, fila, columna y clave</h2>
+        <p>La tabla de la práctica se llama <code>participantes</code>.</p>
+        <pre class="lab-code"><code>id | nombre | edad
+---+--------+-----
+1  | Ana    | 35</code></pre>
+        <ul class="lab-list">
+          <li><code>tabla</code>: grupo de datos del mismo tipo.</li>
+          <li><code>fila</code>: un registro concreto.</li>
+          <li><code>columna</code>: un dato de cada registro.</li>
+          <li><code>clave primaria</code>: identificador único de cada fila.</li>
+        </ul>
+        <pre class="lab-code"><code>CREATE TABLE participantes (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    edad INTEGER NOT NULL
+);</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>FastAPI + psycopg</h2>
+        <p>La API se ejecuta en Windows y PostgreSQL en Docker:</p>
+        <pre class="lab-code"><code>FastAPI en Windows
+        ↓
+localhost:5432
+        ↓
+PostgreSQL en Docker</code></pre>
+        <p>La conexión se configura con <code>.env</code>, creado a partir de <code>.env.example</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>POST = INSERT</h2>
+        <p>Cuando haces <code>POST /participantes</code> desde Swagger:</p>
+        <pre class="lab-code"><code>FastAPI recibe POST
+        ↓
+Python ejecuta INSERT
+        ↓
+PostgreSQL guarda la fila</code></pre>
+        <pre class="lab-code"><code>INSERT INTO participantes (nombre, edad)
+VALUES (..., ...)
+RETURNING id, nombre, edad;</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>GET = SELECT</h2>
+        <p>Cuando haces <code>GET /participantes</code>:</p>
+        <pre class="lab-code"><code>FastAPI recibe GET
+        ↓
+Python ejecuta SELECT
+        ↓
+PostgreSQL devuelve las filas</code></pre>
+        <pre class="lab-code"><code>SELECT id, nombre, edad FROM participantes ORDER BY id;</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Persistencia</h2>
+        <ol class="lab-list">
+          <li>Crear Ana desde Swagger.</li>
+          <li>Ver Ana con <code>SELECT * FROM participantes;</code>.</li>
+          <li>Parar FastAPI.</li>
+          <li>Volver a arrancar FastAPI.</li>
+          <li>Ejecutar <code>GET /participantes</code>.</li>
+        </ol>
+        <pre class="lab-code"><code>Ana sigue existiendo.</code></pre>
+        <p>Persistencia FastAPI -> PostgreSQL: validada realmente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿Y si elimino el contenedor?</h2>
+        <p>PostgreSQL está dentro de un contenedor. Si paras y arrancas el mismo contenedor, los datos siguen.</p>
+        <p>Pero si eliminas el contenedor y creas otro sin almacenamiento persistente, puedes perder tabla y datos.</p>
+        <p>Esto nos lleva al segundo problema.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Volumen Docker</h2>
+        <p>Un volumen separa la vida del contenedor de la vida de los datos.</p>
+        <pre class="lab-code"><code>FastAPI
+   ↓
+PostgreSQL
+   ↓
+VOLUMEN
+   ↓
+datos persistentes</code></pre>
+        <pre class="lab-code"><code>docker volume create datos-postgres-python</code></pre>
+        <pre class="lab-code"><code>-v datos-postgres-python:/var/lib/postgresql/data</code></pre>
+        <p>Con el mismo volumen, un nuevo contenedor puede encontrar los datos anteriores.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Resultado</h2>
+        <pre class="lab-code"><code>No solo hemos conseguido que FastAPI guarde datos en PostgreSQL.
+También hemos separado la vida del contenedor de la vida de los datos.</code></pre>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="09-docker.html">Anterior: Docker</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
