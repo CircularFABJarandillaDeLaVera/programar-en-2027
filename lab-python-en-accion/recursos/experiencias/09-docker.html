@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Docker · La misma API en cualquier equipo</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Docker</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 9 · 30-45 min</p>
+            <h1 class="lab-experience__title">Docker · La misma API en cualquier equipo</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/docker-fastapi.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: empaquetar la API FastAPI para ejecutarla igual dentro de Docker, probar sus puertos y entender cómo llevarla a otro ordenador.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿Qué problema resolvemos?</h2>
+        <p>En la Experiencia 8 teníamos una API FastAPI funcionando. Ahora respondemos a una pregunta muy real: funciona en mi ordenador... ¿cómo hago para que funcione igual en otro?</p>
+        <pre class="lab-code"><code>MISMA API FASTAPI
+      ↓
+Dockerfile
+      ↓
+IMAGEN
+      ↓
+CONTENEDOR
+      ↓
+PUERTOS
+      ↓
+DOCKER HUB
+      ↓
+OTRO PC
+      ↓
+MISMA API</code></pre>
+        <p>No vamos a cambiar la API. Vamos a cambiar cómo se ejecuta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Imagen y contenedor</h2>
+        <pre class="lab-code"><code>CÓDIGO + PYTHON + DEPENDENCIAS
+              ↓
+            IMAGEN
+              ↓
+          CONTENEDOR</code></pre>
+        <ul class="lab-list">
+          <li><code>IMAGEN</code> -> plantilla preparada.</li>
+          <li><code>CONTENEDOR</code> -> una ejecución concreta de esa imagen.</li>
+        </ul>
+        <p>La imagen es como una receta ya preparada. El contenedor es la receta ejecutándose.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>1. Comprueba Docker</h2>
+        <p>Primero comprueba que Docker está instalado:</p>
+        <pre class="lab-code"><code>docker --version</code></pre>
+        <p>Después comprueba que el motor está funcionando:</p>
+        <pre class="lab-code"><code>docker info</code></pre>
+        <p>Durante la validación real vimos un caso importante: <code>docker info</code> mostraba el cliente, pero fallaba en <code>Server</code> porque Docker Desktop no estaba arrancado. Si aparece algo como <code>dockerDesktopLinuxEngine</code>, abre Docker Desktop, espera a que termine de iniciar y repite <code>docker info</code>.</p>
+        <p>No continúes con <code>docker build</code> mientras <code>docker info</code> siga fallando.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>2. Lee el Dockerfile</h2>
+        <p>El archivo clave se llama <code>Dockerfile</code>:</p>
+        <pre class="lab-code"><code>FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+        <p>Lectura sencilla:</p>
+        <ul class="lab-list">
+          <li><code>FROM</code> -> parte de una imagen base con Python.</li>
+          <li><code>WORKDIR</code> -> define la carpeta de trabajo dentro del contenedor.</li>
+          <li><code>COPY</code> -> copia archivos desde tu carpeta hacia la imagen.</li>
+          <li><code>RUN</code> -> ejecuta una orden durante la construcción.</li>
+          <li><code>EXPOSE</code> -> documenta el puerto de la aplicación.</li>
+          <li><code>CMD</code> -> comando que arranca al iniciar el contenedor.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>3. Construye la imagen</h2>
+        <p>En la carpeta de la práctica:</p>
+        <pre class="lab-code"><code>docker build -t participantes-api .</code></pre>
+        <p>Después comprueba que la imagen existe:</p>
+        <pre class="lab-code"><code>docker images</code></pre>
+        <p>Durante la validación real, la imagen <code>participantes-api</code> se creó correctamente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>4. Arranca el contenedor</h2>
+        <p>Ejecuta:</p>
+        <pre class="lab-code"><code>docker run --rm -p 8000:8000 participantes-api</code></pre>
+        <p>Abre:</p>
+        <pre class="lab-code"><code>http://127.0.0.1:8000/docs</code></pre>
+        <p>Este es el momento clave: debe aparecer el mismo Swagger de la Experiencia 8.</p>
+        <pre class="lab-code"><code>ANTES:
+Windows -> Python local -> FastAPI
+
+AHORA:
+Windows -> Docker -> Python del contenedor -> FastAPI</code></pre>
+        <p>La API no ha cambiado. Ha cambiado cómo se ejecuta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>5. Comprueba docker ps</h2>
+        <p>Con el contenedor funcionando, abre otra terminal:</p>
+        <pre class="lab-code"><code>docker ps</code></pre>
+        <p>Durante la validación real apareció:</p>
+        <pre class="lab-code"><code>IMAGE: participantes-api
+STATUS: Up
+PORTS: 0.0.0.0:8000->8000/tcp</code></pre>
+        <p>La parte de puertos se lee así:</p>
+        <pre class="lab-code"><code>PC:8000 -> CONTENEDOR:8000</code></pre>
+        <p>Tu navegador entra al puerto 8000 del PC, y Docker envía esa petición al puerto 8000 del contenedor.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>6. Mini-reto de puertos</h2>
+        <p>Prueba la misma API usando otro puerto exterior:</p>
+        <pre class="lab-code"><code>docker run --rm -p 8080:8000 participantes-api</code></pre>
+        <p>Abre:</p>
+        <pre class="lab-code"><code>http://127.0.0.1:8080/docs</code></pre>
+        <p>Ahora el mapa es:</p>
+        <pre class="lab-code"><code>PC:8080 -> CONTENEDOR:8000</code></pre>
+        <p>Esto también fue validado realmente: Swagger funcionó en <code>http://127.0.0.1:8080/docs</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>7. Del contenedor local a otro ordenador</h2>
+        <p>Docker Hub es un registro donde podemos publicar imágenes Docker para que otros equipos puedan descargarlas.</p>
+        <p>Busca tu nombre de usuario en Docker Hub y sustituye <code>TU_USUARIO_DOCKER</code> por ese nombre.</p>
+        <p>Si tu usuario fuese <code>ana123</code>, el nombre sería <code>ana123/participantes-api:1.0</code>.</p>
+        <pre class="lab-code"><code>docker tag participantes-api TU_USUARIO_DOCKER/participantes-api:1.0
+docker push TU_USUARIO_DOCKER/participantes-api:1.0</code></pre>
+        <p>Lectura:</p>
+        <ul class="lab-list">
+          <li><code>participantes-api</code> -> nombre local.</li>
+          <li><code>TU_USUARIO_DOCKER/participantes-api</code> -> usuario/repositorio en Docker Hub.</li>
+          <li><code>1.0</code> -> etiqueta de versión.</li>
+        </ul>
+        <pre class="lab-code"><code>PC 1
+  ↓ push
+DOCKER HUB
+  ↓ pull
+PC 2</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>8. Paso final: probar en otro ordenador</h2>
+        <p>En otro ordenador con Docker instalado y arrancado:</p>
+        <pre class="lab-code"><code>docker pull TU_USUARIO_DOCKER/participantes-api:1.0
+docker run --rm -p 8000:8000 TU_USUARIO_DOCKER/participantes-api:1.0</code></pre>
+        <p>Después:</p>
+        <pre class="lab-code"><code>http://127.0.0.1:8000/docs</code></pre>
+        <p>Resultado esperado:</p>
+        <pre class="lab-code"><code>PC 1 -> Docker Hub -> PC 2 -> misma API</code></pre>
+        <p>El segundo ordenador no necesita tus archivos Python, tu entorno virtual ni instalar FastAPI manualmente. La aplicación viaja preparada dentro de la imagen Docker.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="08-fastapi.html">Anterior: FastAPI</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

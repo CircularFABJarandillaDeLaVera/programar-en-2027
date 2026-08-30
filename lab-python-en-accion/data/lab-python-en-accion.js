@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "8 cosas mas que puedes hacer",
+  subtitulo: "9 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -74,6 +74,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "30-45 min",
       ver: "recursos/experiencias/08-fastapi.html",
       descargar: "recursos/descargas/fastapi-participantes.zip"
+    },
+    {
+      id: "docker",
+      titulo: "Docker",
+      nombre: "La misma API en cualquier equipo",
+      resultado: "Dockerfile -> imagen -> contenedor -> puertos -> Docker Hub",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/09-docker.html",
+      descargar: "recursos/descargas/docker-fastapi.zip"
     }
   ],
   cierre: [
