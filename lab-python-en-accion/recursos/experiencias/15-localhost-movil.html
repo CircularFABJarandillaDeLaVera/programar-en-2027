@@ -141,13 +141,9 @@ Where-Object { $_.IPv4DefaultGateway -ne $null }</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>Sin CORS</h2>
-        <p>No hemos necesitado CORS porque frontend y API salen del mismo FastAPI.</p>
-        <pre class="lab-code"><code>http://IP:8000/app/fichar/
-http://IP:8000/auth/...
-http://IP:8000/fichajes/...</code></pre>
-        <p>El navegador habla con el mismo origen: mismo protocolo, misma IP y mismo puerto.</p>
-        <pre class="lab-code"><code>NO TODA APLICACIÓN CON fetch() NECESITA CORS.</code></pre>
+        <h2>Página y API en el mismo servidor</h2>
+        <p>Cuando abrimos la aplicación desde el móvil, la página que vemos y los fichajes que enviamos se comunican con el mismo PC donde está funcionando FastAPI.</p>
+        <p>Por eso, en esta práctica no necesitamos configurar nada especial para que la página se comunique con FastAPI.</p>
       </section>
 
       <section class="lab-panel">

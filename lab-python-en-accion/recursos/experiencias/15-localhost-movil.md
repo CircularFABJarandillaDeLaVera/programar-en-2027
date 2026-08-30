@@ -211,23 +211,11 @@ Si funciona en `localhost` pero no desde otro dispositivo, revisa:
 
 ---
 
-## No hemos necesitado CORS
+## Página y API en el mismo servidor
 
-En esta práctica, frontend y API salen del mismo FastAPI:
+Cuando abrimos la aplicación desde el móvil, la página que vemos y los fichajes que enviamos se comunican con el mismo PC donde está funcionando FastAPI.
 
-```text
-http://IP:8000/app/fichar/
-http://IP:8000/auth/...
-http://IP:8000/fichajes/...
-```
-
-El navegador está hablando con el mismo origen: mismo protocolo, misma IP y mismo puerto.
-
-Por eso no añadimos CORS.
-
-```text
-NO TODA APLICACIÓN CON fetch() NECESITA CORS.
-```
+Por eso, en esta práctica no necesitamos configurar nada especial para que la página se comunique con FastAPI.
 
 ---
 
