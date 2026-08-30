@@ -1,6 +1,6 @@
 window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "15 cosas mas que puedes hacer",
+  subtitulo: "16 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -137,6 +137,15 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "30-45 min",
       ver: "recursos/experiencias/15-localhost-movil.html",
       descargar: "recursos/descargas/control-horario-roles.zip"
+    },
+    {
+      id: "dashboard",
+      titulo: "Del dato al dashboard",
+      nombre: "Información útil para la empresa",
+      resultado: "PostgreSQL -> Python -> resumen -> dashboard",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/16-dashboard.html",
+      descargar: "recursos/descargas/control-horario-dashboard.zip"
     }
   ],
   cierre: [

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Del dato al dashboard · Información útil</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Del dato al dashboard</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 16 · 45-60 min</p>
+            <h1 class="lab-experience__title">Del dato al dashboard</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-dashboard.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: transformar fichajes guardados en PostgreSQL en información clara para la empresa.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva necesidad</h2>
+        <p>Ya tenemos una aplicación que registra fichajes, guarda trabajadores, usa sesiones, conserva la geolocalización y aplica permisos.</p>
+        <pre class="lab-code"><code>TENEMOS DATOS
+
+pero...
+
+LEER FILAS
+NO ES LO MISMO QUE
+ENTENDER QUÉ ESTÁ PASANDO</code></pre>
+        <p>Antes teníamos fichajes individuales. Ahora queremos responder cuántas personas están trabajando, quién está trabajando, cuántas entradas y salidas hubo hoy, cuál fue la última actividad y cuánto tiempo registrado tiene cada trabajador.</p>
+        <pre class="lab-code"><code>DATO != INFORMACIÓN</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué vamos a construir</h2>
+        <p>Añadimos una pantalla de empresa que resume lo que ya existe en PostgreSQL.</p>
+        <pre class="lab-code"><code>FICHAJES
+   ↓
+PostgreSQL
+   ↓
+Python
+   ↓
+listas + diccionarios
+datetime + timedelta
+funciones
+   ↓
+RESUMEN
+   ↓
+DASHBOARD</code></pre>
+        <p>El dashboard no guarda fichajes nuevos. Lee los datos, los interpreta y los presenta de forma comprensible.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PostgreSQL y Python</h2>
+        <p>PostgreSQL guarda, filtra y ordena datos.</p>
+        <p>Python interpreta esos datos y construye información.</p>
+        <pre class="lab-code"><code>POSTGRESQL
+  ↓
+datos ordenados
+  ↓
+PYTHON
+  ↓
+agrupa
+interpreta
+calcula
+  ↓
+DASHBOARD
+  ↓
+información comprensible</code></pre>
+        <p>No es una competición entre SQL y Python. Cada herramienta resuelve una parte del problema.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Tiempo registrado</h2>
+        <pre class="lab-code"><code>ENTRADA 08:00
+SALIDA 10:00
+ENTRADA 10:30
+SALIDA 13:00</code></pre>
+        <p>Python puede calcular:</p>
+        <pre class="lab-code"><code>2 h
++
+2 h 30 min
+=
+4 h 30 min registrados</code></pre>
+        <p>Eso ya no es una fila suelta de una base de datos. Es información útil.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Jornadas abiertas</h2>
+        <pre class="lab-code"><code>ENTRADA 14:00
+sin SALIDA
+
+→ TRABAJANDO</code></pre>
+        <p>No inventamos una hora de salida.</p>
+        <ul class="lab-list">
+          <li>Una ENTRADA abierta indica TRABAJANDO.</li>
+          <li>No inventa una SALIDA.</li>
+          <li>No se suma como tramo terminado.</li>
+        </ul>
+        <p>El tiempo registrado hoy solo suma tramos completos:</p>
+        <pre class="lab-code"><code>ENTRADA → SALIDA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Dashboard</h2>
+        <ul class="lab-list">
+          <li>Trabajando ahora</li>
+          <li>Entradas hoy</li>
+          <li>Salidas hoy</li>
+          <li>Última actividad</li>
+          <li>Trabajador</li>
+          <li>Estado</li>
+          <li>Último fichaje</li>
+          <li>Tiempo registrado hoy</li>
+        </ul>
+        <p>Todavía no necesitamos una gráfica para entender estos datos.</p>
+        <pre class="lab-code"><code>¿Qué está pasando ahora?</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué significa hoy</h2>
+        <p>PostgreSQL conserva <code>fecha_hora</code> en UTC. UTC no tiene por qué ser la hora que ve necesariamente el usuario.</p>
+        <p>La aplicación necesita saber qué significa "hoy" para quien usa el dashboard.</p>
+        <pre class="lab-code"><code>APP_TIMEZONE=Europe/Madrid</code></pre>
+        <p>Python calcula el día local y lo traduce correctamente al rango UTC necesario para consultar PostgreSQL.</p>
+        <p>En esta práctica se usa <code>zoneinfo</code> y <code>tzdata</code> para disponer de zonas horarias IANA de forma reproducible en Windows.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Autorización</h2>
+        <pre class="lab-code"><code>SIN SESIÓN
+→ 401
+
+TRABAJADOR
+→ 403
+
+EMPRESA
+→ dashboard</code></pre>
+        <p>El dashboard no está protegido porque "el trabajador no vea el botón". FastAPI sigue decidiendo los permisos.</p>
+        <p>Ocultar algo en HTML puede mejorar la interfaz, pero no es seguridad.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Pruebas reales</h2>
+        <pre class="lab-code"><code>29 tests
+OK</code></pre>
+        <p>Las pruebas cubren autenticación, autorización, fichajes anteriores, geolocalización, jornadas abiertas y cerradas, varios trabajadores, varios tramos, contadores de hoy y fechas fuera de hoy.</p>
+        <p>Las pruebas automáticas ayudan a detectar regresiones, pero no sustituyen la revisión humana del dashboard con navegador y PostgreSQL real.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PRÁCTICA</h2>
+        <ol class="lab-list">
+          <li>Prepara PostgreSQL como en las experiencias anteriores.</li>
+          <li>Copia <code>.env.example</code> a <code>.env</code>.</li>
+          <li>Revisa <code>APP_TIMEZONE=Europe/Madrid</code>.</li>
+          <li>Instala dependencias con <code>pip install -r requirements.txt</code>.</li>
+          <li>Ejecuta <code>python -m unittest</code>.</li>
+          <li>Arranca FastAPI con <code>uvicorn main:app --reload</code>.</li>
+          <li>Abre <code>http://localhost:8000/app/empresa/</code>.</li>
+          <li>Crea trabajadores.</li>
+          <li>Entra como trabajador en <code>http://localhost:8000/app/fichar/</code>.</li>
+          <li>Registra entradas y salidas.</li>
+          <li>Vuelve al dashboard de empresa.</li>
+          <li>Comprueba que el resumen cambia.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué debes observar</h2>
+        <ul class="lab-list">
+          <li>Al registrar una ENTRADA aumenta "Entradas hoy".</li>
+          <li>Un trabajador con ENTRADA abierta aparece como TRABAJANDO.</li>
+          <li>Al registrar una SALIDA aumenta "Salidas hoy".</li>
+          <li>Un trabajador que ha salido aparece como FUERA.</li>
+          <li>"Última actividad" cambia con el último fichaje.</li>
+          <li>"Tiempo registrado hoy" solo suma tramos completos.</li>
+        </ul>
+        <pre class="lab-code"><code>datos históricos
+→
+información útil para decidir</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>La empresa quiere saber también cuántos trabajadores han fichado al menos una vez hoy.</p>
+        <p>Primero pide a tu agente que analice:</p>
+        <pre class="lab-code"><code>Analiza esta aplicación de control horario.
+
+Quiero añadir al dashboard una métrica nueva:
+
+"Trabajadores con algún fichaje hoy"
+
+Primero localiza dónde se construye el resumen de empresa.
+
+Explica qué partes pertenecen a PostgreSQL, cuáles a Python y cuáles al frontend.
+
+NO modifiques nada todavía.</code></pre>
+        <p>Después, si la propuesta tiene sentido, autoriza un cambio pequeño:</p>
+        <pre class="lab-code"><code>Aplica únicamente el cambio necesario para añadir al dashboard la métrica:
+
+"Trabajadores con algún fichaje hoy"
+
+Mantén PostgreSQL, FastAPI y la interfaz actual.
+Añade o adapta las pruebas necesarias.
+No cambies las reglas de fichaje.
+No hagas Git.</code></pre>
+        <p>Revisa <code>git diff</code>, ejecuta tests, prueba visualmente el dashboard y revisa humanamente el resultado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <p>Ya sabemos convertir datos históricos en información útil.</p>
+        <p>Pero todo este sistema sigue utilizando nuestro propio modelo de datos.</p>
+        <p>¿Cómo podríamos representar el estado actual del sistema de una forma interoperable que otras aplicaciones pudieran entender?</p>
+        <pre class="lab-code"><code>Experiencia 17 · FIWARE / NGSI-LD</code></pre>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="15-localhost-movil.html">Anterior: Del localhost al móvil</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
