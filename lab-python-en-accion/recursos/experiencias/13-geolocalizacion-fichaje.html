@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Geolocalización del fichaje · ¿Desde dónde estoy fichando?</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Geolocalización del fichaje</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 13 · 45-60 min</p>
+            <h1 class="lab-experience__title">Geolocalización del fichaje · ¿Desde dónde estoy fichando?</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-geolocalizado.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: registrar ubicación aproximada al fichar, sin romper el control horario si el usuario no la comparte.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva pregunta</h2>
+        <p>Ya tenemos una interfaz para fichar desde el navegador. Ahora aparece una necesidad natural: si una persona ficha desde el móvil, ¿desde dónde lo está haciendo?</p>
+        <pre class="lab-code"><code>Persona
+   ↓
+interfaz web
+   ↓
+FICHAR ENTRADA / SALIDA
+   ↓
+ubicación aproximada opcional</code></pre>
+        <p>En esta experiencia no comprobamos si está dentro de una empresa. Solo registramos la ubicación que decide compartir al fichar.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Flujo completo</h2>
+        <pre class="lab-code"><code>FICHAR
+  ↓
+permiso del navegador
+  ↓
+Geolocation API
+  ↓
+latitud + longitud + precisión
+  ↓
+fetch()
+  ↓
+FastAPI
+  ↓
+PostgreSQL</code></pre>
+        <p>JavaScript pide la ubicación al navegador y la envía a FastAPI junto con el fichaje.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Geolocation API</h2>
+        <p><code>navigator.geolocation</code> permite que el navegador pida al dispositivo su ubicación.</p>
+        <ul class="lab-list">
+          <li>El navegador pide permiso.</li>
+          <li>El usuario decide si acepta o rechaza.</li>
+          <li>La ubicación puede no estar disponible.</li>
+          <li>La precisión siempre es aproximada.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Privacidad</h2>
+        <p>La ubicación es un dato sensible. La aplicación debe pedirla de forma transparente y explicar qué se va a registrar.</p>
+        <p>Este laboratorio no resuelve normativa laboral ni RGPD en profundidad. Se queda en una idea práctica: el usuario debe saberlo y poder decidir.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Dos caminos válidos</h2>
+        <pre class="lab-code"><code>UBICACIÓN DISPONIBLE
+→ fichaje + ubicación aproximada
+
+UBICACIÓN NO DISPONIBLE / RECHAZADA
+→ fichaje sin ubicación</code></pre>
+        <p>La aplicación no se rompe si no hay ubicación. El fichaje continúa y PostgreSQL guarda esos campos como <code>NULL</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Coordenadas no es exactitud</h2>
+        <pre class="lab-code"><code>COORDENADAS
+≠
+POSICIÓN EXACTA</code></pre>
+        <p><code>precision_m</code> representa la estimación de incertidumbre que da el dispositivo o el navegador.</p>
+        <pre class="lab-code"><code>Precisión: 15 m  -> razonable para una demostración
+Precisión: 70 km -> ubicación muy imprecisa</code></pre>
+        <p>No rechazamos fichajes por mala precisión. Eso podría convertirse en una regla nueva más adelante.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Evolucionar la base</h2>
+        <p>La base <code>control_horario</code> ya puede contener datos anteriores. No queremos destruirlos.</p>
+        <pre class="lab-code"><code>fichajes
+  ↓
+añadimos
+  ├── latitud
+  ├── longitud
+  └── precision_m</code></pre>
+        <pre class="lab-code"><code>ALTER TABLE fichajes ADD COLUMN IF NOT EXISTS latitud DOUBLE PRECISION;
+ALTER TABLE fichajes ADD COLUMN IF NOT EXISTS longitud DOUBLE PRECISION;
+ALTER TABLE fichajes ADD COLUMN IF NOT EXISTS precision_m DOUBLE PRECISION;</code></pre>
+        <p>Los fichajes antiguos siguen existiendo. Simplemente tienen ubicación no registrada.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mapa sin librerías</h2>
+        <p>Si hay coordenadas, la interfaz muestra <code>Ver ubicación</code>. Es un enlace normal a OpenStreetMap.</p>
+        <pre class="lab-code"><code>latitud + longitud
+      ↓
+enlace web
+      ↓
+OpenStreetMap</code></pre>
+        <p>No usamos API keys ni SDK cartográfico.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>LOCALHOST</h2>
+        <p>Para la primera prueba usa el mismo PC:</p>
+        <pre class="lab-code"><code>http://localhost:8000/app/</code></pre>
+        <p>Los navegadores suelen exigir un contexto seguro para geolocalización. <code>localhost</code> suele aceptarse para desarrollo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Móvil</h2>
+        <p>Desde otro dispositivo de la red, una dirección HTTP con IP local puede no permitir geolocalización por seguridad del navegador.</p>
+        <p>No resolvemos todavía HTTPS, certificados ni túneles. Esa limitación forma parte de lo que habrá que validar después.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <ol class="lab-list">
+          <li>Abrir <code>http://localhost:8000/app/</code>.</li>
+          <li>Seleccionar trabajador.</li>
+          <li>Pulsar <code>FICHAR ENTRADA</code>.</li>
+          <li>Aceptar el permiso de ubicación.</li>
+          <li>Comprobar coordenadas, precisión y enlace de mapa.</li>
+          <li>Probar otro fichaje rechazando el permiso.</li>
+          <li>Confirmar que el fichaje sin ubicación también se guarda.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <pre class="lab-code"><code>fichaje
+tipo + fecha/hora + trabajador
+ubicación aproximada si el usuario la comparte</code></pre>
+        <p>Ya sabemos dónde se realizó aproximadamente el fichaje.</p>
+        <p>Pero aparece una nueva necesidad: ¿cómo sabemos si estaba suficientemente cerca del lugar de trabajo?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>Ahora cambia una regla con ayuda de tu agente de programación: la aplicación ya no debe permitir fichar sin compartir ubicación.</p>
+        <pre class="lab-code"><code>VERSIÓN BASE
+con ubicación -> fichaje válido
+sin ubicación -> fichaje válido
+
+MINI-RETO
+con ubicación -> fichaje válido
+sin ubicación -> fichaje rechazado</code></pre>
+        <p>La regla debe estar en FastAPI. No basta con bloquear botones desde JavaScript: la interfaz puede ayudar, pero la API debe decidir.</p>
+        <ol class="lab-list">
+          <li>Pedir al agente que analice.</li>
+          <li>No modificar todavía.</li>
+          <li>Revisar su propuesta.</li>
+          <li>Autorizar el cambio.</li>
+          <li>Revisar <code>git diff</code>.</li>
+          <li>Ejecutar.</li>
+          <li>Probar.</li>
+          <li>Hacer revisión humana.</li>
+        </ol>
+        <p>Primer prompt:</p>
+        <pre class="lab-code"><code>Analiza esta aplicación de control horario.
+
+Quiero cambiar una sola regla de negocio:
+
+ya no se debe permitir registrar ENTRADA ni SALIDA si la petición no incluye latitud, longitud y precisión.
+
+Primero analiza qué archivos habría que modificar y por qué.
+
+NO cambies nada todavía.
+
+Mantén:
+- FastAPI como responsable de la regla;
+- PostgreSQL;
+- los endpoints existentes;
+- la interfaz actual;
+- el resto de reglas de ENTRADA/SALIDA.
+
+No añadas tecnologías nuevas.</code></pre>
+        <p>Segundo prompt, solo después de revisar la propuesta:</p>
+        <pre class="lab-code"><code>Ahora aplica únicamente el cambio necesario.
+
+Si falta latitud, longitud o precisión, rechaza el fichaje con un mensaje comprensible.
+
+Añade o adapta las pruebas necesarias.
+
+No hagas Git.</code></pre>
+        <pre class="lab-code"><code>PRUEBA ESPERADA
+
+CON UBICACIÓN
+-> fichaje aceptado
+
+SIN UBICACIÓN
+-> fichaje rechazado</code></pre>
+        <p>Este reto no consiste solo en “hacer que funcione”. Una misma aplicación puede cambiar su comportamiento cuando cambian las reglas del problema. El agente propone y modifica; la persona decide, revisa y valida.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="12-interfaz-control-horario.html">Anterior: Interfaz para fichar</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
