@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiencia 21 · Del sensor al contexto de la empresa</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Experiencia 21</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 21 · 45-60 min</p>
+            <h1 class="lab-experience__title">DEL SENSOR AL CONTEXTO DE LA EMPRESA</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/mqtt-fiware-contexto.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Los datos ya circulan por MQTT. Ahora se necesita convertir ese flujo en contexto actual consultable para la empresa.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La necesidad</h2>
+        <p>MQTT transporta mensajes. FIWARE representa el estado actual que la empresa puede consultar.</p>
+        <pre class="lab-code"><code>MQTT
+= MENSAJE EN MOVIMIENTO
+
+FIWARE
+= ESTADO ACTUAL CONSULTABLE</code></pre>
+        <p>La diferencia sigue siendo clara: PostgreSQL conserva el histórico, MQTT mueve mensajes y FIWARE representa contexto actual e interoperable.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arquitectura del aprendizaje</h2>
+        <pre class="lab-code"><code>SIMULADOR PYTHON
+      ↓
+     MQTT
+      ↓
+  MOSQUITTO
+      ↓
+PUENTE PYTHON
+      ↓
+   FIWARE
+      ↓
+CONTEXTO ACTUAL
+DE LA EMPRESA</code></pre>
+        <p>El componente nuevo es <code>puente_mqtt_fiware.py</code>. Se suscribe al topic MQTT, valida el JSON, transforma el dato al modelo FIWARE y crea o actualiza la entidad.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Contrato reutilizable</h2>
+        <pre class="lab-code"><code>{
+  "dispositivo_id": "compostera-cf-01",
+  "temperatura_c": 36.8,
+  "humedad_pct": 62
+}</code></pre>
+        <p>Topic:</p>
+        <pre class="lab-code"><code>circularfab/dispositivos/compostera-cf-01/telemetria</code></pre>
+        <p>Suscripción reutilizable:</p>
+        <pre class="lab-code"><code>circularfab/dispositivos/+/telemetria</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modelo FIWARE</h2>
+        <p>La entidad representa el dispositivo como contexto actual:</p>
+        <pre class="lab-code"><code>id: urn:ngsi-ld:Device:compostera-cf-01
+
+type: Device
+
+atributos:
+- temperature
+- humidity</code></pre>
+        <p>La práctica reusa el mismo estilo que ya aprendimos con FIWARE en 17 y 18. No añadimos un modelo paralelo ni otro patrón incompatible.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Resultado observable</h2>
+        <ol class="lab-list">
+          <li>Terminal A: simulador publicando MQTT.</li>
+          <li>Terminal B: puente receiving + actualización en FIWARE.</li>
+          <li>Consulta de Orion-LD: temperatura y humedad del dispositivo.</li>
+        </ol>
+        <pre class="lab-code"><code>Dispositivo: compostera-cf-01
+Temperatura: 36.8 °C
+Humedad: 62 %</code></pre>
+        <p>Cuando llega otra lectura, el valor cambia sin cambiar el puente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Ejecutar la práctica</h2>
+        <ol class="lab-list">
+          <li>Levanta Mosquitto: <code>docker compose up -d</code>.</li>
+          <li>Levanta Orion-LD local con la práctica 17/18.</li>
+          <li>Terminal A: <code>python puente_mqtt_fiware.py</code>.</li>
+          <li>Terminal B: <code>python simulador_compostera.py</code>.</li>
+          <li>Consulta FIWARE: <code>curl http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Device:compostera-cf-01</code>.</li>
+          <li>Detén servicios cuando acabes.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto</h2>
+        <p>Cambia en el simulador:</p>
+        <pre class="lab-code"><code>dispositivo_id = "compostera-cf-01"</code></pre>
+        <p>por:</p>
+        <pre class="lab-code"><code>dispositivo_id = "compostera-cf-02"</code></pre>
+        <p>Comprueba que MQTT sigue funcionando, que el puente recibe el nuevo dispositivo y que FIWARE crea o actualiza otra entidad. El contrato sigue siendo sólido por la clave <code>dispositivo_id</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Puente con la Exp 20</h2>
+        <blockquote>En esta validación seguimos usando el simulador de la Experiencia 19. Cuando hagamos la Experiencia 20, el origen será un sensor real, pero el contrato MQTT y este puente no deberían cambiar.</blockquote>
+        <p>La práctica no afirma validación con hardware real.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Puente pedagógico</h2>
+        <p>Ya tenemos personas y dispositivos representados como contexto.</p>
+        <p><strong>¿Qué podemos hacer cuando queremos razonar automáticamente sobre todo ese contexto?</strong></p>
+        <p>Se deja planteado el siguiente salto sin resolverlo todavía.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

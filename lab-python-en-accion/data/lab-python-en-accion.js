@@ -173,6 +173,15 @@
       duracion: "30-45 min",
       ver: "recursos/experiencias/19-compostera-mqtt.html",
       descargar: "recursos/descargas/compostera-mqtt.zip"
+    },
+    {
+      id: "mqtt-fiware",
+      titulo: "Del sensor al contexto de la empresa",
+      nombre: "MQTT + puente Python + FIWARE",
+      resultado: "MQTT -> puente -> entidad FIWARE",
+      duracion: "45-60 min",
+      ver: "recursos/experiencias/21-mqtt-fiware.html",
+      descargar: "recursos/descargas/mqtt-fiware-contexto.zip"
     }
   ],
   masterclasses: [
