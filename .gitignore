@@ -25,3 +25,6 @@ lab-python-en-accion/recursos/ventas_lab.xlsx
 lab-python-en-accion/recursos/assets/foto_editada.jpg
 lab-python-en-accion/recursos/captura_opencv.png
 **/.~lock.*#
+
+# Carpetas de trabajo descomprimidas de practicas
+lab-python-en-accion/recursos/descargas/*/
