@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiencia 19 · Una compostera conectada</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Experiencia 19</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 19 · 30-45 min</p>
+            <h1 class="lab-experience__title">UNA COMPOSTERA CONECTADA</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/compostera-mqtt.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Primero aparece la necesidad: ¿qué ocurre cuando los datos los genera continuamente una máquina o un sensor? Todavía no tenemos sensor físico; primero simularemos el dispositivo con Python.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La necesidad</h2>
+        <p>Hasta ahora los datos han venido de formularios, usuarios, aplicaciones y bases de datos. Ahora queremos ver datos pasando en tiempo real de un proceso Python a otro a través de un broker.</p>
+        <pre class="lab-code"><code>SIMULADOR PYTHON
+temperatura + humedad
+        ↓ publica
+      MQTT
+        ↓ distribuye
+    MOSQUITTO
+        ↓ entrega
+MONITOR PYTHON</code></pre>
+        <p>Mosquitto es el intermediario que recibe mensajes y los entrega a quienes están suscritos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Tres conceptos</h2>
+        <ul class="lab-list">
+          <li><strong>PUBLICADOR</strong>: el simulador envía las lecturas.</li>
+          <li><strong>TOPIC</strong>: la dirección lógica donde se publican.</li>
+          <li><strong>SUSCRIPTOR</strong>: el monitor escucha y recibe los mensajes.</li>
+        </ul>
+        <p>El monitor escucha <code>circularfab/dispositivos/+/telemetria</code>. El comodín <code>+</code> acepta cualquier <code>dispositivo_id</code> en ese nivel.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Contrato de datos</h2>
+        <pre class="lab-code"><code>{
+  "dispositivo_id": "compostera-cf-01",
+  "temperatura_c": 36.8,
+  "humedad_pct": 62
+}</code></pre>
+        <p>Usamos <code>dispositivo_id</code> para que el mismo contrato sirva más adelante para otros dispositivos.</p>
+        <p>Topic de esta demostración:</p>
+        <pre class="lab-code"><code>circularfab/dispositivos/compostera-cf-01/telemetria</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Deja que aparezca la tecnología</h2>
+        <p>El simulador publica una secuencia de demostración plausible de temperatura y humedad. No es un modelo científico del proceso de compostaje.</p>
+        <pre class="lab-code"><code>COMPOSTERA CF-01
+Temperatura: 33.9 °C
+Humedad: 66 %
+Publicando en MQTT...</code></pre>
+        <p>El monitor valida mínimamente el JSON y muestra cada lectura recibida.</p>
+        <pre class="lab-code"><code>MENSAJE RECIBIDO
+Dispositivo: compostera-cf-01
+Temperatura: 33.9 °C
+Humedad: 66 %</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Tres tecnologías, tres problemas</h2>
+        <pre class="lab-code"><code>POSTGRESQL
+→ conserva histórico
+
+MQTT
+→ transporta mensajes entre dispositivos y aplicaciones
+
+FIWARE
+→ representa contexto actual e interoperable</code></pre>
+        <p>En esta experiencia no conectamos MQTT con FIWARE. Cada tecnología resuelve aquí un problema diferente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Ejecutar la práctica</h2>
+        <ol class="lab-list">
+          <li>Descomprime la práctica y crea/activa un entorno Python si corresponde.</li>
+          <li>Instala la dependencia: <code>pip install -r requirements.txt</code>.</li>
+          <li>Levanta Mosquitto: <code>docker compose up -d</code>.</li>
+          <li>Terminal A: <code>python monitor_compostera.py</code>.</li>
+          <li>Terminal B: <code>python simulador_compostera.py</code>.</li>
+          <li>Al terminar: <code>docker compose down</code>.</li>
+        </ol>
+        <p><code>allow_anonymous true</code> y <code>persistence false</code> son decisiones solo para este laboratorio local. No son configuración de producción.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto</h2>
+        <p>Cambia en el simulador:</p>
+        <pre class="lab-code"><code>dispositivo_id = "compostera-cf-01"</code></pre>
+        <p>por:</p>
+        <pre class="lab-code"><code>dispositivo_id = "compostera-cf-02"</code></pre>
+        <p>Comprueba que el mismo monitor recibe el nuevo dispositivo. Así se entiende por qué usamos un identificador genérico y un topic reutilizable.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La siguiente necesidad</h2>
+        <p>Ahora los datos los genera Python simulando un dispositivo.</p>
+        <p><strong>¿Y si sustituimos el simulador por un sensor real?</strong></p>
+        <p>Esa será la siguiente necesidad.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -164,6 +164,15 @@
       duracion: "60-75 min",
       ver: "recursos/experiencias/18-python-fiware.html",
       descargar: "recursos/descargas/control-horario-fiware.zip"
+    },
+    {
+      id: "compostera-mqtt",
+      titulo: "Una compostera conectada",
+      nombre: "Simulador Python + MQTT",
+      resultado: "Simulador -> Mosquitto -> monitor",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/19-compostera-mqtt.html",
+      descargar: "recursos/descargas/compostera-mqtt.zip"
     }
   ],
   masterclasses: [
