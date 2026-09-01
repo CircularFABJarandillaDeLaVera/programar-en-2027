@@ -10,7 +10,7 @@
   <script src="assets/js/theme-toggle.js" defer></script>
   <style>
     body { margin: 0; background: var(--cf-color-background); color: var(--cf-color-text); font-family: var(--cf-font-body); }
-    .shell { display: grid; gap: var(--cf-space-5); margin: 0 auto; padding: var(--cf-space-5); width: min(1180px, 100%); }
+    .shell { box-sizing: border-box; display: grid; gap: var(--cf-space-5); margin: 0 auto; padding: var(--cf-space-5); width: min(1180px, 100%); }
     .brand { align-items: center; color: inherit; display: flex; gap: var(--cf-space-2); text-decoration: none; }
     .brand img { height: 52px; width: auto; }
     .brand span { color: var(--cf-color-text-muted); display: block; font-family: var(--cf-font-label); font-size: .82rem; font-weight: 800; text-transform: uppercase; }
@@ -31,6 +31,12 @@
     .course-project { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
     .course-project h2 { font-family: var(--cf-font-heading); font-size: clamp(1.7rem, 3.8vw, 2.8rem); line-height: 1.05; margin: 0; }
     .course-project p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 820px; }
+    .pathway { background: linear-gradient(135deg, var(--cf-color-surface-raised), var(--cf-color-surface)); border: var(--cf-border-width) solid var(--cf-color-accent); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-4); padding: clamp(24px, 5vw, 48px); }
+    .pathway h2 { font-family: var(--cf-font-heading); font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1; margin: 0; }
+    .pathway p { color: var(--cf-color-text-muted); font-size: 1.08rem; line-height: 1.6; margin: 0; max-width: 760px; }
+    .pathway__steps { align-items: center; display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
+    .pathway__step { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-md); color: var(--cf-color-text); font-family: var(--cf-font-label); font-weight: 850; padding: var(--cf-space-2) var(--cf-space-3); }
+    .pathway__arrow { color: var(--cf-color-accent); font-family: var(--cf-font-label); font-size: 1.2rem; font-weight: 900; }
     .teacher-copilot { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
     .teacher-copilot h2 { font-family: var(--cf-font-heading); font-size: clamp(1.6rem, 3.5vw, 2.6rem); line-height: 1.05; margin: 0; }
     .teacher-copilot p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 760px; }
@@ -81,11 +87,25 @@
       <a class="card cf-card cf-card--interactive" href="bloques/bloque7/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 7 · Python + IA</h2><p>Programacion asistida critica, cierre de SAMI, defensa y LangGraph opcional.</p></a>
     </section>
 
-    <section class="optional-lab" aria-label="Lab final opcional">
-      <span class="cf-chip cf-chip--accent">Lab final opcional</span>
-      <h2>Python en Accion · 5 cosas mas que puedes hacer</h2>
-      <p>Ya sabes Python. Ahora mira todo lo que puedes hacer con el: webcam, imagenes, archivos, Excel y una pequena app grafica.</p>
-      <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/index.html">Abrir Lab opcional</a></p>
+    <section class="pathway" aria-label="Pathway practico: de estudiante a developer">
+      <span class="cf-chip cf-chip--accent">Pathway practico</span>
+      <h2>DE ESTUDIANTE A DEVELOPER</h2>
+      <div class="pathway__steps" aria-label="Fases del pathway practico">
+        <span class="pathway__step">FUNDAMENTOS</span><span class="pathway__arrow" aria-hidden="true">→</span>
+        <span class="pathway__step">AGENTE</span><span class="pathway__arrow" aria-hidden="true">→</span>
+        <span class="pathway__step">API</span><span class="pathway__arrow" aria-hidden="true">→</span>
+        <span class="pathway__step">DATOS</span><span class="pathway__arrow" aria-hidden="true">→</span>
+        <span class="pathway__step">SISTEMAS REALES</span>
+      </div>
+      <p>Empiezas aprendiendo Python y terminas construyendo proyectos reales como un developer.</p>
+      <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/index.html">RECORRER EL PATHWAY PRÁCTICO</a></p>
+    </section>
+
+    <section class="optional-lab" aria-label="Python en Accion: acceso a las practicas">
+      <span class="cf-chip cf-chip--accent">Python en Accion</span>
+      <h2>Acceso a las practicas</h2>
+      <p>Explora experiencias con webcam, imagenes, automatizacion, Excel, aplicaciones, IA local y sistemas conectados.</p>
+      <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/index.html">ABRIR PRÁCTICAS</a></p>
     </section>
 
     <section class="teacher-copilot" aria-label="Crea tu propio Copiloto Profesor">
