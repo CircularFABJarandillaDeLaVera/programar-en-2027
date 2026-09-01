@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Master Class · Python + FIWARE real</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Master Class opcional</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero lab-hero--masterclass">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Master Class opcional · Técnico cFAB · Sandbox real</p>
+            <h1 class="lab-experience__title">Python + FIWARE real</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-fiware-sandbox.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Del dato local al contexto interoperable: el mismo control horario aprendido en el Lab se conecta con un sandbox FIWARE / ThinkingCity / Telefónica autorizado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>GUION TÉCNICO</h2>
+        <div class="lab-card__actions" aria-label="Acciones Guion técnico">
+          <a class="lab-action lab-action--primary" href="masterclass-fiware-real-guion-tecnico.html">VER</a>
+          <a class="lab-action lab-action--secondary" href="masterclass-fiware-real-guion-tecnico.md" download>DESCARGAR</a>
+        </div>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Qué muestra esta Master Class</h2>
+        <p>No es una Experiencia 19. Es una demostración opcional impartida por un técnico cFAB con acceso autorizado al sandbox.</p>
+        <p>Las Experiencias 17 y 18 siguen siendo gratuitas, locales y reproducibles por cualquier alumno. Esta sesión enseña cómo ese aprendizaje se traslada a una infraestructura FIWARE real.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Beneficio real</h2>
+        <pre class="lab-code"><code>MÓVIL A ----\
+TABLET B ----> FastAPI ----> PostgreSQL
+PC C -------/                 histórico
+                  |
+                  +---------> FIWARE
+                              contexto común
+                              interoperable</code></pre>
+        <p>FIWARE no aporta que varios dispositivos puedan fichar; eso ya lo permite FastAPI. FIWARE permite representar y compartir un contexto común e interoperable procedente de distintos orígenes.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Dos sistemas, dos preguntas</h2>
+        <pre class="lab-code"><code>PostgreSQL
+¿Qué ocurrió?
+-> conserva histórico
+
+FIWARE
+¿Qué contexto actual estoy compartiendo?
+-> publica una representación común que otros sistemas pueden entender</code></pre>
+        <p>No compiten. Se complementan.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arquitectura</h2>
+        <pre class="lab-code"><code>TRABAJADOR
+   |
+móvil / tablet / PC
+   |
+FastAPI + Python
+   +--------------------------> PostgreSQL
+   |                            histórico
+   |
+   +---- HTTP + JSON ---------> FIWARE REAL
+                                Context Broker
+                                NGSI v2
+                                contexto interoperable</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Autenticación del sandbox</h2>
+        <pre class="lab-code"><code>Python/Postman
+    |
+Keystone
+    |
+token temporal
+    |
+Context Broker</code></pre>
+        <p>El sandbox exige autenticación y devuelve un token temporal. No se profundiza en OpenStack Keystone durante la sesión.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>NGSI-LD local y NGSI v2 real</h2>
+        <pre class="lab-code"><code>Experiencias 17-18
+Orion-LD local -> NGSI-LD
+
+Master Class
+Sandbox Telefónica -> NGSI v2</code></pre>
+        <p>Los dos trabajan con el concepto FIWARE de contexto, pero el formato y las operaciones concretas cambian. En NGSI-LD usamos <code>Property</code>; en NGSI v2 usamos atributos con <code>type</code>, <code>value</code> y, cuando aplica, <code>metadata</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Código Python</h2>
+        <pre class="lab-code"><code>main.py
+-> aplicación y endpoints
+
+base_datos.py
+-> histórico PostgreSQL
+
+contexto_fiware_v2.py
+-> comunicación NGSI v2</code></pre>
+        <p>El foco técnico está en <code>httpx</code>, headers, JSON, <code>PATCH</code>, <code>POST</code>, timeout, <code>status_code</code> y <code>try/except</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Orden crítico</h2>
+        <ol class="lab-list">
+          <li>Validar fichaje.</li>
+          <li>Guardar PostgreSQL.</li>
+          <li>Usar la <code>fecha_hora</code> realmente guardada.</li>
+          <li>Intentar actualizar FIWARE.</li>
+        </ol>
+        <p>Nunca se presenta FIWARE primero y PostgreSQL después.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modelo NGSI v2</h2>
+        <pre class="lab-code"><code>Entidad:
+Python2027_Employee_001
+
+type:
+Employee
+
+atributos:
+working
+lastEvent
+lastEventAt</code></pre>
+        <p>El trabajador_id solo construye el identificador técnico. No se envían nombre, ubicación, precisión, usuario, password, token, sesiones, hashes ni histórico completo.</p>
+        <pre class="lab-code"><code>INTEROPERABLE
+NO SIGNIFICA
+PUBLICAR TODOS LOS DATOS</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Sandbox confirmado</h2>
+        <pre class="lab-code"><code>Auth:
+POST https://auth.iotplatform.telefonica.com:15001/v3/auth/tokens
+201 Created
+X-Subject-Token
+
+Context Broker:
+https://cb.iotplatform.telefonica.com:10027
+
+API:
+NGSI v2
+
+Fiware-Service:
+dip_caceres_sandbox
+
+Fiware-ServicePath:
+/10_Jarandilla_de_la_Vera</code></pre>
+        <p>En ThinkingCity el subservicio puede mostrarse como <code>10_Jarandilla_de_la_Vera</code>, pero el header usado en las peticiones incluye la barra inicial.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Validación Postman</h2>
+        <pre class="lab-code"><code>TOKEN -> 201
+POST /v2/entities -> 201 Created
+GET entidad -> 200 OK
+PATCH /v2/entities/{id}/attrs -> 204 No Content
+GET posterior -> atributos actualizados</code></pre>
+        <p>Script moderno usado en Postman:</p>
+        <pre class="lab-code"><code>pm.environment.set(
+    "token",
+    pm.response.headers.get("X-Subject-Token")
+);</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Evidencia</h2>
+        <pre class="lab-code"><code>40 tests
+OK
+
+py_compile
+OK
+
+FastAPI -> PostgreSQL -> sandbox FIWARE Telefónica -> entidad actualizada</code></pre>
+        <p>Validación real end-to-end: ENTRADA y SALIDA de un trabajador de prueba, con PostgreSQL guardando el histórico y FIWARE actualizando <code>working</code>, <code>lastEvent</code> y <code>lastEventAt</code>.</p>
+        <p>Ejemplo documentado sin datos personales: <code>Python2027_Employee_001</code> y <code>Python2027_Employee_002</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo en vivo</h2>
+        <pre class="lab-code"><code>Trabajador A -> móvil -> ENTRADA
+Trabajador B -> otro dispositivo -> ENTRADA
+Trabajador A -> SALIDA
+
+PostgreSQL:
+A -> ENTRADA
+B -> ENTRADA
+A -> SALIDA
+
+FIWARE:
+Employee_A -> working=false, lastEvent=SALIDA
+Employee_B -> working=true, lastEvent=ENTRADA</code></pre>
+        <pre class="lab-code"><code>MUCHOS ORÍGENES
+      |
+CONTEXTO COMÚN
+      |
+INTEROPERABILIDAD</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fallo FIWARE</h2>
+        <p>Si FIWARE falla, PostgreSQL conserva el fichaje. El trabajador ve:</p>
+        <pre class="lab-code"><code>Fichaje registrado.
+Hay un problema temporal actualizando el estado compartido.</code></pre>
+        <p>No se dice que el fichaje ha fallado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Token y secretos</h2>
+        <p>No se incluyen tokens ni credenciales reales. La práctica usa <code>FIWARE_TOKEN</code> en <code>.env</code>, y <code>.env</code> no se incluye en el ZIP ni debe versionarse.</p>
+        <p>Los tokens son temporales. Su duración se trata como un dato de la plataforma, no como una constante de FIWARE.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Contacto oficial</h2>
+        <p>¿Quieres conocer FIWARE en un entorno real?</p>
+        <p><a href="https://elcirculo.circularfab.es/fiware-ihub/">FIWARE iHub El Círculo · Cáceres</a></p>
+        <p>El acceso al sandbox utilizado en esta Master Class requiere autorización.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Cierre pedagógico</h2>
+        <p>Hasta ahora el contexto lo actualizaban personas desde una aplicación.</p>
+        <pre class="lab-code"><code>¿Y SI EL DATO NO LO GENERA UNA PERSONA,
+SINO UN DISPOSITIVO?</code></pre>
+        <p>Eso prepara el camino para MQTT, ESP32, MicroPython e IoT, sin implementarlos todavía.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Navegación de la Master Class">
+        <a class="lab-action lab-action--secondary" href="18-python-fiware.html">Experiencia 18</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

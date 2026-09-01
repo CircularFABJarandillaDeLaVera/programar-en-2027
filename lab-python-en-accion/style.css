@@ -150,6 +150,22 @@ img {
   font-size: 1.12rem;
 }
 
+.lab-card--masterclass,
+.lab-hero--masterclass {
+  border-color: color-mix(in srgb, var(--cf-color-accent) 46%, var(--cf-color-border));
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--cf-color-accent) 15%, transparent);
+}
+
+.lab-card--masterclass {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--cf-color-accent) 14%, var(--cf-color-surface)), var(--cf-color-surface) 58%),
+    var(--cf-color-surface);
+}
+
+.lab-card--masterclass .cf-chip {
+  width: fit-content;
+}
+
 .lab-card__steps {
   display: flex;
   flex-wrap: wrap;

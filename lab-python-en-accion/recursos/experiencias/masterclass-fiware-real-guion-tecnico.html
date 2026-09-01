@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Guion técnico · Master Class Python + FIWARE real</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Guion técnico</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero lab-hero--masterclass">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Master Class opcional · Python + FIWARE real</p>
+            <h1 class="lab-experience__title">Guion técnico</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--secondary" href="masterclass-fiware-real.html">MASTER CLASS</a>
+            <a class="lab-action lab-action--secondary" href="masterclass-fiware-real-guion-tecnico.md" download>DESCARGAR</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Antes de la clase</h2>
+        <ul class="lab-list">
+          <li>Comprobar Docker y PostgreSQL.</li>
+          <li>Comprobar FastAPI.</li>
+          <li>Generar un token FIWARE válido.</li>
+          <li>Comprobar que el sandbox responde.</li>
+          <li>Verificar el subservicio en ThinkingCity.</li>
+          <li>Confirmar que <code>Fiware-ServicePath</code> coincide con el subservicio esperado.</li>
+          <li>Preparar Postman con variables de entorno.</li>
+          <li>No proyectar secretos, tokens ni credenciales.</li>
+          <li>Tener abierta la práctica <code>control-horario-fiware-sandbox</code>.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo 1 · Postman</h2>
+        <p>Objetivo: enseñar la conversación mínima con el sandbox.</p>
+        <ol class="lab-list">
+          <li>Autenticación.</li>
+          <li>Guardar token con script moderno.</li>
+          <li>Crear entidad ficticia.</li>
+          <li>Consultar entidad.</li>
+          <li>Actualizar atributos.</li>
+          <li>Consultar de nuevo y enseñar <code>working</code>, <code>lastEvent</code>, <code>lastEventAt</code>.</li>
+        </ol>
+        <pre class="lab-code"><code>POST https://auth.iotplatform.telefonica.com:15001/v3/auth/tokens</code></pre>
+        <pre class="lab-code"><code>pm.environment.set(
+    "token",
+    pm.response.headers.get("X-Subject-Token")
+);</code></pre>
+        <pre class="lab-code"><code>POST /v2/entities
+Python2027_Employee_001
+
+GET /v2/entities/Python2027_Employee_001
+
+PATCH /v2/entities/Python2027_Employee_001/attrs</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo 2 · Web</h2>
+        <p>Objetivo: demostrar que el trabajador usa una interfaz normal.</p>
+        <ol class="lab-list">
+          <li>Abrir <code>/app/fichar/</code>.</li>
+          <li>Iniciar sesión con trabajador de prueba.</li>
+          <li>Registrar ENTRADA.</li>
+          <li>Registrar SALIDA.</li>
+          <li>Recalcar que la interfaz no habla de Keystone, NGSI v2, Telefónica ni token.</li>
+        </ol>
+        <pre class="lab-code"><code>Fichaje registrado.</code></pre>
+        <pre class="lab-code"><code>Fichaje registrado.
+Hay un problema temporal actualizando el estado compartido.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo 3 · PostgreSQL</h2>
+        <p>Objetivo: enseñar el histórico.</p>
+        <pre class="lab-code"><code>A -> ENTRADA
+B -> ENTRADA
+A -> SALIDA</code></pre>
+        <pre class="lab-code"><code>PostgreSQL responde a "qué ocurrió".</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo 4 · FIWARE</h2>
+        <p>Objetivo: enseñar el contexto actual.</p>
+        <pre class="lab-code"><code>Employee_A
+working=false
+lastEvent=SALIDA
+
+Employee_B
+working=true
+lastEvent=ENTRADA</code></pre>
+        <pre class="lab-code"><code>FIWARE responde a "qué contexto actual estoy compartiendo".</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Demo 5 · Dos trabajadores y dos dispositivos</h2>
+        <p>Objetivo: hacer visible el contexto común.</p>
+        <pre class="lab-code"><code>Trabajador A -> móvil -> ENTRADA
+Trabajador B -> otro dispositivo -> ENTRADA
+Trabajador A -> SALIDA</code></pre>
+        <ul class="lab-list">
+          <li>web de fichaje;</li>
+          <li>consulta PostgreSQL;</li>
+          <li>consulta FIWARE.</li>
+        </ul>
+        <pre class="lab-code"><code>MUCHOS ORÍGENES
+        |
+CONTEXTO COMÚN
+        |
+INTEROPERABILIDAD</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Pregunta al grupo</h2>
+        <pre class="lab-code"><code>Si PostgreSQL ya guarda los fichajes,
+¿qué estamos ganando al publicar contexto en FIWARE?</code></pre>
+        <ul class="lab-list">
+          <li>interoperabilidad;</li>
+          <li>modelo común;</li>
+          <li>contexto compartible;</li>
+          <li>integración con otros sistemas.</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Bloque NGSI-LD frente a NGSI v2</h2>
+        <pre class="lab-code"><code>Experiencias 17-18:
+Orion-LD local -> NGSI-LD
+
+Master Class:
+Sandbox Telefónica -> NGSI v2</code></pre>
+        <p>No decir que son exactamente la misma API.</p>
+        <pre class="lab-code"><code>Los dos trabajan con contexto FIWARE,
+pero el formato y las operaciones concretas cambian.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Privacidad</h2>
+        <pre class="lab-code"><code>INTEROPERABLE
+NO SIGNIFICA
+PUBLICAR TODOS LOS DATOS.</code></pre>
+        <p>FIWARE recibe únicamente:</p>
+        <ul class="lab-list">
+          <li><code>working</code></li>
+          <li><code>lastEvent</code></li>
+          <li><code>lastEventAt</code></li>
+        </ul>
+        <p>No enviar ni mostrar nombre, latitud, longitud, <code>precision_m</code>, usuario, password, token, sesiones, hashes ni histórico completo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Cierre</h2>
+        <pre class="lab-code"><code>Hasta ahora el contexto lo actualizaban personas desde una aplicación.
+La siguiente pregunta es:
+¿y si el dato no lo genera una persona, sino un dispositivo?</code></pre>
+        <p>Preparar el puente hacia MQTT, ESP32, MicroPython e IoT sin implementar esas experiencias todavía.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Navegación del guion técnico">
+        <a class="lab-action lab-action--secondary" href="masterclass-fiware-real.html">Volver a la Master Class</a>
+        <a class="lab-action lab-action--secondary" href="../index.html">Recursos</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

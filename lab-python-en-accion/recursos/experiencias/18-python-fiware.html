@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Python conecta PostgreSQL con FIWARE</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>PostgreSQL + FIWARE</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 18 · 60-75 min</p>
+            <h1 class="lab-experience__title">Python conecta PostgreSQL con FIWARE</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/control-horario-fiware.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>Objetivo: automatizar desde Python la actualización de contexto que antes hacíamos manualmente en Orion-LD.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>La nueva necesidad</h2>
+        <p>Hasta ahora actualizábamos Orion-LD manualmente. Pero cuando una persona ficha, nadie debería tener que abrir PowerShell.</p>
+        <pre class="lab-code"><code>¿PUEDE PYTHON ACTUALIZAR EL CONTEXTO AUTOMÁTICAMENTE?</code></pre>
+        <pre class="lab-code"><code>FICHAJE
+   ↓
+FastAPI
+   ↓
+PYTHON
+   ├──────────────→ PostgreSQL
+   │                histórico
+   │
+   └── HTTP + JSON → Orion-LD
+                    contexto actual</code></pre>
+        <p>PostgreSQL sigue siendo el histórico. Orion-LD representa el contexto actual que publicamos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Python protagonista</h2>
+        <p>La Experiencia 17 ya explicó entidad, id, type, Property y broker de contexto.</p>
+        <p>Ahora el aprendizaje vuelve a Python: funciones, parámetros, diccionarios, JSON, módulos, peticiones HTTP, <code>PATCH</code>, <code>POST</code>, timeout, códigos HTTP, <code>try/except</code>, manejo de errores y mocks en tests.</p>
+        <p>FIWARE es el servicio externo que nos crea la necesidad.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Separar el código</h2>
+        <pre class="lab-code"><code>contexto_fiware.py</code></pre>
+        <pre class="lab-code"><code>main.py
+→ lógica de la aplicación y endpoints
+
+base_datos.py
+→ PostgreSQL
+
+contexto_fiware.py
+→ comunicación con Orion-LD</code></pre>
+        <p>Dividir el código en módulos ayuda a que cada archivo tenga una responsabilidad comprensible.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>HTTP desde Python</h2>
+        <p>En la Experiencia 17, PowerShell hacía <code>PATCH</code> y <code>POST</code>. Ahora Python hace esa conversación mediante <code>httpx</code>.</p>
+        <ul class="lab-list">
+          <li>URL</li>
+          <li>método HTTP</li>
+          <li>JSON</li>
+          <li>respuesta</li>
+          <li>timeout</li>
+        </ul>
+        <p>No añadimos <code>requests</code> ni nuevas dependencias.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Datos mínimos</h2>
+        <p>La entidad publica únicamente <code>working</code>, <code>lastEvent</code> y <code>lastEventAt</code>.</p>
+        <pre class="lab-code"><code>trabajador_id
+↓
+urn:ngsi-ld:Employee:X</code></pre>
+        <p>No publicamos nombre, ubicación, <code>precision_m</code>, credenciales, sesiones, hashes ni histórico completo.</p>
+        <pre class="lab-code"><code>INTEROPERABLE
+NO SIGNIFICA
+PUBLICAR TODO</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Misma fecha y hora</h2>
+        <p>Orion-LD no genera otra hora. Python utiliza la <code>fecha_hora</code> del fichaje que PostgreSQL acaba de guardar.</p>
+        <pre class="lab-code"><code>PostgreSQL:
+22:30:56 Europe/Madrid
+
+Orion-LD:
+20:30:56Z
+
+MISMO INSTANTE
+DISTINTA REPRESENTACIÓN HORARIA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PATCH y POST</h2>
+        <pre class="lab-code"><code>PATCH /ngsi-ld/v1/entities/{entity_id}/attrs</code></pre>
+        <p>Si <code>Employee</code> todavía no existe:</p>
+        <pre class="lab-code"><code>404
+↓
+POST
+↓
+se crea la entidad completa</code></pre>
+        <p>Después, los siguientes fichajes usan <code>PATCH</code>. No introducimos upsert ni operaciones batch.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Punto de integración</h2>
+        <pre class="lab-code"><code>1. validar sesión, rol y regla ENTRADA/SALIDA
+2. guardar el fichaje en PostgreSQL
+3. obtener el fichaje guardado
+4. intentar actualizar Orion-LD</code></pre>
+        <p>Guardar PostgreSQL primero es importante porque el histórico no debe perderse.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Orion-LD apagado</h2>
+        <pre class="lab-code"><code>TRABAJADOR FICHA
+       ↓
+PostgreSQL
+GUARDA OK
+       ↓
+Python intenta Orion-LD
+       ↓
+NO RESPONDE</code></pre>
+        <pre class="lab-code"><code>FICHAJE REGISTRADO OK
+
+CONTEXTO NO ACTUALIZADO</code></pre>
+        <p>Mensaje mostrado:</p>
+        <pre class="lab-code"><code>Fichaje registrado. Hay un problema temporal actualizando el estado compartido.</code></pre>
+        <p>No podemos decir "el fichaje ha fallado" porque sería falso.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Dos sistemas</h2>
+        <p>Una misma acción puede afectar a dos sistemas. Eso no significa que ambos tengan que tener siempre el mismo resultado.</p>
+        <pre class="lab-code"><code>PostgreSQL:
+último evento = ENTRADA
+
+Orion-LD:
+lastEvent = SALIDA</code></pre>
+        <p>El histórico podía estar correcto mientras el contexto publicado quedaba desactualizado. No fue un ejemplo inventado: ocurrió durante la validación.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Recuperación</h2>
+        <p>Después se volvió a arrancar Orion-LD. El siguiente fichaje válido hizo una nueva actualización y ambos sistemas volvieron a coincidir.</p>
+        <p>Eso no reconstruye automáticamente todos los posibles estados perdidos. Simplemente el nuevo evento vuelve a publicar el contexto vigente.</p>
+        <p>Una reconciliación real podría construirse posteriormente desde PostgreSQL, pero no se implementa aquí.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fuente de verdad</h2>
+        <pre class="lab-code"><code>PostgreSQL
+→ histórico de fichajes
+
+Orion-LD
+→ contexto que queremos compartir</code></pre>
+        <p>Si FIWARE falla, el histórico no desaparece.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Tests</h2>
+        <pre class="lab-code"><code>38 tests
+OK</code></pre>
+        <p>Las pruebas cubren funcionamiento anterior, autenticación, autorización, entrada/salida, geolocalización opcional, dashboard anterior, entidad FIWARE, <code>PATCH</code>, <code>POST</code>, timeout, error de conexión y conservación del fichaje si FIWARE falla.</p>
+        <p>Los tests automáticos usan mocks para Orion-LD. Un mock es una sustitución controlada de un servicio externo durante una prueba.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Validación real</h2>
+        <pre class="lab-code"><code>Orion-LD encendido
+ENTRADA → PostgreSQL guarda → working=true
+SALIDA  → PostgreSQL guarda → working=false
+
+Orion-LD apagado
+fichaje válido → PostgreSQL guarda → aviso
+
+Orion-LD recuperado
+nuevo fichaje válido → contexto vigente publicado</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PRÁCTICA</h2>
+        <ol class="lab-list">
+          <li>Levanta PostgreSQL como en las experiencias anteriores.</li>
+          <li>Levanta Orion-LD y MongoDB con el Compose de la Experiencia 17.</li>
+          <li>Copia <code>.env.example</code> a <code>.env</code>.</li>
+          <li>Configura <code>ORION_LD_URL=http://localhost:1026</code>.</li>
+          <li>Ejecuta <code>python -m unittest -v test_api.py</code>.</li>
+          <li>Arranca FastAPI con <code>uvicorn main:app --reload</code>.</li>
+          <li>Crea un trabajador desde <code>/app/empresa/</code>.</li>
+          <li>Inicia sesión en <code>/app/fichar/</code>.</li>
+          <li>Registra ENTRADA y consulta Orion-LD.</li>
+          <li>Registra SALIDA y consulta Orion-LD de nuevo.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO</h2>
+        <p>Queremos que el timeout de Orion-LD pueda configurarse desde <code>.env</code>.</p>
+        <pre class="lab-code"><code>Analiza esta práctica.
+
+Quiero que el timeout de Orion-LD pueda configurarse desde .env.
+
+Primero localiza dónde está fijado actualmente el timeout y qué archivos habría que tocar.
+
+NO modifiques nada todavía.</code></pre>
+        <pre class="lab-code"><code>Aplica únicamente el cambio necesario para leer ORION_LD_TIMEOUT desde .env.
+
+Mantén el comportamiento actual si la variable no existe.
+Añade o adapta las pruebas necesarias.
+No cambies la lógica de fichaje.
+No hagas Git.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO</h2>
+        <p>Python ya no trabaja solo: habla con PostgreSQL, sirve una web, gestiona usuarios, recibe fichajes, transforma datos y se comunica con otro servicio mediante HTTP.</p>
+        <p>Ya podemos publicar contexto desde una aplicación.</p>
+        <p>¿Y si el siguiente dato no procede de una persona pulsando un botón, sino de un dispositivo?</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Experiencias">
+        <a class="lab-action lab-action--secondary" href="17-orion-ld.html">Anterior: Broker de contexto</a>
+        <a class="lab-action lab-action--secondary" href="../../index.html">Volver al LAB</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

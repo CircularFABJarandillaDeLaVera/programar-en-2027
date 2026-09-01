@@ -1,6 +1,6 @@
-window.LAB_PYTHON_EN_ACCION = {
+﻿window.LAB_PYTHON_EN_ACCION = {
   titulo: "Python en Accion",
-  subtitulo: "17 cosas mas que puedes hacer",
+  subtitulo: "18 cosas mas que puedes hacer",
   lema: "Ya sabes Python. Ahora mira todo lo que puedes hacer con el.",
   experiencias: [
     {
@@ -155,6 +155,26 @@ window.LAB_PYTHON_EN_ACCION = {
       duracion: "45-60 min",
       ver: "recursos/experiencias/17-orion-ld.html",
       descargar: "recursos/descargas/fiware-orion-ld.zip"
+    },
+    {
+      id: "python-fiware",
+      titulo: "Python conecta PostgreSQL con FIWARE",
+      nombre: "HTTP + JSON desde Python",
+      resultado: "fichaje -> PostgreSQL -> httpx -> Orion-LD",
+      duracion: "60-75 min",
+      ver: "recursos/experiencias/18-python-fiware.html",
+      descargar: "recursos/descargas/control-horario-fiware.zip"
+    }
+  ],
+  masterclasses: [
+    {
+      id: "fiware-real",
+      titulo: "MASTER CLASS",
+      nombre: "Python + FIWARE real",
+      resultado: "Del dato local al contexto interoperable",
+      etiqueta: "OPCIONAL - TECNICO cFAB - SANDBOX REAL",
+      ver: "recursos/experiencias/masterclass-fiware-real.html",
+      descargar: "recursos/descargas/control-horario-fiware-sandbox.zip"
     }
   ],
   cierre: [
@@ -167,3 +187,4 @@ window.LAB_PYTHON_EN_ACCION = {
     "IA y agentes"
   ]
 };
+
