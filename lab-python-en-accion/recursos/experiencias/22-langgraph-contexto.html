@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiencia 22 · Del contexto a una decisión</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+  <style>
+    .flow-diagram {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+      font-weight: 600;
+    }
+    .flow-step {
+      background: rgba(24, 90, 120, 0.08);
+      border: 1px solid rgba(24, 90, 120, 0.2);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      text-align: center;
+    }
+    .flow-arrow {
+      text-align: center;
+      color: #0b5d7a;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Experiencia 22</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 22 · 30-45 min</p>
+            <h1 class="lab-experience__title">DEL CONTEXTO A UNA DECISIÓN</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/langgraph-contexto.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>FIWARE ya nos da contexto actual. Ahora convertimos ese estado en un proceso con decisiones y rutas condicionales.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Necesidad antes de tecnología</h2>
+        <p>La empresa puede consultar el estado del dispositivo, pero no basta con leerlo. Lo importante es decidir según ese contexto.</p>
+        <pre class="lab-code"><code>contexto actual
+     ↓
+  decisión
+     ↓
+resultado observable</code></pre>
+        <p>En este caso la decisión es didáctica y determinista, no científica ni agronómica. Las reglas son para aprender rutas condicionales.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿Por qué LangGraph?</h2>
+        <p>Este ejemplo también podría hacerse con funciones y <code>if/else</code>. La razón pedagógica de usar LangGraph aquí es mostrar muy claramente:</p>
+        <ul class="lab-list">
+          <li>estado</li>
+          <li>nodo</li>
+          <li>transición</li>
+          <li>ruta condicional</li>
+        </ul>
+        <p>La necesidad aparece antes que la tecnología: primero queremos decidir según el contexto del dispositivo, y entonces LangGraph organiza ese proceso con un grafo claro.</p>
+        <p><code>add_conditional_edges</code> hace exactamente eso: después de <code>evaluar_estado</code>, el sistema mira el estado actual y elige el siguiente nodo según una regla determinista.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arquitectura del flujo</h2>
+        <div class="flow-diagram" aria-label="Diagrama del grafo">
+          <div class="flow-step">START</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">obtener_contexto</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">validar_datos</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">evaluar_estado</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">add_conditional_edges</div>
+          <div class="flow-step">datos_incompletos / revisar_temperatura / revisar_humedad / sin_revision</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">END</div>
+        </div>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fuente de datos</h2>
+        <p>La práctica intenta consultar Orion-LD real:</p>
+        <pre class="lab-code"><code>http://localhost:1026</code></pre>
+        <p>Entidad esperada:</p>
+        <pre class="lab-code"><code>urn:ngsi-ld:Device:compostera-cf-01</code></pre>
+        <p>Se reutiliza el mismo modelo FIWARE de la experiencia 21.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Plan B educativo</h2>
+        <p>El modo demo es una elección explícita mediante <code>--demo</code>. No se usa automáticamente cuando FIWARE falla y tampoco se oculta el problema.</p>
+        <pre class="lab-code"><code>FUENTE DE DATOS: FIWARE REAL
+
+o
+
+FUENTE DE DATOS: DATOS DE DEMOSTRACIÓN</code></pre>
+        <p>Si FIWARE no está disponible, el programa lo indica claramente y recomienda ejecutar <code>--demo</code> para seguir con la práctica.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Reglas didácticas</h2>
+        <p>Estas reglas son ficticias para aprender rutas condicionales. No son recomendaciones reales del compostaje.</p>
+        <ul class="lab-list">
+          <li>si falta temperatura o humedad: <strong>DATOS_INCOMPLETOS</strong></li>
+          <li>si temperatura_c >= 45: <strong>REVISAR_TEMPERATURA</strong></li>
+          <li>si humedad_pct < 50: <strong>REVISAR_HUMEDAD</strong></li>
+          <li>en otro caso: <strong>SIN_REVISION_PRIORITARIA</strong></li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Resultado observable</h2>
+        <pre class="lab-code"><code>FUENTE DE DATOS: FIWARE REAL
+
+CONTEXTO RECIBIDO
+Dispositivo: compostera-cf-01
+Temperatura: 43.5 °C
+Humedad: 60 %
+
+GRAFO
+obtener_contexto → validar_datos → evaluar_estado → sin_revision
+
+RESULTADO
+SIN_REVISION_PRIORITARIA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto</h2>
+        <p>Cambia solo <code>datos_contexto_demo.json</code> con temperatura alta, ejecuta en modo demo y comprueba que la ruta cambia a <strong>revisar_temperatura</strong>.</p>
+        <p>Luego prueba humedad baja y observa <strong>revisar_humedad</strong>. El grafo sigue igual y el cambio lo hace el dato.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Diferencias entre tecnologías</h2>
+        <pre class="lab-code"><code>POSTGRESQL -> guarda histórico
+MQTT -> mueve mensajes
+FIWARE -> representa contexto actual interoperable
+LANGGRAPH -> organiza un proceso con estado y decisiones</code></pre>
+        <p>LangGraph no sustituye a FIWARE ni es un broker. Solo organiza la decisión.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Ejecución</h2>
+        <ol class="lab-list">
+          <li>Instala dependencias: <code>pip install -r requirements.txt</code>.</li>
+          <li>Modo real: <code>python flujo_contexto.py</code>.</li>
+          <li>Modo demo: <code>python flujo_contexto.py --demo</code>.</li>
+          <li>Ejecuta tests: <code>pytest -q</code>.</li>
+        </ol>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Puente pedagógico</h2>
+        <p>Ahora el workflow consulta contexto y decide una ruta, pero el mensaje final sigue escrito por nosotros.</p>
+        <p><strong>¿Y si queremos que un modelo interprete este contexto y explique la situación en lenguaje natural?</strong></p>
+        <p>Eso queda planteado para la siguiente experiencia sin resolverlo todavía.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
