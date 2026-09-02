@@ -182,6 +182,15 @@
       duracion: "45-60 min",
       ver: "recursos/experiencias/21-mqtt-fiware.html",
       descargar: "recursos/descargas/mqtt-fiware-contexto.zip"
+    },
+    {
+      id: "ollama-explicacion",
+      titulo: "Una IA que explica, pero no decide",
+      nombre: "LangGraph decide + Ollama explica",
+      resultado: "decisión -> explicación -> validación",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/23-ollama-explicacion.html",
+      descargar: "recursos/descargas/ollama-explicacion.zip"
     }
   ],
   masterclasses: [

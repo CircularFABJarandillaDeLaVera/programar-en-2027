@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiencia 23 · Una IA que explica, pero no decide</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+  <style>
+    .flow-diagram { display:grid; gap:0.8rem; margin:1.2rem 0; font-weight:600; }
+    .flow-step { background: rgba(24, 90, 120, 0.08); border:1px solid rgba(24, 90, 120, 0.2); border-radius:12px; padding:0.9rem 1rem; text-align:center; }
+    .flow-arrow { text-align:center; color:#0b5d7a; font-size:1.4rem; line-height:1; }
+  </style>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Experiencia 23</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 23 · 30-45 min</p>
+            <h1 class="lab-experience__title">UNA IA QUE EXPLICA, PERO NO DECIDE</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/ollama-explicacion.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>La empresa ya tiene una decisión determinista. Ahora necesita explicarla a una persona con claridad y sin perder control del sistema.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Necesidad antes de tecnología</h2>
+        <p>La decisión ya existe:</p>
+        <pre class="lab-code"><code>REVISAR_TEMPERATURA</code></pre>
+        <p>Lo que falta es una explicación segura para una persona. No queremos que el modelo invente causas ni cambie la lógica de negocio.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Regla central</h2>
+        <pre class="lab-code"><code>LangGraph + reglas deterministas -> DECIDEN
+Ollama -> EXPLICA
+Python -> VALIDA la explicación</code></pre>
+        <p>El LLM no decide; no cambia umbrales; no inventa causas ni consecuencias; no sustituye ni a FIWARE ni a LangGraph.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arquitectura didáctica</h2>
+        <div class="flow-diagram" aria-label="Diagrama de la experiencia 23">
+          <div class="flow-step">FIWARE / contexto actual</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">LangGraph</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">decisión determinista</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">mensaje factual seguro</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Ollama llama3.2:1b</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">validación Python</div>
+          <div class="flow-step">respuesta válida / respuesta no válida</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">explicación IA / fallback determinista</div>
+        </div>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modelo local</h2>
+        <p>Usamos Ollama localmente con el modelo por defecto:</p>
+        <pre class="lab-code"><code>llama3.2:1b</code></pre>
+        <p>API por defecto:</p>
+        <pre class="lab-code"><code>http://localhost:11434</code></pre>
+        <p>No se usa OpenAI, Claude, Gemini ni tokens de pago.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Decision y contexto</h2>
+        <p>El dispositivo sigue siendo el mismo:</p>
+        <pre class="lab-code"><code>urn:ngsi-ld:Device:compostera-cf-01</code></pre>
+        <p>Con los campos:</p>
+        <pre class="lab-code"><code>temperatura_c
+humedad_pct</code></pre>
+        <p>Y la decisión determinista ya visibles es:</p>
+        <pre class="lab-code"><code>REVISAR_TEMPERATURA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Datos de demostración</h2>
+        <pre class="lab-code"><code>{
+  "dispositivo_id": "compostera-cf-01",
+  "temperatura_c": 48,
+  "humedad_pct": 60
+}</code></pre>
+        <p>En este caso el sistema decide:</p>
+        <pre class="lab-code"><code>REVISAR_TEMPERATURA</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Por qué no confiamos ciegamente en un LLM</h2>
+        <p>En clase aparece un caso didáctico muy importante:</p>
+        <ul class="lab-list">
+          <li>un prompt poco controlado puede inventar “gases tóxicos” o “contaminación del suelo”;</li>
+          <li>un prompt más estricto puede decir “ha superado los 48 °C” cuando el dato es exactamente 48 °C.</li>
+        </ul>
+        <p>Eso no hace al modelo “malo”; simplemente muestra que el LLM genera lenguaje probabilístico. La aplicación debe decidir qué responsabilidad le asigna.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Prompt controlado</h2>
+        <p>El modelo recibe solo datos estructurados y reglas muy concretas:</p>
+        <ul class="lab-list">
+          <li>dispositivo</li>
+          <li>temperatura</li>
+          <li>humedad</li>
+          <li>decisión determinista</li>
+          <li>acción determinista permitida</li>
+        </ul>
+        <p>Además se le indica explícitamente:</p>
+        <ul class="lab-list">
+          <li>no inventar causas</li>
+          <li>no predecir consecuencias</li>
+          <li>no añadir conocimiento externo</li>
+          <li>no modificar cifras</li>
+          <li>no cambiar la decisión</li>
+          <li>no usar frases como “ha superado 48” si el valor es 48</li>
+          <li>respuesta breve</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Salida JSON segura</h2>
+        <pre class="lab-code"><code>{
+  "explicacion": "...",
+  "accion": "..."
+}</code></pre>
+        <p>Si la respuesta no es JSON válido, se considera rechazada.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Guardrail didáctico</h2>
+        <p>La validación es pedagógica. No garantiza que un LLM nunca invente información, pero sí que la aplicación rechace respuestas peligrosas.</p>
+        <ul class="lab-list">
+          <li>JSON válido</li>
+          <li>campos `explicacion` y `accion` presentes</li>
+          <li>decisión no cambia</li>
+          <li>no introduce números distintos de los datos permitidos</li>
+          <li>sin términos prohibidos como “gases tóxicos”, “contaminación” o “toxicidad”</li>
+          <li>acción compatible con la decisión</li>
+        </ul>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fallback determinista</h2>
+        <pre class="lab-code"><code>EXPLICACIÓN SEGURA
+El dispositivo compostera-cf-01 registra 48 °C y 60 % de humedad.
+La decisión del sistema es REVISAR_TEMPERATURA.
+
+ACCIÓN
+Una persona debe revisar la temperatura del dispositivo.</code></pre>
+        <p>Si Ollama falla o su respuesta no supera la validación, se usa este texto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modo sin IA</h2>
+        <p>La práctica incluye <code>--sin-ia</code> para mostrar que el sistema sigue funcionando sin modelo generativo:</p>
+        <pre class="lab-code"><code>python explicar_decision.py --demo --sin-ia</code></pre>
+        <p>Esto refuerza la idea de que la IA es una capa de explicación y no un sustituto del criterio técnico.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Diferencias entre tecnologías</h2>
+        <pre class="lab-code"><code>POSTGRESQL -> historial
+MQTT -> transporte de mensajes
+FIWARE -> contexto actual interoperable
+LangGraph -> organiza decisiones y flujos
+Ollama/LLM -> genera lenguaje natural</code></pre>
+        <p>El LLM no sustituye a la base de datos, al broker ni al flujo determinista. Solo explica el resultado ya decidido.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto</h2>
+        <ol class="lab-list">
+          <li>Ejecuta <code>python explicar_decision.py --demo --sin-ia</code>.</li>
+          <li>Ejecuta <code>python explicar_decision.py --demo</code> con Ollama activo.</li>
+          <li>Compara las salidas.</li>
+          <li>Prueba una respuesta inválida y observa el fallback.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
