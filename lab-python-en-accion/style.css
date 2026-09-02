@@ -233,6 +233,13 @@ img {
   font-size: 1.12rem;
 }
 
+.lab-card__meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .lab-card--masterclass,
 .lab-hero--masterclass {
   border-color: color-mix(in srgb, var(--cf-color-accent) 46%, var(--cf-color-border));

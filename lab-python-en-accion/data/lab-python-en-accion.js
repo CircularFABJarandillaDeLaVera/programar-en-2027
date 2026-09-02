@@ -191,6 +191,15 @@
       duracion: "30-45 min",
       ver: "recursos/experiencias/23-ollama-explicacion.html",
       descargar: "recursos/descargas/ollama-explicacion.zip"
+    },
+    {
+      id: "ollama-estructurado",
+      titulo: "Una IA que responde con estructura",
+      nombre: "JSON Schema + validador semántico",
+      resultado: "estructura -> contenido -> fallback",
+      duracion: "30-45 min",
+      ver: "recursos/experiencias/24-ollama-estructurado.html",
+      descargar: "recursos/descargas/ollama-estructurado.zip"
     }
   ],
   masterclasses: [

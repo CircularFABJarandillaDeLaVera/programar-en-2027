@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiencia 24 · Una IA que responde con estructura</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+  <style>
+    .flow-diagram { display:grid; gap:0.8rem; margin:1.2rem 0; font-weight:600; }
+    .flow-step { background: rgba(24, 90, 120, 0.08); border:1px solid rgba(24, 90, 120, 0.2); border-radius:12px; padding:0.9rem 1rem; text-align:center; }
+    .flow-arrow { text-align:center; color:#0b5d7a; font-size:1.4rem; line-height:1; }
+  </style>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../index.html" aria-label="Volver al Lab">
+        <img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python en Acción</b><span>Experiencia 24</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Curso</a>
+        <a class="cf-nav__link" href="../../index.html">Lab</a>
+        <a class="cf-nav__link" href="../index.html">Recursos</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">Experiencia 24 · 30-45 min</p>
+            <h1 class="lab-experience__title">UNA IA QUE RESPONDE CON ESTRUCTURA</h1>
+          </div>
+          <div class="lab-actions">
+            <a class="lab-action lab-action--primary" href="../descargas/ollama-estructurado.zip" download>DESCARGAR PRÁCTICA</a>
+          </div>
+        </div>
+        <p>La Exp 23 demostró que el problema no era solo la forma del texto, sino la falta de validación semántica del contenido.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Punto de partida pedagógico</h2>
+        <p>En la experiencia anterior vimos esta secuencia:</p>
+        <pre class="lab-code"><code>LangGraph decide
+Ollama explica
+Python valida</code></pre>
+        <p>Durante las pruebas reales apareció una evidencia importante:</p>
+        <ul class="lab-list">
+          <li>si pedías JSON solo por prompt, `llama3.2:1b` podía devolver texto que no era JSON;</li>
+          <li>al usar la API real con `format` y JSON Schema, el modelo sí devolvió un JSON estructurado;</li>
+          <li>pero volvió a inventar afirmaciones no presentes en los datos, como microorganismos, evaporación o condiciones óptimas.</li>
+        </ul>
+        <p>Eso enseña algo clave:</p>
+        <pre class="lab-code"><code>JSON válido ≠ contenido válido</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Regla de responsabilidades</h2>
+        <pre class="lab-code"><code>LangGraph -> DECIDE
+Ollama -> EXPLICA
+JSON Schema -> ESTRUCTURA
+Python -> VALIDA</code></pre>
+        <p>El LLM no puede cambiar la decisión, establecer reglas de negocio ni inventar cifras o causas.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Arquitectura didáctica</h2>
+        <div class="flow-diagram" aria-label="Diagrama de la experiencia 24">
+          <div class="flow-step">FIWARE / DEMO</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">LangGraph</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">decisión determinista</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">mensaje factual</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Ollama llama3.2:1b + JSON Schema</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">{ "explicacion": "...", "accion": "..." }</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">validador semántico Python</div>
+          <div class="flow-step">válida / inválida</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">usar respuesta / fallback determinista</div>
+        </div>
+      </section>
+
+      <section class="lab-panel">
+        <h2>JSON Schema real</h2>
+        <pre class="lab-code"><code>{
+  "type": "object",
+  "properties": {
+    "explicacion": {"type": "string"},
+    "accion": {"type": "string"}
+  },
+  "required": ["explicacion", "accion"],
+  "additionalProperties": false
+}</code></pre>
+        <p>Se usa con la API de Ollama local:</p>
+        <pre class="lab-code"><code>POST http://localhost:11434/api/generate</code></pre>
+        <p>Con variables:</p>
+        <pre class="lab-code"><code>OLLAMA_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2:1b</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Importante: no confundamos estructura con verdad</h2>
+        <p>No se debe decir que:</p>
+        <pre class="lab-code"><code>“Ahora Ollama siempre dice la verdad porque usamos JSON Schema”</code></pre>
+        <p>La realidad es otra: el esquema corrige la estructura; Python sigue siendo la capa que valida si el contenido es legítimo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Validador semántico</h2>
+        <p>Se reutiliza el guardrail didáctico de la experiencia 23 y se mejora:</p>
+        <ul class="lab-list">
+          <li>existen `explicacion` y `accion`;</li>
+          <li>son strings;</li>
+          <li>no aparecen números distintos de los datos permitidos;</li>
+          <li>no cambia la decisión;</li>
+          <li>la acción corresponde a la decisión;</li>
+          <li>detecta términos prohibidos como microorganismos, evaporación, gases tóxicos, contaminación o toxicidad;</li>
+          <li>rechaza causas y consecuencias externas inventadas.</li>
+        </ul>
+        <p>Esta blacklist es didáctica y no es una garantía universal contra alucinaciones.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Fallback determinista</h2>
+        <pre class="lab-code"><code>EXPLICACIÓN
+El dispositivo compostera-cf-01 registra 48 °C y 60 % de humedad. La decisión del sistema es REVISAR_TEMPERATURA.
+
+ACCIÓN
+Una persona debe revisar la temperatura del dispositivo.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Modo sin IA</h2>
+        <pre class="lab-code"><code>python respuesta_estructurada.py --demo --sin-ia</code></pre>
+        <p>Este modo demuestra que el sistema funciona sin consultar a un LLM y que la capacidad operativa no depende del modelo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Salida esperada</h2>
+        <pre class="lab-code"><code>FUENTE DE DATOS
+DATOS DE DEMOSTRACIÓN
+
+CONTEXTO
+Dispositivo: compostera-cf-01
+Temperatura: 48 °C
+Humedad: 60 %
+
+DECISIÓN LANGGRAPH
+REVISAR_TEMPERATURA
+
+SALIDA ESTRUCTURADA
+JSON SCHEMA ACTIVO
+
+MODELO
+llama3.2:1b
+
+RESPUESTA DEL MODELO
+{
+  "explicacion": "...",
+  "accion": "..."
+}
+
+VALIDACIÓN SEMÁNTICA
+RESPUESTA ACEPTADA</code></pre>
+        <p>O bien:</p>
+        <pre class="lab-code"><code>VALIDACIÓN SEMÁNTICA
+RESPUESTA DESCARTADA
+Motivo: ...
+
+USANDO FALLBACK DETERMINISTA</code></pre>
+        <p>Lo importante es separar claramente estructura correcta de contenido correcto.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Mini-reto</h2>
+        <ol class="lab-list">
+          <li>Ejecuta <code>python respuesta_estructurada.py --demo --sin-ia</code>.</li>
+          <li>Ejecuta <code>python respuesta_estructurada.py --demo</code>.</li>
+          <li>Comprueba el JSON real generado.</li>
+          <li>Observa si el validador acepta o descarta el contenido.</li>
+          <li>Compara estructura válida y contenido válido.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
