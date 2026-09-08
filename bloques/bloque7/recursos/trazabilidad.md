@@ -7,6 +7,7 @@
 
 | Concepto | Fuente | Practica | Microevaluacion | Evidencia |
 | --- | --- | --- | --- | --- |
+| Del prompt al Harness (previa) | Prompt B7 y V4 | [Practica 00](practicas/practica-00-del-prompt-al-harness.md) | Dirigir con limites y verificar | Ficha A/B + `comprobar.py` + decision |
 | Metodologia antizombi | Prompt B7 y V4 | Practica 01 | Plan antes de IA | Regla personal |
 | Contexto util | Prompt B7 y V4 | Practica 01 | Contexto completo | Prompt acotado |
 | Peticion localizada | Prompt B7 y V4 | Practica 02 | Mejor peticion | Cambio pequeno |

@@ -1,0 +1,7 @@
+[
+  {"nombre": "Broca 5mm", "precio": 10.0, "stock": 20},
+  {"nombre": "Tornillo M4", "precio": 2.0, "stock": 5},
+  {"nombre": "Placa base", "precio": 50.0, "stock": 10},
+  {"nombre": "Filamento PLA", "precio": 25.0, "stock": 12},
+  {"nombre": "Sensor DHT22", "precio": 8.0, "stock": 0}
+]
