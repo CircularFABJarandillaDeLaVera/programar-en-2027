@@ -22,10 +22,6 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal block-nav" aria-label="Navegacion del Bloque 4">
         <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Inicio</a>
-        <a class="cf-nav__link" href="index.html">Aula</a>
-        <a class="cf-nav__link" href="profesor/index.html">Profesor</a>
-        <a class="cf-nav__link" href="alumno/index.html">Alumno</a>
-        <a class="cf-nav__link" href="recursos/index.html">Recursos</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
         <span data-theme-icon aria-hidden="true">&#9790;</span>
@@ -33,37 +29,39 @@
       </button>
     </header>
 
-    <section class="block-hero block-hero--compact">
-      <span class="cf-chip cf-chip--accent">Bloque 4</span>
-      <h1>Programacion orientada a objetos</h1>
-      <p>Seguimos construyendo SAMI, el Sistema de Auditoria de Precios y Generacion Automatizada de Reportes de Mercado, ahora con clases, objetos, self, __init__, encapsulacion, composicion, herencia, super() y polimorfismo.</p>
-    </section>
-
-    <section class="block-access-grid">
-      <a class="access-card cf-card cf-card--interactive" href="index.html">
-        <span class="icon-slot"><img src="../../assets/icons/aula.svg" alt="" aria-hidden="true"></span>
-        <h2>Aula</h2>
-        <p>Secuencia visual para la sesion.</p>
-      </a>
-      <a class="access-card cf-card cf-card--interactive" href="profesor/index.html">
-        <span class="icon-slot"><img src="../../assets/icons/profesor.svg" alt="" aria-hidden="true"></span>
-        <h2>Profesor</h2>
-        <p>Guion, notas, preguntas y apoyos de facilitacion.</p>
-      </a>
-      <a class="access-card cf-card cf-card--interactive" href="alumno/index.html">
-        <span class="icon-slot"><img src="../../assets/icons/alumno.svg" alt="" aria-hidden="true"></span>
-        <h2>Alumno</h2>
-        <p>Ficha, flashcards, casos, mini test y mapa mental.</p>
-      </a>
-      <a class="access-card cf-card cf-card--interactive" href="recursos/index.html">
-        <span class="icon-slot"><img src="../../assets/icons/recursos.svg" alt="" aria-hidden="true"></span>
-        <h2>Recursos</h2>
-        <p>Practicas, guia, microevaluaciones, mapa y version orientada a objetos de SAMI, el proyecto practico del curso.</p>
-      </a>
+    <section class="block-hero block-hero--compact block-hero--trama" aria-label="Ficha del Bloque 4">
+      <img class="block-pattern" src="../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+      <span class="cf-chip cf-chip--accent">Bloque 4 · Cuaderno 60–90 min + proyecto</span>
+      <h1>Objetos y diseño en Python</h1>
+      <p>Hasta ahora organizabas código con funciones. Ahora aprenderás a decidir cuándo un problema necesita objetos y cómo repartir responsabilidades entre ellos.</p>
+      <h2>Qué aprenderás</h2>
+      <ul>
+        <li>Distinguir clase, objeto e instancia.</li>
+        <li>Usar <code>self</code> y <code>__init__</code>.</li>
+        <li>Comprobar que dos objetos mantienen estados independientes.</li>
+        <li>Crear métodos que usan el estado del propio objeto.</li>
+        <li>Proteger estados inválidos con validación.</li>
+        <li>Aplicar composición: TIENE-UN.</li>
+        <li>Aplicar herencia: ES-UN.</li>
+        <li>Reconocer sobrescritura y polimorfismo.</li>
+        <li>Decidir cuándo usar una clase y cuándo no.</li>
+        <li>Localizar qué objeto debe asumir un cambio.</li>
+      </ul>
+      <h2>Resultado esperado</h2>
+      <p>Al terminar podrás justificar cómo organizar un pequeño problema con objetos y modificar una clase concreta sin romper el resto del proyecto.</p>
+      <h2>Tu recorrido en orden</h2>
+      <ol class="block-steps">
+        <li>
+          <p><a class="cf-button cf-button--primary" href="cuadernos/objetos-diseno-b4.ipynb" download>① Descargar cuaderno B4</a></p>
+          <p>Empieza aquí. Experimenta con objetos, estado, composición y herencia. Entiendo y decido.</p>
+        </li>
+        <li>
+          <p><a class="cf-button cf-button--secondary" href="proyecto-b4-sami-oop.zip" download>② Descargar proyecto SAMI-OOP</a></p>
+          <p>Después del segundo checkpoint, abre SAMI-OOP en VS Code y decide dónde debe vivir cada cambio. Aplico en un proyecto.</p>
+        </li>
+      </ol>
+      <p>Ábrelo en Jupyter o VS Code y ejecuta las celdas en orden: lee → predice → ejecuta → comprueba. El cuaderno termina donde empieza el proyecto.</p>
     </section>
   </div>
 </body>
 </html>
-
-
-
