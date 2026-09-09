@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-02 · El agente entra en un repositorio real</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 7</b><span>EXP-02 · El agente entra en un repositorio real</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-01-del-prompt-al-harness/index.html">← Anterior</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../exp-03-depura-con-agente/index.html">Siguiente: EXP-03 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-02 · 60-90 min · Solo librería estándar · Vale cualquier agente con acceso a carpeta</p>
+            <h1 class="lab-experience__title">El agente entra en un repositorio real</h1>
+          </div>
+        </div>
+        <p>Objetivo: aprender a dirigir un agente que trabaja sobre un repositorio — no a aprender una herramienta. El gesto (contexto → PLAN → autorización → cambio pequeño → diff → decisión) funciona igual con OpenCode, Codex, Copilot, Claude Code u otro.</p>
+        <pre class="lab-code"><code>abrir repo → leer AGENTS.md → explicar objetivo → QUIERO/NO QUIERO → PLAN → autorizar → 1 cambio → ejecutar → git diff → ACEPTAR/MODIFICAR/RECHAZAR</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-agente-real.zip" download>Descargar proyecto B7-Agente-Real</a></p>
+        <p><strong>Descarga el ZIP, descomprímelo en tu carpeta de trabajo y abre esa carpeta en tu agente.</strong> Esta misma copia te acompaña en EXP-02, EXP-03 y EXP-04: no la descargues tres veces. Estructura (mírala, no la memorices):</p>
+        <pre class="lab-code"><code>agente-real/
+├── app.py                # entrada del programa
+├── participantes.py      # lógica (contiene el fallo)
+├── test_participantes.py # pruebas automáticas
+├── README.md             # guía del proyecto
+└── AGENTS.md             # instrucciones permanentes para el agente</code></pre>
+        <p>Prepara tu red de seguridad (de B6 ya sabes qué hace cada comando):</p>
+        <pre class="lab-code"><code>git init
+git add app.py participantes.py test_participantes.py README.md AGENTS.md
+git commit -m "inicio: practica de agentes"</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER (el repo es la verdad)</h2>
+        <p>Antes de pedir nada al agente: abre el repo correcto, lee <code>AGENTS.md</code> entero y ejecuta el fallo con tus manos:</p>
+        <pre class="lab-code"><code>python app.py</code></pre>
+        <pre class="lab-code"><code>Nombre: Luis
+Edad: -15</code></pre>
+        <p>Si ves <code>Participante registrado: Luis (-15 años)</code>, has visto el fallo real. Anota en una frase: qué archivo lo produce y qué comportamiento observas. Todavía no pidas nada.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR — el agente analiza, tú no autorizas todavía</h2>
+        <p>Explica al agente el objetivo y pide SOLO análisis. Nada de código todavía:</p>
+        <pre class="lab-code"><code>Analiza este proyecto y localiza por qué permite registrar edades negativas.
+No modifiques ningún archivo todavía.
+
+Explícame:
+1. dónde está el problema;
+2. qué comportamiento produce;
+3. qué archivo necesitarías modificar para corregirlo.</code></pre>
+        <p>Lee el análisis con ojo crítico: ¿señala <code>participantes.py</code>? ¿menciona que falta validar el rango 0-120? Si el análisis es correcto, pasa a autorizar. Si no, pide que lo precise. <strong>Analizar no es autorizar.</strong></p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR — autoriza UN cambio pequeño</h2>
+        <p>Delimita el alcance por escrito antes de autorizar:</p>
+        <pre class="lab-code"><code>QUIERO: rechazar edades fuera de 0-120 (ambos incluidos) con el mensaje
+"Error: la edad debe estar entre 0 y 120 años.".
+NO QUIERO: nuevas dependencias, tocar app.py, tocar pruebas,
+ni ninguna otra mejora.</code></pre>
+        <p>Pide PLAN primero y dale tu OK (<code>OK - seguir</code> / <code>NO - ajustar: …</code>). Solo entonces autoriza:</p>
+        <pre class="lab-code"><code>Corrige el problema según el plan aprobado.
+Modifica únicamente los archivos estrictamente necesarios.
+Después explica exactamente qué has cambiado.</code></pre>
+        <p>Revisa lo que hace el agente y decide. El flujo de verificación es:</p>
+        <pre class="lab-code"><code>git status
+git diff
+python app.py
+python -m unittest -v</code></pre>
+        <p>Preguntas que debes responder por escrito: ¿qué archivos tocó (<code>status</code>)? ¿cambió solo lo necesario (<code>diff</code>)? ¿el caso Luis/-15 ya se rechaza? ¿las 3 pruebas terminan en <code>OK</code>? Si algo no cuadra, no aceptes: pide que lo reduzca.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados: pide al agente que añada UNA prueba automática nueva para el borde <code>edad = 120</code> (válida) sin tocar la lógica. Revisa el diff: si modifica algo más que el archivo de pruebas, rechaza y reduce el alcance.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Demuestras el gesto completo en tu terminal:</p>
+        <pre class="lab-code"><code># 1. El caso real ya se rechaza:
+Nombre: Luis / Edad: -15
+Error: la edad debe estar entre 0 y 120 años.
+# 2. Solo cambió lo autorizado:
+git status            # p. ej. solo participantes.py
+git diff              # líneas coherentes con lo pedido
+# 3. Nada se rompió:
+python -m unittest -v # 3 tests -&gt; OK
+# 4. Tu decisión escrita: ACEPTO / MODIFICO / RECHAZO + motivo en 2 líneas.</code></pre>
+        <p>Si el agente no pudo ejecutar Python en su entorno, dilo así: NO_VERIFICADO en su comprobación, y la verificación real la haces tú en tu terminal. “La IA dice que funciona” no es evidencia.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>git status
+git diff
+python app.py
+python -m unittest -v</code></pre>
+        <p>Checklist de salida: ¿AGENTS.md leído? ¿objetivo explicado al agente? ¿QUIERO/NO QUIERO escritos? ¿PLAN pedido y autorizado con OK? ¿1 cambio pequeño? ¿diff revisado línea a línea? ¿decisión justificada?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin agente)</h2>
+        <p>Sin agente: tu compañero actúa como “agente con harness”. Tú le entregas por escrito objetivo + QUIERO/NO QUIERO + criterios; él te devuelve primero un PLAN en papel y, tras tu OK escrito, un diff de 5-10 líneas. Tú ejecutas, pruebas y decides. Sin PowerShell: vale CMD con los mismos comandos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “sé abrir un repo, dar contexto, pedir plan, autorizar un cambio pequeño y revisar el diff antes de decidir”. Guarda tu cambio validado con un commit. No borres esta copia: la reutilizas en EXP-03 y EXP-04. Siguiente: EXP-03.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-01-del-prompt-al-harness/index.html">← EXP-01</a>
+        <a class="lab-action lab-action--primary" href="../exp-03-depura-con-agente/index.html">Siguiente: EXP-03 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

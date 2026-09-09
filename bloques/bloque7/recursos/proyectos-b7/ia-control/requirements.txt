@@ -1,0 +1,4 @@
+# Opcional: solo se necesita para llamar a Ollama de verdad.
+# Sin este paquete (o sin Ollama en marcha) el proyecto sigue
+# funcionando con --sin-ia y --demo-respuesta.
+requests>=2.31.0

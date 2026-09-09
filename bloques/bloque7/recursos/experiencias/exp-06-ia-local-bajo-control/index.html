@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-06 · IA local bajo control</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 7</b><span>EXP-06 · IA local bajo control</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-05-langgraph-orquesta/index.html">← Anterior</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-06 · 60-90 min · Ollama opcional, nunca requisito · Tú controlas lo no determinista</p>
+            <h1 class="lab-experience__title">IA local bajo control</h1>
+          </div>
+        </div>
+        <p>Objetivo: integrar una IA sin entregarle el control del programa. Esto no es un curso de Ollama: Ollama es un backend real opcional. Toda la competencia se completa sin él.</p>
+        <pre class="lab-code"><code>Python → llama al modelo si está disponible → valida estructura → valida contenido → acepta o rechaza → fallback determinista</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-ia-control.zip" download>Descargar proyecto B7-IA-Control</a></p>
+        <p><strong>Descarga el ZIP, descomprímelo y abre PowerShell dentro de <code>ia-control/</code>.</strong></p>
+        <pre class="lab-code"><code>ia-control/
+├── explicar.py                       # decide, llama, valida, fallback
+├── test_explicar.py                  # pruebas sin red ni Ollama
+├── ejemplo-respuesta-valida.json     # modelo simulado: se acepta
+├── ejemplo-respuesta-inventada.json  # modelo simulado: se rechaza
+├── requirements.txt                  # requests (opcional)
+└── README.md                         # guía del proyecto</code></pre>
+        <p>No instales nada para empezar. La Ruta B (sin IA) es la primera y es completa.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER — Python decide, la IA solo explica</h2>
+        <p>Lee <code>explicar.py</code> y localiza las 3 responsabilidades (están separadas a propósito):</p>
+        <pre class="lab-code"><code>decidir()            # Python: regla determinista (stock/minimo -&gt; decisión)
+validar_respuesta()  # Python: estructura + contenido de lo que diga el modelo
+explicar()           # Python: orquesta llamada, validación y fallback</code></pre>
+        <p>Ejecuta la Ruta B y observa que el sistema ya funciona sin ningún modelo:</p>
+        <pre class="lab-code"><code>python explicar.py --stock 3 --sin-ia
+python -m unittest -v</code></pre>
+        <p>Deberías ver la decisión <code>PEDIR_MATERIAL</code> con origen <code>DETERMINISTA (--sin-ia)</code> y las pruebas en verde. Explica en una frase: ¿quién decidió y quién explicó?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR — aceptada frente a rechazada (sin Ollama)</h2>
+        <p>Simula dos respuestas de modelo sin necesitar Ollama. Python las juzga:</p>
+        <pre class="lab-code"><code>python explicar.py --stock 3 --demo-respuesta ejemplo-respuesta-valida.json
+python explicar.py --stock 3 --demo-respuesta ejemplo-respuesta-inventada.json</code></pre>
+        <p>Verás <code>RESPUESTA ACEPTADA</code> en el primer caso y <code>RESPUESTA DESCARTADA</code> con <code>FALLBACK DETERMINISTA</code> en el segundo. Abre los dos JSON y localiza TÚ por qué uno pasa y el otro no (pista: cifras permitidas y términos prohibidos). El programa sigue funcionando en ambos casos.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR — endurce el control</h2>
+        <p>Elige UNA (pide PLAN al agente si quieres, el criterio lo pones tú):</p>
+        <pre class="lab-code"><code>Opción A: añade un término prohibido nuevo a TERMINOS_PROHIBIDOS
+y una prueba que demuestre que ahora se rechaza.
+
+Opción B: cambia la regla decidir() (p. ej. nuevo umbral) y actualiza
+las pruebas y los ejemplos demo para que sigan siendo coherentes.</code></pre>
+        <p>Verifica:</p>
+        <pre class="lab-code"><code>python -m unittest -v
+python explicar.py --stock 3 --sin-ia</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RUTA A — Ollama real (opcional, solo si te apetece)</h2>
+        <pre class="lab-code"><code>ollama pull llama3.2:1b
+ollama serve
+pip install -r requirements.txt
+python explicar.py --stock 3</code></pre>
+        <p>Si Ollama responde, verás su explicación validada… o descartada con fallback si inventa cifras. Si no responde, el programa informa y usa el fallback: eso es <strong>opcional/no ejecutado</strong>, nunca un fallo. Clasificación correcta: solo es NO_VERIFICADO si exigías una comprobación concreta y no pudiste hacerla; nunca llames NO_APTO a algo porque Ollama no arranca.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados: fabrica tu propio <code>mi-respuesta.json</code> que intente colar una cifra inventada pareciendo válida. Ejecútalo con <code>--demo-respuesta</code> y demuestra que Python la rechaza. Explica qué regla la cazó.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Demuestras las 4 situaciones en tu terminal:</p>
+        <pre class="lab-code"><code># 1. Salida válida → aceptada (demo-respuesta válida)
+# 2. Salida inventada/inválida → rechazada + fallback (demo inventada)
+# 3. Modelo no disponible → fallback, el programa sigue (--sin-ia)
+# 4. (Opcional) Ollama real → aceptada o descartada, siempre validada</code></pre>
+        <p>Y defiendes la idea: la IA genera lenguaje; Python decide, valida y responde. Si no puedes explicar qué validó tu programa, no está terminado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>python -m unittest -v
+python explicar.py --stock 3 --sin-ia
+python explicar.py --stock 3 --demo-respuesta ejemplo-respuesta-valida.json
+python explicar.py --stock 3 --demo-respuesta ejemplo-respuesta-inventada.json</code></pre>
+        <p>Checklist de salida: ¿decidir/validar/orquestar localizados? ¿4 situaciones demostradas? ¿1 endurecimiento hecho por ti con prueba? ¿clasificación APTO/NO_VERIFICADO aplicada a Ollama sin llamarlo NO_APTO?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin Ollama / sin requests)</h2>
+        <p>Todo lo anterior funciona sin red, sin Ollama y sin instalar nada: <code>--sin-ia</code> y <code>--demo-respuesta</code> solo usan la librería estándar. Si <code>requests</code> no está instalado, la llamada real a Ollama informa y cae al fallback; las pruebas siguen en verde. En papel: clasifica 3 respuestas impresas (válida / cifra inventada / término prohibido) contra las reglas de <code>validar_respuesta</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre del bloque: “Sé dar contexto a un agente, pedir un plan, autorizar cambios pequeños, revisar lo que hace, ejecutar, comprobar el diff y decidir si acepto, modifico o rechazo — y sé mantener una IA bajo control determinista.” Fin de EXP-06 y del Bloque 7. No hay reto final automático: espera la revisión humana.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-05-langgraph-orquesta/index.html">← EXP-05</a>
+        <a class="lab-action lab-action--primary" href="../../../inicio.html">Inicio B7</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

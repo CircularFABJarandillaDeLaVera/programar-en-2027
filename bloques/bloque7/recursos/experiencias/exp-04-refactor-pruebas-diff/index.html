@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-04 · Refactor, pruebas y diff</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 7</b><span>EXP-04 · Refactor, pruebas y diff</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-03-depura-con-agente/index.html">← Anterior</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../exp-05-langgraph-orquesta/index.html">Siguiente: EXP-05 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-04 · 60-90 min · Reutiliza tu copia de EXP-03 · Tú defines los criterios</p>
+            <h1 class="lab-experience__title">Refactor, pruebas y diff</h1>
+          </div>
+        </div>
+        <p>Objetivo: hacer un cambio algo mayor sin aceptar automáticamente lo que produzca el agente. Detectarás al menos una situación en la que propone demasiado — y la reducirás.</p>
+        <pre class="lab-code"><code>QUIERO/NO QUIERO → criterios → PLAN → autorización → cambio → tests → git diff → revisión crítica → ACEPTAR/MODIFICAR/RECHAZAR</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Reutiliza tu misma copia de <code>agente-real/</code> (edad + nombre ya validados, con sus commits). Parte de un árbol limpio:</p>
+        <pre class="lab-code"><code>git status
+python -m unittest</code></pre>
+        <p>El cambio de hoy es mayor: extraer la validación a funciones pequeñas y dejar pruebas que cubran edad y nombre. Define TÚ los criterios de aceptación antes de abrir el agente (escríbelos, no los improvises).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER — define el alcance y los criterios</h2>
+        <p>Lee <code>participantes.py</code> entero y escribe tu ficha (este es el trabajo que no se delega):</p>
+        <pre class="lab-code"><code>QUIERO: extraer validar_edad y validar_nombre como funciones pequeñas;
+mantener los mismos mensajes de error; cubrir con pruebas
+edad válida / edad -15 / edad 130 / borde 0 / borde 120 /
+nombre válido / nombre vacío / nombre con números.
+NO QUIERO: cambiar mensajes, tocar app.py, añadir dependencias,
+eliminar pruebas existentes, ni "mejoras" no pedidas.</code></pre>
+        <p>Criterios: todas las pruebas existentes siguen en verde · las nuevas pruebas pasan · el comportamiento manual no cambia · el diff solo toca <code>participantes.py</code> y <code>test_participantes.py</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR — pide PLAN y autoriza</h2>
+        <p>Pide PLAN antes de código, con tu ficha como contexto. Autoriza con tu OK escrito. Solo entonces deja que implemente. Hasta aquí, el gesto ya lo conoces: lo nuevo viene en la revisión.</p>
+        <pre class="lab-code"><code>python -m unittest -v</code></pre>
+        <p>Si todo está en verde, no celebres todavía: el verde no demuestra que el cambio sea el pedido. Falta la revisión crítica.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR — revisión crítica del diff (el corazón de EXP-04)</h2>
+        <p>Ejecuta y lee línea a línea:</p>
+        <pre class="lab-code"><code>git status
+git diff</code></pre>
+        <p>Busca activamente estas 3 desviaciones típicas de un agente (hay al menos una casi siempre):</p>
+        <pre class="lab-code"><code>1. Cambió demasiado: tocó app.py, README o AGENTS.md sin permiso.
+2. Añadió algo innecesario: dependencias, helpers no pedidos,
+   validaciones "extra" o cambios de mensajes.
+3. Propuso una solución que debe reducirse: reescribió el archivo
+   en vez de extraer 2 funciones pequeñas.</code></pre>
+        <p>Por cada hallazgo decide: se queda / se retira / se reduce. Si hay que reducir, ordénalo así: <code>Retira X y deja solo lo pedido en Y. No toques nada más.</code> Vuelve a ejecutar pruebas tras cada reducción. Documenta al menos UN hallazgo real en tu ficha: qué propuso, por qué sobraba y qué decidiste.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados: pide al agente que añada el borde <code>edad = 0</code> como prueba nueva. Antes de aceptar, responde por escrito: ¿el diff es mínimo? ¿los mensajes siguen intactos? ¿entiendes cada línea que se integra?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Entregas tres evidencias:</p>
+        <pre class="lab-code"><code># 1. Comportamiento idéntico, código más claro:
+python -m unittest -v   # todas en verde, incluidas las nuevas
+# 2. Diff revisado y reducido por ti:
+git diff                # solo participantes.py + test_participantes.py
+# 3. Tu ficha: 1 hallazgo real (qué sobraba + tu decisión) y
+#    tu veredicto: ACEPTO / MODIFICO / RECHAZO + motivo.</code></pre>
+        <p>Frase que debes poder defender: “No acepto código porque lo escribió una IA; acepto un cambio porque cumple mis criterios y lo he comprobado.”</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>python -m unittest -v
+git status
+git diff</code></pre>
+        <p>Checklist de salida: ¿criterios escritos por ti antes del agente? ¿PLAN autorizado? ¿tests en verde? ¿diff leído línea a línea? ¿≥1 hallazgo documentado con decisión? ¿cada línea integrada es explicable por ti?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin agente)</h2>
+        <p>Sin agente: trabaja con un diff impreso que incluya 2 desviaciones (un cambio en <code>app.py</code> no pedido + un helper innecesario). Márcalas, escribe la orden de reducción y aplica tú el refactor a mano. Verifica con pruebas y diff final mínimo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “sé pedir un cambio mayor, revisar críticamente el diff y reducir lo que sobra”. Guarda tu cambio validado con un commit. Cierras aquí el proyecto agente-real. Siguiente: EXP-05 (Python orquesta con LangGraph, sin LLM).</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-03-depura-con-agente/index.html">← EXP-03</a>
+        <a class="lab-action lab-action--primary" href="../exp-05-langgraph-orquesta/index.html">Siguiente: EXP-05 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

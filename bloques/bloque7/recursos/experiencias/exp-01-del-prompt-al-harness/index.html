@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-01 · Del prompt al Harness</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 7</b><span>EXP-01 · Del prompt al Harness</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../exp-02-agente-en-repo-real/index.html">Siguiente: EXP-02 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-01 · 60-90 min · Solo librería estándar · Sin red obligatoria</p>
+            <h1 class="lab-experience__title">Del prompt al Harness</h1>
+          </div>
+        </div>
+        <p>Objetivo: comprobar que dirigir a un agente no es escribir un prompt mejor. Es rodearlo de límites, criterios y verificación — y decidir tú.</p>
+        <pre class="lab-code"><code>prompt vago → propuesta → QUIERO/NO QUIERO → criterios → PLAN → OK humano → cambio pequeño → comprobar.py → ACEPTO/MODIFICO/RECHAZO</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-harness.zip" download>Descargar proyecto B7-Harness</a></p>
+        <p><strong>Descarga el ZIP, descomprímelo en tu carpeta de trabajo y abre PowerShell dentro de <code>harness-bolsillo/</code>.</strong> Solo hay 4 archivos:</p>
+        <pre class="lab-code"><code>harness-bolsillo/
+├── inventario_taller.py   # taller mínimo: carga, añade, total, guarda
+├── datos_ejemplo.json     # 5 piezas de ejemplo
+├── comprobar.py           # solo informa APTO/NO_APTO/NO_VERIFICADO. No corrige.
+└── chuleta-harness.md     # tu chuleta de bolsillo (1 página)</code></pre>
+        <p>La mejora (igual en Fase A y Fase B): descuento 10% si <code>stock &gt; 10</code>, validar <code>precio &gt;= 0</code> y <code>stock &gt;= 0</code>, sin romper el JSON.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Lee <code>inventario_taller.py</code> entero (~50 líneas) y ejecuta:</p>
+        <pre class="lab-code"><code>python inventario_taller.py
+python comprobar.py</code></pre>
+        <p>Verás el programa funcionar pero <code>comprobar.py</code> en <strong>NO_APTO en 2 criterios</strong>. Esos 2 pendientes son tu tarea. No los resuelvas a mano todavía.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR — Fase A: SIN HARNESS (10-20 min)</h2>
+        <p>Pide esto a tu agente (OpenCode, Codex, Copilot, Claude Code u otro), tal cual, sin nada más (pega el .py si tu herramienta lo necesita):</p>
+        <pre class="lab-code"><code>Mejora este programa para que gestione descuentos y sea mas robusto.</code></pre>
+        <p>Acepta la primera propuesta razonable como copia (<code>intento_A.py</code>), sin borrar el original. Ejecuta <code>comprobar.py</code> y anota en 5 líneas:</p>
+        <pre class="lab-code"><code>1. ¿Qué supuestos hizo sin preguntar?
+2. ¿Qué cambió sin pedírselo?
+3. ¿Cómo sé si terminó bien?
+4. ¿Qué tendría que preguntarle para entenderlo?
+5. ¿Lo aceptaría para un proyecto real? ¿Por qué?</code></pre>
+        <p>No corrijas código aquí. El objetivo es observar, no acertar.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR — Fase B: CON MINI-HARNESS (25-35 min)</h2>
+        <p><strong>B1. Alcance.</strong> Anota: toco <code>valor_total</code> + <code>anadir_pieza</code>. NO toco <code>cargar/guardar</code> ni <code>comprobar.py</code>.</p>
+        <pre class="lab-code"><code>QUIERO: descuento 10% si stock &gt; 10; validar precio &gt;= 0 y stock &gt;= 0.
+NO QUIERO: nuevas dependencias, reescribir el archivo, cambiar el JSON, menús ni funciones extra.</code></pre>
+        <p><strong>B2. Criterios</strong> (los mismos de <code>comprobar.py</code>): total ejemplo = <code>960.0</code> · stock 10 = <code>500.0</code> (borde, sin descuento) · precio negativo → <code>ValueError</code> · stock negativo → <code>ValueError</code> · guardar/cargar idéntico.</p>
+        <pre class="lab-code"><code>T1 descuento en valor_total -&gt; pendiente
+T2 validación en anadir_pieza -&gt; pendiente
+T3 verificar con comprobar.py -&gt; pendiente</code></pre>
+        <p><strong>B3. Pide PLAN, no código:</strong></p>
+        <pre class="lab-code"><code>Archivo: inventario_taller.py. Funciones: valor_total, anadir_pieza.
+Objetivo: &lt;pega tu QUIERO&gt;. Restricciones: &lt;pega tu NO QUIERO&gt;.
+Propón un plan por pasos para T1. No escribas código todavía.</code></pre>
+        <p><strong>B4. OK humano (obligatorio).</strong> Lee el plan y escribe <code>OK - seguir con T1</code> o <code>NO - ajustar: …</code>. Sin tu OK no hay implementación. Marca <code>T1 en curso</code>.</p>
+        <pre class="lab-code"><code>Implementa solo T1 según el plan aprobado. No toques nada más.</code></pre>
+        <pre class="lab-code"><code>python comprobar.py</code></pre>
+        <p>Marca <code>T1 verificado</code> o <code>T1 bloqueado</code>. Solo entonces pasa a T2 y repite. Al final decide: <strong>ACEPTO / MODIFICO / RECHAZO</strong> (no defiendas lo que no entiendes).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Aplica la <code>chuleta-harness.md</code> a una micro-tarea real (ej. redondear a 2 decimales en una función). Trae por escrito: qué pediste, qué NO pediste, qué comprobación ejecutaste y tu decisión.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Terminas viendo esto en tu terminal:</p>
+        <pre class="lab-code"><code>[APTO] carga_ejemplo: se cargan 5 piezas
+[APTO] descuento_stock_alto: total 960.0 con descuento aplicado
+[APTO] borde_stock_10: stock 10 sin descuento: 500.0
+[APTO] valida_entradas: precio/stock negativos lanzan ValueError
+[APTO] guardar_cargar: el JSON guardado carga idéntico
+[NO_VERIFICADO] rendimiento_volumen: no probado con miles de piezas; pendiente, no es fallo
+
+Resumen: 5 APTO, 0 NO_APTO, resto NO_VERIFICADO.</code></pre>
+        <p>Y entiendes: <strong>APTO</strong> = criterio cumplido · <strong>NO_APTO</strong> = criterio rojo, decides tú · <strong>NO_VERIFICADO</strong> = no probado, no es fallo. “La IA dice que funciona” no es evidencia.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>python inventario_taller.py
+python comprobar.py</code></pre>
+        <p>Checklist de salida: ¿una diferencia A/B escrita? ¿1 regla repetida convertida en procedimiento? ¿ficha A + estado T1-T3 + OK escrito? ¿decisión ACEPTO/MODIFICO/RECHAZO?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin agente)</h2>
+        <p>Sin agente: trabaja lectura crítica — el docente (o tu compañero) te da un diff impreso “sin harness” con 3 desviaciones típicas (<code>&gt;= 10</code> en vez de <code>&gt; 10</code> · valida con <code>assert</code> · añade dependencias/menú · reescribe <code>guardar</code> · toca <code>comprobar.py</code>) y un plan “con harness”. Clasifica cada línea contra los 5 criterios y ejecuta <code>comprobar.py</code> en local. Sin escribir en disco: modo simulación <code>esperado vs real</code> por consola.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “aprendí a no perder el control cuando programo con un agente”. Siguiente: EXP-02 (el agente entra en un repositorio real y tú autorizas). Esta experiencia no toca ningún otro proyecto. No entra: Jira, ramas Git, MCP, LangGraph, coverage, PRs.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../../../inicio.html">← Inicio B7</a>
+        <a class="lab-action lab-action--primary" href="../exp-02-agente-en-repo-real/index.html">Siguiente: EXP-02 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

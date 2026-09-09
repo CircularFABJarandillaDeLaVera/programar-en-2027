@@ -1,0 +1,4 @@
+{
+  "explicacion": "La pieza tiene 3 unidades pero por contaminación hacen falta 99. La decision es PEDIR_MATERIAL.",
+  "accion": "Una persona debe pedir material porque el stock esta bajo."
+}

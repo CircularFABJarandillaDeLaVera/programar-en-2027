@@ -1,0 +1,4 @@
+{
+  "explicacion": "La pieza Broca 5mm tiene 3 unidades (minimo 5). La decision del sistema es PEDIR_MATERIAL.",
+  "accion": "Una persona debe pedir material porque el stock esta bajo."
+}

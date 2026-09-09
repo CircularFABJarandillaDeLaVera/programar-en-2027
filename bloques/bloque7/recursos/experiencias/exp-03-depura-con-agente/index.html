@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-03 · Depura con un agente</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 7</b><span>EXP-03 · Depura con un agente</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-02-agente-en-repo-real/index.html">← Anterior</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../exp-04-refactor-pruebas-diff/index.html">Siguiente: EXP-04 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-03 · 60-90 min · Reutiliza tu copia de EXP-02 · El agente investiga, tú decides</p>
+            <h1 class="lab-experience__title">Depura con un agente</h1>
+          </div>
+        </div>
+        <p>Objetivo: el agente NUNCA recibe un “arréglalo” a ciegas. Tú reproduces, lees la traza, formulas tu hipótesis y el agente solo ayuda a investigar.</p>
+        <pre class="lab-code"><code>error reproducible → leo traceback → escribo hipótesis → contexto al agente → propone investigación → autorizo → inspección → corrección pequeña → ejecución → diff → decisión</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Reutiliza tu misma copia de <code>agente-real/</code> de EXP-02 (con la edad ya validada y su commit). No descargues nada nuevo. Comprueba que partes de un estado limpio:</p>
+        <pre class="lab-code"><code>git status
+python -m unittest</code></pre>
+        <p>Debes ver el árbol limpio y las pruebas en <code>OK</code>. Si no, ordena tu copia antes de seguir: la depuración exige un punto de partida conocido.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER — error reproducible + traceback real</h2>
+        <p>Hay un segundo fallo real y pequeño: el programa acepta nombres vacíos o con números. Repródelo con tus manos:</p>
+        <pre class="lab-code"><code>python app.py</code></pre>
+        <pre class="lab-code"><code>Nombre: 123
+Edad: 25</code></pre>
+        <p>Si ves <code>Participante registrado: 123 (25 años)</code>, el fallo es real. Ahora conviértelo en evidencia automática: añade TÚ esta prueba (a mano, sin agente) y ejecútala:</p>
+        <pre class="lab-code"><code>def test_nombre_con_numeros_debe_rechazarse(self):
+    resultado = registrar_participante("123", 25)
+    self.assertEqual(resultado, "Error: el nombre solo puede contener letras.")</code></pre>
+        <pre class="lab-code"><code>python -m unittest -v</code></pre>
+        <p>Lee el traceback de abajo arriba hasta la línea <code>AssertionError</code>: te dice qué esperaba la prueba y qué devolvió el código. Esa lectura es tuya, no del agente.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR — tu hipótesis primero, el agente después</h2>
+        <p>Escribe tu hipótesis en 2 líneas ANTES de abrir el agente (ejemplo de formato, no la respuesta):</p>
+        <pre class="lab-code"><code>Hipótesis: creo que falla en _______ porque _______.
+Lo comprobaría mirando _______.</code></pre>
+        <p>Ahora da contexto al agente y pídele que proponga UNA investigación, no código:</p>
+        <pre class="lab-code"><code>Contexto: participantes.py valida la edad (0-120) pero registrar_participante
+acepta "123" como nombre. Mi hipótesis: _______.
+Propón cómo investigarías la causa sin modificar archivos todavía.
+No escribas código.</code></pre>
+        <p>Lee su propuesta de investigación. Autoriza con <code>OK - investigar</code> o corrige con <code>NO - ajustar: …</code>. El agente ayuda a investigar; la hipótesis y la decisión son tuyas.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR — corrección pequeña + verificación</h2>
+        <p>Delimita y autoriza UN cambio mínimo:</p>
+        <pre class="lab-code"><code>QUIERO: rechazar nombre vacío o con caracteres que no sean letras con el mensaje
+"Error: el nombre solo puede contener letras.".
+NO QUIERO: tocar la validación de edad, añadir dependencias,
+ni reescribir app.py.</code></pre>
+        <p>Tras el cambio del agente, verifica tú en este orden:</p>
+        <pre class="lab-code"><code>python app.py
+python -m unittest -v
+git status
+git diff</code></pre>
+        <p>Casos que debes probar a mano: nombre válido (<code>Ana</code>, 35 → registrado) · nombre vacío (→ error) · nombre con números (<code>123</code> → error). Si el agente tocó la validación de edad o añadió algo innecesario, reduce el alcance y pide que lo retire.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados: formula una segunda hipótesis para el caso borde “nombre con espacios” (<code>"  Ana  "</code>). Decide tú si es fallo o comportamiento aceptable, escribe el criterio y compruébalo. Trae tu decisión por escrito.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Demuestras la secuencia completa:</p>
+        <pre class="lab-code"><code># 1. Fallo reproducido por ti (antes): Participante registrado: 123 (25 años)
+# 2. Tu hipótesis escrita (2 líneas) + traceback leído por ti
+# 3. Investigación del agente autorizada por ti (OK escrito)
+# 4. Después: Error: el nombre solo puede contener letras.
+# 5. Pruebas en verde, diff mínimo revisado, decisión ACEPTO/MODIFICO/RECHAZO.</code></pre>
+        <p>Conducta evaluable: explicas qué hizo el agente y qué comprobaste personalmente. Si no puedes explicar el cambio, no se integra.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>python -m unittest -v
+git status
+git diff</code></pre>
+        <p>Checklist de salida: ¿error reproducido a mano? ¿traceback leído de abajo arriba? ¿hipótesis escrita antes del agente? ¿investigación autorizada? ¿corrección pequeña? ¿3 casos manuales probados? ¿diff mínimo? ¿decisión justificada?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin agente)</h2>
+        <p>Sin agente: intercambia tu hipótesis escrita con un compañero. Cada uno revisa la hipótesis del otro contra el traceback, propone una inspección en 3 pasos y la ejecuta en local. La corrección la escribes tú a mano y la verificas con los 3 casos manuales + pruebas.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “el agente investiga con mi contexto; la hipótesis y la decisión son mías”. Guarda tu cambio validado con un commit. Siguiente: EXP-04 (un cambio mayor sin aceptar nada automáticamente).</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-02-agente-en-repo-real/index.html">← EXP-02</a>
+        <a class="lab-action lab-action--primary" href="../exp-04-refactor-pruebas-diff/index.html">Siguiente: EXP-04 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
