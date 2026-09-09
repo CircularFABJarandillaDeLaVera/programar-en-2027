@@ -108,6 +108,28 @@ img {
   display: grid;
   gap: var(--cf-space-2);
   box-shadow: var(--cf-shadow-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.block-hero > :not(.block-pattern) {
+  position: relative;
+}
+
+.block-pattern {
+  height: 100%;
+  inset: 0;
+  mix-blend-mode: multiply;
+  object-fit: cover;
+  opacity: 0.16;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+[data-theme="dark"] .block-pattern {
+  mix-blend-mode: screen;
+  opacity: 0.10;
 }
 
 .block-hero--compact {
