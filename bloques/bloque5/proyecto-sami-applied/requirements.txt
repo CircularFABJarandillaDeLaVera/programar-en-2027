@@ -1,0 +1,7 @@
+# Dependencias obligatorias del flujo principal SAMI-Applied:
+# datos_hardware.csv -> Pandas -> analisis -> ReportLab -> PDF.
+# Instalar con: python -m pip install -r requirements.txt
+# Playwright NO es obligatorio en B5 (demo online opcional, fuera del flujo).
+pandas
+numpy
+reportlab

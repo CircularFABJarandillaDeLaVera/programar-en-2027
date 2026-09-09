@@ -1,0 +1,7 @@
+id,componente,categoria,precio,stock,activo
+CPU-01,Ryzen 5,procesador,189.00,7,si
+RAM-02,Kit RAM 32GB,memoria,64.00,0,si
+SSD-03,SSD NVMe 1TB,almacenamiento,78.50,12,si
+GPU-04,GPU entrada,grafica,249.00,2,si
+PSU-05,Fuente 650W,energia,72.90,5,si
+CASE-06,Caja microATX,chasis,49.90,3,no

@@ -1,0 +1,8 @@
+Personaje,Casa,Estado,Popularidad,Batallas,Nota
+Jon Nieve,Stark,Vivo,0.92,3,Practica Pandas
+Arya Stark,Stark,Vivo,0.88,2,Practica Pandas
+Sansa Stark,Stark,Vivo,0.81,1,Practica Pandas
+Bran Stark,Stark,Vivo,,0,Practica Pandas
+Cersei Lannister,Lannister,Fallecido,0.79,1,Practica Pandas
+Tyrion Lannister,Lannister,Vivo,0.90,1,Practica Pandas
+Daenerys Targaryen,Targaryen,Fallecido,0.96,4,Practica Pandas

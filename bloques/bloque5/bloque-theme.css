@@ -128,6 +128,33 @@ img {
   letter-spacing: 0;
 }
 
+.block-hero > * {
+  min-width: 0;
+}
+
+.block-steps {
+  display: grid;
+  gap: var(--cf-space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* B5: el boton primario mantiene texto blanco tambien en dark.
+   Blanco sobre el verde brillante de dark no alcanza contraste AA,
+   por eso aqui el fondo queda en verde oscuro (#32855A, ~4.5:1). */
+[data-theme="dark"] .cf-button--primary {
+  background: var(--cf-brand-green-dark, #32855A);
+  border-color: var(--cf-brand-green-dark, #32855A);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .cf-button--primary:hover {
+  background: #286B49;
+  border-color: #286B49;
+  color: #FFFFFF;
+}
+
 .block-hero p,
 .access-card p,
 .resource-card p {
