@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-01 · Abre y oriéntate en un proyecto Python</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    a.lab-action--primary { color: var(--cf-color-accent-text); }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-01 · Oriéntate en un proyecto</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../exp-02-entorno/index.html">Siguiente: EXP-02 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-01 · 30-45 min · Sin red · Sin instalar nada</p>
+            <h1 class="lab-experience__title">Abre y oriéntate en un proyecto Python</h1>
+          </div>
+        </div>
+        <pre class="lab-code"><code>abrir raíz → terminal → quién soy (pwd + python) → arrancar → romper la carpeta → localizar función → entrada → función → salida</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b6-trabajo-developer.zip" download>Descargar proyecto B6</a></p>
+        <p><strong>Descarga el proyecto B6, descomprímelo en tu carpeta de trabajo y utiliza esa misma copia durante las seis experiencias.</strong></p>
+        <p>La base está en <code>../proyecto-seguro/</code> (copia de SAMI-Local; el canónico no se toca). <strong>Cópiala una sola vez a tu carpeta de trabajo</strong>, por ejemplo <code>mi-proyecto-b6/</code>: esa copia personal te acompaña durante EXP-01→06. Estructura (mírala, no la memorices):</p>
+        <pre class="lab-code"><code>proyecto-seguro/
+├── main.py · config.json · requirements.txt · .gitignore
+├── data/datos_hardware.csv
+└── src/ (analizador, persistencia, generador_pdf, scraper)</code></pre>
+        <p>Abre <strong>VS Code en tu copia personal</strong> (<code>mi-proyecto-b6/</code>: la carpeta, no un archivo suelto) y abre su <strong>terminal integrada</strong>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Lee <code>main.py</code> entero (20 líneas). Fíjate en dos cosas: las rutas están escritas como <code>"config.json"</code> y <code>"data/..."</code> (relativas), y los imports dicen <code>from src....</code>. Eso significa que <strong>la carpeta desde donde ejecutas importa</strong>.</p>
+        <pre class="lab-code"><code>pwd
+dir</code></pre>
+        <p>Debes ver <code>main.py</code> en el listado. Si no lo ves, no estás en la raíz. Todo lo que sigue se ejecuta desde aquí.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p>Pregunta quién eres antes de arrancar:</p>
+        <pre class="lab-code"><code>python --version
+python -c "import sys; print(sys.executable)"</code></pre>
+        <p>Anota las dos respuestas: versión + ruta del intérprete. Ese es <em>tu</em> Python en esta sesión.</p>
+        <p>Ahora arranca el proyecto desde la raíz:</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>Hay dos salidas honestas y las dos enseñan:</p>
+        <pre class="lab-code"><code># Si el equipo tiene las dependencias:
+  tabla + informe en consola.
+
+# Si falta pandas (normal en EXP-01, se resuelve en EXP-02):
+  ModuleNotFoundError: No module named 'pandas'</code></pre>
+        <p>Si ves el error, no es un fracaso: acabas de descubrir que <strong>saber qué intérprete usas incluye saber qué tiene instalado</strong>. Sigue: la sonda de abajo funciona sin instalar nada.</p>
+        <pre class="lab-code"><code>python -c "from src.persistencia import cargar_configuracion; print(cargar_configuracion('config.json'))"</code></pre>
+        <p>Deberías ver <code>{'iva': 0.21, 'stock_minimo': 3}</code>. Acabas de ejecutar código del proyecto sin instalar nada.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (la carpeta, no el código)</h2>
+        <p>Sin tocar ningún archivo, cambia de carpeta y repite la sonda:</p>
+        <pre class="lab-code"><code>cd src
+python -c "from src.persistencia import cargar_configuracion; print(cargar_configuracion('config.json'))"
+cd ..</code></pre>
+        <p>Verás <code>ModuleNotFoundError: No module named 'src'</code>. Vuelve a la raíz con <code>cd ..</code> y la sonda vuelve a funcionar. Todavía no has modificado código y ya sabes la lección central: <strong>el mismo comando funciona o falla según la carpeta de trabajo</strong>, porque las rutas y los imports son relativos a ella.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados. Abre esta otra carpeta existente del curso: el script de automatización del Lab (solo librería estándar, sin red, sin agentes, sin dependencias):</p>
+        <pre class="lab-code"><code>../../../../../lab-python-en-accion/recursos/scripts/</code></pre>
+        <p>Entrega en 6 líneas: raíz del proyecto · archivo de entrada (<code>organizar_carpeta_segura.py</code>) · intérprete (<code>sys.executable</code>) · salida de ejecutarlo · una función localizada (<code>organizar_carpeta_segura</code>) · su entrada → salida en una frase.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>La competencia de EXP-01 no es “el proyecto arranca”. Es: <strong>sé ejecutar el proyecto desde la raíz correcta y distinguir de dónde viene un fallo</strong>:</p>
+        <pre class="lab-code"><code># Error desde src/ → problema de CARPETA DE TRABAJO (rutas e imports relativos):
+ModuleNotFoundError: No module named 'src'
+# Error "No module named 'pandas'" desde la raíz → DEPENDENCIA PENDIENTE (no es tu culpa):
+ModuleNotFoundError: No module named 'pandas'</code></pre>
+        <p>Si ves lo segundo, no instales nada todavía: EXP-02 resolverá entorno + <code>requirements.txt</code>. Lo demuestras en tu terminal:</p>
+        <pre class="lab-code"><code># 1. Estoy en la raíz (ves main.py):
+dir
+# 2. Sé qué Python ejecuto:
+python -c "import sys; print(sys.executable)"
+# 3. Ejecuto desde la raíz y clasifico el fallo (carpeta / intérprete / dependencia):
+python main.py
+# 4. Localizo código sin haberlo roto (nada modificado):
+#    src/analizador.py → filtrar_stock_bajo(tabla, stock_minimo) → tabla filtrada</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <p>Checklist de salida (todo con evidencia de terminal, nada de memoria):</p>
+        <pre class="lab-code"><code>[ ] dir muestra main.py (estoy en la raíz)
+[ ] python --version + sys.executable anotados
+[ ] python main.py ejecutado (arranca o ModuleNotFoundError explicado)
+[ ] sonda de config en verde desde la raíz y en rojo desde src/
+[ ] una función localizada: archivo + nombre + entrada → salida en una frase
+[ ] cero archivos modificados en tu copia personal/</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / si falla el equipo)</h2>
+        <p>Todo funciona sin red y sin instalar. Si el equipo falla, trabaja sobre esta captura con un compañero: ordena los 4 comandos (<code>pwd</code>, <code>python --version</code>, <code>python main.py</code>, sonda de config), predice cada salida y explica por qué la sonda falla desde <code>src/</code>. Sin PowerShell: vale CMD con los mismos comandos (<code>cd</code> en vez de <code>pwd</code>, <code>dir</code> igual).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “sé en qué carpeta estoy, qué Python uso y por dónde entra y sale la información”. Siguiente: EXP-02.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../../../inicio.html">← Inicio B6</a>
+        <a class="lab-action lab-action--primary" href="../exp-02-entorno/index.html">Siguiente: EXP-02 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

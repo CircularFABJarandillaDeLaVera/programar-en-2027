@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-02 · Tu entorno, tus dependencias</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-02 · Tu entorno, tus dependencias</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-01-orientarse/index.html">← Anterior: EXP-01</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../exp-03-flujo/index.html">Siguiente: EXP-03 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-02 · 30-45 min · Necesita red para instalar (si no, Plan B)</p>
+            <h1 class="lab-experience__title">Tu entorno, tus dependencias</h1>
+          </div>
+        </div>
+        <p>Vienés de EXP-01: desde la raíz correcta, <code>python main.py</code> dice <code>ModuleNotFoundError: No module named 'pandas'</code>. Hoy preparas entorno propio + dependencias declaradas.</p>
+        <pre class="lab-code"><code>raíz → ANTES (python global) → venv → activar → DESPUÉS (python del entorno) → requirements → instalar → main.py → .gitignore</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Nada del proyecto canónico se toca.</p>
+        <pre class="lab-code"><code>proyecto-seguro/
+├── main.py · config.json · data/ · src/
+├── requirements.txt   # numpy, pandas, pytest-playwright, reportlab
+└── .gitignore         # venv/ y logs/ ya están ignorados (ábelo y compruébalo)</code></pre>
+        <p>Abre VS Code en <code>proyecto-seguro/</code> y su terminal integrada. Confirma la raíz:</p>
+        <pre class="lab-code"><code>dir</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Antes de crear nada, retrata tu punto de partida (lo compararás al final):</p>
+        <pre class="lab-code"><code>python -c "import sys; print(sys.executable)"
+python -m pip --version</code></pre>
+        <p>La ruta apunta al Python global del equipo. Ahora lee <code>requirements.txt</code> (4 líneas, sin teoría):</p>
+        <pre class="lab-code"><code>numpy
+pandas
+pytest-playwright
+reportlab</code></pre>
+        <p>Respuesta que debes poder dar: “estas son las dependencias declaradas del proyecto”. Declaradas no significa instaladas: eso lo compruebas ahora.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p><strong>1. Crea el entorno</strong> (una carpeta aislada con su propio Python):</p>
+        <pre class="lab-code"><code>python -m venv venv</code></pre>
+        <p><strong>2. Actívalo.</strong> En CMD:</p>
+        <pre class="lab-code"><code>venv\Scripts\activate</code></pre>
+        <p>En PowerShell:</p>
+        <pre class="lab-code"><code>.\venv\Scripts\Activate.ps1</code></pre>
+        <p>Si PowerShell bloquea el script (<code>no se puede cargar…</code>), no cambies nada global del sistema: usa CMD como alternativa inmediata (esta misma terminal puede abrirse como CMD) o ejecuta directamente el Python del entorno (paso 3), que no necesita activación.</p>
+        <p><strong>3. Demuestra el cambio.</strong> Repite el retrato con el entorno activo (o, sin activar, con <code>venv\Scripts\python.exe</code> en lugar de <code>python</code>):</p>
+        <pre class="lab-code"><code>python -c "import sys; print(sys.executable)"
+python -m pip --version</code></pre>
+        <p>La ruta ahora termina en <code>venv\Scripts\python.exe</code> y pip apunta al mismo entorno. Ese ANTES → DESPUÉS es el corazón de la experiencia.</p>
+        <p><strong>4. Instala lo declarado</strong> (siempre con <code>python -m pip</code>, nunca <code>pip</code> a secas):</p>
+        <pre class="lab-code"><code>python -m pip install -r requirements.txt</code></pre>
+        <p><strong>5. Comprueba al menos una dependencia:</strong></p>
+        <pre class="lab-code"><code>python -c "import pandas; print(pandas.__version__)"</code></pre>
+        <p><strong>6. Vuelve a arrancar:</strong></p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>Clasifica con honestidad: dependencia Python instalada → comprobada. El scraper no se ejecuta aquí y el navegador de Playwright <strong>está fuera de alcance de EXP-02 / no requerido aquí</strong> (no es NO_VERIFICADO: NO_VERIFICADO se reserva para criterios de esta experiencia que no se hayan podido comprobar). No instales navegadores en esta experiencia.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (el entorno, no el código)</h2>
+        <p>Abre <code>.gitignore</code> y comprueba que <code>venv/</code> está en la lista. Explica en una frase, en voz alta o por escrito:</p>
+        <pre class="lab-code"><code>El entorno se reconstruye desde requirements.txt; no se copia dentro del repositorio.</code></pre>
+        <p>Prueba mental: si borrases <code>venv/</code> entero, ¿perderías el proyecto? (Respuesta: no; se recrea con los pasos 1-4.) No lo borres en clase salvo que te sobre tiempo: la pregunta basta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Repite con menos instrucciones sobre el proyecto de la EXP08 del Lab: descarga <code>fastapi-participantes.zip</code> desde el Lab Python en Acción, descomprímelo en tu zona de trabajo (fuera del curso) y haz, sin mirar los pasos de arriba:</p>
+        <pre class="lab-code"><code>localizar requirements.txt → crear/activar entorno → comprobar intérprete → instalar → ejecutar</code></pre>
+        <p>Sus dependencias vienen fijadas (<code>fastapi</code>, <code>uvicorn[standard]</code>, <code>httpx</code>). Entrega: <code>sys.executable</code> ANTES y DESPUÉS + salida de ejecutar el proyecto + qué harías sin red (ver Plan B).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Al terminar enseñas, en tu terminal:</p>
+        <pre class="lab-code"><code># ANTES (Python global):
+C:\...\WindowsApps\...\python.exe
+# DESPUÉS (Python del entorno):
+...\proyecto-seguro\venv\Scripts\python.exe
+# pip del mismo entorno:
+python -m pip --version
+# dependencia comprobada (o NO_VERIFICADA honesta sin red):
+python -c "import pandas; print(pandas.__version__)"
+# requirements identificado + venv/ en .gitignore</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>[ ] dir desde la raíz (ves main.py + requirements.txt)
+[ ] sys.executable ANTES anotado (global)
+[ ] venv/ creado (dir lo muestra, .gitignore lo ignora)
+[ ] sys.executable DESPUÉS apunta a venv\Scripts\python.exe
+[ ] python -m pip --version del mismo entorno
+[ ] requirements.txt leído y explicado en una frase
+[ ] install ejecutado o clasificado NO_VERIFICADO (sin fingir)
+[ ] pandas importado o NO_VERIFICADO + main.py ejecutado y clasificado
+[ ] cero comandos Git, cero código modificado</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red)</h2>
+        <p>Sin red no se finge una instalación correcta. Haz todo hasta el paso 3 (venv creado, activado y demostrado con ANTES → DESPUÉS), inspecciona <code>requirements.txt</code> y muestra el comando que ejecutarías (<code>python -m pip install -r requirements.txt</code>). Clasifica instalación e import como <strong>NO_VERIFICADAS</strong> y continúa con el entorno que el docente haya provisionado, si existe. La falta de red nunca es un “APTO”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “mi proyecto tiene su propio Python y sus dependencias declaradas; el entorno se reconstruye, no se versiona”. Siguiente: EXP-03.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-01-orientarse/index.html">← Anterior: EXP-01</a>
+        <a class="lab-action lab-action--primary" href="../exp-03-flujo/index.html">Siguiente: EXP-03 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-04 · Rompe, entiende y depura</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-04 · Rompe y depura</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-03-flujo/index.html">← Anterior: EXP-03</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../exp-05-modificar/index.html">Siguiente: EXP-05 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-04 · 30-45 min · Sin red · Sobre copia segura (se rompe a propósito)</p>
+            <h1 class="lab-experience__title">Rompe, entiende y depura</h1>
+          </div>
+        </div>
+        <p>Un fallo real: primero lo provocas, luego lo lees sin tocar nada, formulas hipótesis, miras el valor culpable y solo entonces corriges. El lema: no arreglar por intuición.</p>
+        <pre class="lab-code"><code>sano → roto (provocado) → leer → hipótesis → inspeccionar → corregir → verificar</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Hoy SÍ la vas a romper y arreglar — por eso existe la copia. Entorno EXP-02 activo, raíz confirmada. Guarda el estado sano de referencia (tabla + <code>alertas: 1</code>):</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Abre <code>config.json</code> (4 líneas). Cambia solo el iva:</p>
+        <pre class="lab-code"><code>{ "iva": "alto", "stock_minimo": 3 }</code></pre>
+        <p>Guarda y ejecuta <code>python main.py</code>. Verás un traceback real. Fíjate en una cosa antes de seguir: <code>main.py</code> captura <code>FileNotFoundError</code>, <code>ValueError</code> y <code>KeyError</code>… pero lo que acaba de saltar es otro tipo. Por eso ves el traceback en vez del mensaje “Error diagnosticado”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p><strong>1. Lee de abajo hacia arriba, sin corregir nada todavía.</strong> Tu traceback termina así:</p>
+        <pre class="lab-code"><code>TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
+        <p>Última línea → tipo + mensaje. Sube una: <code>src/analizador.py, línea 10, en calcular_precio_final</code> → archivo + línea donde revienta. Sube otra: <code>main.py, línea 10, en ejecutar</code> → quién la llamó y con qué (<code>config["iva"]</code>).</p>
+        <p><strong>2. Rellena la ficha antes de editar:</strong></p>
+        <pre class="lab-code"><code>TIPO: TypeError
+ARCHIVO: src/analizador.py
+LÍNEA: 10 (llamada desde main.py línea 10)
+VALOR SOSPECHOSO: config["iva"] vale "alto" (texto, no número)
+HIPÓTESIS: 1 + "alto" no se puede sumar; el fallo está en el dato, no en el código</code></pre>
+        <p>Síntoma (el programa se cae) ≠ causa (el dato de config es texto). Si tu hipótesis dice “hay que reescribir la función”, es demasiado grande: vuelve a mirar el valor.</p>
+        <p><strong>3. Inspecciona el valor culpable.</strong> En VS Code, pon un breakpoint en <code>src/analizador.py</code> línea 10, ejecuta con el debugger e inspecciona <code>iva</code>: verás <code>'alto'</code>. Solo breakpoint → ejecutar → mirar valor → detener. Sin red y sin debugger, vale un <code>print</code> dirigido temporal:</p>
+        <pre class="lab-code"><code>python -c "import json; c=json.load(open('config.json')); print('iva =',repr(c['iva'])); print('tipo:',type(c['iva']).__name__)"</code></pre>
+        <p>Deberías ver <code>iva = 'alto'</code> y <code>tipo: str</code>. Hipótesis confirmada.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (solo la causa, que es un dato)</h2>
+        <p>La corrección mínima no toca código: devuelve <code>config.json</code> a su estado sano (<code>"iva": 0.21</code>). Sin refactor, sin reescritura, sin dependencias. Ejecuta:</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>Tabla + informe de nuevo en verde. Y ahora los casos que demuestran control:</p>
+        <pre class="lab-code"><code># CASO VÁLIDO (iva 0.21): funciona, precio_final calculado.
+# CASO INVÁLIDO (iva "alto"): TypeError entendido y localizado, no un misterio.
+# CASO AUSENTE (renombra config.json y ejecuta): no hay traceback;
+#   main.py lo captura y escribe "Error diagnosticado..." + logs/auditoria_errores.log.
+#   Devuelve el nombre al archivo al terminar.</code></pre>
+        <p>Tres comportamientos distintos, tres respuestas distintas, las tres entendidas. Eso es depurar.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>El mismo gesto en 5 líneas, sin proyecto (caso de la P05 de B6). Sin pasos detallados: ejecuta, localiza, hipótesis, depura, corrige, verifica.</p>
+        <pre class="lab-code"><code>precio = float("abc")
+print(precio)</code></pre>
+        <p>Casos naturales: <code>float("3.5")</code> → <code>3.5</code> (válido); <code>float("abc")</code> → <code>ValueError: could not convert string to float: 'abc'</code> (inválido, con tipo + causa a la vista). Entrega: tipo, línea, valor sospechoso, hipótesis y corrección con mensaje comprensible.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <pre class="lab-code"><code>ANTES:   tabla + informe (sano, de referencia)
+ROTO:    TypeError reproducible (iva "alto")
+DIAGNÓSTICO: TypeError + analizador.py:10 + causa: dato texto + hipótesis escrita ANTES de editar
+DEPURACIÓN: iva observado ('alto', str) en debugger o sonda
+DESPUÉS: programa en verde + inválido entendido + ausente controlado ("Error diagnosticado...")</code></pre>
+        <p>Y en menos de 60 segundos: “no arreglé el error por intuición: lo reproduje, localicé, inspeccioné y comprobé”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>[ ] main.py sano ejecutado antes de romper (referencia)
+[ ] fallo provocado solo en config.json de la copia
+[ ] ficha completa ANTES de editar (tipo/archivo/línea/valor/hipótesis)
+[ ] traceback leído de abajo arriba (tipo → archivo:línea → llamadas)
+[ ] valor 'alto'/str inspeccionado (breakpoint o sonda)
+[ ] corrección mínima (dato, no código) y reejecución en verde
+[ ] 3 casos: válido / inválido / ausente (con su log restaurado)
+[ ] canónico intacto, copia restaurada a estado sano</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin debugger / sin entorno)</h2>
+        <p>Sin debugger de VS Code: sonda <code>print</code> dirigida (la de arriba). Sin entorno que ejecute: el docente entrega este traceback impreso + los 20 líneas de <code>main.py</code>; localiza tipo, archivo, línea y causa en lectura y marca la ejecución como <strong>NO_VERIFICADA</strong>. Sin red: todo lo de hoy funciona offline.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “no arreglé el error por intuición: lo reproduje, localicé, inspeccioné y comprobé”. Siguiente: EXP-05.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-03-flujo/index.html">← Anterior: EXP-03</a>
+        <a class="lab-action lab-action--primary" href="../exp-05-modificar/index.html">Siguiente: EXP-05 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

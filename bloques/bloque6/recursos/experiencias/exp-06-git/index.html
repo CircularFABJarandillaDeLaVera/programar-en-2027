@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-06 · Revisa tu cambio y déjalo registrado con Git</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-06 · Git: cambio real</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-05-modificar/index.html">← Anterior: EXP-05</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-06 · 30-45 min · Sin red · Solo repo local (sin push)</p>
+            <h1 class="lab-experience__title">Revisa tu cambio y déjalo registrado con Git</h1>
+          </div>
+        </div>
+        <p>Mirar exactamente qué cambiaste <em>antes</em> de guardarlo y dejar un punto identificable. Git aquí es herramienta de trabajo, no teoría.</p>
+        <pre class="lab-code"><code>status → diff → comprobar → add → diff --cached → commit → status + log</code></pre>
+        <p>Regla de hoy, una sola: <strong>antes de guardar un cambio, sé explicar qué estoy guardando</strong>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Empieza en estado sano original (<code>stock &lt; stock_minimo</code>), sin <code>venv/</code> y sin <code>.git/</code>. Confirma la raíz y que <code>.gitignore</code> incluye <code>venv/</code>:</p>
+        <pre class="lab-code"><code>dir</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Crea el repositorio local y mira su primer estado:</p>
+        <pre class="lab-code"><code>git init
+git status</code></pre>
+        <p>Verás todos los archivos como nuevos (sin seguimiento). Guarda el punto inicial:</p>
+        <pre class="lab-code"><code>git add .
+git status
+git commit -m "chore: estado inicial"</code></pre>
+        <p>Si Git rechaza el commit por falta de identidad, NO toques configuración global. Solo para este repo:</p>
+        <pre class="lab-code"><code>git config user.name "Alumno Python 2027"
+git config user.email "alumno@python2027.local"</code></pre>
+        <p>Repite el commit. Es configuración LOCAL del repositorio, no de tu máquina. Comprueba:</p>
+        <pre class="lab-code"><code>git status</code></pre>
+        <p>Debe decir árbol limpio. Ese es tu ANTES.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p>Repite el cambio funcional de EXP-05 en <code>src/analizador.py</code> (<code>&lt;</code> → <code>&lt;=</code>). Y ANTES de hacer <code>add</code>, revisa:</p>
+        <pre class="lab-code"><code>git status
+git diff</code></pre>
+        <p>Localiza en el diff: el archivo, la línea eliminada (<code>-</code>), la línea añadida (<code>+</code>) y el cambio exacto (un carácter). Di en voz alta: “solo quiero este cambio”.</p>
+        <p><strong>Verifica antes del commit</strong> con lo aprendido en EXP-05 (entorno activo): caso normal (<code>umbral 3 → [RAM-02]</code>), caso borde (<code>umbral 7 → [CPU-01, RAM-02]</code>) y <code>python main.py</code> idéntico. Sin entorno disponible la ejecución queda <strong>NO_VERIFICADA</strong>: puedes aprender Git, pero no afirmes que el cambio está validado.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (el registro, no el código)</h2>
+        <p>Prepara únicamente el archivo correcto y revisa exactamente lo que entrará:</p>
+        <pre class="lab-code"><code>git add src/analizador.py
+git status
+git diff --cached</code></pre>
+        <p>La diferencia que importa: <code>git diff</code> muestra cambios todavía no preparados; <code>git diff --cached</code> muestra exactamente lo que entrará en el commit. Si aparece algo inesperado (un log, un <code>venv/</code> colado), NO sigas: revisa primero. Por eso <code>venv/</code> está ignorado.</p>
+        <pre class="lab-code"><code>git commit -m "fix: incluir stock igual al umbral"</code></pre>
+        <p>Comprueba el DESPUÉS:</p>
+        <pre class="lab-code"><code>git status
+git log --oneline -2</code></pre>
+        <p>Commit visible + árbol limpio. Pregunta obligatoria: “¿has hecho push?” Respuesta: NO — no hay remoto ni lo necesitas. Tu commit vive en el repositorio local.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos detallados. Copia <code>bloques/bloque3/recursos/proyecto/</code> (SAMI-Lite, stdlib) a tu zona de trabajo <strong>fuera del curso</strong> y copia también el <code>.gitignore</code> de la base (<code>../../proyecto-seguro/.gitignore</code>, ya excluye <code>__pycache__/</code> y <code>venv/</code>: comprueba con <code>git status</code> que no aparecen). Haz el ciclo completo sobre tu copia: repo + commit inicial, cambia <code>evaluar_alerta_precio</code> de <code>&gt;</code> a <code>&gt;=</code>, revisa el diff, comprueba con <code>python -c</code> (borde + 2 casos), añade solo el archivo, revisa <code>--cached</code>, commit y demuestra árbol limpio. Nunca hagas <code>git add .</code> a ciegas.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <pre class="lab-code"><code>ANTES:      git status limpio (commit "chore: estado inicial")
+CAMBIO:     git diff con 1 línea (- <, + <=)
+VERIFICACIÓN: casos normal/borde + main.py (o NO_VERIFICADA honesta)
+PREPARADO:  git diff --cached solo con el cambio autorizado
+DESPUÉS:    commit "fix: incluir stock igual al umbral" en git log + status limpio
+PUSH:       no hecho; el commit está en local</code></pre>
+        <p>Y en menos de 60 segundos: “revisé el diff antes de guardar el cambio, comprobé su comportamiento y dejé un commit local identificable”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>[ ] .gitignore revisado (venv/ ignorado)
+[ ] commit inicial + status limpio (ANTES)
+[ ] git diff localizado (archivo, - , + , cambio exacto)
+[ ] verificación funcional antes del commit (o NO_VERIFICADA)
+[ ] git add solo de src/analizador.py
+[ ] git diff --cached == solo el cambio autorizado
+[ ] commit fix visible en git log --oneline -2 + status limpio
+[ ] explico commit (local) vs push (remoto, no hecho aquí)</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin git / identidad / archivos raros)</h2>
+        <p>Sin <code>git</code> instalado: trabaja sobre un diff real preparado (el de esta página vale), identifica añadido/eliminado y decide si lo aceptarías; los comandos quedan <strong>NO_VERIFICADOS</strong>. Commit rechazado por identidad: configuración LOCAL mostrada arriba, nunca global obligatoria. Archivos inesperados en <code>status</code>: no hagas <code>add .</code> a ciegas; revisa y explica por qué <code>venv/</code> debe estar ignorado. Sin red: todo lo de hoy funciona offline.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR (cierre de B6)</h2>
+        <p>Ya puedes: orientarte → preparar entorno → comprender → depurar → modificar → verificar → registrar. En B7 entra una nueva variable: un agente podrá trabajar contigo dentro del repositorio. No entra todavía: ramas, merge, GitHub, agentes.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-05-modificar/index.html">← Anterior: EXP-05</a>
+        <a class="lab-action lab-action--primary" href="../../../inicio.html">Volver al inicio B6 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

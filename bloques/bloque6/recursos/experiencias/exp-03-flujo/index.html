@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-03 · Sigue el flujo de un proyecto Python</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-03 · Sigue el flujo</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-02-entorno/index.html">← Anterior: EXP-02</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../exp-04-depurar/index.html">Siguiente: EXP-04 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-03 · 30-45 min · Sin red · Sin modificar código</p>
+            <h1 class="lab-experience__title">Sigue el flujo de un proyecto Python</h1>
+          </div>
+        </div>
+        <p>Aprende a LEERLO antes de tocarlo: entra por <code>main.py</code>, sigue las llamadas entre archivos y sal con un mapa en la cabeza. Hoy no se modifica código.</p>
+        <pre class="lab-code"><code>main.py → ¿a quién llama? → ¿de dónde vienen los datos? → ¿qué los transforma? → ¿dónde sale el resultado?</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Ábrela en VS Code, terminal integrada, raíz confirmada con <code>dir</code>. Si tu entorno EXP-02 sigue activo, úsalo; si no, el Plan B cubre la lectura estática.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>Abre <code>main.py</code> y no lo leas línea por línea todavía. Responde solo esto:</p>
+        <pre class="lab-code"><code>1. ¿Qué importa? (3 líneas from ... import ...)
+2. ¿Cómo se llama la función principal?
+3. ¿Qué módulos de src/ usa?</code></pre>
+        <p>Escribe tu primera predicción en una frase: “creo que main.py hace ___”. La corregirás al final; ese cambio es el MODIFICAR de hoy.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR</h2>
+        <p><strong>1. Sigue el flujo real con nombres reales.</strong> Abre cada archivo solo para confirmar una flecha:</p>
+        <pre class="lab-code"><code>data/datos_hardware.csv
+  → analizador.cargar_datos(ruta_csv) ............ ENTRAN los datos
+  → persistencia.cargar_configuracion("config.json") ... ENTRA la config (iva, stock_minimo)
+  → analizador.calcular_precio_final(tabla, iva) ... TRANSFORMA (columna precio_final)
+  → analizador.filtrar_stock_bajo(tabla, stock_minimo)  TRANSFORMA (alertas)
+  → generador_pdf.describir_informe(tabla, alertas)  ... SALE el informe
+  → print(tabla) + print(informe) ................... SALE por consola
+  → (si falla) persistencia.registrar_error(...) .... SALE a logs/</code></pre>
+        <p>Fíjate también en lo que NO se usa: <code>scraper.comprobar_pagina</code> existe pero <code>main.py</code> no la llama. Saber qué no participa también es leer.</p>
+        <p><strong>2. Usa la búsqueda como developer.</strong> En VS Code, busca <code>filtrar_stock_bajo</code> en todo el proyecto (<code>Ctrl+Shift+F</code>): aparece definida en <code>src/analizador.py</code> y usada en <code>main.py</code>. Haz clic en el uso y salta a su definición (<code>F12</code>). Repite con <code>cargar_configuracion</code>.</p>
+        <p><strong>3. Ejecuta y compara.</strong> Con el entorno EXP-02 activo:</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>Compara con tu predicción: ¿la tabla trae una columna <code>precio_final</code> que no estaba en el CSV? ¿el informe dice <code>alertas: 1</code>? Si algo no cuadra, tu mapa —no el código— es lo que se corrige.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (tu modelo mental, no el código)</h2>
+        <p>Reescribe tu frase inicial. El formato válido es:</p>
+        <pre class="lab-code"><code>Pensaba que main.py hacía ___; ahora veo que coordina ___.</code></pre>
+        <p>Responde además, sin tocar archivos: ¿dónde entra el programa? ¿dónde se cargan los datos? ¿dónde se transforman? ¿dónde sale el resultado? ¿para cambiar el stock mínimo, qué archivo mirarías primero? ¿y para cambiar el PDF?</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos. Abre el proyecto SAMI-Lite del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/</code>: <code>main.py</code> + <code>analizador.py</code> + <code>persistencia.py</code>, solo librería estándar) y entrega: archivo de entrada · 2 funciones localizadas · el viaje de un dato (precio_base → precio_final → estado) · dónde sale el resultado · qué archivo tocarías para cambiar el cálculo del precio. Si lo ejecutas, escribe <code>salir</code> a la primera pregunta: verás <code>Fin de SAMI-Lite</code> y solo se creará <code>config.json</code> con valores por defecto (así funciona <code>cargar_configuracion</code>).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <p>Un mapa del flujo en 6 líneas como máximo, con nombres reales:</p>
+        <pre class="lab-code"><code>main.py → ejecutar()
+  → persistencia.cargar_configuracion (config.json)
+  → analizador.cargar_datos (datos_hardware.csv)
+  → analizador.calcular_precio_final + filtrar_stock_bajo
+  → generador_pdf.describir_informe
+  → consola (+ logs/ si falla)</code></pre>
+        <p>Y de viva voz, en menos de 60 segundos: “este proyecto recibe ___, pasa por ___, transforma ___ y produce ___”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>[ ] main.py ejecutado y comparado con mi predicción
+[ ] cargar_datos / calcular_precio_final / filtrar_stock_bajo localizados (archivo + uso)
+[ ] cargar_configuracion localizada (dónde se lee config.json)
+[ ] describir_informe localizada (dónde nace la salida)
+[ ] sé qué NO se usa (scraper.comprobar_pagina)
+[ ] mapa de 6 líneas + explicación de 60 segundos
+[ ] respondo qué archivo tocar para stock mínimo y para el PDF
+[ ] cero archivos modificados</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin red / sin entorno / sin VS Code)</h2>
+        <p>Todo se puede seguir estáticamente: los 5 archivos caben en 70 líneas. Si el proyecto no ejecuta (sin venv o sin pandas), marca la ejecución como <strong>NO_VERIFICADA</strong> y sigue leyendo: el mapa se puede construir igual, pero no finjas el resultado. Sin VS Code: busca por texto en terminal (<code>Select-String -Pattern "def filtrar_stock_bajo" src/*.py</code>) en vez de <code>F12</code>.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “pensaba que main.py hacía todo; ahora veo que coordina módulos”. Siguiente: EXP-04.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-02-entorno/index.html">← Anterior: EXP-02</a>
+        <a class="lab-action lab-action--primary" href="../exp-04-depurar/index.html">Siguiente: EXP-04 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

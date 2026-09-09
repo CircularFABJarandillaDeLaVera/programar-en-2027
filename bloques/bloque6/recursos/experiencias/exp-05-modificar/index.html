@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EXP-05 · Cambia una función sin romper el proyecto</title>
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+  </style>
+  <script src="../../../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
+        <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <span><b>Python 2027 · Bloque 6</b><span>EXP-05 · Modifica sin romper</span></span>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
+        <a class="cf-nav__link" href="../exp-04-depurar/index.html">← Anterior: EXP-04</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../exp-06-git/index.html">Siguiente: EXP-06 →</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="lab-experience">
+      <section class="lab-hero">
+        <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+        <div class="lab-experience__header">
+          <div>
+            <p class="lab-kicker">EXP-05 · 30-45 min · Sin red (con entorno EXP-02) · Un cambio, una función</p>
+            <h1 class="lab-experience__title">Cambia una función sin romper el proyecto</h1>
+          </div>
+        </div>
+        <p>Tu primer cambio funcional real: una sola función, un borde observable y la prueba de que el resto sigue igual. Sin agentes: esta vez decides tú.</p>
+        <pre class="lab-code"><code>sano → definir cambio → casos ANTES → editar 1 función → casos DESPUÉS → main.py intacto</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PREPARAR</h2>
+        <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Entorno EXP-02 activo, raíz confirmada. Ejecuta el sano de referencia (tabla + <code>alertas: 1</code>):</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>Localiza la función con búsqueda (<code>Ctrl+Shift+F</code>): <code>filtrar_stock_bajo</code> vive en <code>src/analizador.py</code> y se usa en <code>main.py</code> línea 11. Lee solo esa función (2 líneas).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>VER</h2>
+        <p>La función decide con <code>stock &lt; stock_minimo</code>: el umbral es exclusivo. Mira los datos reales (<code>data/datos_hardware.csv</code>: stocks 7, 0 y 12; <code>config.json</code>: mínimo 3) y escribe ANTES de tocar código:</p>
+        <pre class="lab-code"><code>QUIERO: umbral inclusivo; stock igual al mínimo también alerta (<=).
+NO QUIERO: tocar otra función, cambiar config/datos, nuevas dependencias.
+ARCHIVO: src/analizador.py
+FUNCIÓN: filtrar_stock_bajo(tabla, stock_minimo)
+CASO ACTUAL: stock 7 con umbral 7 → NO alerta (Ryzen 5 se escapa).
+CASO NUEVO ESPERADO: stock 7 con umbral 7 → SÍ alerta; resto idéntico.</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PROBAR (casos ANTES, con datos reales)</h2>
+        <p>Registra la salida actual con estas sondas (no adivines, ejecuta):</p>
+        <pre class="lab-code"><code>python -c "from src.analizador import cargar_datos, filtrar_stock_bajo; t=cargar_datos('data/datos_hardware.csv'); print('umbral 3:',sorted(filtrar_stock_bajo(t,3)['id'])); print('umbral 7:',sorted(filtrar_stock_bajo(t,7)['id']))"</code></pre>
+        <p>Deberías ver <code>umbral 3: ['RAM-02']</code> y <code>umbral 7: ['RAM-02']</code>: tres casos en dos líneas (normal RAM-02/3, borde Ryzen/7, no afectado SSD-12). Guárdalos: son tu ANTES.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MODIFICAR (una línea, una función)</h2>
+        <p>Cambia solo el operador en <code>src/analizador.py</code>:</p>
+        <pre class="lab-code"><code># ANTES:
+return tabla[tabla["stock"] < stock_minimo]
+# DESPUÉS:
+return tabla[tabla["stock"] <= stock_minimo]</code></pre>
+        <p>Repite las mismas sondas y compara:</p>
+        <pre class="lab-code"><code># DESPUÉS esperado:
+umbral 3: ['RAM-02']            (igual: lo anterior sigue funcionando)
+umbral 7: ['CPU-01', 'RAM-02']  (borde: Ryzen 5 ahora alerta)</code></pre>
+        <p>Cierra ejecutando el proyecto completo:</p>
+        <pre class="lab-code"><code>python main.py</code></pre>
+        <p>La tabla es idéntica y el informe sigue en <code>alertas: 1</code> (la config usa mínimo 3): el proyecto funciona y tu cambio solo se nota donde lo definiste.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>MINI-RETO (autonomía)</h2>
+        <p>Sin pasos. En el proyecto SAMI-Lite del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/analizador.py</code>, stdlib, sin red): cambia <code>evaluar_alerta_precio</code> de <code>&gt;</code> a <code>&gt;=</code>. Define cambio + límite, comprueba ANTES (<code>precio == umbral</code> → hoy <code>PRECIO_NORMAL</code>), modifica, comprueba DESPUÉS (borde + un caso por encima + uno por debajo). Solo esa función.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>RESULTADO OBSERVABLE</h2>
+        <pre class="lab-code"><code>ANTES:   umbral 3 → [RAM-02] · umbral 7 → [RAM-02]
+CAMBIO:  1 línea en filtrar_stock_bajo (< → <=)
+DESPUÉS: umbral 3 → [RAM-02] · umbral 7 → [CPU-01, RAM-02]
+PROYECTO: python main.py idéntico (alertas: 1)</code></pre>
+        <p>Y en voz alta: “cambié ___ en esta función para conseguir ___. No toqué ___. Lo comprobé con estos casos”.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>COMPROBAR</h2>
+        <pre class="lab-code"><code>[ ] main.py sano ejecutado antes (referencia)
+[ ] QUIERO/NO QUIERO/archivo/función/casos escritos ANTES de editar
+[ ] casos ANTES ejecutados y registrados
+[ ] solo 1 función tocada (1 línea), sin config/datos/dependencias
+[ ] casos DESPUÉS: normal igual + borde cambiado + no afectado igual
+[ ] python main.py completo e idéntico
+[ ] explico qué cambió, qué no cambió y con qué casos</code></pre>
+      </section>
+
+      <section class="lab-panel">
+        <h2>PLAN B (sin entorno / si rompo algo)</h2>
+        <p>Sin entorno que ejecute: usa las entradas/salidas de esta página como tabla, predice cada caso y marca la ejecución como <strong>NO_VERIFICADA</strong>. Si rompes algo: restaura <code>src/analizador.py</code> desde la base (<code>../../proyecto-seguro/</code>) y repite con un cambio más pequeño. La copia segura existe para eso.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>CONTINUAR</h2>
+        <p>Frase de cierre: “ya sé hacer un cambio funcional pequeño y demostrar que no rompí el resto”. Siguiente: EXP-06.</p>
+      </section>
+
+      <nav class="lab-pager" aria-label="Anterior y siguiente">
+        <a class="lab-action lab-action--secondary" href="../exp-04-depurar/index.html">← Anterior: EXP-04</a>
+        <a class="lab-action lab-action--primary" href="../exp-06-git/index.html">Siguiente: EXP-06 →</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
