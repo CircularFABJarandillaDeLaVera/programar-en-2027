@@ -1,10 +1,10 @@
 # 02 · GUÍA DOCENTE BLOQUE A BLOQUE (B1 A B7)
 
-Esta guía proporciona al formador de la **Red Circular FAB** el guion pedagógico, la preparación del aula, las demostraciones en vivo, las analogías explicativas y los errores controlados para impartir con total seguridad los 7 bloques del curso.
+Esta guía conserva explicaciones, analogías, demostraciones y Plan B para los siete bloques. Empieza por el [mapa de recursos actuales](04-PRACTICAS-Y-APOYOS.md) y adapta estos apoyos a la actividad real. Los ejemplos ilustrativos —incluidos los de sensores— no describen necesariamente las clases de SAMI. Las duraciones reducidas son propuestas docentes, no la duración oficial del bloque.
 
 ---
 
-## Patrón Docente Condensado de Profesor Plus
+## Patrón de apoyo docente
 
 Cuando el Copiloto prepare una sesión, debe responder con esta estructura mínima:
 
@@ -164,10 +164,10 @@ Realizar la transición mental de scripts lineales a programas modulares, reutil
 | :--- | :--- | :--- | :--- |
 | **`def` y `return` vs `print`** | `def calcular(n):`<br>`    return n * 2` | **La tostadora vs El escaparate:** `return` te entrega la tostada en la mano para que puedas untarle mantequilla (usarla en otra operación). `print` solo te enseña la foto de la tostada por la ventana: no puedes comértela. | Una función sin `return` devuelve implícitamente `None`. Si intentas sumar el resultado de un `print()`, el programa explotará con `TypeError`. |
 | **Parámetros por Defecto** | `def saludar(nombre, rol="Usuario"):` | **Menú con guarnición por defecto:** Si pides la hamburguesa sin decir nada, te ponen patatas (`"Usuario"`). Si pides ensalada, sustituyes la opción por defecto. | Los parámetros con valores por defecto deben situarse siempre **después** de los parámetros obligatorios. |
-| **Ámbito (Scope) Local vs Global** | Variable dentro de `def` vs variable fuera | **Lo que pasa en Las Vegas se queda en Las Vegas:** Las variables creadas dentro de una función solo existen mientras la función trabaja; al terminar, desaparecen de la memoria. | Evitar el abuso de `global`. Lo correcto es pasar datos por parámetro y recibirlos por `return`. |
+| **Ámbito (Scope) Local vs Global** | Variable dentro de `def` vs variable fuera | **Lo que pasa en Las Vegas se queda en Las Vegas:** Los nombres locales pertenecen al ámbito de la función; los objetos pueden seguir existiendo si conservan otras referencias. | Evitar el abuso de `global`. Lo correcto es pasar datos por parámetro y recibirlos por `return`. |
 | **Docstrings** | `"""Resumen del objetivo.\n\nArgs:\n    ..."""` | **Manual de instrucciones integrado:** Documentación que el propio editor y el comando `help()` pueden leer en caliente. | Se colocan justo debajo de la cabecera `def` usando triple comilla. |
 | **Gestión de Excepciones** | `try:`<br>`    ...`<br>`except ValueError as e:` | **Red de seguridad del trapecista:** Si el código tropieza con un fallo previsible (un usuario escribe letras en vez de números), el programa cae en la red y sigue funcionando en vez de estrellarse. | Capturar siempre excepciones específicas (`ValueError`, `FileNotFoundError`, `ZeroDivisionError`), nunca un `except:` genérico a ciegas. |
-| **Persistencia con `with open`** | `with open("d.json", "w") as f:`<br>`    json.dump(datos, f)` | **Abrir la puerta y cerrarla con pestillo automático:** El gestor `with` garantiza que el archivo se cierra y guarda en disco incluso si ocurre un error en medio. | Modos: `"r"` (leer), `"w"` (sobrescribir), `"a"` (añadir al final). Usar `json.dump()` / `json.load()` para estructuras complejas. |
+| **Persistencia con `with open`** | `with open("d.json", "w") as f:`<br>`    json.dump(datos, f)` | **Abrir la puerta y cerrarla con pestillo automático:** El gestor `with` garantiza que el archivo se cierra al salir del bloque, incluso si hay un error; no garantiza que una escritura interrumpida se complete. | Modos: `"r"` (leer), `"w"` (sobrescribir), `"a"` (añadir al final). Usar `json.dump()` / `json.load()` para estructuras complejas. |
 | **Modularidad e `import`** | `import modulo_auxiliar` | **Caja de herramientas:** En lugar de amontonar todos los destornilladores en una sola mesa, guardas herramientas específicas en cajones separados y sacas solo la que necesitas. | Permite separar la lógica de negocio de la interfaz de usuario. |
 
 ---
@@ -254,13 +254,15 @@ Evolucionar de la programación procedural/modular a la Programación Orientada 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
 
 ## 5.1. Objetivo Operativo
-Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales siguiendo el itinerario principal **NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied**: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv` como práctica didáctica separada), automatización y scraping web moderno con **Playwright**, y generación real de informes estructurados en PDF con **ReportLab Platypus**. Culmina con el hito **SAMI-Applied**.
+Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales a partir de los materiales de **NumPy, Pandas, Playwright y ReportLab**, distinguiendo las demostraciones del proyecto **SAMI-Applied**, que parte de un CSV local: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv` como práctica didáctica separada), automatización y scraping web moderno con **Playwright**, y generación real de informes estructurados en PDF con **ReportLab Platypus**. Culmina con el hito **SAMI-Applied**.
 
 ---
 
+La ruta actual empieza con el cuaderno de datos y continúa en el proyecto CSV de SAMI-Applied. Playwright se conserva en los materiales de autor como demo aparte, no como requisito de ese PDF.
+
 ## 5.2. Mesa del Instructor y Preparación
 * **Archivos en carpeta:** `got_1.csv` listo para cargar en Colab / VS Code.
-* **Instalación previa de paquetes:** Celdas iniciales con `!pip install numpy pandas playwright reportlab` y `!playwright install`.
+* **Instalación:** seguir el README y `requirements.txt` de la actividad elegida. SAMI-Applied práctico usa Pandas, NumPy y ReportLab; instalar navegador solo si se va a realizar la demo separada de Playwright.
 * **Factura PDF:** Tener localizada la práctica de ReportLab Platypus y comprobar que el logo de ejemplo existe antes de ejecutar el script.
 * **Mensaje clave:** separar datos y presentación. Primero se calculan base imponible, IVA y total; después se maqueta el PDF con `story` y `build()`.
 * **Límite B5:** BeautifulSoup solo puede tratarse como concepto acotado de parsing de HTML estático si aparece en el material actual. No debe competir con el recorrido práctico NumPy -> Pandas -> Playwright -> ReportLab.
@@ -271,7 +273,7 @@ Integrar librerías del ecosistema estándar de la ciencia de datos y automatiza
 
 | Concepto | Sintaxis Clave | Analogía para el Alumno | Lo que el Formador debe destacar |
 | :--- | :--- | :--- | :--- |
-| **NumPy y Vectorización** | `arr = np.array([10, 20])`<br>`arr * 1.21` | **Operación militar en escuadrón:** En lugar de ordenar a cada soldado uno a uno con un bucle `for`, das una orden general y todo el array se multiplica simultáneamente a toda velocidad en C. | Los arrays `ndarray` exigen homogeneidad de tipo y son órdenes de magnitud más rápidos que las listas estándar. |
+| **NumPy y Vectorización** | `arr = np.array([10, 20])`<br>`arr * 1.21` | **Operación militar en escuadrón:** En lugar de ordenar a cada soldado uno a uno con un bucle `for`, das una orden general y todo el array se multiplica simultáneamente a toda velocidad en C. | Los arrays `ndarray` exigen homogeneidad de tipo y pueden acelerar operaciones numéricas vectorizadas; la mejora depende de la operación y del volumen de datos. |
 | **Pandas DataFrame** | `df = pd.read_csv("f.csv")`<br>`df.head()` | **Una hoja de cálculo de Excel con superpoderes:** Filas indexadas y columnas con nombre sobre las que puedes filtrar, ordenar y resumir en microsegundos. | `Series` es una columna individual; `DataFrame` es la tabla bidimensional completa. |
 | **Filtros Booleanos en Pandas** | `filtro = df["Score"] > 80`<br>`df_top = df[filtro]` | **Plantilla perforada de examen:** Creas una máscara de `True` y `False`; al colocarla sobre la tabla, solo pasan los datos que cumplen la condición. | Usar operadores bitwise `&` (AND) y `\|` (OR) con paréntesis obligatorios: `(df["A"] > 5) & (df["B"] == "X")`. |
 | **Playwright (Scraping Web)** | `page.goto(url)`<br>`page.locator("css").inner_text()` | **Un robot con teclado y ratón navegando por ti:** Abre un navegador real, hace clic, espera a que cargue el contenido dinámico y extrae la información visible. | Maneja páginas modernas con JavaScript dinámico sin romperse por retardos de red. |
@@ -309,10 +311,10 @@ Resultado esperado en B5: datos procesados, cálculos claros, tabla revisable, f
 
 ---
 
-# BLOQUE 6: DEL NOTEBOOK AL ENTORNO PROFESIONAL
+# BLOQUE 6: TRABAJO COMO DEVELOPER
 
 ## 6.1. Objetivo Operativo
-Realizar el salto definitivo desde cuadernos web interactivos (Colab) hacia el desarrollo de software local profesional en Visual Studio Code. Configurar proyectos multipaquete con estructura canónica, aislar dependencias mediante entornos virtuales (`python -m venv venv`), congelar e instalar librerías con `pip` y `requirements.txt`, controlar versiones mediante Git básico y GitHub, y dominar el depurador interactivo de VS Code (breakpoints, inspección de variables y análisis de Tracebacks). Culmina con el hito **SAMI-Local**.
+Trabajar dentro de una copia personal de SAMI-Local: orientarse, preparar entorno, seguir un dato, depurar, modificar y guardar con Git. Usa las [seis experiencias de B6](../bloques/bloque6/inicio.html); la salida final es un cambio funcional comprobado y un commit local explicado. GitHub queda como apoyo conceptual, no exige publicación.
 
 ---
 
@@ -361,13 +363,13 @@ Realizar el salto definitivo desde cuadernos web interactivos (Colab) hacia el d
 # BLOQUE 7: PYTHON + IA (DESARROLLO ASISTIDO Y VALIDACIÓN)
 
 ## 7.1. Objetivo Operativo
-Gobernar con total autonomía técnica el ciclo de desarrollo de software asistido por Inteligencia Artificial aplicando el **Flujo Crítico de Trabajo de 2027**: redacción de prompts estructurados con contexto acotado, auditoría de código autogenerado, depuración asistida, refactorización segura y validación exhaustiva mediante baterías de pruebas. Culmina con la **Defensa Técnica de SAMI Final** (*con la ampliación avanzada y opcional de orquestación de grafos con estado en **LangGraph**)*.
+Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. La [ruta publicada de B7](../bloques/bloque7/inicio.html) incluye Harness, agente real, depuración, refactorización, LangGraph sin LLM e IA-Control. Conserva la defensa razonada; no presupongas que todas las experiencias usan SAMI Final.
 
 ---
 
 ## 7.2. Mesa del Instructor y Preparación
 * **Entorno:** VS Code con asistente de IA integrado o interfaz conversacional abierta en paralelo.
-* **Documentos de entrega:** Plantillas preparadas para `registro-ia.md`, `plan-validacion.md` y `README-defensa.md`.
+* **Materiales:** proyecto correspondiente a cada experiencia, instrucciones, pruebas y evidencia antes/después. Las plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` son apoyo de autor; consulta con el docente su uso en la evaluación.
 * **Frase clave:** *"La IA es un copiloto brillante pero ciego: tú eres el capitán del barco y el único responsable de que el código no se hunda."*
 
 ---
@@ -379,8 +381,8 @@ Gobernar con total autonomía técnica el ciclo de desarrollo de software asisti
 | **Ingeniería de Contexto** | *Rol + Requisito + Formato + Restricción* | **Encargo a un ebanista:** Si le dices "hazme una mesa", puede hacerte una mesa de billar o una mesilla de noche. Si le das las medidas exactas, el tipo de madera y el plazo, el resultado encajará a la primera. | Acotar las funciones: pedir una sola función con tipos definidos en vez de pedir "la aplicación entera". |
 | **Auditoría Anti-Zombi** | Lectura crítica de cada línea antes de pegar | **Comprobar la comida antes de tragarla:** No ingieres nada sin mirar qué ingredientes lleva. En programación, pegar código sin entenderlo introduce vulnerabilidades y errores invisibles. | El alumno debe poder explicar qué hace cada instrucción del código sugerido. |
 | **Depuración con IA** | Proveer el código + el Traceback completo | **Ir al médico con los síntomas exactos:** Si le dices al médico "me duele algo", no sabe qué recetar. Si le llevas el análisis de sangre (el Traceback), diagnostica el problema al instante. | Pasar a la IA la traza exacta de error de la consola sin recortar. |
-| **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Requisito formal para la defensa de SAMI Final. |
-| **LangGraph (Ampliación Opcional)** | `StateGraph`, nodos, bordes y checkpoint | **Cadena de montaje con supervisor humano:** Un agente realiza una tarea, pasa el testigo a otro según una condición y se detiene (*human-in-the-loop*) para que un humano apruebe antes de continuar. | **Estrictamente opcional.** Solo para alumnos que dominen el temario base y deseen explorar flujos conversacionales avanzados. |
+| **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Apoyo de la propuesta de defensa SAMI; comprobar la evaluación elegida. |
+| **LangGraph en EXP-05** | Estado, nodos y rutas | **Cadena de pasos:** cada función procesa el estado y una regla Python decide la ruta. | Grafo ejecutable sin LLM; si no está instalado se prueban las reglas puras y el grafo queda no verificado. Memoria conversacional e intervención humana avanzada son ampliaciones. |
 
 ---
 
@@ -399,12 +401,19 @@ Gobernar con total autonomía técnica el ciclo de desarrollo de software asisti
 ---
 
 ## 7.5. Adaptaciones Temporales (B7)
-* **150 min:** Metodología y prompts de contexto (30 min) + Auditoría y depuración con IA (30 min) + Finalización de SAMI Final y validación (60 min) + Defensas orales antizombi (30 min). *(LangGraph se presenta en los últimos 20 min como ampliación opcional)*.
-* **90 min:** Prompts estructurados + Flujo 2027 (30 min), Prácticas 01 a 04 (40 min), defensa exprés de SAMI (20 min).
-* **60 min:** Flujo asistido + Auditoría de código + Plan de validación (25 min), Práctica 02 y 03 (35 min).
-* **30 min:** Demostración de generación, depuración de un Traceback con IA y validación mediante tests locales.
+
+Consulta primero los tiempos de cada experiencia; no comprimas las seis en una sesión corta.
+
+- **150 min:** seleccionar una experiencia completa de control del agente y su revisión.
+- **90 min:** un cambio acotado con plan, autorización, diff, comprobación y decisión.
+- **60 min:** análisis y revisión de una propuesta con casos normal, límite e inválido.
+- **30 min:** lectura de un diff preparado y justificación de aceptar, modificar o rechazar.
+
+Si se usa una adaptación sin ejecución, no se presenta como práctica ejecutada. La alternativa sin agente puede hacerse con un compañero siguiendo las instrucciones de la experiencia.
 
 ---
+
+
 
 ## 7.6. Lista de Comprobación Final para el Cierre de Sesiones
 
@@ -412,4 +421,4 @@ Al finalizar cualquier bloque formativo, el formador de Circular FAB debe asegur
 - [ ] Todos los alumnos han guardado sus cuadernos (en Google Drive) o han hecho `git commit` de sus cambios locales.
 - [ ] Se han recogido las dudas no resueltas para la apertura de la siguiente sesión.
 - [ ] Los alumnos han completado las microevaluaciones del bloque para consolidar conceptos.
-- [ ] Se ha recordado el avance en el proyecto integrador SAMI.
+- [ ] Se ha relacionado lo aprendido con el proyecto o experiencia que realmente está realizando el grupo.

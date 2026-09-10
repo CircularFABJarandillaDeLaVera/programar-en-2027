@@ -1,6 +1,9 @@
 # INGENIERÍA CURRICULAR DETALLADA: BLOQUE 5 (PYTHON APLICADO Y LIBRERÍAS)
 ## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Ingeniería de origen, centrada en ReportLab. El orden de adquisición del pipeline no es el orden de enseñanza actual. SAMI-Applied práctico parte de CSV local y no exige Playwright: consulta [06](../06-SAMI.md). Las lagunas describen las fuentes originales y no sustituyen los límites actuales. Véase el [criterio de fuentes](README.md).
+
+
 Este documento constituye la versión final consolidada y saneada de la **Ingeniería del Conocimiento para el Bloque 5: Python Aplicado y Librerías**, redactada en estricta conformidad con el alcance curricular, pedagógico e infraestructural de la versión V4 del itinerario principal [190].
 
 En esta etapa, el alumno da el salto definitivo desde la lógica pura de la programación y el diseño de objetos nativos hacia el uso de **librerías profesionales de estándar industrial** para resolver flujos de trabajo reales: adquisición, procesamiento, análisis de datos y la generación automatizada de informes ejecutivos en PDF [1, 7, 15].
@@ -81,7 +84,7 @@ Para evitar que el estudiante aprenda las librerías de forma aislada, el bloque
 
 ## 5. DESARROLLO INSTRUCCIONAL DE LIBRERÍAS (APRENDER HACIENDO)
 
-*(Se omiten las Partes 5.1, 5.2 y 5.3 para centrar el foco del saneamiento en la Parte 5.4)*
+Esta fuente desarrolla la parte de ReportLab; para NumPy, Pandas y Playwright consulta las prácticas actuales enlazadas desde [04](../04-PRACTICAS-Y-APOYOS.md). No se presenta como manual completo de las cuatro librerías.
 
 ### PARTE 5.4: Generación de Reportes en PDF con ReportLab (Platypus - Alto Nivel)
 *   **CONCEPTO**: ReportLab proporciona las utilidades y clases lógicas para maquetar, estructurar y exportar programáticamente documentos PDF con diseño y formato profesional a partir de código de Python [184]. Para maximizar la productividad y garantizar un diseño limpio sin lidiar con coordenadas fijas complejas, se prioriza el uso de la API de alto nivel **PLATYPUS (Page Layout and Typography Using Scripts)** [184]:
@@ -188,7 +191,7 @@ Para evitar que el estudiante aprenda las librerías de forma aislada, el bloque
 
 ---
 
-## 7. PROYECTO INTEGRADOR OBLIGATORIO DEL BLOQUE 5
+## 7. DISEÑO HISTÓRICO DEL PROYECTO INTEGRADOR B5
 
 ### "SAMI-Applied: El Sistema de Adquisición, Análisis y Generación Automatizada de Informes de Mercado"
 
@@ -249,7 +252,7 @@ Contiene la lógica de reporte en PDF:
 | **Filtrado Condicional Compuesto (&, isin)**| `ejercicios_pandas_resuelto.ipynb` [223, 224] | Aislamiento de personajes vivos de casas específicas utilizando filtros compuestos [223].| Reto de localizar el error sintáctico por uso de la directiva `and` en filtros compuestos [229]. | Filtrado compuesto de ofertas activas y rentables en el DataFrame de Pandas. |
 | **Modificación de esquemas (set_index, drop)**| `02_pandas.ipynb` [37, 38] y `ejercicios_pandas_resuelto.ipynb` [224, 225]| Reestructuración y borrado de columnas y personajes fallecidos de la tabla [225]. | Reto de identificar el comportamiento lógico del DataFrame según el parámetro `inplace` [315]. | Eliminación de columnas obsoletas de stock y seteo del índice por artículo. |
 | **Navegación e interacciones Playwright**| `Installation \| Playwright Python` [11, 100, 102] | Creación de scripts locales síncronos de navegación y test de aserciones [102]. | Reto SoloLearn de completar selectores y aserciones de locators de Playwright [102]. | Extracción de precios y estados de stock en `scraper.py` con Playwright. |
-| **Parsing y Selectores BeautifulSoup** | `Reporte de Investigación` [15, 183] | Raspado rápido de elementos textuales mediante búsqueda de clases y etiquetas. | Reto SoloLearn de completar búsquedas de clases usando el parámetro reservado `class_`. | Concepto de parsing para la segmentación estática del HTML recolectado. |
+| **Parsing con BeautifulSoup** | Referencia conceptual del diseño original. | No se establece una práctica obligatoria. | No exigir sintaxis de `class_` no desarrollada en los materiales. | Concepto secundario, fuera del flujo práctico de SAMI-Applied. |
 | **Compilación dinámica de PDFs ReportLab**| `reportlab · PyPI` [266] y `Reporte de Investigación` [15, 184] | Maquetación y exportación programática de tablas y facturas en formato PDF [15]. | Decisiones prácticas sobre `Image`, `Paragraph`, `Table`, `TableStyle` y `build()` en Platypus. | Generación real del informe de mercado estructurado con ReportLab Platypus en `generador_pdf.py`. |
 
 ---
@@ -269,7 +272,7 @@ De acuerdo con el análisis exhaustivo de los materiales de tu base de conocimie
 
 ## 10. FUENTES DE AMPLIACIÓN RECOMENDADAS (BLOQUE 5)
 
-Para suplir con total rigor las lagunas de conocimiento detectadas y enriquecer la experiencia formativa del alumno en el ecosistema aplicado de Python, se sugiere incorporar oficialmente al notebook los siguientes recursos:
+Para suplir con total rigor las lagunas de conocimiento detectadas y enriquecer la experiencia formativa del alumno en el ecosistema aplicado de Python, se conservan como posibles ampliaciones para el docente los siguientes recursos, sin incorporarlos al currículo ni exigirlos:
 
 1.  **Pandas User Guide - Groupby, Merge and Reshaping**: Para documentar con ejemplos las agrupaciones tabulares `df.groupby()`, sumas agregadas complejas y fusiones de múltiples archivos CSV utilizando `pd.merge()`.
 2.  **Matplotlib Pyplot Tutorial**: Para incorporar lecciones prácticas sobre cómo generar gráficos estadísticos vectoriales (histogramas, diagramas de dispersión y series temporales) a partir de DataFrames de Pandas.

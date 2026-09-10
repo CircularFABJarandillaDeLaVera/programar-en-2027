@@ -25,6 +25,12 @@
     .card h2 { font-size: 1.1rem; line-height: 1.2; margin: 0; }
     .card p { color: var(--cf-color-text-muted); line-height: 1.45; margin: 0; }
     .tools { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .journey { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .journey__item { background: transparent; border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-md); display: grid; align-content: start; gap: var(--cf-space-2); padding: var(--cf-space-4); }
+    .journey__item h2 { font-family: var(--cf-font-label); font-size: .95rem; font-weight: 850; letter-spacing: .02em; margin: 0; text-transform: uppercase; }
+    .journey__item p { color: var(--cf-color-text-muted); font-size: .95rem; line-height: 1.55; margin: 0; }
+    .journey__item a { color: var(--cf-color-accent); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .journey__kicker { color: var(--cf-color-accent); font-family: var(--cf-font-label); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .optional-lab { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-3); padding: var(--cf-space-5); }
     .optional-lab h2 { font-family: var(--cf-font-heading); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; margin: 0; }
     .optional-lab p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 780px; }
@@ -42,7 +48,7 @@
     .teacher-copilot p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 760px; }
     .teacher-copilot__actions { display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
     @media (max-width: 1120px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (max-width: 720px) { .grid, .tools { grid-template-columns: 1fr; } .shell { padding: var(--cf-space-3); } }
+    @media (max-width: 720px) { .grid, .tools, .journey { grid-template-columns: 1fr; } .shell { padding: var(--cf-space-3); } }
   </style>
 </head>
 <body>
@@ -55,7 +61,6 @@
       <nav class="cf-nav cf-nav--horizontal" aria-label="Navegacion del curso">
         <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Inicio</a>
         <a class="cf-nav__link" href="lab-python-en-accion/index.html">Lab opcional</a>
-        <a class="cf-nav__link" href="profesor-plus/inicio.html">Profesor Plus</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
         <span data-theme-icon aria-hidden="true">&#9790;</span>
@@ -67,17 +72,39 @@
       <img class="cf-center-hero__pattern portal-hero__pattern" src="assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--accent">Aprender haciendo + IA</span>
       <h1>Programar con Python en 2027</h1>
-      <p>Itinerario progresivo: notebook, script, proyecto y programacion asistida por IA. El Bloque 1 empieza con codigo ejecutable desde el primer minuto.</p>
+      <p>Aprende Python desde cero y avanza paso a paso hasta trabajar con proyectos reales, VS Code, Git y agentes de programación.</p>
+    </section>
+
+    <section class="journey" aria-label="Cómo recorrer el curso">
+      <div class="journey__item">
+        <span class="journey__kicker">Aprendo</span>
+        <h2>Bloques 1–7 · Aprende</h2>
+        <p>Empieza por los fundamentos y avanza por colecciones, funciones, objetos, datos, trabajo como developer y desarrollo con agentes.</p>
+        <a href="#bloques">Ver bloques</a>
+      </div>
+      <div class="journey__item">
+        <span class="journey__kicker">Aprovecho lo aprendido</span>
+        <h2>Pathway práctico · Aprovecha lo aprendido</h2>
+        <p>Pon en práctica tus conocimientos en experiencias y proyectos donde tendrás que comprender, decidir, modificar y comprobar resultados.</p>
+        <a href="lab-python-en-accion/index.html">Recorrer el pathway práctico</a>
+      </div>
+      <div class="journey__item">
+        <span class="journey__kicker">Sigo avanzando</span>
+        <h2>Python en Acción · Sigue avanzando</h2>
+        <p>Continúa practicando con laboratorios, retos y experiencias adicionales para ganar autonomía y explorar nuevas posibilidades con Python.</p>
+        <a href="lab-python-en-accion/recursos/index.html">Abrir prácticas</a>
+      </div>
     </section>
 
     <section class="course-project" aria-label="Proyecto practico del curso">
       <span class="cf-chip cf-chip--accent">Proyecto práctico del curso</span>
       <h2>SAMI</h2>
       <p><strong>Sistema de Auditoría de Precios y Generación Automatizada de Reportes de Mercado.</strong></p>
-      <p>Construirás este proyecto poco a poco durante el curso. En cada bloque añadirás una nueva parte aplicando lo que acabas de aprender. En el Bloque 5 juntarás varias piezas y usarás librerías reales para trabajar con datos y generar automáticamente un informe PDF.</p>
+      <p>A partir del Bloque 3 utilizarás lo aprendido en un proyecto que evoluciona contigo: SAMI-Lite → SAMI-OOP → SAMI-Applied.</p>
+      <p>Primero trabajarás con funciones y varios archivos, después tomarás decisiones de diseño con objetos y finalmente utilizarás datos y librerías reales para generar un informe PDF.</p>
     </section>
 
-    <section class="grid" aria-label="Bloques del curso">
+    <section class="grid" id="bloques" aria-label="Bloques del curso">
       <a class="card cf-card cf-card--interactive" href="bloques/bloque1/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 1 · Fundamentos y logica</h2><p>Print, variables, tipos, operadores, condicionales y bucles.</p></a>
       <a class="card cf-card cf-card--interactive" href="bloques/bloque2/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 2 · Estructuras de datos</h2><p>Cadenas, listas, tuplas, conjuntos, diccionarios y comprehensions.</p></a>
       <a class="card cf-card cf-card--interactive" href="bloques/bloque3/inicio.html"><span class="cf-chip cf-chip--success">Generado</span><h2>Bloque 3 · Funciones y modularidad</h2><p>Def, parametros, return, scope, try/except, archivos y modulos.</p></a>
@@ -105,7 +132,7 @@
       <span class="cf-chip cf-chip--accent">Python en Accion</span>
       <h2>Acceso a las practicas</h2>
       <p>Explora experiencias con webcam, imagenes, automatizacion, Excel, aplicaciones, IA local y sistemas conectados.</p>
-      <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/index.html">ABRIR PRÁCTICAS</a></p>
+      <p><a class="cf-button cf-button--primary" href="lab-python-en-accion/recursos/index.html">ABRIR PRÁCTICAS</a></p>
     </section>
 
     <section class="teacher-copilot" aria-label="Crea tu propio Copiloto Profesor">
@@ -116,10 +143,6 @@
         <a class="cf-button cf-button--primary" href="copiloto-profesor/inicio.html">VER</a>
         <a class="cf-button cf-button--secondary" href="copiloto-profesor/copiloto-profesor-python-2027.zip" download>DESCARGAR PACK</a>
       </div>
-    </section>
-
-    <section class="tools">
-      <a class="cf-card cf-card--interactive" href="profesor-plus/inicio.html"><h2>Profesor Plus</h2><p>Biblioteca docente adaptada a programacion practica.</p></a>
     </section>
   </main>
 </body>

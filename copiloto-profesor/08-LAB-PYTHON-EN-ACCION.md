@@ -1,6 +1,6 @@
 # 08 · LAB FINAL OPCIONAL: PYTHON EN ACCIÓN
 
-Este documento integra en el Copiloto del Profesor el recurso final opcional **Python en Acción: 5 cosas más que puedes hacer**.
+Este documento orienta el uso docente de **Python en Acción**, una continuación práctica con pathway y laboratorios adicionales. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 
@@ -11,13 +11,31 @@ Este documento integra en el Copiloto del Profesor el recurso final opcional **P
 - No pertenece a SAMI.
 - Su objetivo es motivar: "Ya sabes Python. Ahora mira todo lo que puedes hacer con él".
 
-El flujo de todas las experiencias es:
+El flujo base, ampliado por los pasos propios de cada experiencia, es:
 
 ```
 VER -> PROBAR -> MODIFICAR -> MINI-RETO
 ```
 
 El Copiloto debe indicar resultado esperado, evidencia observable, criterio de éxito y Plan B. No debe afirmar que una experiencia fue ejecutada si solo está descrita en los materiales.
+
+## Mapa actual: consulta antes de preparar
+
+El [portal de Python en Acción](../lab-python-en-accion/index.html) es la entrada al recorrido. Consulta su página y el README descargable antes de describir comandos, requisitos o resultados. Las implementaciones no están incluidas en el ZIP de este pack.
+
+| Tramo existente | Recursos publicados | Uso docente |
+| --- | --- | --- |
+| Trabajo con control | Agentes de programación (experiencia 07). | Conexión breve con instrucciones, contexto, límites, validación y supervisión humana; no duplicar su anexo de herramientas y tests. |
+| API y ejecución | [FastAPI](../lab-python-en-accion/recursos/experiencias/08-fastapi.html), [Docker](../lab-python-en-accion/recursos/experiencias/09-docker.html). | Leer el recorrido desde peticiones hasta contenedor, respetando la preparación indicada. |
+| Datos y aplicación | [PostgreSQL](../lab-python-en-accion/recursos/experiencias/10-postgresql.html), control horario, interfaz, geolocalización, roles, red local y dashboard (11–16). | Seguir la evolución del mismo caso, sin tratar cada ampliación como ejercicio inicial aislado. |
+| Contexto conectado | [Orion-LD](../lab-python-en-accion/recursos/experiencias/17-orion-ld.html), Python–FIWARE, compostera MQTT y puente MQTT–FIWARE. | Distinguir datos persistidos, mensajes y contexto; consultar requisitos de cada página. |
+| Decisión e IA | [LangGraph con contexto](../lab-python-en-accion/recursos/experiencias/22-langgraph-contexto.html), [Ollama explica](../lab-python-en-accion/recursos/experiencias/23-ollama-explicacion.html), [respuesta estructurada](../lab-python-en-accion/recursos/experiencias/24-ollama-estructurado.html). | Comprender decisión, explicación y validación según sus prácticas. |
+| Extensión técnica | [Masterclass FIWARE real](../lab-python-en-accion/recursos/experiencias/masterclass-fiware-real.html). | Extensión opcional para técnicos, con el entorno previsto en su guía. |
+| Laboratorios adicionales | OpenCV, Pillow, archivos, Excel, Tkinter y [RAG local](../lab-python-en-accion/recursos/experiencias/06-rag-local.html). | Seleccionar una experiencia adecuada al grupo; RAG no es un requisito para usar el Copiloto. |
+
+No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del pathway en contenidos obligatorios de B1-B7.
+
+## Fichas de apoyo de los cinco laboratorios originales
 
 ## 1. OpenCV · Webcam Interactiva
 
@@ -214,4 +232,4 @@ el alumno entiende que `command=funcion` registra una acción y `mainloop()` man
 
 ## Cierre Docente
 
-El Lab no abre nuevos contenidos obligatorios. Sirve para señalar caminos posibles: visión artificial, imagen, automatización, ofimática e interfaces gráficas. Si el alumno quiere profundizar, el profesor debe marcarlo como continuación personal, no como requisito del curso.
+El Lab no abre nuevos contenidos obligatorios. Permite continuar con imagen, automatización, ofimática, interfaces, datos y agentes. Selecciona un tramo y sus prerrequisitos; si falta tiempo o entorno, ofrece lectura, predicción o demostración y señala qué no se ha ejecutado.

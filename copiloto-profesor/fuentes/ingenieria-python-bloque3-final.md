@@ -1,6 +1,9 @@
 # INGENIERÍA CURRICULAR DETALLADA (VERSIÓN FINAL): BLOQUE 3 (FUNCIONES Y PROGRAMACIÓN MODULAR)
 ## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Ingeniería de origen. Se conservan conceptos y ejemplos de funciones y persistencia; no todos son ejercicios obligatorios del cuaderno actual. Contrasta SAMI-Lite con [06](../06-SAMI.md). Véase el [criterio de fuentes](README.md).
+
+
 Este documento contiene la **Ingeniería del Conocimiento específica para el Bloque 3: Funciones y Programación Modular**, diseñada en estricta conformidad con el alcance curricular y los estándares pedagógicos definidos en la versión consolidada V4 del itinerario (respetando de forma estricta el aislamiento curricular) [190].
 
 El objetivo central de este bloque es capacitar al estudiante para realizar la transición mental de la escritura de scripts lineales secuenciales a la **organización de programas estructurados, reutilizables, tolerantes a fallos y divididos en responsabilidades lógicas claras**, sentando una base de ingeniería sólida antes de abordar el modelado de clases (Bloque 4) o el análisis de datos (Bloque 5) [65, 190].
@@ -125,7 +128,7 @@ Diseñar, estructurar e implementar aplicaciones de consola modulares en Python 
     resultado = triplicar(calculo)
     print(resultado)
     ```
-    *   A) `30` y luego `None`
+    *   A) Solo `None`
     *   B) `30` y luego `30`
     *   C) `30` y en la siguiente línea `None`
     *   D) Lanza un error `TypeError` en tiempo de ejecución.
@@ -192,7 +195,7 @@ Diseñar, estructurar e implementar aplicaciones de consola modulares en Python 
 ---
 
 ### CONCEPTO 3.3: Ámbito Local y Global (Scope)
-*   **Definición técnica**: El ámbito o *scope* define la visibilidad y tiempo de vida de una variable en la memoria del programa [10, 182]. Una variable declarada dentro del cuerpo de una función es de **ámbito local** (solo existe dentro de esa función y se destruye al finalizar su ejecución) [10, 182]. Una variable declarada en la raíz del script es de **ámbito global** (visible por cualquier fragmento de código, incluidas las funciones para lectura) [10, 182]. Si una función intenta reasignar o modificar una variable global de forma directa, Python creará en su lugar una variable local con el mismo nombre de forma silenciosa, dejando la variable global intacta [121]. Para indicarle explícitamente a Python que se desea modificar el valor de una variable global dentro del cuerpo de una función, se debe utilizar la directiva reservada `global` al inicio del bloque de la función [121].
+*   **Definición técnica**: El ámbito o *scope* define la visibilidad y tiempo de vida de una variable en la memoria del programa [10, 182]. Una variable declarada dentro del cuerpo de una función es de **ámbito local** (el nombre local se consulta dentro de esa función; un objeto devuelto puede seguir utilizándose fuera) [10, 182]. Una variable declarada en la raíz del script es de **ámbito global** (visible por cualquier fragmento de código, incluidas las funciones para lectura) [10, 182]. Si una función intenta reasignar o modificar una variable global de forma directa, Python creará en su lugar una variable local con el mismo nombre de forma silenciosa, dejando la variable global intacta [121]. Para indicarle explícitamente a Python que se desea modificar el valor de una variable global dentro del cuerpo de una función, se debe utilizar la directiva reservada `global` al inicio del bloque de la función [121].
 
 #### → PRERREQUISITO
 *   Concepto 3.2: Identificación de variables y asignación de datos.

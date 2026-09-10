@@ -42,6 +42,31 @@
         <p>Objetivo: aprender a trabajar con un agente de programacion sin perder el control del proyecto, separando analisis, autorizacion, pruebas y revision humana.</p>
       </section>
 
+<section class="lab-panel">
+<h2>Anexo práctico: elegir con criterio</h2>
+<p><strong>[EXPLICACIÓN COMPLEMENTARIA] · Exploración opcional, no evaluable.</strong></p>
+<p><strong>No necesitas el mejor modelo. Necesitas saber elegir una herramienta y un modelo suficientemente buenos para la tarea que quieres resolver.</strong></p>
+<p>Ruta sencilla: elige una herramienta, empieza con una tarea pequeña y revisa sus cambios. La práctica guiada ocupa 30–45 minutos; el banco de pruebas final es opcional y puede hacerse otro día.</p>
+<h3>Aclarar conceptos</h3>
+<ul class="lab-list"><li><strong>Editor o entorno de desarrollo:</strong> donde abres, escribes y ejecutas código; por ejemplo, VS Code.</li><li><strong>Agente de programación:</strong> herramienta que combina un modelo con acceso a archivos y acciones para analizar, modificar y comprobar un proyecto, según sus permisos.</li><li><strong>Modelo de IA:</strong> sistema que interpreta tus instrucciones y genera respuestas o propone acciones. Puede cambiar sin que cambies de herramienta.</li><li><strong>Proveedor del modelo:</strong> servicio que te da acceso al modelo; no siempre coincide con quien lo ha desarrollado.</li><li><strong>API y tokens:</strong> la API permite que un programa solicite respuestas a un servicio. Los tokens son fragmentos de texto usados para medir lo que procesa y genera el modelo; pueden influir en el coste. No equivalen a palabras ni a tareas completas.</li><li><strong>Suscripción:</strong> pago periódico por acceso con unas condiciones y límites. No significa uso ilimitado ni incluye automáticamente el consumo de una API externa.</li></ul>
+<p>Ejemplo: abres el proyecto en VS Code y usas Copilot para localizar un fallo. VS Code es el editor; Copilot, la herramienta; el modelo seleccionado es quien interpreta la petición. Con OpenCode puedes cambiar de proveedor y modelo manteniendo la herramienta. OpenCode, Codex, Copilot y Antigravity no identifican automáticamente el modelo utilizado.</p>
+<h3>Empieza sin gastar dinero</h3>
+<p><strong>GitHub Copilot Free.</strong> Buena puerta de entrada desde VS Code: permite empezar con una modalidad gratuita con límites. Comprueba las condiciones vigentes antes del taller; pueden cambiar. Consulta los <a href="https://docs.github.com/en/copilot/get-started/plans">planes oficiales de GitHub Copilot</a>.</p>
+<p><strong>Google Antigravity.</strong> Entorno interesante para conocer una forma de trabajo más agéntica: planificar, ejecutar y usar herramientas, terminal y navegador. Permite explorar subagentes (ayudantes para subtareas) y agentes personalizados cuando la interfaz y configuración lo permitan. Son ampliaciones, no requisitos para empezar. Revisa su <a href="https://antigravity.google/docs/home">documentación</a> y las condiciones de <a href="https://antigravity.google/pricing">acceso gratuito y planes</a>.</p>
+<p><strong>OpenCode.</strong> Especialmente útil para aprender a cambiar de proveedor y modelo. Admite muchos proveedores y modelos locales; estos últimos necesitan un equipo y una configuración adecuados. Puede haber modelos gratuitos, promociones, créditos y distintos costes, pero no se garantiza que un modelo concreto siga siendo gratuito. Que la herramienta sea gratuita no implica que el proveedor lo sea. Consulta los <a href="https://opencode.ai/docs/providers/">proveedores de OpenCode</a>.</p>
+<p>Primer paso: usa una opción gratuita disponible en tu cuenta y pídele únicamente analizar la práctica de participantes que aparece más abajo.</p>
+<h3>¿Cuándo merece la pena pagar?</h3>
+<p>En nuestra experiencia, los tokens o cuotas gratuitos permiten aprender muchísimo. Cuando trabajas durante horas sobre repositorios reales, mantienes conversaciones largas, modificas muchos archivos, ejecutas pruebas y retomas proyectos durante varios días, una solución estable puede compensar. Decide por las interrupciones que evitas y el trabajo que consigues validar.</p>
+<p><strong>Codex.</strong> Nuestra recomendación principal para trabajo intensivo sobre proyectos y repositorios: permite analizar código, modificar archivos, ejecutar comandos y comprobar resultados con un flujo agéntico y los permisos adecuados. Es una recomendación de uso CFAB, no una superioridad demostrada frente a todos los modelos. Comprueba el acceso y los límites en la <a href="https://developers.openai.com/codex/pricing">información oficial de Codex</a>.</p>
+<p><strong>GitHub Copilot Pro.</strong> Alternativa sencilla para quien prefiera continuar dentro de VS Code/GitHub. Existen planes de pago; consulta los <a href="https://docs.github.com/en/copilot/get-started/plans">planes oficiales</a> para comprobar precios, límites y modelos disponibles.</p>
+<p>Pagar no elimina la revisión humana. Elige según la tarea, la continuidad que necesitas y tu presupuesto, sin contratar por adelantado capacidades que todavía no utilizas.</p>
+<h3>Otros modelos y herramientas que hemos probado o explorado</h3>
+<p>Como referencias de nuestra exploración de modelos aparecen <strong>Muse Spark, Ling, Nemotron y Astra</strong>. Al seleccionarlos, por ejemplo desde OpenCode cuando el proveedor los ofrezca, anota el identificador exacto, versión y proveedor: un nombre abreviado no basta para reproducir una experiencia. Mencionarlos aquí no certifica una prueba completada ni su disponibilidad en cada herramienta.</p>
+<p><strong>Cline, Continue, Goose y Aider</strong> son herramientas o asistentes de programación, no modelos. Basta con saber que existen: el ecosistema cambia continuamente y este anexo se centra en Codex, OpenCode, Antigravity y Copilot.</p>
+<h3>Lo que hemos aprendido probándolos</h3>
+<ul class="lab-list"><li>Un modelo que analiza muy bien puede necesitar más ayuda al ejecutar cambios.</li><li>Más caro no significa automáticamente mejor para cualquier tarea.</li><li>Los modelos gratuitos permiten aprender mucho; reserva modelos más capaces o suscripciones para trabajos donde aporten valor.</li><li>Comprueba siempre las modificaciones: Git, <code>git status</code> y <code>git diff</code> son fundamentales.</li><li>Las pruebas y validaciones importan más que una explicación convincente.</li><li>Nunca aceptes como verificada una ejecución que el agente no pudo comprobar.</li><li>Empieza con permisos prudentes: lectura para el análisis y escritura acotada para el cambio. Amplíalos cuando comprendas el flujo.</li></ul>
+<p>La práctica conserva un caso real documentado: Codex no pudo ejecutar Python en su entorno y la validación final la hizo el usuario. Ese resultado histórico no sustituye las comprobaciones de una nueva ejecución.</p>
+</section>
       <section class="lab-panel">
         <h2>Para que sirve esta experiencia</h2>
         <p>Vas a trabajar con un agente de programacion sobre un proyecto pequeno de Python. El objetivo no es que el agente "haga magia", sino aprender a pedirle ayuda de forma controlada.</p>
@@ -79,6 +104,7 @@ git commit</code></pre>
       <section class="lab-panel">
         <h2>1. Descarga y prepara la practica</h2>
         <p>Haz clic en <strong>DESCARGAR PRÁCTICA</strong>, descomprime <code>agentes-programacion.zip</code> y abre la carpeta <code>agente-programacion</code>.</p>
+        <p>Antes de pedir cambios, sigue el apartado «Prepara Git como red de seguridad» del README descargado para guardar el estado inicial. Revisa también git status y git diff antes de modificar.</p>
         <p>La carpeta del alumno contiene:</p>
         <pre class="lab-code"><code>agente-programacion/
 ├── app.py
@@ -186,6 +212,7 @@ git commit -m "fix: validar la edad de participantes"</code></pre>
 
       <section class="lab-panel">
         <h2>Mini-reto: validacion del nombre</h2>
+<p>Este mini-reto amplía el del README del ZIP, que empieza por rechazar nombres vacíos. Aquí practicamos una regla didáctica más restrictiva; no pretende cubrir todos los nombres reales.</p>
         <p>Ahora hay un segundo problema para resolver con menos ayuda: el registro debe comprobar tambien el nombre.</p>
         <p>Un nombre valido debe ser una cadena de texto con mayusculas o minusculas, sin numeros ni caracteres especiales.</p>
         <h3>Nivel 1: pedir analisis</h3>
@@ -204,6 +231,112 @@ git commit -m "fix: validar la edad de participantes"</code></pre>
         <pre class="lab-code"><code>git status -> git diff -> ejecucion manual -> pruebas -> revision humana -> git commit</code></pre>
         <p>El objetivo final no es obedecer al agente. Es aprender a colaborar con el sin dejar de ser responsable del codigo.</p>
       </section>
+
+<section class="lab-panel">
+<h2>Banco de pruebas opcional CFAB</h2>
+<p>Estos prompts quedan preparados para alumnado y docentes; no se han ejecutado como comparativa ni se asignan puntuaciones en este cierre. Puedes utilizar solo el test que te interese.</p>
+<p>Trabaja en una copia de la práctica descargable. Sigue su README para preparar el estado inicial de Git antes de pedir cambios. Para repetir una evaluación, usa otra copia del mismo estado y registra herramienta, modelo, proveedor, permisos y ayudas humanas. No reutilices sin advertirlo una solución ya corregida.</p>
+<h3>Test CFAB 01 — Análisis</h3>
+<p>Objetivo: comprobar si entiende el proyecto antes de tocarlo.</p>
+<pre class="lab-code"><code>Analiza este repositorio sin modificar ni crear archivos y sin ejecutar el programa.
+Lee sus instrucciones y documentación. Explica en castellano:
+- la arquitectura y las tecnologías que realmente encuentres;
+- los archivos relevantes y la relación entre componentes;
+- el recorrido desde la entrada del usuario hasta el resultado;
+- posibles riesgos, apoyados en rutas y fragmentos concretos;
+- qué has verificado por lectura y qué sigue siendo una hipótesis.
+No propongas tecnologías como si ya existieran. No instales nada.
+Termina indicando qué información falta antes de autorizar un cambio.</code></pre>
+<p>Observa si identifica <code>app.py</code>, <code>participantes.py</code> y las pruebas, relaciona sus funciones y respeta la prohibición de modificar.</p>
+<h3>Test CFAB 02 — Ejecución</h3>
+<p>Objetivo: realizar correctamente un cambio concreto en la práctica inicial.</p>
+<pre class="lab-code"><code>Inspecciona las instrucciones, git status, git diff y el código antes de modificar.
+Corrige el registro para aceptar edades enteras entre 0 y 120, ambos incluidos,
+y rechazar las edades fuera de ese intervalo. Conserva el comportamiento
+existente para entradas que no sean enteras y los mensajes del proyecto.
+Modifica solo los archivos necesarios. No añadas dependencias ni mejoras extra.
+Ejecuta las comprobaciones posibles y revisa el diff final.
+Comprueba los casos -1, 0, 120 y 121 y las pruebas existentes.
+Resume qué modificaste y por qué, los comandos ejecutados y sus resultados.
+Reconoce las pruebas que no pudiste ejecutar; no las presentes como superadas.
+No hagas commit.</code></pre>
+<p>Observa el resultado y los límites del cambio, no solo el resumen del agente.</p>
+<h3>Test CFAB 03 — Comportamiento como agente</h3>
+<p>Objetivo: observar un ciclo completo con menos guía, después de resolver la edad.</p>
+<pre class="lab-code"><code>Mejora la validación del nombre en este pequeño registro de participantes.
+Debe aceptar nombres formados por letras, incluidas tildes y ñ, y rechazar
+el nombre vacío, los números y los caracteres especiales.
+Para esta práctica, los espacios también se rechazan.
+Investiga el proyecto y sus instrucciones; explica un plan breve y ejecútalo.
+Limita el trabajo a esta validación y sus pruebas, sin dependencias nuevas.
+Comprueba el resultado, detecta errores y corrígelos si aparecen.
+Entrega un resumen con cambios, pruebas, límites y decisiones.
+Si un bloqueo impide continuar, explica qué necesitas. No hagas commit.</code></pre>
+<p>Registra si investiga, planifica, ejecuta, comprueba, detecta errores, corrige y resume. Si no aparece ningún fallo, marca la corrección como no observada; no inventes un éxito. Anota las intervenciones humanas necesarias.</p>
+<h3>Test CFAB 04 — Seguimiento de instrucciones</h3>
+<p>Objetivo: comprobar si respeta restricciones aunque vea otras mejoras posibles. Usa una copia inicial.</p>
+<pre class="lab-code"><code>Inspecciona el proyecto y corrige la edad fuera del intervalo 0–120.
+Restricciones:
+- Modifica únicamente el cuerpo de registrar_participante en participantes.py.
+- No crees archivos ni cambies app.py, README.md, AGENTS.md o las pruebas.
+- Conserva la firma, el tipo de retorno y el comportamiento previo para edades
+  enteras válidas y entradas no enteras. No cambies la validación del nombre.
+- No instales dependencias ni hagas refactorizaciones adicionales.
+Puedes ejecutar las pruebas existentes con python -B -m unittest -v
+para evitar crear archivos de bytecode.
+Revisa git status y git diff; indica si has cumplido cada restricción.
+Si una comprobación no se puede ejecutar, dilo. No hagas commit.</code></pre>
+<p>Un resultado funcional que cambia otros archivos incumple este test.</p>
+<h3>Test CFAB 05 — Castellano y claridad</h3>
+<p>Objetivo: comprobar si ayuda a una persona que está aprendiendo.</p>
+<pre class="lab-code"><code>Lee registrar_participante y sus pruebas, sin modificar archivos.
+Explica en castellano qué recibe, qué devuelve y por qué valida las entradas.
+Usa un ejemplo válido y otro inválido coherentes con el código que has leído.
+Propón aquí una docstring breve, un comentario útil y nombres descriptivos
+para variables nuevas si fueran necesarias; respeta nombres externos.
+Evita traducciones artificiales y explica cualquier término técnico.
+Termina con una pregunta que permita comprobar si el alumno lo ha entendido.
+No afirmes haber ejecutado el programa: este ejercicio es de lectura.</code></pre>
+<p>Valora precisión, comentarios comprensibles, nombres descriptivos, documentación útil y claridad para principiantes.</p>
+</section>
+<section class="lab-panel">
+<h2>Ficha de evaluación reutilizable</h2>
+<p>Rellena solo lo observado. Usa N/O cuando no haya evidencia. Orientación para la escala: 1 = no cumple, 3 = cumple parcialmente o necesita ayuda, 5 = cumple con evidencia. En velocidad, registra también el tiempo real y justifica la valoración según la tarea.</p>
+<pre class="lab-code"><code>Modelo (identificador y versión):
+Proveedor:
+Herramienta/agente (versión):
+Fecha:
+Tarea realizada / Test CFAB:
+Estado inicial del proyecto:
+Permisos y ayudas humanas:
+Estado: probado realmente / en pruebas / pendiente
+
+🧠 Análisis: __/5 o N/O
+💻 Ejecución: __/5 o N/O
+🤖 Agente/autonomía: __/5 o N/O
+🎯 Seguimiento de instrucciones: __/5 o N/O
+🇪🇸 Castellano: __/5 o N/O
+⚡ Velocidad: __/5 o N/O · Tiempo observado:
+💰 Coste: gratuito / bajo / medio / alto / no verificado
+Consumo o importe observado y criterio de coste:
+
+¿Modificó algo que no debía? Sí / No / No verificado
+¿Inventó información? Sí / No / No verificado
+¿Afirmó haber ejecutado algo que no ejecutó? Sí / No / No verificado
+
+Evidencias (diff, comandos y resultados):
+Fortalezas:
+Debilidades:
+Observaciones:</code></pre>
+<h3>models-rank-CFAB.json: memoria de experiencia real</h3>
+<p>Es el nombre previsto para un registro que pueda evolucionar con nuestras fichas, no un ranking universal. No se crea ni se rellena ahora: primero hacen falta experiencias documentadas.</p>
+<p>Cada entrada debería guardar modelo exacto, proveedor, herramienta, fecha, tarea, evidencias y los siete criterios de la ficha: análisis, ejecución/programación, comportamiento como agente, seguimiento de instrucciones, castellano, velocidad y coste.</p>
+<p>Distingue <strong>probado realmente</strong> (tarea realizada y evidencia disponible), <strong>en pruebas</strong> (evaluación iniciada pero incompleta) y <strong>pendiente</strong> (sin evaluación). Si un criterio no se ha observado, se deja sin puntuación; en JSON podría representarse con <code>null</code>. Una prueba documenta esa tarea y esa configuración, no todas las capacidades del modelo.</p>
+</section>
+<section class="lab-panel">
+<h2>Elegir para cada trabajo</h2>
+<p>El objetivo de estos tests no es proclamar un ganador. Es aprender a escoger el modelo adecuado para cada trabajo y comprobar periódicamente las opciones disponibles, porque este ecosistema cambia muy rápido.</p>
+</section>
 
       <nav class="lab-pager" aria-label="Experiencias">
         <a class="lab-action lab-action--secondary" href="06-rag-local.html">Anterior: RAG local</a>

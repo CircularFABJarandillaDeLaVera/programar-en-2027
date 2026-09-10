@@ -1,6 +1,9 @@
 # INGENIERÍA CURRICULAR DETALLADA: BLOQUE 4 (PROGRAMACIÓN ORIENTADA A OBJETOS - POO) - FINAL
 ## Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Ingeniería de origen. Se conservan explicaciones de POO y productos; las responsabilidades, firmas y retos de la copia práctica se contrastan en [06](../06-SAMI.md). Véase el [criterio de fuentes](README.md).
+
+
 Este documento contiene la **Ingeniería del Conocimiento específica para el Bloque 4: Programación Orientada a Objetos (POO)**, diseñada en estricta conformidad con el alcance curricular y los estándares pedagógicos definidos en la versión consolidada V4 del itinerario [190].
 
 El objetivo central de este bloque es que el alumno comprenda **por qué y cuándo** modelar un problema utilizando objetos, proporcionando un puente práctico que le permita evolucionar de forma natural desde la programación modular (SAMI-Lite del Bloque 3) hacia un modelo orientado a objetos robusto y extensible.
@@ -122,7 +125,7 @@ class Producto:
     def calcular_precio_final(self, iva):
         return self.__precio_base * (1 + iva)
 ```
-**Ventaja de Ingeniería**: Los datos están blindados ante corrupciones, el código es auto-documentado y la mantenibilidad de la aplicación escala sin esfuerzo al añadir nuevas especializaciones [107].
+**Ventaja de diseño**: La validación se concentra en una interfaz controlada. No garantiza por sí sola la corrección ni impide todos los accesos externos; hay que comprobar las reglas del objeto.
 
 ---
 

@@ -1,6 +1,26 @@
 # 04 · GUÍA INTEGRAL DE PRÁCTICAS, APOYOS Y PLANES B
 
-Este documento contiene el inventario exhaustivo de todas las prácticas del curso **"Programar con Python en 2027"** (Bloques 1 a 7), estructuradas como herramienta de intervención directa para el formador de la **Red Circular FAB**.
+Este documento reúne el mapa de recursos actuales y una selección de prácticas y apoyos para el formador de la **Red Circular FAB**. Las fichas temáticas conservadas no son un inventario exhaustivo ni sustituyen los enunciados publicados.
+
+## Ruta práctica publicada: dónde empezar
+
+Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos temáticos y su numeración no equivale siempre a la del portal. Antes de preparar una sesión, lee la actividad elegida y su README.
+
+| Bloque | Entrada y material | Evidencia o decisión principal |
+| --- | --- | --- |
+| B1 | [Inicio](../bloques/bloque1/inicio.html) · [Cuaderno de fundamentos](../bloques/bloque1/cuadernos/fundamentos-python-b1.ipynb) | Predicción, modificación y taquilla del día; checkpoints de fundamentos y decisiones. |
+| B2 | [Inicio](../bloques/bloque2/inicio.html) · [Cuaderno de colecciones](../bloques/bloque2/cuadernos/colecciones-datos-b2.ipynb) | Elegir estructuras, analizar frases y justificar el clasificador de palabras. |
+| B3 | [Cuaderno de funciones](../bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb) · [SAMI-Lite](../bloques/bloque3/proyecto-sami-lite/README_PROYECTO.md) | Seguir llamadas entre módulos y modificar una regla de precio con casos de comprobación. |
+| B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
+| B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
+| B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Copia base](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → depurar → modificar → Git local. |
+| B7 | [Seis experiencias y descargas](../bloques/bloque7/inicio.html) | Harness → agente en repo → depurar → refactorizar con pruebas/diff → LangGraph → IA bajo control. |
+
+B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza el proyecto agente-real en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. No exijas conexiones reales para las alternativas locales previstas.
+
+**Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas SAMI de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-SAMI.md) detalla SAMI y [07](07-LAGUNAS-Y-LIMITES.md) recoge los conflictos de evaluación.
+
+
 
 Para cada práctica se detalla:
 * **Objetivo y Código Base:** Qué debe escribir o ejecutar el alumno.
@@ -223,7 +243,7 @@ Plan B:
 ---
 
 ## Proyecto B3: SAMI-Lite (Gestor Modular y Persistencia)
-* **Objetivo:** Construir un programa de consola interactivo estructurado en funciones (`registrar_evento()`, `cargar_historial()`, `guardar_historial()`) que permita añadir lecturas de sensores y persistirlas en `eventos.json` y `eventos.csv`.
+* **Objetivo:** Trabajar con `main.py`, `analizador.py` y `persistencia.py` para calcular precios, evaluar alertas y guardar transacciones. Los archivos reales son `config.json`, `transacciones_auditoras.csv` y `auditoria_errores.log`; consulta [06 · SAMI](06-SAMI.md).
 * **Artefacto/Evidencia:** módulos `.py`, archivos JSON/CSV generados y ejecución donde el alumno demuestra `return`, manejo de error y lectura/escritura.
 
 ---
@@ -267,14 +287,14 @@ Plan B:
 ---
 
 ## Proyecto B4: SAMI-OOP
-* **Objetivo:** Arquitectura orientada a objetos de SAMI con jerarquía `Dispositivo` ➔ `Sensor` / `Actuador`, clase gestora `FabLabManager` (composición) y método polimórfico de exportación de estado.
+* **Objetivo:** Arquitectura con `Producto`, `ProductoHardware`, `ProductoLicencia`, `AuditoriaMercado` y `ManejadorDatos`. La copia práctica pide validar peso y razonar sobre la diferencia de IVA; consulta [06 · SAMI](06-SAMI.md).
 * **Artefacto/Evidencia:** clases instanciables, relación de composición, al menos una subclase con `super()` y una llamada polimórfica explicada por el alumno.
 
 ---
 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
 
-Itinerario práctico principal: **NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied**.
+La ruta publicada es **cuaderno de datos → SAMI-Applied con CSV → PDF**. Se conservan apoyos sobre NumPy, Pandas, Playwright y ReportLab; Playwright no es requisito del proyecto práctico de B5.
 
 BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático si el material actual lo conserva. No debe competir con Playwright ni convertirse en práctica central.
 
@@ -319,15 +339,15 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
   * *Nivel 2:* "Calcula primero los importes en variables normales antes de crear la tabla."
   * *Nivel 3:* "La lista `story` debe recibir elementos Platypus y al final se llama a `doc.build(story)`."
 * **Plan B:** Si no se genera el PDF, comprobar instalación de `reportlab`, ruta de salida, permisos de escritura, existencia del logo y que el archivo PDF no esté abierto en otro programa.
-* **Límite:** `canvas` puede mencionarse como ampliación no evaluable; la práctica obligatoria usa Platypus.
+* **Límite:** `canvas` puede mencionarse como ampliación no evaluable; la práctica de factura usa Platypus.
 * **Artefacto/Evidencia:** archivo `factura_2027_001.pdf` generado por el script, con tabla, importes y estructura legible.
 * **Criterio de Éxito:** el alumno puede señalar dónde se definen los datos, dónde se calculan subtotales/IVA/total y dónde se añade cada elemento a `story`.
 
 ---
 
 ## Proyecto B5: SAMI-Applied
-* **Objetivo:** Pipeline integral: simulación o scraping de precios ➔ cálculo estadístico con NumPy ➔ estructuración y filtrado con Pandas ➔ generación real de informe final en PDF con ReportLab Platypus.
-* **Equilibrio:** Playwright -> NumPy -> Pandas -> ReportLab. No convertir SAMI-Applied en un proyecto de facturación.
+* **Objetivo:** Leer `datos_hardware.csv`, filtrar con Pandas, calcular indicadores con NumPy y generar `reporte_final_sami.pdf` con `generador_informe.py` y ReportLab Platypus.
+* **Comprobación:** `comprobar.py` y revisión humana del PDF. El scraping se conserva aparte como ampliación online; no convertir el proyecto en facturación.
 * **Artefacto/Evidencia:** CSV o registros de hardware, tabla analizada, resumen por consola y PDF de informe. `got_1.csv` se mantiene fuera del proyecto aplicado.
 
 ---
@@ -350,7 +370,7 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 ---
 
 ## Práctica 6.4: Control de Versiones con Git y GitHub
-* **Objetivo:** Inicializar repositorio con `git init`, crear `.gitignore`, preparar cambios con `git add .` y realizar commit con `git commit -m "feat: SAMI local modular"`.
+* **Objetivo:** Inicializar Git, revisar `.gitignore`, `git status` y `git diff`, añadir solo el archivo del cambio, revisar `git diff --cached` y guardar un commit local validado. La experiencia actual no exige push ni remoto.
 
 ---
 
@@ -392,8 +412,11 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-## Proyecto B7: SAMI Final & Documentación
-* **Entregables obligatorios:**
+## Material de autor B7: SAMI Final y documentación
+
+Estas plantillas se conservan como apoyo para la defensa. La ruta actual utiliza los proyectos enlazados al principio; el docente debe concretar si emplea además la entrega SAMI.
+
+* **Entregables de esa propuesta histórica:**
   1. `sami_final/` (código fuente modular ejecutable en VS Code).
   2. `registro-ia.md` (diario de prompts, respuestas de IA y correcciones manuales aplicadas).
   3. `plan-validacion.md` (casos de prueba y resultados obtenidos).
@@ -402,9 +425,9 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-## Ampliación Opcional: Grafos con Estado en LangGraph
+## Orquestación avanzada: ampliación de LangGraph
 * **Carácter:** Estrictamente opcional / Avanzado.
-* **Objetivo:** Introducir la orquestación de flujos de IA conversacionales cíclicos mediante nodos, bordes condicionales, memoria persistente por hilos (*checkpointers*) e intervención humana (*human-in-the-loop*).
+* **Objetivo de ampliación:** Explorar memoria conversacional e intervención humana. Se distingue de EXP-05, que ya contiene un grafo ejecutable sin LLM; consultar su README y documentar las comprobaciones omitidas.
 
 ---
 
@@ -412,6 +435,6 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 * **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de SAMI.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.
-* **Experiencias:** OpenCV, Pillow, automatización segura de archivos, openpyxl y Tkinter.
+* **Contenido:** pathway práctico y laboratorios adicionales. Las cinco experiencias originales se conservan junto con recursos posteriores; consultar el mapa de 08 y el portal.
 * **Uso docente:** emplear como cierre motivador del itinerario, no como nuevo bloque académico.
-* **Referencia operativa:** consultar `08-LAB-PYTHON-EN-ACCION.md`.
+* **Referencia operativa:** consultar [08-LAB-PYTHON-EN-ACCION.md](08-LAB-PYTHON-EN-ACCION.md).

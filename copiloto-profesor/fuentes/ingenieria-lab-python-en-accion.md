@@ -1,6 +1,9 @@
 # INGENIERÍA DE DISEÑO: LAB FINAL OPCIONAL
 ## "Python en Acción: 5 Cosas Más que Puedes Hacer"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Diseño de las cinco experiencias iniciales. Se conservan sus fichas; el recurso ha crecido con un pathway y más laboratorios. Consulta el [mapa actual de 08](../08-LAB-PYTHON-EN-ACCION.md). Véase el [criterio de fuentes](README.md).
+
+
 Este documento constituye la especificación técnica y de diseño instruccional para el **Lab Final Opcional: "Python en Acción: 5 Cosas Más que Puedes Hacer"**, preparado con orientación tecnológica para **2027**. 
 
 El objetivo de este laboratorio es demostrar de manera amigable, visual y altamente satisfactoria el impacto práctico inmediato del lenguaje una vez completado el itinerario base (Bloques 1 al 7). El enfoque pedagógico se resume en: **"Ya sabes Python. Ahora mira todo lo que puedes hacer con él"**, a través de 5 experiencias autónomas de 10 a 30 minutos de duración, completamente independientes entre sí.
@@ -57,7 +60,7 @@ El objetivo de este laboratorio es demostrar de manera amigable, visual y altame
         *   *Respuesta*: **B**. (La instrucción `cv2.waitKey(0)` indica al programa que pause de forma indefinida la ejecución hasta que se detecte una pulsación física de teclado. Para permitir un flujo continuo de vídeo en tiempo real, se debe especificar una espera de baja latencia (ej. `cv2.waitKey(1)` que espera un solo milisegundo antes de continuar el bucle)).
 *   **EVIDENCIA DE APRENDIZAJE**: Script local ejecutable `.py` que corre de forma interactiva la webcam con los 4 modos y guarda de forma exitosa archivos de imagen con nombres personalizados sin dejar procesos del sistema o ventanas colgadas en memoria.
 *   **MANTENER FUERA DE LA EVALUACIÓN**: No introducir reconocimiento facial, `CascadeClassifier`, YOLO, MediaPipe, algoritmos avanzados de deep learning ni modelos de inteligencia artificial para mantener la simplicidad didáctica.
-*   **APOYO AL DOCENTE (PROFESOR PLUS)**:
+*   **APOYO AL DOCENTE**:
     *   *Significado de cada modo*: Explicar que la imagen original es una matriz tridimensional de dimensiones `[alto, ancho, 3]` (BGR en OpenCV); la escala de grises es bidimensional `[alto, ancho]` simplificando la computación; el suavizado gaussiano difumina promediando píxeles vecinos basándose en una campana de Gauss; y Canny calcula el cambio de intensidad (gradiente) de los píxeles adyacentes para delimitar bordes físicos.
     *   *Teclas de control*: Enseñar al docente a enfatizar que la ventana gráfica de OpenCV debe estar activa y enfocada (*focused*) en el escritorio para que la llamada `cv2.waitKey()` capture las pulsaciones, ya que presionar las teclas en la terminal no surtirá efecto.
     *   *Error si no abre cámara y Plan B*: Si el comando lanza un error de inicialización, validar si el objeto de cámara no se abrió con `if not cap.isOpened()`. Proponer como Plan B cambiar el índice físico del hardware de `0` a `1` o `-1` para capturar cámaras externas o secundarias.
@@ -85,7 +88,7 @@ El objetivo de este laboratorio es demostrar de manera amigable, visual y altame
 
 ## 3. AUTOMATIZACIÓN DE ARCHIVOS: PYTHON ESTÁNDAR
 *   **FUENTES ENCONTRADAS**:
-    *   *pathlib — Object-oriented filesystem paths — Python 3.14.7 Documentation*: Documentación oficial del módulo nativo para manipulación orientada a objetos de rutas de archivos.
+    *   *pathlib — Object-oriented filesystem paths — Python 3 Documentation*: Documentación oficial del módulo nativo para manipulación orientada a objetos de rutas de archivos.
     *   *shutil — High-level file operations — Python Documentation*: Guía técnica para operaciones complejas como mover o copiar elementos.
 *   **APIS RESPALDADAS**:
     *   `from pathlib import Path`: Importación de la clase concreta de manipulación de rutas locales.
@@ -126,7 +129,7 @@ El objetivo de este laboratorio es demostrar de manera amigable, visual y altame
 
 ## 5. TKINTER: INTERFAZ GRÁFICA
 *   **FUENTES ENCONTRADAS**:
-    *   *tkinter — Python interface to Tcl/Tk — Python 3.14.7 Documentation*: Documentación de la biblioteca gráfica estándar de Python.
+    *   *tkinter — Python interface to Tcl/Tk — Python 3 Documentation*: Documentación de la biblioteca gráfica estándar de Python.
     *   *AskPython — Tkinter Tutorial & StringVar with Examples*: Guía técnica de uso de variables reactivas en ventanas.
 *   **APIS RESPALDADAS**:
     *   `root = tk.Tk()`: Inicialización del motor gráfico y ventana principal (root widget) de escritorio.

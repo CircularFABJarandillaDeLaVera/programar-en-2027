@@ -2,6 +2,9 @@
 ## "Python + IA"
 ### Itinerario: "Python 2027: De los Fundamentos a la Programación Asistida por IA"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Diseño histórico, no especificación de entrega de las seis experiencias actuales. Se conserva como apoyo metodológico. Contrasta proyectos, LangGraph ejecutable e IA-Control en [04](../04-PRACTICAS-Y-APOYOS.md) y las discrepancias de evaluación en [07](../07-LAGUNAS-Y-LIMITES.md). Véase el [criterio de fuentes](README.md).
+
+
 Este documento constituye la **Ingeniería del Conocimiento específica para el Bloque 7: Python + IA**, diseñada en estricta conformidad con el alcance curricular, pedagógico e infraestructural de la versión V4 [190].
 
 El objetivo central de este bloque es que el alumno aprenda a desarrollar software asistido por modelos de lenguaje de forma **crítica, analítica y estrictamente controlada**, evitando el nocivo "desarrollo zombi" (la integración ciega de código autogenerado sin asimilación real) [15]. En esta etapa, los asistentes de IA se elevan de herramientas de entorno a socios de copiloto metodológico mediante un protocolo secuencial riguroso, culminando (de manera totalmente opcional) en el modelado de arquitecturas de agentes autónomos con estado empleando **LangGraph** [3, 4, 15].
@@ -9,7 +12,7 @@ El objetivo central de este bloque es que el alumno aprenda a desarrollar softwa
 ---
 
 ## 1. OBJETIVO OPERATIVO
-Gobernar con total autonomía el ciclo de desarrollo de software asistido por IA aplicando de forma sistemática el **Flujo Crítico de Trabajo de 2026/2027** para planificar, proveer contextos, generar, auditar, depurar, refactorizar, modificar y validar físicamente código Python en VS Code [5, 15], asumiendo de manera indelegable la responsabilidad técnica final de la estabilidad y correctitud del software [15] e implementando (como ampliación avanzada y opcional, libre de carácter obligatorio) grafos conversacionales autónomos provistos de estado, persistencia por hilos e intervención humana (*Human-in-the-loop*) en LangGraph [3, 4, 15].
+Gobernar con total autonomía el ciclo de desarrollo de software asistido por IA aplicando de forma sistemática el **Flujo Crítico de Trabajo de 2027** para planificar, proveer contextos, generar, auditar, depurar, refactorizar, modificar y validar físicamente código Python en VS Code [5, 15], asumiendo de manera indelegable la responsabilidad técnica final de la estabilidad y correctitud del software [15] e implementando (como ampliación avanzada y opcional, libre de carácter obligatorio) grafos conversacionales autónomos provistos de estado, persistencia por hilos e intervención humana (*Human-in-the-loop*) en LangGraph [3, 4, 15].
 
 ---
 
@@ -65,7 +68,7 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 ## 3. CLASIFICACIÓN DE CONTENIDOS DEL BLOQUE 7
 
 *   **IMPRESCINDIBLES (El Metodo Crítico de Desarrollo Asistido)**:
-    *   La metodología estructurada de programación con IA: El **Flujo Crítico de Trabajo de 2026/2027** (`PROBLEMA ➔ PLAN ➔ CONTEXTO ➔ IA ➔ CÓDIGO ➔ EJECUTAR ➔ ENTENDER ➔ DEPURAR ➔ MODIFICAR ➔ VALIDAR`) [15].
+    *   La metodología estructurada de programación con IA: El **Flujo Crítico de Trabajo de 2027** (`PROBLEMA ➔ PLAN ➔ CONTEXTO ➔ IA ➔ CÓDIGO ➔ EJECUTAR ➔ ENTENDER ➔ DEPURAR ➔ MODIFICAR ➔ VALIDAR`) [15].
     *   Estructura y diseño de prompts técnicos de programación: Definición de rol, objetivos, restricciones físicas de librerías, y provisión estructurada de contexto en lenguaje natural antes de la generación de código.
     *   Control de caja de arena: Petición acotada de funciones puras, unitarias y específicas a los asistentes (GitHub Copilot, Colab/Gemini, Codex, Claude Code) en lugar de arquitecturas completas a ciegas [15].
     *   Técnicas de revisión y auditoría de código autogenerado: Verificación de tipos de datos, inspección de variables locales/globales, y detección analítica de "alucinaciones" lógicas (sintaxis inexistentes, APIs deprecadas o importaciones rotas) [15].
@@ -89,7 +92,7 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 ## 4. DESARROLLO INSTRUCCIONAL DE CONCEPTOS (APRENDER HACIENDO)
 
 ### CONCEPTO 7.1: El Flujo Crítico de Trabajo Asistido por IA (Foco Metodológico)
-*   **CONCEPTO**: El desarrollo de software en 2027 asistido por IA exige un paradigma estricto para erradicar el "desarrollo zombi". El estudiante debe gobernar el flujo de creación dividiéndolo en 10 etapas secuenciales inalterables: `PROBLEMA ➔ PLAN ➔ CONTEXTO ➔ IA ➔ CÓDIGO ➔ EJECUTAR ➔ ENTENDER ➔ DEPURAR ➔ MODIFICAR ➔ VALIDAR`. Bajo esta metodología, la IA es únicamente un asistente de generación sintáctica, mientras que el control algorítmico, la validación lógica y la arquitectura corresponden en un 100% al programador humano [15].
+*   **CONCEPTO**: El desarrollo de software en 2027 asistido por IA exige un paradigma estricto para erradicar el "desarrollo zombi". El estudiante debe gobernar el flujo de creación organizándolo en etapas que permiten volver a investigar y corregir: `PROBLEMA ➔ PLAN ➔ CONTEXTO ➔ IA ➔ CÓDIGO ➔ EJECUTAR ➔ ENTENDER ➔ DEPURAR ➔ MODIFICAR ➔ VALIDAR`. El agente puede ayudar a analizar, planificar y ejecutar dentro del alcance autorizado; la aceptación del resultado y la supervisión corresponden a la persona.
 *   **PRERREQUISITO**: Bloques 1 al 6 completos.
 *   **DEMOSTRACIÓN**: El docente muestra en Colab un algoritmo mal estructurado de ordenamiento burbuja generado por IA por falta de restricciones lógicas, evidenciando que la IA falló por carecer de un plan de restricciones previo redactado por el programador.
 *   **PRÁCTICA**: 
@@ -100,9 +103,9 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 *   **ERROR HABITUAL**: Omitir las fases de "PLAN" y "ENTENDER", enviando un prompt genérico a la IA de Colab y copiando directamente en el proyecto local un bloque masivo de código autocompletado sin comprender el flujo de sus variables.
 *   **MINI-RETO**: Redactar de forma manual el PLAN en pseudocódigo para resolver el juego del ahorcado de las fuentes antes de solicitar ayuda sintáctica a la IA, evaluando el contraste entre planificar y generar ciegamente [156].
 *   **MICROEVALUACIÓN SOLOLEARN**:
-    *   *Elegir solución*: Te enfrentas a un error silencioso en tu aplicación de consola (los promedios de ventas devuelven valores incorrectos pero el programa no se detiene). ¿Cuál es la decisión técnica correcta bajo el Flujo Crítico de Trabajo de 2026/2027?
+    *   *Elegir solución*: Te enfrentas a un error silencioso en tu aplicación de consola (los promedios de ventas devuelven valores incorrectos pero el programa no se detiene). ¿Cuál es la decisión técnica correcta bajo el Flujo Crítico de Trabajo de 2027?
         *   A) Enviar el script completo a la IA con el mensaje "Arregla este código" y copiar la primera sugerencia que ofrezca.
-        *   B) Pausar la ejecución, leer el Traceback en consola, utilizar f-strings de depuración (`f"{var=}"`) para rastrear el valor real en memoria de las variables de promedios, corregir manualmente el bug lógico, y finalmente usar la IA solo para que justifique conceptualmente por qué ocurrió la anomalía [13, 134].
+        *   B) Inspeccionar el cálculo —un error lógico silencioso puede no producir traceback—, utilizar f-strings de depuración (`f"{var=}"`) para rastrear el valor real en memoria de las variables de promedios, corregir manualmente el bug lógico, y finalmente usar la IA solo para que justifique conceptualmente por qué ocurrió la anomalía [13, 134].
         *   C) Eliminar la función y reescribir todo el proyecto a mano desde cero.
         *   D) Ignorar el error si el reporte PDF se genera de todas formas.
     *   *Respuesta*: **B**.
@@ -116,7 +119,7 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 *   **DEMOSTRACIÓN**: El docente muestra dos interacciones con la IA de Colab: una con un prompt impreciso ("haz un script para leer archivos"), y otra con un prompt contextualizado y acotado, comparando la precisión y limpieza de la respuesta obtenida.
 *   **PRÁCTICA**: Configura una celda interactiva en Colab. Redacta un prompt de contexto perfecto para solicitar un algoritmo que lea un archivo de configuración JSON local utilizando `with open()`, capturando de forma precisa el error `FileNotFoundError` y autogenerando los datos por defecto si el archivo físico no se localiza en el workspace de trabajo [10].
 *   **ERROR HABITUAL**: Escribir prompts conversacionales vagos y ambiguos ("ayuda con un CSV"), lo que provoca que la IA alucine APIs complejas o sugiera descargar librerías externas que no se encuentran permitidas en el catálogo del proyecto local.
-*   **MINI-RETO**: Redactar un prompt acotado que solicite a un asistente del editor una función matemática pura para calcular raíces cuadradas con la librería de NumPy, prohibiendo explícitamente el uso de bucles `for` y exigiendo el uso exclusivo de operaciones vectorizadas de alto rendimiento de la documentación v2.5 [9].
+*   **MINI-RETO**: Redactar un prompt acotado que solicite a un asistente del editor una función matemática pura para calcular raíces cuadradas con la librería de NumPy, prohibiendo explícitamente el uso de bucles `for` y exigiendo el uso exclusivo de operaciones vectorizadas de alto rendimiento de la documentación de la versión instalada [9].
 *   **MICROEVALUACIÓN SOLOLEARN**:
     *   *Detectar contexto faltante*: El alumno envía a la IA el prompt: *"Escribe una clase Producto que calcule el IVA de los artículos"*. La IA le devuelve un código que implementa herencia múltiple compleja, getters con el decorador `@property` (inexistente en las fuentes) y cálculos impositivos estáticos. ¿Qué elemento crítico de ingeniería de prompts omitió el alumno al interactuar con el asistente?
         *   A) No especificó el color de la consola de salida.
@@ -258,7 +261,7 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 *   **El Grafo de Dos Nodos**: Escribe de forma lógica la secuencia de sentencias requeridas para registrar dos nodos (`"extractor"` y `"analizador"`) dentro de un grafo `StateGraph`, definir el punto de inicio `START`, conectar ambos nodos secuencialmente, y definir el punto de finalización de compilación `END` de acuerdo con la documentación de LangGraph [3, 4].
 
 #### → MICROEVALUACIÓN TIPO SOLOLEARN
-*   **Pregunta de ordenar sentencias de compilación**: Selecciona la opción que ordene de forma lógica las sentencias requeridas para compilar un grafo con estado en LangGraph, aplicando un punto de interrupción físico (breakpoint) antes del nodo de generación del PDF final [3, 4].
+*   **Ejercicio conceptual, no ejecutable por sí solo:** supone que el nodo `extractor`, la entrada y la salida se añaden en el resto del grafo. Selecciona la opción que ordene de forma lógica las sentencias requeridas para compilar un grafo con estado en LangGraph, aplicando un punto de interrupción físico (breakpoint) antes del nodo de generación del PDF final [3, 4].
     ```text
     Línea 1: workflow.add_node("generador_pdf", generar_pdf_node)
     Línea 2: app = workflow.compile(interrupt_before=["generador_pdf"])
@@ -276,7 +279,7 @@ La progresión del bloque traslada la lógica desde el prompt estructurado de fu
 
 ---
 
-## 5. PROYECTO FINAL OBLIGATORIO DEL ITINERARIO
+## 5. PROPUESTA HISTÓRICA DE SAMI FINAL
 
 ### "SAMI Final: El Sistema de Auditoría de Mercado y Análisis de Datos con IA Crítica"
 
@@ -302,9 +305,9 @@ El proyecto SAMI Final representa la cúspide evolutiva de la aplicación desarr
     *   Las dependencias están declaradas de forma rígida con sus versiones de producción correspondientes en el archivo centralizado `requirements.txt` [16].
     *   El proyecto completo se encuentra inicializado localmente como repositorio Git, protegiendo las carpetas locales de dependencias (`/venv`) e históricos de logs (`/logs`) mediante un archivo de exclusión `.gitignore`.
 6.  **Flujo Crítico de Desarrollo con Asistencia de IA (Auditoría Técnica Obligatoria)** [15]:
-    *   El estudiante programará la aplicación apoyándose de manera controlada en las extensiones de asistentes de programación de su editor (como GitHub Copilot o la extensión de Colab para VS Code) [6]. El alumno utilizará la IA de forma estratégica para: planificar el diseño lógico, explicar fragmentos complejos del código, solicitar modificaciones localizadas de sintaxis, depurar errores físicos, redactar la documentación formal (docstrings) de los módulos, refactorizar partes lógicas aisladas (únicamente cuando esté respaldado por las APIs de las fuentes) y guiar el plan de validación.
+    *   El estudiante programará la aplicación apoyándose de manera controlada en las extensiones de asistentes de programación de su editor (como un asistente disponible en el editor o la terminal) [6]. El alumno utilizará la IA de forma estratégica para: planificar el diseño lógico, explicar fragmentos complejos del código, solicitar modificaciones localizadas de sintaxis, depurar errores físicos, redactar la documentación formal (docstrings) de los módulos, refactorizar partes lógicas aisladas (únicamente cuando esté respaldado por las APIs de las fuentes) y guiar el plan de validación.
     *   **Restricciones de Caja de Arena**: Para evitar la sobredimensión o desvío técnico, se prohíbe exigir optimizaciones avanzadas o de rendimiento que fuercen la adopción de APIs, patrones o técnicas ausentes en las fuentes oficiales del notebook. Asimismo, **la IA no debe añadir tecnologías nuevas, frameworks adicionales ni dependencias de terceros** fuera de las autorizadas en el catálogo del proyecto (`requirements.txt`).
-    *   **Regla de Oro**: Para superar el curso, el alumno debe redactar un diario de desarrollo local donde documente de forma explícita **3 fallas lógicas o de diseño técnico que el asistente de IA sugirió durante el desarrollo del proyecto** (por ejemplo: la omisión de `browser.close()` en Playwright, el uso de bucles tradicionales `for` para iterar DataFrames de Pandas, la omisión de exclusiones en `.gitignore`, o comparaciones imprecisas sobre tipos booleanos de NumPy) [7, 13, 15, 229].
+    *   **Registro de la propuesta histórica**: Se pedían **3 fallas lógicas o de diseño técnico sugeridas por la IA**. En el uso actual se registran solo las observadas, sin inventar fallas ni convertir este número en requisito de todas las experiencias (por ejemplo: la omisión de `browser.close()` en Playwright, el uso de bucles tradicionales `for` para iterar DataFrames de Pandas, la omisión de exclusiones en `.gitignore`, o comparaciones imprecisas sobre tipos booleanos de NumPy) [7, 13, 15, 229].
     *   El alumno debe documentar cómo detectó el bug analizando críticamente el Traceback en su consola de terminal o ejecutando impresiones de variables en memoria, y cómo reescribió y corrigió de forma manual el código para validar la solución [13].
 
 7.  **Criterios de Evaluación y Defensa Oral**:
@@ -329,7 +332,7 @@ De acuerdo con el análisis de los materiales de tu base de conocimiento, se ide
 
 ## 10. FUENTES DE AMPLIACIÓN RECOMENDADAS (BLOQUE 7)
 
-Para suplir con total rigor las lagunas de conocimiento detectadas y enriquecer la experiencia formativa del alumno en el ecosistema productivo moderno de Python e Inteligencia Artificial, se aconseja integrar los siguientes recursos oficiales al Notebook:
+Para suplir con total rigor las lagunas de conocimiento detectadas y enriquecer la experiencia formativa del alumno en el ecosistema productivo moderno de Python e Inteligencia Artificial, se conservan los siguientes recursos como opciones de ampliación para el docente; no son dependencias ni incorporaciones automáticas al curso:
 
 1.  **LangGraph Developer Guide - Core Concepts**: La guía de referencia oficial de LangChain para detallar de manera práctica la sintaxis completa de configuración de StateGraphs, herencia de esquemas, uso de reducers complejos y la definición física de condicionales.
 2.  **Python-dotenv Documentation**: Para instruir al alumno de forma segura en la configuración y aislamiento de variables de entorno locales de claves de API mediante archivos `.env` sin exponerlas accidentalmente en repositorios públicos de GitHub.

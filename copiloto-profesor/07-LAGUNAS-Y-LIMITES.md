@@ -6,7 +6,7 @@ Este documento establece las **fronteras exactas** entre lo que constituye el cu
 
 Su objetivo es salvaguardar la coherencia del curso y evitar que el agente (o el formador) sobrecargue al alumnado con contenidos fuera de programa o presente conceptos externos como si fueran obligatorios.
 
-Este documento también protege el pack frente a fuentes vivas antiguas o no saneadas. Si una fuente externa contiene mojibake, referencias de año obsoleto, PyPDF como laguna antigua, restos conversacionales o contradicciones con el estado validado del curso, debe prevalecer la versión curada de `copiloto-profesor/`.
+El pack debe contrastarse con las actividades actuales. La ingeniería de origen conserva diseños y lagunas históricas: consulta su [índice](fuentes/README.md). Si hay una contradicción, identifica ambas fuentes; no presentes la síntesis como evidencia superior al código actual ni decidas por tu cuenta nuevos requisitos.
 
 ---
 
@@ -17,8 +17,8 @@ Cada vez que el Copiloto del Profesor proporcione información técnica al forma
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           [SEGÚN EL CURSO]                              │
-│  Contenido canónico, prácticas obligatorias y criterios de evaluación   │
-│  oficiales de los bloques B1 a B7.                                      │
+│  Contenido documentado: señalar fuente y carácter de la actividad.     │
+│  Estar documentado no implica ser obligatorio ni evaluable.            │
 └─────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -37,14 +37,14 @@ Cada vez que el Copiloto del Profesor proporcione información técnica al forma
 | Área Técnica | Alcance Canónico `[SEGÚN EL CURSO]` | Límite / `[EXPLICACIÓN COMPLEMENTARIA]` |
 | :--- | :--- | :--- |
 | **Instalación de Python en el SO** | Uso inmediato de **Google Colab** en B1-B5. En B6 se asume Python 3.10+ preinstalado o provisto por el taller para la creación de entornos virtuales (`venv`). | No se incluye un manual paso a paso del instalador ejecutable de Windows/macOS/Linux (variables de entorno PATH, compilación desde código fuente, etc.). Si un alumno lo requiere, se le asiste como apoyo complementario. |
-| **Control de Versiones (Git)** | Comandos esenciales para flujo local y respaldo en B6-B7: `git init`, `git add`, `git commit -m`, `git status`, `.gitignore` y clonación inicial `git clone`. | No forma parte del temario la gestión avanzada de ramas (`git branch`, `git checkout/switch`), fusión (`git merge`), rebase (`git rebase`) ni resolución interactiva de conflictos de código. |
+| **Control de Versiones (Git)** | Comandos esenciales para flujo local y respaldo en B6-B7: `git init`, `git add`, `git commit -m`, `git status`, `git diff`, `.gitignore` y clonación inicial `git clone`. | No forma parte del temario la gestión avanzada de ramas (`git branch`, `git checkout/switch`), fusión (`git merge`), rebase (`git rebase`) ni resolución interactiva de conflictos de código. |
 | **Complejidad Algorítmica (Big-O)** | Explicación cualitativa en lenguaje natural descriptivo: *"acceso instantáneo por clave en diccionarios frente a búsqueda elemento a elemento en listas"*. | No se utiliza ni se evalúa la notación matemática formal Big-O ($O(1), O(N), O(N^2)$). |
 | **Mutabilidad y Copias Profundas** | Comprensión de referencias en memoria con listas, copia superficial mediante slicing `b = a[:]` o `.copy()`, e inmutabilidad de tuplas y strings. | No se profundiza en el módulo `copy` (`deepcopy`) para estructuras anidadas complejas ni en el caso de tuplas que contienen listas mutables en su interior. |
 | **Generación de Informes en PDF** | Uso canónico de **ReportLab** (`SimpleDocTemplate`, `Paragraph`, `Table`, `Spacer`) para maquetar tablas y resúmenes ejecutivos en B5. | No se cubre maquetación gráfica compleja de imprenta, diseño vectorial milimétrico ni librerías externas no respaldadas en los materiales. |
 | **Automatización Web (Scraping)** | Automatización de flujos básicos de navegación, esperas de elementos y extracción de texto visible con **Playwright** en B5. | No se cubren técnicas de evasión de sistemas anti-bot, resolución de captchas ni pipelines distribuidos de scraping masivo. |
 | **BeautifulSoup en B5** | Puede aparecer como concepto acotado para parsing de HTML estático si el material actual lo conserva. | No compite con el itinerario práctico principal NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied y no debe convertirse en dependencia central. |
-| **Orquestación de Agentes (LangGraph)** | El proyecto final obligatorio de B7 se completa y valida con asistentes de IA en VS Code. **LangGraph es una ampliación avanzada y estrictamente opcional**. | No es obligatorio ni evaluable para la superación del curso. Se reserva como reto optativo para alumnos avanzados. |
-| **Lab Python en Acción** | Recurso final opcional con cinco experiencias: OpenCV, Pillow, automatización segura, openpyxl y Tkinter. | No es B8, no es evaluable, no pertenece a SAMI y no debe alterar la progresión obligatoria B1-B7. |
+| **Orquestación de Agentes (LangGraph)** | EXP-05 de B7 contiene un grafo ejecutable sin LLM. Las reglas puras se pueden probar sin instalar LangGraph; el grafo queda no verificado si falta. | La orquestación conversacional avanzada de la ingeniería es una ampliación. No extrapolar su antigua etiqueta de opcional a la ruta actual ni fijar evaluación sin decisión docente. |
+| **Python en Acción** | Pathway y laboratorios adicionales documentados en el portal; mapa en 08. | No es B8, no añade requisitos evaluables por defecto y no pertenece a SAMI. Cada experiencia conserva sus prerrequisitos. |
 | **OpenCV en el Lab** | Webcam interactiva con `VideoCapture`, `read`, `imshow`, `waitKey`, `cvtColor`, `GaussianBlur`, `Canny`, `imwrite`, `release` y `destroyAllWindows`. | No incluye reconocimiento facial, reconocimiento de objetos, `CascadeClassifier`, YOLO, MediaPipe ni modelos de IA. |
 | **Automatización de archivos del Lab** | Organización de archivos falsos exclusivamente dentro de `lab_archivos_prueba/`. | No recomendar Descargas, Documentos, Escritorio ni carpetas reales externas del alumno. |
 
@@ -67,7 +67,7 @@ Cuando el formador de Circular FAB consulte sobre algún tema que sobrepase el a
 
 Según el curso, ReportLab se trabaja de forma práctica en B5 mediante Platypus. La factura `factura_2027_001.pdf` y el informe PDF de SAMI-Applied son salidas reales.
 
-El Copiloto no debe presentar como contenido del curso: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación.
+El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en Python en Acción no amplían automáticamente B5.
 
 ## 6. Límites del Pack Portable
 
@@ -82,3 +82,16 @@ El pack `copiloto-profesor/` es documentación portable. No requiere ni debe pro
 - Servicios externos.
 
 Puede cargarse en herramientas compatibles con instrucciones y archivos de conocimiento. La herramienta concreta es decisión del profesor o del centro.
+
+## 7. Diferencias entre versiones y revisión docente pendiente
+
+Auditoría documental del 10 de septiembre de 2026:
+
+| Discrepancia encontrada | Criterio operativo del Copiloto | Decisión humana pendiente |
+| --- | --- | --- |
+| B7 conserva ingeniería y plantillas de defensa SAMI con GoT y tres fallas de IA; el inicio publica seis experiencias con otros proyectos. | Enseñar la experiencia elegida y registrar evidencia real; no exigirle archivos o fallas inventadas. | Confirmar si la defensa SAMI sigue siendo entrega final y con qué rúbrica. |
+| La ingeniería llamaba opcional a LangGraph; EXP-05 lo presenta como grafo ejecutable en la ruta. | Describir el grafo actual y su Plan B; distinguirlo de la ampliación conversacional. Ollama en EXP-06 sí es explícitamente opcional. | Confirmar el carácter evaluable de EXP-05 y la evidencia mínima cuando no pueda ejecutarse el grafo. |
+| El JSON del Lab contiene seis experiencias, el JavaScript más y sus subtítulos numéricos no coinciden con el portal. | Usar el [portal publicado](../lab-python-en-accion/index.html) y las páginas enlazadas; no fijar un número de experiencias en el pack. | Sincronizar esos catálogos en una tarea posterior, fuera de esta carpeta. |
+| Algunas configs de bloques aún dicen «Pendiente» y las fuentes guardan lagunas ya cubiertas por cuadernos o experiencias. | Consultar los recursos existentes del [mapa de prácticas](04-PRACTICAS-Y-APOYOS.md), no deducir ausencia de contenido de esos metadatos. | Revisar esos metadatos en su ámbito de mantenimiento. |
+
+El Copiloto no resuelve estas diferencias cambiando el curso, sus proyectos o la evaluación sin autorización. Sí puede preparar una propuesta acotada conforme al flujo del archivo 00.

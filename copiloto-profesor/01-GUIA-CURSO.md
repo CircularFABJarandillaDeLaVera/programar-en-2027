@@ -9,7 +9,7 @@ Su propósito es capacitar a ciudadanos, emprendedores, técnicos y profesionale
 ### Objetivos Generales
 1. **Desmitificar la programación:** Transformar la barrera técnica inicial en una habilidad práctica accesible mediante entornos interactivos inmediatos (Google Colab / Jupyter Notebooks).
 2. **Dominar las estructuras esenciales del lenguaje:** Comprender la lógica algorítmica, las colecciones de datos, el paradigma funcional/modular y los fundamentos de la Programación Orientada a Objetos (POO).
-3. **Manejar datos y automatización:** Integrar librerías del ecosistema Python siguiendo el flujo validado de B5: NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied.
+3. **Manejar datos y automatización:** Usar NumPy, Pandas y ReportLab en SAMI-Applied a partir de CSV local; conocer Playwright en los materiales de automatización de B5.
 4. **Dar el salto al entorno profesional:** Migrar con soltura del cuaderno interactivo a proyectos locales estructurados en Visual Studio Code, con entornos virtuales (`venv`), gestión de paquetes (`pip`) y control de versiones básico (`Git`).
 5. **Gobernar el desarrollo asistido por IA (2027):** Integrar asistentes y modelos de lenguaje como copilotos de programación bajo un protocolo estricto de auditoría y validación crítica, erradicando el "desarrollo zombi".
 
@@ -53,6 +53,10 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 
 ## 3. Mapa Curricular del Curso (B1 a B7)
 
+La ruta publicada empieza en los [inicios de los bloques](../inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
+
+El siguiente esquema resume la progresión; SAMI Final permanece en los materiales de autor, mientras la ruta actual de B7 trabaja con proyectos de agentes.
+
 ```
 [B1: Fundamentos y Lógica]
         │
@@ -66,15 +70,15 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 [B4: Programación Orientada a Objetos] ──► [Proyecto B4: SAMI-OOP (Clases y Herencia)]
         │
         ▼
-[B5: Python Aplicado y Librerías] ──► [Proyecto B5: SAMI-Applied (Scraping, NumPy, Pandas, PDF)]
+[B5: Python Aplicado y Librerías] ──► [Proyecto B5: SAMI-Applied (CSV, NumPy, Pandas, PDF)]
         │
         ▼
 [B6: Del Notebook al Entorno Profesional] ──► [Proyecto B6: SAMI-Local (VS Code, venv, Git, Debugger)]
         │
         ▼
-[B7: Python + IA] ──► [Proyecto Final: SAMI-Final Asistido + Defensa Técnica]
+[B7: Python + IA] ──► [Harness, agente real, LangGraph e IA-Control]
         │
-        └─► [Ampliación Opcional: Grafos LangGraph con Estado e Intervención Humana]
+        └─► [Ingeniería histórica: SAMI Final y orquestación conversacional avanzada]
 ```
 
 ---
@@ -87,45 +91,31 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 | **B2** | **Estructuras de Datos**<br>Colecciones y manipulación | Google Colab / Notebook | Cadenas (slicing bidireccional y reversión), listas y mutabilidad, tuplas (inmutabilidad), sets (unicidad y teoría de conjuntos), diccionarios (claves y `.get()`), comprehensions. | **Clasificador e Indexador de Palabras Clave** (análisis de texto y conteo estructurado). |
 | **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **SAMI-Lite**: Gestor modular de datos de consola con persistencia física en JSON/CSV. |
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
-| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: pipeline NumPy -> Pandas -> Playwright -> ReportLab con datos de hardware, sin mezclar `got_1.csv` en el proyecto. |
-| **B6** | **Del Notebook al Entorno Profesional**<br>Desarrollo local | VS Code Local | De `.ipynb` a scripts `.py`, terminal integrada, entornos virtuales (`python -m venv`), gestión con `pip` y `requirements.txt`, control de versiones (`Git/GitHub`), debugger interactivo de VS Code. | **SAMI-Local**: Estructura de paquete profesional en disco local con repositorio Git, virtualenv y depuración con breakpoints. |
-| **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. *(Ampliación: LangGraph)*. | **SAMI Final**: Entrega del sistema completo auditado con `registro-ia.md`, `plan-validacion.md` y `README-defensa.md`. |
+| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
+| **B6** | **Trabajo como developer**<br>Desarrollo local | VS Code Local | De `.ipynb` a scripts `.py`, terminal integrada, entornos virtuales (`python -m venv`), gestión con `pip` y `requirements.txt`, control de versiones (`Git/GitHub`), debugger interactivo de VS Code. | **SAMI-Local**: Estructura de paquete profesional en disco local con repositorio Git, virtualenv y depuración con breakpoints. |
+| **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. LangGraph ejecutable sin LLM e IA-Control con Ollama opcional. | **Ruta de agentes**: cambios, pruebas y diff. Las plantillas de defensa de SAMI se conservan en materiales de autor; verificar con el docente qué evaluación aplica. |
 
 ---
 
 ## 5. El Eje Vertebrador: La Progresión SAMI
 
-Para evitar que los alumnos perciban los bloques como islas inconexas, el curso utiliza un hilo conductor práctico llamado **SAMI** (*Sistema de Auditoría y Monitorización Inteligente* / *Sistema de Automatización Modular Integrado*):
+**SAMI** se presenta como Sistema de Auditoría de Precios y Generación Automatizada de Reportes de Mercado.
 
-1. **B3 (SAMI-Lite):** El alumno crea un sistema de registro modular basado en funciones y archivos planos JSON/CSV.
-2. **B4 (SAMI-OOP):** Rediseña el sistema modelando entidades (`Sensor`, `Dispositivo`, `Alerta`, `Auditoria`) mediante clases y herencia.
-3. **B5 (SAMI-Applied):** Conecta SAMI a fuentes de datos web mediante Playwright, analiza métricas con NumPy/Pandas y exporta resúmenes ejecutivos en PDF con ReportLab.
-4. **B6 (SAMI-Local):** Monta SAMI como una aplicación de software profesional en su equipo local con VS Code, `venv`, Git y depuración paso a paso.
-5. **B7 (SAMI Final):** Optimiza, amplía y defiende técnicamente el proyecto final utilizando IA como copiloto, documentando exhaustivamente las decisiones tomadas.
+1. **B3 · SAMI-Lite:** funciones y módulos para calcular precios, evaluar alertas y registrar transacciones en CSV, con configuración JSON y log.
+2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
+3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
+4. **B6 · SAMI-Local:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
+5. **B7:** aplicación de control y validación al trabajo con agentes; la defensa de SAMI Final sigue en los materiales de autor.
 
-Separación obligatoria:
+Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 
-- **SAMI curricular:** hilo de proyectos B3-B7.
-- **SAMI-Applied:** hito concreto de B5 con datos de hardware, análisis y PDF.
-- **Python en Acción:** Lab final opcional, externo a SAMI.
+## 6. Python en Acción: pathway y laboratorios
 
----
+[Python en Acción](../lab-python-en-accion/index.html) es una continuación práctica independiente. No es B8 ni añade requisitos evaluables por defecto.
 
-## 6. Lab Final Opcional: Python en Acción
+El portal contiene un pathway desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 
-Tras B7 existe un recurso independiente llamado **Python en Acción: 5 cosas más que puedes hacer**.
-
-Este Lab no es B8, no forma parte de la evaluación obligatoria y no altera la progresión SAMI. Su papel es cerrar el itinerario con experiencias cortas y tangibles que muestran aplicaciones reales de Python:
-
-1. **OpenCV:** webcam interactiva con modos `1` normal, `2` gris, `3` GaussianBlur, `4` Canny, `S` captura y `Q` salida.
-2. **Pillow:** abrir una imagen neutra, transformarla y guardar una nueva imagen.
-3. **Automatización segura:** organizar únicamente archivos falsos dentro de `lab_archivos_prueba/`.
-4. **openpyxl:** crear `ventas_lab.xlsx` con datos, fórmulas y formato básico.
-5. **Tkinter:** construir una pequeña aplicación gráfica con entrada, botón y resultado.
-
-El flujo pedagógico del Lab es siempre: VER -> PROBAR -> MODIFICAR -> MINI-RETO.
-
-El Lab puede motivar y abrir caminos, pero no añade objetivos evaluables por defecto al curso.
+Las cinco fichas originales siguen siendo útiles; ya no representan todo el recurso. No deduzcas el catálogo a partir de un subtítulo numérico antiguo.
 
 ---
 

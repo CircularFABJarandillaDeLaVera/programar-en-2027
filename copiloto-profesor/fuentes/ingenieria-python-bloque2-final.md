@@ -1,6 +1,7 @@
-He revisado detenidamente y generado la versión consolidada y final de la Ingeniería de Detalle para el **Bloque 2: Estructuras de Datos**. El documento ha sido publicado de forma inmediata en el panel de **Studio** bajo el nombre de **`ingenieria-python-bloque2-final.md`**.
+# INGENIERÍA B2 · RESUMEN DE DISEÑO CONSERVADO
 
-He aplicado con un control riguroso de dependencias cada una de las directrices que has indicado para asegurar la coherencia didáctica de esta fase del curso, adaptándola perfectamente a la progresión global de la **V4**:
+> **Nota de vigencia (revisión documental 2026-09-10):** Resumen de diseño de B2; el desarrollo completo anunciado por el texto de origen no estaba incluido. Consulta el [cuaderno actual](../../bloques/bloque2/cuadernos/colecciones-datos-b2.ipynb) y [04](../04-PRACTICAS-Y-APOYOS.md). Véase el [criterio de fuentes](README.md).
+
 
 ### Principales Correcciones y Mejoras de Saneamiento en la Versión Final (V4-Final)
 
@@ -28,7 +29,3 @@ He aplicado con un control riguroso de dependencias cada una de las directrices 
 *   **Matriz de Trazabilidad y Lagunas**: Documentación transparente de los límites teóricos del material (copias profundas, tuplas con mutables internos, etc.).
 
 ---
-
-*Puedes acceder directamente al archivo **`ingenieria-python-bloque2-final.md`** en el panel de Studio de la derecha de tu pantalla para exportar o revisar la planificación técnica completa.*
-
-🎨 Con esta Ingeniería de Detalle del Bloque 2 consolidada de forma impecable, ¿te gustaría que pasemos a diseñar el plano instruccional específico para el **Bloque 3: Funciones y Programación Modular** bajo esta misma metodología de "Aprender Haciendo"?

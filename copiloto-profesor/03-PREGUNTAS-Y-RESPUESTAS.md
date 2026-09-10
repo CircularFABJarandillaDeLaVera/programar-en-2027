@@ -27,18 +27,18 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
 * **Explicación Sencilla:**
   * `/` es la división normal (siempre da decimales, ej. `7 / 2 = 3.5`).
-  * `//` es la división entera (se queda solo con la parte entera del cociente, ej. `7 // 2 = 3`).
+  * `//` calcula el cociente redondeado hacia abajo, ej. `7 // 2 = 3` y `-7 // 2 = -4`.
   * `%` es el módulo (calcula el resto sobrante de la división, ej. `7 % 2 = 1`).
   * `divmod(a, b)` calcula el cociente entero y el resto a la vez y te los entrega juntos en una sola orden: `cociente, resto = divmod(7, 2)`.
 * **Analogía Cotidiana:** Tienes 137 minutos y quieres pasarlos a horas y minutos. Si divides entre 60, `divmod(137, 60)` te dice directamente: *"Son 2 horas completas y te sobran 17 minutos"*.
 * **Explicación Técnica:**
-  `[EXPLICACIÓN COMPLEMENTARIA]` `divmod(a, b)` llama internamente a `(a // b, a % b)` pero a nivel de bajo nivel en CPython realiza una única operación de división en el procesador, siendo más eficiente que invocar ambos operadores por separado.
+  `[SEGÚN EL CURSO]` Para los enteros de estos ejercicios, `divmod(a, b)` devuelve el cociente y el resto juntos. La ventaja pedagógica es expresar con claridad los dos resultados; no necesitamos prometer una mejora de rendimiento.
 
 ---
 
 ### P1.3. ¿Por qué `range(1, 5)` cuenta del 1 al 4 y no llega al 5?
 * **Naturaleza:** `[SEGÚN EL CURSO · Apoyo docente derivado]`
-* **Explicación Sencilla:** En Python todos los rangos e intervalos funcionan bajo la regla de **intervalo semiabierto** `[inicio, fin)`. El número de inicio se incluye, pero el límite de fin sirve como barrera de parada y **nunca se incluye**.
+* **Explicación Sencilla:** `range()` usa un **intervalo semiabierto** `[inicio, fin)`. El número de inicio se incluye, pero el límite de fin sirve como barrera de parada y **nunca se incluye**.
 * **Analogía Cotidiana:** Es como una valla de obra colocada en el kilómetro 5. Puedes correr por el camino pasando por los puntos 1, 2, 3 y 4, pero al llegar justo al punto 5 te detienes y no lo pisas.
 * **Explicación Técnica:**
   `[EXPLICACIÓN COMPLEMENTARIA]` Esta convención matemática simplifica el cálculo de longitud: `fin - inicio = total de vueltas`. Con `range(1, 5)`, `5 - 1 = 4` iteraciones exactas. Además, encaja perfectamente con la indexación basada en cero (0-based) de las listas de tamaño N (`range(0, N)` recorre de 0 a N-1).
@@ -70,7 +70,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 * **Explicación Sencilla:** Los textos (`str`) y las tuplas (`tuple`) son **inmutables**: una vez creados en memoria, Python prohíbe terminantemente alterar sus elementos individuales. Si quieres un texto modificado, debes construir uno nuevo combinando trozos (slicing) o usando métodos como `.replace()`.
 * **Analogía Cotidiana:** Una lista es una pizarra de tiza (puedes borrar una letra y poner otra). Un string es un texto grabado en una lápida de piedra: si te has equivocado, tienes que tallar una piedra nueva.
 * **Explicación Técnica:**
-  `[SEGÚN EL CURSO]` `TypeError: 'str' object does not support item assignment`. La inmutabilidad garantiza que los strings puedan ser usados como claves de diccionarios seguras y optimiza el uso de memoria interna (string interning).
+  `[SEGÚN EL CURSO]` El intento produce `TypeError: 'str' object does not support item assignment`; se crea un texto nuevo para obtener el cambio.
 
 ---
 
@@ -109,7 +109,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ### P3.2. ¿Por qué no puedo usar fuera de la función una variable que creé dentro?
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
-* **Explicación Sencilla:** Por el **ámbito local (scope)**. Las variables creadas dentro de una función son temporales y privadas: nacen cuando la función empieza a ejecutarse y se destruyen de la memoria en cuanto la función termina (`return`).
+* **Explicación Sencilla:** Por el **ámbito local (scope)**. Los nombres locales de una función no se pueden consultar directamente desde fuera. Si necesitas reutilizar el resultado, devuélvelo con `return`; no confundas el ámbito del nombre con la vida del objeto devuelto.
 * **Analogía Cotidiana:** Es como la pizarra de un aula de taller: escribes notas para hacer la práctica de esa hora, y al salir por la puerta se borra la pizarra para que la siguiente clase empiece limpia.
 * **Explicación Técnica:**
   `[SEGÚN EL CURSO]` Aislamiento de marcos de pila (*stack frames*). Evita que funciones distintas colisionen pisándose variables con el mismo nombre. Si necesitas sacar un valor, se devuelve con `return`. Si necesitas meterlo, se pasa como parámetro.
@@ -118,7 +118,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ### P3.3. ¿Por qué usamos `with open(...)` y no simplemente `open()` y `close()`?
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
-* **Explicación Sencilla:** `with open(...)` es un gestor de contexto automático. Garantiza que el archivo se cerrará y guardará correctamente en el disco duro **siempre**, incluso si el programa falla por un error en mitad de la lectura o escritura.
+* **Explicación Sencilla:** `with open(...)` cierra el archivo al salir del bloque, también si ocurre una excepción. No garantiza que una escritura interrumpida esté completa: hay que comprobar el resultado y tratar el error.
 * **Analogía Cotidiana:** Es una puerta con muelle automático: entras a la habitación, y en cuanto sales (o si tropiezas dentro), la puerta se cierra sola con seguridad para que no entre nadie ni se escape nada.
 
 ---
@@ -127,7 +127,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ### P4.1. ¿Qué es exactamente `self` y por qué tengo que ponerlo en todas partes?
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
-* **Explicación Sencilla:** `self` es una palabra especial que representa a **este objeto concreto**. Como una clase es solo un plano que sirve para fabricar cientos de objetos, cuando un método se ejecuta necesita saber a cuál de todos los objetos tiene que leerle o modificarle sus datos.
+* **Explicación Sencilla:** `self` es el nombre convencional del parámetro que representa a **este objeto concreto**, no una palabra reservada. Como una clase es solo un plano que sirve para fabricar cientos de objetos, cuando un método se ejecuta necesita saber a cuál de todos los objetos tiene que leerle o modificarle sus datos.
 * **Analogía Cotidiana:** Si el profesor dice a la clase: *"Que cada uno mire su propio reloj y me diga la hora"*, la palabra "su propio" es `self`. Cada alumno mira el reloj que lleva en su muñeca (`self.hora`), no el reloj del compañero de al lado.
 * **Explicación Técnica:**
   `[SEGÚN EL CURSO]` Cuando se invoca `objeto.metodo(arg)`, Python traduce internamente la llamada a `Clase.metodo(objeto, arg)`. `self` recibe explícitamente la referencia en memoria de la instancia que originó el mensaje.
@@ -156,7 +156,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ### P5.1. ¿Por qué usamos NumPy si las listas de Python ya pueden guardar números?
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
-* **Explicación Sencilla:** Porque las listas de Python son lentas cuando trabajas con miles o millones de números, ya que guardan punteros y comprueban tipos en cada paso con bucles `for`. NumPy guarda los datos en bloques contiguos de memoria y realiza las operaciones matemáticas sobre todos los números a la vez (**vectorización**), siendo hasta 100 veces más rápido.
+* **Explicación Sencilla:** Porque NumPy permite expresar operaciones sobre arrays numéricos sin escribir un bucle Python para cada elemento (**vectorización**). Su utilidad en el curso es calcular indicadores de forma clara; la velocidad depende de la operación y del tamaño de los datos.
 * **Analogía Cotidiana:** Si tienes que sellar 10.000 cartas, una lista de Python es una persona poniendo el sello a mano carta por carta. NumPy es una máquina industrial de imprenta que estampa las 10.000 cartas de un solo golpe.
 
 ---
@@ -242,11 +242,25 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ---
 
-### P7.3. ¿Es obligatorio usar LangGraph en el proyecto final?
-* **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
-* **Explicación Sencilla:** **NO.** LangGraph está definido formalmente en el currículo como una **ampliación avanzada y opcional**. El proyecto evaluable estándar de SAMI Final se completa y defiende mediante programación modular/orientada a objetos validada y asistida por IA en VS Code. LangGraph se reserva únicamente para alumnos que dominen el núcleo y deseen explorar agentes conversacionales con estado e intervención humana (*human-in-the-loop*).
+### P7.3. ¿Qué LangGraph aparece ahora en B7?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** La ruta actual incluye EXP-05 con un grafo ejecutable sin LLM: Python decide entre rutas de stock. Es distinto de la orquestación conversacional avanzada del diseño histórico, que se conserva como ampliación.
+* **Límite:** Si no está instalado LangGraph, se pueden probar las reglas puras; el grafo queda no verificado. Las fuentes antiguas no bastan para decidir la obligatoriedad de la evaluación actual: véase [07](07-LAGUNAS-Y-LIMITES.md).
+
+### P7.4. ¿Necesito Ollama para terminar IA-Control?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** No. El [README de IA-Control](../bloques/bloque7/recursos/proyectos-b7/ia-control/README.md) permite trabajar con `--sin-ia` y respuestas de demostración. Se comprueba que Python valida y acepta o descarta la respuesta. Ollama real es opcional.
+
+### P7.5. ¿Puedo afirmar que el agente lo ha comprobado si solo lo explica?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** No. Pide comandos, resultados y evidencia. Una revisión de código no equivale a una ejecución. Marca lo que falta como no verificado y conserva la supervisión humana.
 
 ---
+
+
 
 # LAB FINAL OPCIONAL: PYTHON EN ACCIÓN
 
@@ -266,4 +280,14 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ### L3. ¿Cómo preparo una versión de 30 minutos del Lab?
 * **Naturaleza:** `[SEGÚN EL CURSO · Adaptación docente]`
-* **Respuesta para el Formador:** Elige una sola experiencia, muestra el resultado final en 3 minutos, ejecuta el script con el grupo, cambia un parámetro pequeño y cierra con un mini-reto. No intentes cubrir las cinco experiencias en 30 minutos.
+* **Respuesta para el Formador:** Elige una sola experiencia, muestra el resultado final en 3 minutos, ejecuta el script con el grupo, cambia un parámetro pequeño y cierra con un mini-reto. No intentes cubrir todo el catálogo en 30 minutos; consulta [08](08-LAB-PYTHON-EN-ACCION.md).
+
+### L4. ¿El Copiloto necesita RAG porque hay un Lab de RAG local?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** No. El Lab es una práctica independiente. Este pack funciona como instrucciones y conocimiento documental, sin construir un sistema RAG. Consulta el [README](README.md).
+
+### D1. ¿Qué hago si el agente no encuentra la respuesta en el curso?
+
+* **Naturaleza:** `[SEGÚN EL CURSO · Regla del pack]`
+* **Respuesta modelo:** «No puedo verificarlo con los archivos disponibles. He consultado [archivo y apartado]. Facilita [material que falta]; si quieres una explicación general, la separaré como [EXPLICACIÓN COMPLEMENTARIA]». No inventes una fuente ni presentes una conjetura como contenido oficial.

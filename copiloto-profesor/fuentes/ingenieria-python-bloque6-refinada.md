@@ -2,6 +2,9 @@
 ## "Del Notebook al Entorno de Desarrollo Profesional"
 ### Orientación Temporal: "PROGRAMAR CON PYTHON EN 2027"
 
+> **Nota de vigencia (revisión documental 2026-09-10):** Diseño histórico. La ruta actual tiene seis experiencias y una copia SAMI-Local con CSV de hardware y salida descriptiva en consola; no exige push ni generación de PDF. Consulta [04](../04-PRACTICAS-Y-APOYOS.md) y [06](../06-SAMI.md). Las lagunas sobre Git y depuración de estas fuentes de origen no describen todo el material publicado. Véase el [criterio de fuentes](README.md).
+
+
 Este documento constituye la **versión consolidada y saneada de la Ingeniería del Conocimiento para el Bloque 6: Del Notebook al Entorno de Desarrollo Profesional**, adaptada para orientar curricularmente la formación técnica hacia el año **2027**, en estricta conformidad con el alcance curricular establecido en la versión consolidada V4 del itinerario [190].
 
 El objetivo central de este bloque es capacitar al alumno para que realice la transición mental y operativa definitiva desde la ejecución de celdas experimentales de código en cuadernos interactivos (Google Colab) hacia la **organización, desarrollo, versionado y depuración de proyectos de software locales, aislados, reproducibles e integrados con herramientas del entorno moderno para 2027** dentro de Visual Studio Code (VS Code) [5, 6].
@@ -244,6 +247,8 @@ El bloque progresa unificando los flujos de configuración, control de versiones
 ---
 
 ### CONCEPTO 6.6: Conexión y Repositorios Remotos (GitHub)
+
+> Apoyo de la ingeniería de origen. La experiencia actual de B6 trabaja con Git local y no requiere publicar ni simular conflictos.
 *   **CONCEPTO**: GitHub es una plataforma de alojamiento en la nube que actúa como repositorio remoto centralizado de código fuente Git. Permite conectar un repositorio de desarrollo local con un servidor remoto en la nube, facilitando el respaldo del código, el trabajo colaborativo en equipos de ingeniería y la sincronización continua de cambios mediante operaciones de envío (`push`) y descarga (`pull`).
 *   **PRERREQUISITO**: Concepto 6.5.
 *   **EJEMPLO PROCEDENTE DE LAS FUENTES**: Los repositorios y guías del notebook hacen referencia sistemática a la conexión y alojamiento de proyectos en GitHub [5].
@@ -311,33 +316,13 @@ El bloque progresa unificando los flujos de configuración, control de versiones
 
 ---
 
-### CONCEPTO 6.8: Contacto con Asistentes de Programación en el Entorno (Asistente IA)
-*   **CONCEPTO**: Los asistentes de programación basados en modelos de lenguaje (como **GitHub Copilot**, la **extensión oficial de Google para VS Code/Colab**, **Codex** y **Claude Code**) son utilidades avanzadas integradas directamente en el entorno de desarrollo como extensiones del editor o interfaces de consola (CLI) [6]. Su propósito prioritario en esta etapa de la formación es servir únicamente como un **primer contacto práctico** con herramientas del entorno moderno para 2027, capacitando al alumno para realizar operaciones de consulta y asistencia sencillas de forma controlada y segura:
-    *   **Pedir una explicación** clara sobre la sintaxis de una línea de código o un comportamiento del intérprete.
-    *   **Solicitar una modificación pequeña** sobre un fragmento de lógica o cadena de texto existente.
-    *   **Generar una función sencilla** con límites lógicos y matemáticos de entrada y salida perfectamente delimitados.
-    *   **Pedir ayuda para localizar un error** o excepción física (Traceback) de interpretación.
-    *   **Revisar una propuesta** o estructura sintáctica de llamadas de librerías antes de integrarlas al editor.
-    
-    *Nota de aislamiento curricular*: En este bloque NO se desarrolla la metodología avanzada de desarrollo guiado por IA, la edición de archivos completos mediante prompts continuos, la delegación lógica compleja de arquitectura, ni el diseño de agentes autónomos o flujos con LangGraph. Toda la metodología de programación guiada por IA y la orquestación avanzada de agentes autónomos pertenecen estrictamente al **Bloque 7**.
-*   **PRERREQUISITO**: Concepto 6.7 y Bloque 5.
-*   **EJEMPLO PROCEDENTE DE LAS FUENTES**: "Google Colab is Coming to VS Code" [6] (detalla el aprovisionamiento oficial de la extensión de Google Colab para VS Code, integrando cuadernos locales con kernels remotos y abriendo el puente para el desarrollo con soporte de herramientas inteligentes de la suite de Google de forma unificada [6]).
-*   **CÓDIGO MÍNIMO** (Configuración conceptual del entorno de IA):
-    *   En VS Code: Panel de Extensiones (`Ctrl+Shift+X` o `Cmd+Shift+X`) ➔ Buscar e instalar la extensión de IA correspondiente (por ejemplo: "Google Colab" o "GitHub Copilot").
-*   **PREDECIR**: Si un asistente de IA sugiere una línea de código para un filtro complejo de Pandas, ¿debemos aceptarla de inmediato e integrarla al proyecto local sin probarla? No, el alumno debe predecir que el código sugerido por asistentes puede contener errores lógicos silenciosos o APIs obsoletas, requiriendo de forma obligatoria auditarlo críticamente, comprenderlo y validarlo físicamente en la terminal.
-*   **EJECUTAR**: Configurar la conexión teórica de la extensión de Google Colab en VS Code local de acuerdo con los pasos oficiales [6].
-*   **MODIFICAR**: Desactivar las sugerencias automáticas de autocompletado en caliente en el editor si estas interrumpen el pensamiento algorítmico del alumno.
-*   **ERROR HABITUAL (El programador zombi)**: Delegar la resolución completa de la lógica algorítmica al asistente de IA, copiando y pegando fragmentos masivos de código que el alumno no es capaz de leer, comprender ni defender conceptualmente. El asistente es una herramienta de asistencia de sintaxis, no un sustituto de la capacidad lógica del programador.
-*   **MINI-RETO**: Instalar o simular de forma lógica el panel de interacción con la extensión de Google Colab en VS Code [6] y redactar un breve protocolo de 3 pasos para verificar críticamente la validez de cualquier línea de código sugerida por un asistente.
-*   **MICROEVALUACIÓN TIPO SOLOLEARN**:
-    *   *Detectar errores*: El programador solicita a un asistente de IA una función para ordenar los elementos de un array de NumPy. El asistente le sugiere una función que utiliza un método obsoleto de la versión 1.X de la librería. ¿Cuál es el procedimiento técnico correcto que debe seguir el programador antes de integrar el código en su proyecto de 2027?
-        *   A) Integrar el código de inmediato y asumir que el compilador resolverá la compatibilidad.
-        *   B) Auditar de forma analítica el método sugerido contrastándolo con la documentación de NumPy v2.5 [9], identificar que está en desuso, y corregir la sintaxis manualmente antes de ejecutarla en su entorno virtual local.
-        *   C) Desinstalar por completo la librería de NumPy del proyecto.
-        *   D) Solicitar a la IA que reescriba el proyecto completo en otro lenguaje de programación.
-    *   *Respuesta*: **B**.
-*   **EVIDENCIA**: Protocolo de validación crítica de código sugerido por IA redactado e implementado por el estudiante dentro de las celdas de documentación de su proyecto local.
-*   **LAGUNA DE CONOCIMIENTO (APIs y Configuración de Asistentes)**: Las fuentes no contienen manuales de configuración detallados, tokens de API, flujos de suscripción, ni comandos de terminal para orquestar herramientas comerciales como GitHub Copilot, Codex, o Claude Code. Se marcan formalmente como lagunas instruccionales que se deben solventar mediante la documentación oficial de cada proveedor (Sección 10).
+### CONCEPTO 6.8: Primer contacto con asistencia de programación
+
+El objetivo conservado es pedir una explicación, localizar un error o proponer un cambio pequeño con revisión humana. No se confunde una extensión para ejecutar cuadernos con un agente de programación.
+
+La configuración depende de la herramienta. Para preparar clase consulta [04 · Recursos actuales](../04-PRACTICAS-Y-APOYOS.md); B7 desarrolla el trabajo con agentes. No se exige instalar una herramienta comercial ni disponer de una API para este pack docente.
+
+**Evidencia:** el alumno distingue propuesta, cambio aplicado y resultado comprobado. Si no tiene agente, puede analizar una propuesta preparada por el docente.
 
 ---
 
@@ -359,7 +344,7 @@ El bloque progresa unificando los flujos de configuración, control de versiones
 
 ---
 
-## 7. PROYECTO INTEGRADOR OBLIGATORIO DEL BLOQUE 6
+## 7. DISEÑO HISTÓRICO DEL PROYECTO INTEGRADOR B6
 
 ### "SAMI-Local: El Entorno Local de Producción, GitHub y Herramientas Modernas de SAMI"
 
@@ -398,7 +383,7 @@ El alumno debe ejecutar de forma manual el siguiente protocolo de ingeniería pa
 3.  **Fase de Versionado local**: Inicializar el repositorio Git local en la terminal integrada del proyecto. Configurar el archivo `.gitignore` para excluir de forma obligatoria la carpeta pesada de dependencias `/venv` y los archivos de la carpeta `/logs`. Realizar el seguimiento de cambios y consolidar su primer commit de versiones en el sistema.
 4.  **Fase de Sincronización Remota**: Diseñar y estructurar lógicamente el mapa de comandos requeridos para conectar de manera segura su repositorio local con un repositorio en GitHub (`git remote`), simulando el envío definitivo de su código fuente de producción a la nube.
 5.  **Fase de Depuración Controlada**: El alumno debe provocar de forma intencionada dos fallas físicas en la sesión (renombrar el archivo `config.json` para forzar un `FileNotFoundError` e introducir caracteres alfabéticos en los precios interactivos para forzar un `ValueError` en consola) [13]. El estudiante debe leer analíticamente el Traceback arrojado por terminal de abajo hacia arriba para documentar qué líneas y archivos lógicos originaron las capturas del error en el log físico de texto, y corregirlos de forma analítica en su código fuente [13].
-6.  **Fase de Integración de IA del Entorno**: Instalar en VS Code local la extensión de Google Colab o la extensión de copiloto de su preferencia [6]. Utilizar el chat o autocompletador de la herramienta únicamente para generar la documentación (docstrings) de los scripts o solicitar la sintaxis de redondeo numérico, aplicando el protocolo de auditoría crítica (verificación de tipos de datos de variables y flujos lógicos) antes de aceptar cualquier sugerencia en el archivo físico [6].
+6.  **Fase de Integración de IA del Entorno**: Utilizar una herramienta de asistencia disponible; una extensión para ejecutar cuadernos no implica disponer de un agente. Utilizar el chat o autocompletador de la herramienta únicamente para generar la documentación (docstrings) de los scripts o solicitar la sintaxis de redondeo numérico, aplicando el protocolo de auditoría crítica (verificación de tipos de datos de variables y flujos lógicos) antes de aceptar cualquier sugerencia en el archivo físico [6].
 7.  **Fase de Validación**: Verificar que la ejecución se complete de forma limpia y exporte de manera física el reporte final `reporte_final_sami.pdf` en el espacio de trabajo local del proyecto.
 
 ---
@@ -414,7 +399,7 @@ El alumno debe ejecutar de forma manual el siguiente protocolo de ingeniería pa
 | **Gestión con pip y requirements** | `Reporte de Investigación` [15, 16] y `Playwright Python` [7] | Instalación masiva de dependencias científicas congelando versiones exactas de producción. | Selección de la sintaxis correcta del comando `pip install` para lectura de archivos de dependencias. | Configuración e instalación de dependencias masivas usando `requirements.txt` [16]. |
 | **Versionado con Git y GitHub** | `GitHub - DevSharma03/Python_Notes` [5] | Clonación de repositorios de código de la base de conocimiento utilizando comandos de consola [5]. | Completar los comandos necesarios para sincronizar y descargar cambios remotos mediante terminal. | Clonación, inicialización de repositorio local Git y exclusión con `.gitignore` [5]. |
 | **Interpretación de Tracebacks** | `Google Colaboratory 4` [13] | Forzar y leer analíticamente trazas de error de abajo hacia arriba en consola [13]. | Reto SoloLearn de localizar la línea exacta de error directo en una pila de llamadas simulada [13]. | Depuración y registro de excepciones `ValueError` e `FileNotFoundError` en archivos log físicos [13]. |
-| **Asistentes de IA en el Entorno** | `Google Colab is Coming to VS Code` [6] | Configuración y conexión teórica de la extensión oficial de Colab en VS Code local [6]. | Reto SoloLearn de auditar un fragmento obsoleto de código sugerido por un autocompletador. | Integración y validación crítica del entorno con la extensión del copiloto de IA local [6]. |
+| **Asistencia en el entorno** | Apoyo metodológico de origen; herramientas en la sección específica del curso. | Leer una propuesta y comprobarla. | Identificar una afirmación no verificada. | No se exige una plataforma concreta. |
 
 ---
 
@@ -422,7 +407,7 @@ El alumno debe ejecutar de forma manual el siguiente protocolo de ingeniería pa
 
 De acuerdo con el análisis de los materiales de tu base de conocimiento, se identifican las siguientes áreas técnicas de infraestructura, versionado y asistentes locales que **no se encuentran documentadas a nivel técnico o práctico en las fuentes del notebook**, por lo que se declaran formalmente como lagunas en este bloque:
 
-1.  **Manual de Instalación física local de Python**: Las fuentes mencionan de forma genérica a Python 3.14.7 [2], pero **no proveen un manual de instalación paso a paso de los instaladores ejecutables oficiales para sistemas Windows, macOS o Linux**, ni la configuración manual de las variables de entorno PATH del sistema operativo (un gran punto de fricción técnica inicial).
+1.  **Manual de Instalación física local de Python**: Las fuentes mencionan de forma genérica a Python 3 [2], pero **no proveen un manual de instalación paso a paso de los instaladores ejecutables oficiales para sistemas Windows, macOS o Linux**, ni la configuración manual de las variables de entorno PATH del sistema operativo (un gran punto de fricción técnica inicial).
 2.  **Manual de Descarga e Instalación física de Visual Studio Code**: Se menciona VS Code como editor de código para conectar runtimes [6], pero **no existe en las fuentes una guía de aprovisionamiento de la interfaz local, requisitos mínimos de instalación de la máquina ni la gestión inicial de extensiones** de forma nativa.
 3.  **Depuración con el Debugger gráfico nativo de VS Code**: Se cita la existencia de herramientas de depuración e inspección de variables en VS Code [6, 7], pero **las fuentes del notebook carecen de manuales o explicaciones de su interfaz de depuración gráfica** (fijar breakpoints gráficos con el ratón en la canaleta izquierda del editor, paneles interactivos "Watch", panel de variables "Local/Global" o el árbol de la pila de llamadas "Call Stack"), limitándose las fuentes únicamente al análisis del Traceback textual de consola.
 4.  **Flujos de comandos locales de Anaconda/Conda**: Conda se lista como comando alternativo para instalar Playwright [7], pero **las fuentes no documentan de forma técnica la suite de Anaconda, comandos de consola `conda create` de entornos, ni la administración de canales** de descarga.
@@ -434,7 +419,7 @@ De acuerdo con el análisis de los materiales de tu base de conocimiento, se ide
 
 ## 10. FUENTES DE AMPLIACIÓN RECOMENDADAS (BLOQUE 6)
 
-Para suplir con total rigor las lagunas de conocimiento detectadas y garantizar que el alumno termine con un entorno moderno de desarrollo preparado para las demandas profesionales de 2027, se aconseja integrar los siguientes recursos oficiales al Notebook:
+Para suplir con total rigor las lagunas de conocimiento detectadas y garantizar que el alumno termine con un entorno moderno de desarrollo preparado para las demandas profesionales de 2027, se conservan los siguientes recursos como opciones de ampliación para el docente; no son dependencias ni incorporaciones automáticas al curso:
 
 1.  **VS Code Python Debugging Tutorial**: Para incorporar lecciones ilustradas con capturas de pantalla sobre cómo depurar código de forma visual, fijar breakpoints interactivos, e inspeccionar el árbol de variables en caliente en el panel izquierdo.
 2.  **Git Book & GitHub Guides (Getting Started)**: Para documentar de forma clara los flujos de control de versiones locales, inicialización de repositorios `.git`, exclusión de carpetas de dependencias locales con `.gitignore` (para evitar subir la carpeta pesada de `venv` en repositorios públicos) y flujos de trabajo colaborativos remotos con comandos de consola (`git push` y `git pull`).
