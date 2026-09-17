@@ -1,6 +1,6 @@
-# Copiloto del Profesor · Python 2027
+# Copiloto del Profesor · Programar en 2027
 
-Este pack tiene dos usos: **ayudar a impartir Python 2027** y **mostrar cómo construir un agente docente para otro curso**. Conserva instrucciones, conocimiento seleccionado y apoyos de aula en archivos portables. No es una aplicación ni necesita desarrollar una integración.
+Este pack tiene dos usos: **ayudar a impartir Programar en 2027** (Python como lenguaje principal, hasta IA y agentes bajo revisión humana) y **mostrar cómo construir un agente docente para otro curso**. Conserva instrucciones, conocimiento seleccionado y apoyos de aula en archivos portables. No es una aplicación ni necesita desarrollar una integración.
 
 ## Qué es un agente docente
 
@@ -8,7 +8,7 @@ Un chat permite conversar; para que esa conversación sirva de apoyo docente nec
 
 Debe explicar con claridad, adecuarse al nivel del alumnado y ayudar al profesor a decidir. **La responsabilidad pedagógica sigue siendo del docente.**
 
-## Cómo usarlo con Python 2027
+## Cómo usarlo con Programar en 2027
 
 1. Copia esta carpeta o descomprime el [pack de distribución](copiloto-profesor-python-2027.zip).
 2. Usa [00-INSTRUCCIONES-AGENTE.md](00-INSTRUCCIONES-AGENTE.md) como instrucciones base.
@@ -39,7 +39,7 @@ Para rutas y comportamiento concreto, manda el material actual de la actividad: 
 | [05 · Evaluación y errores](05-EVALUACION-Y-ERRORES.md) | Tracebacks, microevaluaciones, rúbrica formativa y estados de verificación. | Evaluar evidencias sin inventar ejecuciones ni calificaciones. | Al comprobar aprendizaje o diagnosticar un error. |
 | [06 · SAMI](06-SAMI.md) | Productos, precios, módulos y diferencias entre las entregas existentes. | Evitar mezclar prototipos, datos o artefactos de distintas versiones. | Al explicar o revisar SAMI. |
 | [07 · Lagunas y límites](07-LAGUNAS-Y-LIMITES.md) | Alcance, ampliaciones y decisiones curriculares pendientes. | Reconocer ausencias y contradicciones. | Antes de atribuir contenido o requisitos al curso. |
-| [08 · Python en Acción](08-LAB-PYTHON-EN-ACCION.md) | Mapa del pathway y laboratorios adicionales; cinco fichas originales. | Consultar la experiencia elegida y respetar sus prerrequisitos. | Al preparar una continuación práctica. |
+| [08 · Lab](08-LAB-PYTHON-EN-ACCION.md) | Mapa del pathway y laboratorios adicionales; cinco fichas originales. | Consultar la experiencia elegida y respetar sus prerrequisitos. | Al preparar una continuación práctica. |
 | [fuentes · Índice](fuentes/README.md) | Ingeniería de origen, notas de vigencia y enlaces de contraste. | Usar antecedentes como apoyo, no como prueba de ejecución. | Cuando las guías no basten o haya dudas de procedencia. |
 | [inicio.html](inicio.html) | Presentación y descarga del recurso. | Facilitar la entrada al docente; no contiene reglas adicionales. | Para acceder desde el portal. |
 | [ZIP](copiloto-profesor-python-2027.zip) | Copia de los Markdown y de las fuentes. | Distribuir una versión coherente del pack. | Al trasladarlo a otra herramienta o equipo. |
@@ -94,7 +94,7 @@ Incluye una buena respuesta, un error frecuente y una duda fuera del temario. Po
 
 Adapta estas cinco preguntas a tu curso y contrasta las respuestas con los materiales:
 
-| Tipo | Pregunta de validación en Python 2027 | Qué debe demostrar |
+| Tipo | Pregunta de validación en Programar en 2027 | Qué debe demostrar |
 | --- | --- | --- |
 | Documentada | «¿Qué diferencia hay entre print y return en B3?» | Explica con precisión y señala 03, P3.1 o el cuaderno de B3. |
 | Relacionada, no incluida | «¿El Lab de OpenCV enseña reconocimiento facial?» | Reconoce que no; consulta los límites y separa una posible ampliación. |

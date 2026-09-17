@@ -16,7 +16,7 @@ Referencia práctica: [README del proyecto de B3](../bloques/bloque3/proyecto-sa
 - Los archivos son `config.json`, `transacciones_auditoras.csv` y `auditoria_errores.log`; su creación depende del recorrido ejecutado.
 - Solo usa biblioteca estándar. Las rutas se resuelven desde la carpeta de trabajo.
 
-Evidencia: el alumno sigue un precio desde la entrada hasta su cálculo, alerta y registro. El cambio guiado distingue el precio exactamente igual al umbral; se comprueban un caso normal, el límite y una entrada inválida. No se exige POO.
+Evidencia: el alumno sigue un precio desde la entrada hasta su cálculo, alerta y registro. El cambio guiado distingue el precio exactamente igual al umbral; se comprueban un caso normal, el límite y una entrada inválida. `analizador.py` incluye además `comprobar_transaccion(...)`, que devuelve `True`/`False` para un caso conocido: el programa comprueba su propio cálculo. No se exige POO.
 
 ## B4 · SAMI-OOP
 
@@ -34,7 +34,7 @@ Se mantienen `analizador.py`, `persistencia.py` y `main.py`. La copia práctica 
 
 El alumnado decide qué objeto debe validar el peso y revisa la diferencia real en el tratamiento del IVA entre clases. No afirmes que todas aplican ya la misma regla: unificarla es parte del mini-reto.
 
-Evidencia: justificar composición y herencia, localizar la clase responsable, realizar un cambio acotado y explicar el reporte antes y después.
+Evidencia: justificar composición y herencia, localizar la clase responsable, realizar un cambio acotado y explicar el reporte antes y después. Tras modificar una clase se repiten tres casos en consola (normal, límite, inválido); si el total cambia donde no se tocó, el cambio no está listo.
 
 ## B5 · SAMI-Applied
 
@@ -63,16 +63,20 @@ El flujo real de `main.py` carga configuración y datos, calcula precios, filtra
 
 Evidencia: cambio funcional comprobado y commit local explicado. La experiencia de Git no exige remoto ni push. Si falta entorno o ejecución, se documenta como no verificado.
 
-## B7 · Proyectos de agentes y defensa
+## B7 · SAMI Final con vía avanzada de agentes
 
-La [ruta publicada de B7](../bloques/bloque7/inicio.html) utiliza proyectos específicos:
+B7 tiene un solo proyecto final: **SAMI Final** ([guía](../bloques/bloque7/recursos/proyecto/sami-final.md)). La vía base lo trabaja manualmente; la vía avanzada pide al agente **una tarea acotada sobre ese mismo SAMI** (la guía incluye una primera intervención puente: mensaje claro cuando falta `data/got_1.csv`).
+
+Ciclo de cada intervención: reproducir necesidad → punto seguro Git → tarea acotada → contexto → agente → `git status`/`git diff` → ejecutar → comprobar → revisión humana → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
+
+La [ruta publicada de B7](../bloques/bloque7/inicio.html) conserva como apoyos:
 
 - Harness: contexto, restricciones, plan, autorización y comprobación.
-- [Agente real](../bloques/bloque7/recursos/proyectos-b7/agente-real/README.md): validar participantes, depurar y refactorizar con pruebas y diff.
+- [Agente real](../bloques/bloque7/recursos/proyectos-b7/agente-real/README.md): ejemplo del flujo (validar participantes, depurar y refactorizar con pruebas y diff).
 - [LangGraph](../bloques/bloque7/recursos/proyectos-b7/langgraph-taller/README.md): grafo ejecutable sin LLM; reglas Python y rutas observables.
 - [IA bajo control](../bloques/bloque7/recursos/proyectos-b7/ia-control/README.md): validación de respuestas y alternativa determinista; Ollama es opcional.
 
-Se conservan las plantillas históricas de defensa de SAMI: [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md). Algunas todavía mencionan GoT y scraping. No impongas esos datos o salidas a los proyectos actuales ni sustituyas su rúbrica por la antigua. Consulta las [discrepancias pendientes](07-LAGUNAS-Y-LIMITES.md).
+La defensa de SAMI Final usa [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md) (una línea por intervención con decisión), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md).
 
 ## Preguntas para la revisión docente
 
@@ -83,4 +87,4 @@ Se conservan las plantillas históricas de defensa de SAMI: [registro IA](../blo
 
 No se exige recitar el código ni inventar errores de la IA para rellenar un registro. El docente decide la evaluación aplicable y revisa las evidencias reales.
 
-**Python en Acción** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y pathway](08-LAB-PYTHON-EN-ACCION.md).
+El **Lab · Programar en Acción** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y pathway](08-LAB-PYTHON-EN-ACCION.md).

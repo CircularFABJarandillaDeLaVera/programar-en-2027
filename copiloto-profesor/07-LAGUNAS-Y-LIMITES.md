@@ -2,7 +2,7 @@
 
 ## 1. Propósito de este Documento
 
-Este documento establece las **fronteras exactas** entre lo que constituye el currículo canónico oficial del curso **"Programar con Python en 2027"** y aquellos conceptos, herramientas o detalles técnicos que pertenecen al ámbito de la **explicación complementaria**.
+Este documento establece las **fronteras exactas** entre lo que constituye el currículo canónico oficial del curso **"Programar en 2027"** y aquellos conceptos, herramientas o detalles técnicos que pertenecen al ámbito de la **explicación complementaria**.
 
 Su objetivo es salvaguardar la coherencia del curso y evitar que el agente (o el formador) sobrecargue al alumnado con contenidos fuera de programa o presente conceptos externos como si fueran obligatorios.
 
@@ -44,7 +44,7 @@ Cada vez que el Copiloto del Profesor proporcione información técnica al forma
 | **Automatización Web (Scraping)** | Automatización de flujos básicos de navegación, esperas de elementos y extracción de texto visible con **Playwright** en B5. | No se cubren técnicas de evasión de sistemas anti-bot, resolución de captchas ni pipelines distribuidos de scraping masivo. |
 | **BeautifulSoup en B5** | Puede aparecer como concepto acotado para parsing de HTML estático si el material actual lo conserva. | No compite con el itinerario práctico principal NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied y no debe convertirse en dependencia central. |
 | **Orquestación de Agentes (LangGraph)** | EXP-05 de B7 contiene un grafo ejecutable sin LLM. Las reglas puras se pueden probar sin instalar LangGraph; el grafo queda no verificado si falta. | La orquestación conversacional avanzada de la ingeniería es una ampliación. No extrapolar su antigua etiqueta de opcional a la ruta actual ni fijar evaluación sin decisión docente. |
-| **Python en Acción** | Pathway y laboratorios adicionales documentados en el portal; mapa en 08. | No es B8, no añade requisitos evaluables por defecto y no pertenece a SAMI. Cada experiencia conserva sus prerrequisitos. |
+| **Lab · Programar en Acción** | Pathway y laboratorios adicionales documentados en el portal; mapa en 08. | No es B8, no añade requisitos evaluables por defecto y no pertenece a SAMI. Cada experiencia conserva sus prerrequisitos. |
 | **OpenCV en el Lab** | Webcam interactiva con `VideoCapture`, `read`, `imshow`, `waitKey`, `cvtColor`, `GaussianBlur`, `Canny`, `imwrite`, `release` y `destroyAllWindows`. | No incluye reconocimiento facial, reconocimiento de objetos, `CascadeClassifier`, YOLO, MediaPipe ni modelos de IA. |
 | **Automatización de archivos del Lab** | Organización de archivos falsos exclusivamente dentro de `lab_archivos_prueba/`. | No recomendar Descargas, Documentos, Escritorio ni carpetas reales externas del alumno. |
 
@@ -67,7 +67,7 @@ Cuando el formador de Circular FAB consulte sobre algún tema que sobrepase el a
 
 Según el curso, ReportLab se trabaja de forma práctica en B5 mediante Platypus. La factura `factura_2027_001.pdf` y el informe PDF de SAMI-Applied son salidas reales.
 
-El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en Python en Acción no amplían automáticamente B5.
+El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en el Lab (Programar en Acción) no amplían automáticamente B5.
 
 ## 6. Límites del Pack Portable
 
@@ -83,15 +83,15 @@ El pack `copiloto-profesor/` es documentación portable. No requiere ni debe pro
 
 Puede cargarse en herramientas compatibles con instrucciones y archivos de conocimiento. La herramienta concreta es decisión del profesor o del centro.
 
-## 7. Diferencias entre versiones y revisión docente pendiente
+## 7. Diferencias entre versiones y estado tras la evolución
 
-Auditoría documental del 10 de septiembre de 2026:
+Auditoría documental del 10 de septiembre de 2026, actualizada con la evolución a Programar en 2027 (SAMI conductor único + vía avanzada de agentes):
 
-| Discrepancia encontrada | Criterio operativo del Copiloto | Decisión humana pendiente |
+| Discrepancia encontrada | Criterio operativo del Copiloto | Estado |
 | --- | --- | --- |
-| B7 conserva ingeniería y plantillas de defensa SAMI con GoT y tres fallas de IA; el inicio publica seis experiencias con otros proyectos. | Enseñar la experiencia elegida y registrar evidencia real; no exigirle archivos o fallas inventadas. | Confirmar si la defensa SAMI sigue siendo entrega final y con qué rúbrica. |
-| La ingeniería llamaba opcional a LangGraph; EXP-05 lo presenta como grafo ejecutable en la ruta. | Describir el grafo actual y su Plan B; distinguirlo de la ampliación conversacional. Ollama en EXP-06 sí es explícitamente opcional. | Confirmar el carácter evaluable de EXP-05 y la evidencia mínima cuando no pueda ejecutarse el grafo. |
-| El JSON del Lab contiene seis experiencias, el JavaScript más y sus subtítulos numéricos no coinciden con el portal. | Usar el [portal publicado](../lab-python-en-accion/index.html) y las páginas enlazadas; no fijar un número de experiencias en el pack. | Sincronizar esos catálogos en una tarea posterior, fuera de esta carpeta. |
-| Algunas configs de bloques aún dicen «Pendiente» y las fuentes guardan lagunas ya cubiertas por cuadernos o experiencias. | Consultar los recursos existentes del [mapa de prácticas](04-PRACTICAS-Y-APOYOS.md), no deducir ausencia de contenido de esos metadatos. | Revisar esos metadatos en su ámbito de mantenimiento. |
+| B7 conservaba ingeniería y plantillas de defensa SAMI junto a seis experiencias con otros proyectos. | Enseñar SAMI Final como único proyecto final; los agentes son la vía avanzada sobre ese mismo SAMI (tarea acotada → contexto → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR). Enseñar la experiencia elegida y registrar evidencia real; no exigir archivos o fallas inventadas. | Resuelta: un solo final; ver [guía de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) y [06](06-SAMI.md). |
+| La ingeniería llamaba opcional a LangGraph; EXP-05 lo presenta como grafo ejecutable en la ruta. | Describir el grafo actual y su Plan B; distinguirlo de la ampliación conversacional. Ollama en EXP-06 sí es explícitamente opcional. | Vigente como ampliación: LangGraph e IA-Control no son el camino principal de B7. |
+| El JSON del Lab contiene seis experiencias, el JavaScript más y sus subtítulos numéricos no coinciden con el portal. | Usar el [portal publicado](../lab-python-en-accion/index.html) y las páginas enlazadas; no fijar un número de experiencias en el pack. | Pendiente fuera de esta carpeta; el Lab sigue siendo vitrina opcional no evaluable. |
+| Algunas configs de bloques aún dicen «Pendiente» y las fuentes guardan lagunas ya cubiertas por cuadernos o experiencias. | Consultar los recursos existentes del [mapa de prácticas](04-PRACTICAS-Y-APOYOS.md), no deducir ausencia de contenido de esos metadatos. | Pendiente en su ámbito de mantenimiento. |
 
-El Copiloto no resuelve estas diferencias cambiando el curso, sus proyectos o la evaluación sin autorización. Sí puede preparar una propuesta acotada conforme al flujo del archivo 00.
+El Copiloto no resuelve diferencias cambiando el curso, sus proyectos o la evaluación sin autorización. Sí puede preparar una propuesta acotada conforme al flujo del archivo 00.

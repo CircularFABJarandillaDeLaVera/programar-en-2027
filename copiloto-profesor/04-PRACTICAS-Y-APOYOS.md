@@ -14,9 +14,9 @@ Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos t
 | B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
 | B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
 | B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Copia base](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → depurar → modificar → Git local. |
-| B7 | [Seis experiencias y descargas](../bloques/bloque7/inicio.html) | Harness → agente en repo → depurar → refactorizar con pruebas/diff → LangGraph → IA bajo control. |
+| B7 | [SAMI Final + vía avanzada](../bloques/bloque7/recursos/proyecto/sami-final.md) · [Seis experiencias y descargas](../bloques/bloque7/inicio.html) | Un solo final sobre SAMI; el agente interviene con tarea acotada → contexto → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
 
-B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza el proyecto agente-real en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. No exijas conexiones reales para las alternativas locales previstas.
+B6 conserva la misma copia personal durante sus seis experiencias. B7 trabaja sobre SAMI Final; `agente-real` sirve de ejemplo del flujo en EXP-02→04, EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. No exijas conexiones reales para las alternativas locales previstas.
 
 **Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas SAMI de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-SAMI.md) detalla SAMI y [07](07-LAGUNAS-Y-LIMITES.md) recoge los conflictos de evaluación.
 
@@ -385,10 +385,12 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-# BLOQUE 7: PYTHON + IA
+# BLOQUE 7: PYTHON + IA (SAMI FINAL + VÍA AVANZADA)
+
+B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capacidades que se ejercitan sobre ese mismo SAMI; la 7.5 es su defensa. Cuando intervenga un agente, el ciclo es: reproducir necesidad → punto seguro Git → tarea acotada → contexto → agente → `git status`/`git diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR → commit de lo validado. La guía de SAMI Final incluye una primera intervención puente.
 
 ## Práctica 7.1: Formulación de Plan y Contexto para IA
-* **Objetivo:** Escribir una especificación técnica clara (entradas, salidas, tipos y casos de error) antes de solicitar código a un asistente.
+* **Objetivo:** Escribir el objetivo y el contexto (entradas, salidas, tipos, restricciones y casos de error) antes de solicitar código a un asistente. Herramienta: OCV (Objetivo → Contexto → Verificación), sin plantilla obligatoria.
 
 ---
 
@@ -398,7 +400,7 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 ---
 
 ## Práctica 7.3: Depuración Guiada de Tracebacks con IA
-* **Objetivo:** Proporcionar a la IA un código con fallo y el Traceback de la consola para obtener y entender la corrección exacta.
+* **Objetivo:** Proporcionar a la IA un código con fallo y el Traceback de la consola para obtener y entender la corrección exacta. Flujo: reproducir → leer la última línea → localizar la función → hipótesis en una frase → corregir una cosa → re-ejecutar → comprobar que no se rompió otra cosa.
 
 ---
 
@@ -412,13 +414,11 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-## Material de autor B7: SAMI Final y documentación
+## Material de B7: SAMI Final y documentación
 
-Estas plantillas se conservan como apoyo para la defensa. La ruta actual utiliza los proyectos enlazados al principio; el docente debe concretar si emplea además la entrega SAMI.
-
-* **Entregables de esa propuesta histórica:**
-  1. `sami_final/` (código fuente modular ejecutable en VS Code).
-  2. `registro-ia.md` (diario de prompts, respuestas de IA y correcciones manuales aplicadas).
+* **Entregables:**
+  1. SAMI del alumno (código fuente modular ejecutable en VS Code).
+  2. `registro-ia.md` (una línea por intervención: tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR).
   3. `plan-validacion.md` (casos de prueba y resultados obtenidos).
   4. `README-defensa.md` (justificación arquitectónica del sistema).
 * **Criterio de Éxito:** el alumno defiende decisiones propias, identifica aportaciones de IA, muestra pruebas y puede explicar el código sin recitarlo.
@@ -431,7 +431,7 @@ Estas plantillas se conservan como apoyo para la defensa. La ruta actual utiliza
 
 ---
 
-# LAB FINAL OPCIONAL: PYTHON EN ACCIÓN
+# LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
 
 * **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de SAMI.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.

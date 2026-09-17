@@ -140,6 +140,6 @@ El Copiloto no debe afirmar que una práctica fue ejecutada o validada si solo e
 
 Estados para informar al docente: **verificado** (evidencia disponible), **no verificado** (comprobación necesaria que no se pudo realizar) y **opcional/no ejecutado** (variante que no era requisito). No conviertas una conexión opcional ausente en suspenso ni una prueba omitida en éxito.
 
-Las plantillas históricas de SAMI piden tres fallas de IA. Registra solo las observadas; no inventes fallas ni extrapoles ese número a todas las experiencias. El docente debe resolver la discrepancia indicada en [07](07-LAGUNAS-Y-LIMITES.md).
+El `registro-ia.md` de SAMI Final pide al menos tres fallas de IA realmente observadas. Registra solo las observadas; no inventes fallas ni extrapoles ese número a todas las experiencias.
 
 Las cinco preguntas del [README](README.md) validan el comportamiento del agente docente: respuesta documentada, fuera de temario, ambigua, propuesta de práctica y petición imposible. No son un examen adicional del alumnado.

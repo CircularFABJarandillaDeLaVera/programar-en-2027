@@ -1,6 +1,6 @@
-# 08 · LAB FINAL OPCIONAL: PYTHON EN ACCIÓN
+# 08 · LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
 
-Este documento orienta el uso docente de **Python en Acción**, una continuación práctica con pathway y laboratorios adicionales. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
+Este documento orienta el uso docente del **Lab · Programar en Acción**, una continuación práctica opcional con pathway, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 
@@ -21,7 +21,7 @@ El Copiloto debe indicar resultado esperado, evidencia observable, criterio de �
 
 ## Mapa actual: consulta antes de preparar
 
-El [portal de Python en Acción](../lab-python-en-accion/index.html) es la entrada al recorrido. Consulta su página y el README descargable antes de describir comandos, requisitos o resultados. Las implementaciones no están incluidas en el ZIP de este pack.
+El [portal del Lab](../lab-python-en-accion/index.html) es la entrada al recorrido. Consulta su página y el README descargable antes de describir comandos, requisitos o resultados. Las implementaciones no están incluidas en el ZIP de este pack.
 
 | Tramo existente | Recursos publicados | Uso docente |
 | --- | --- | --- |

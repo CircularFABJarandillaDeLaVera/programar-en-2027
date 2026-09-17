@@ -1,8 +1,8 @@
-# 01 · GUÍA GENERAL DEL CURSO: PYTHON EN 2027
+# 01 · GUÍA GENERAL DEL CURSO: PROGRAMAR EN 2027
 
 ## 1. Visión Global del Itinerario
 
-El curso **"Programar con Python en 2027: De los Fundamentos a la Programación Asistida por IA"** es un programa formativo modular desarrollado para la **Red de Centros Circular FAB**. 
+El curso **"Programar en 2027"** es un programa formativo modular desarrollado para la **Red de Centros Circular FAB**: un curso en castellano para aprender a programar con Python como lenguaje principal, avanzando desde fundamentos y proyectos reales hasta debugging, validación, Git, trabajo con IA y agentes bajo revisión humana. Principio: la IA puede ayudar, proponer y modificar; la persona entiende, revisa, prueba y decide.
 
 Su propósito es capacitar a ciudadanos, emprendedores, técnicos y profesionales en el uso de Python como herramienta de computación moderna, automatización, análisis de datos y desarrollo de software asistido por Inteligencia Artificial generativa.
 
@@ -55,7 +55,7 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 
 La ruta publicada empieza en los [inicios de los bloques](../inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
 
-El siguiente esquema resume la progresión; SAMI Final permanece en los materiales de autor, mientras la ruta actual de B7 trabaja con proyectos de agentes.
+El siguiente esquema resume la progresión en un único recorrido: SAMI es el proyecto conductor de B3 a B7 y los agentes son la vía avanzada para intervenir sobre ese mismo SAMI en B7.
 
 ```
 [B1: Fundamentos y Lógica]
@@ -93,7 +93,7 @@ El siguiente esquema resume la progresión; SAMI Final permanece en los material
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
 | **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
 | **B6** | **Trabajo como developer**<br>Desarrollo local | VS Code Local | De `.ipynb` a scripts `.py`, terminal integrada, entornos virtuales (`python -m venv`), gestión con `pip` y `requirements.txt`, control de versiones (`Git/GitHub`), debugger interactivo de VS Code. | **SAMI-Local**: Estructura de paquete profesional en disco local con repositorio Git, virtualenv y depuración con breakpoints. |
-| **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. LangGraph ejecutable sin LLM e IA-Control con Ollama opcional. | **Ruta de agentes**: cambios, pruebas y diff. Las plantillas de defensa de SAMI se conservan en materiales de autor; verificar con el docente qué evaluación aplica. |
+| **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. LangGraph ejecutable sin LLM e IA-Control con Ollama opcional. | **SAMI Final como proyecto conductor**; vía avanzada con agentes sobre ese mismo SAMI: tarea acotada → contexto → `status`/`diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR. |
 
 ---
 
@@ -105,13 +105,13 @@ El siguiente esquema resume la progresión; SAMI Final permanece en los material
 2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
 3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
 4. **B6 · SAMI-Local:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
-5. **B7:** aplicación de control y validación al trabajo con agentes; la defensa de SAMI Final sigue en los materiales de autor.
+5. **B7 · SAMI Final:** cierre del proyecto con programación asistida crítica y, como vía avanzada, intervenciones de agentes sobre el mismo SAMI con revisión y decisión humanas.
 
 Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 
-## 6. Python en Acción: pathway y laboratorios
+## 6. Lab · Programar en Acción: pathway y laboratorios
 
-[Python en Acción](../lab-python-en-accion/index.html) es una continuación práctica independiente. No es B8 ni añade requisitos evaluables por defecto.
+[Programar en Acción](../lab-python-en-accion/index.html) es una continuación práctica independiente: vitrina opcional para experimentar y ampliar, no B8, sin requisitos evaluables por defecto.
 
 El portal contiene un pathway desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 

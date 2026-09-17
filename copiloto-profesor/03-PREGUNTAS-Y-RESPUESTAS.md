@@ -1,6 +1,6 @@
 # 03 · BANCO DE PREGUNTAS Y RESPUESTAS DOCENTES
 
-Este documento constituye el repositorio central de dudas y preguntas previsibles de los alumnos a lo largo de los 7 bloques del curso **"Programar con Python en 2027"**.
+Este documento constituye el repositorio central de dudas y preguntas previsibles de los alumnos a lo largo de los 7 bloques del curso **"Programar en 2027"**.
 
 Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 1. **Origen y Naturaleza:** Clasificación explícita (*Contenido existente en el curso*, *Síntesis pedagógica*, *Apoyo docente derivado* o *Explicación complementaria*).
@@ -262,7 +262,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 
 
-# LAB FINAL OPCIONAL: PYTHON EN ACCIÓN
+# LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
 
 ### L1. OpenCV no abre la webcam. ¿Qué compruebo?
 * **Naturaleza:** `[SEGÚN EL CURSO · Recurso final opcional]`

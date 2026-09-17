@@ -363,13 +363,13 @@ Trabajar dentro de una copia personal de SAMI-Local: orientarse, preparar entorn
 # BLOQUE 7: PYTHON + IA (DESARROLLO ASISTIDO Y VALIDACIÓN)
 
 ## 7.1. Objetivo Operativo
-Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. La [ruta publicada de B7](../bloques/bloque7/inicio.html) incluye Harness, agente real, depuración, refactorización, LangGraph sin LLM e IA-Control. Conserva la defensa razonada; no presupongas que todas las experiencias usan SAMI Final.
+Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. B7 tiene un solo proyecto final: **SAMI Final como conductor** ([guía](../bloques/bloque7/recursos/proyecto/sami-final.md)). La vía avanzada consiste en pedir al agente **una tarea acotada sobre ese mismo SAMI** (hay una primera intervención puente en la guía), proporcionar contexto, revisar `git status`/`git diff`, ejecutar, comprobar y decidir ACEPTAR, MODIFICAR o RECHAZAR, con commit solo de lo validado. La [ruta publicada](../bloques/bloque7/inicio.html) conserva además Harness, agente real como ejemplo de flujo, depuración, refactorización, LangGraph sin LLM e IA-Control. Conserva la defensa razonada con `registro-ia.md`, `plan-validacion.md` y `README-defensa.md`.
 
 ---
 
 ## 7.2. Mesa del Instructor y Preparación
 * **Entorno:** VS Code con asistente de IA integrado o interfaz conversacional abierta en paralelo.
-* **Materiales:** proyecto correspondiente a cada experiencia, instrucciones, pruebas y evidencia antes/después. Las plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` son apoyo de autor; consulta con el docente su uso en la evaluación.
+* **Materiales:** SAMI del alumno (vía base) o la tarea acotada con su contexto (vía avanzada), instrucciones, pruebas y evidencia antes/después. Las plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` documentan la defensa de SAMI Final: qué se pidió, qué cambió el agente, qué se comprobó y qué se decidió.
 * **Frase clave:** *"La IA es un copiloto brillante pero ciego: tú eres el capitán del barco y el único responsable de que el código no se hunda."*
 
 ---
@@ -381,7 +381,7 @@ Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y dec
 | **Ingeniería de Contexto** | *Rol + Requisito + Formato + Restricción* | **Encargo a un ebanista:** Si le dices "hazme una mesa", puede hacerte una mesa de billar o una mesilla de noche. Si le das las medidas exactas, el tipo de madera y el plazo, el resultado encajará a la primera. | Acotar las funciones: pedir una sola función con tipos definidos en vez de pedir "la aplicación entera". |
 | **Auditoría Anti-Zombi** | Lectura crítica de cada línea antes de pegar | **Comprobar la comida antes de tragarla:** No ingieres nada sin mirar qué ingredientes lleva. En programación, pegar código sin entenderlo introduce vulnerabilidades y errores invisibles. | El alumno debe poder explicar qué hace cada instrucción del código sugerido. |
 | **Depuración con IA** | Proveer el código + el Traceback completo | **Ir al médico con los síntomas exactos:** Si le dices al médico "me duele algo", no sabe qué recetar. Si le llevas el análisis de sangre (el Traceback), diagnostica el problema al instante. | Pasar a la IA la traza exacta de error de la consola sin recortar. |
-| **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Apoyo de la propuesta de defensa SAMI; comprobar la evaluación elegida. |
+| **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Una línea por intervención con tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR; registra solo fallas realmente observadas. |
 | **LangGraph en EXP-05** | Estado, nodos y rutas | **Cadena de pasos:** cada función procesa el estado y una regla Python decide la ruta. | Grafo ejecutable sin LLM; si no está instalado se prueban las reglas puras y el grafo queda no verificado. Memoria conversacional e intervención humana avanzada son ampliaciones. |
 
 ---
