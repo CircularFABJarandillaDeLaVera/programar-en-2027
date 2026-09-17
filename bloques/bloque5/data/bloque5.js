@@ -1,6 +1,6 @@
 window.EDUSDK_BLOQUE = {
-  producto: "Programar con Python en 2027",
-  curso: "Programar con Python en 2027",
+  producto: "Programar en 2027",
+  curso: "Programar en 2027",
   bloque: "Bloque 5 - Python aplicado y librerias",
   descripcion: "Python aplicado para trabajar con datos: obtener informacion, procesarla, analizar tablas, automatizar consultas y preparar resultados.",
   duracion: "4 h",

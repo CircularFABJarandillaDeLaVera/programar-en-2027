@@ -1,8 +1,8 @@
 ﻿{
   "numero": 2,
   "slug": "bloque2",
-  "producto": "Programar con Python en 2027",
-  "curso": "Programar con Python en 2027",
+  "producto": "Programar en 2027",
+  "curso": "Programar en 2027",
   "titulo": "Estructuras de datos",
   "duracion": "Pendiente",
   "descripcion": "Estructura preparada para cadenas, listas, tuplas, conjuntos, diccionarios y comprehensions.",

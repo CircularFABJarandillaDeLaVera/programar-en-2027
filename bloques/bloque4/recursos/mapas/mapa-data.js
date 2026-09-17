@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 4',
   documentTitle: 'Mapa mental - Programacion orientada a objetos',
-  brand: 'Circular FAB - Programar con Python en 2027',
+  brand: 'Circular FAB - Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 4 - Mapa mental',
+  printNote: 'Programar en 2027 - Bloque 4 - Mapa mental',
   width: 1700,
   height: 1080,
   nodeWidth: 250,

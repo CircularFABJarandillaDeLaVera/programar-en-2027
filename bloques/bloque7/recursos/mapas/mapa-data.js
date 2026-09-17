@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 7',
   documentTitle: 'Mapa mental - Python + IA',
-  brand: 'Programar con Python en 2027',
+  brand: 'Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 7 - Python + IA',
+  printNote: 'Programar en 2027 - Bloque 7 - Python + IA',
   width: 1280,
   height: 760,
   nodeWidth: 240,

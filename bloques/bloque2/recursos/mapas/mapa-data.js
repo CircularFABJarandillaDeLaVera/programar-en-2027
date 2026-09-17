@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 2',
   documentTitle: 'Mapa mental - Estructuras de datos',
-  brand: 'Circular FAB - Programar con Python en 2027',
+  brand: 'Circular FAB - Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 2 - Mapa mental',
+  printNote: 'Programar en 2027 - Bloque 2 - Mapa mental',
   width: 1560,
   height: 980,
   nodeWidth: 230,

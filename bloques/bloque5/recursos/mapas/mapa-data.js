@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 5',
   documentTitle: 'Mapa mental - Python aplicado y librerias',
-  brand: 'Programar con Python en 2027',
+  brand: 'Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 5 - Python aplicado',
+  printNote: 'Programar en 2027 - Bloque 5 - Python aplicado',
   width: 1280,
   height: 760,
   nodeWidth: 235,

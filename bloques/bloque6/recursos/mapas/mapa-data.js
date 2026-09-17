@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 6',
   documentTitle: 'Mapa mental - Entorno profesional',
-  brand: 'Programar con Python en 2027',
+  brand: 'Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 6 - Entorno profesional',
+  printNote: 'Programar en 2027 - Bloque 6 - Entorno profesional',
   width: 1280,
   height: 760,
   nodeWidth: 235,

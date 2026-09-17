@@ -1,9 +1,9 @@
 window.EDUSDK_MAP_DATA = {
   title: 'Mapa mental interactivo - Bloque 3',
   documentTitle: 'Mapa mental - Funciones y programacion modular',
-  brand: 'Circular FAB - Programar con Python en 2027',
+  brand: 'Circular FAB - Programar en 2027',
   backHref: '../index.html',
-  printNote: 'Programar con Python en 2027 - Bloque 3 - Mapa mental',
+  printNote: 'Programar en 2027 - Bloque 3 - Mapa mental',
   width: 1640,
   height: 1020,
   nodeWidth: 245,

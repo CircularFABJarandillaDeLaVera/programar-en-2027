@@ -1,4 +1,4 @@
-# INFORME DE VALIDACIÓN — Programar con Python en 2027
+# INFORME DE VALIDACIÓN — Programar en 2027
 
 > Plantilla del mini-harness (FASE 3). La rellena `scripts/verificar.py`
 > con `--informe <ruta>`. El verificador comprueba, clasifica e informa:

@@ -1,6 +1,6 @@
 ﻿window.EDUSDK_BLOQUE = {
-  producto: "Programar con Python en 2027",
-  curso: "Programar con Python en 2027",
+  producto: "Programar en 2027",
+  curso: "Programar en 2027",
   bloque: "Bloque 2 - Estructuras de datos",
   descripcion: "Strings, slicing, listas, tuplas, sets, diccionarios, comprehensions y eleccion de estructuras.",
   duracion: "4 h",

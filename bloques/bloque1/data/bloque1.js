@@ -1,6 +1,6 @@
 ﻿window.EDUSDK_BLOQUE = {
-  producto: "Programar con Python en 2027",
-  curso: "Programar con Python en 2027",
+  producto: "Programar en 2027",
+  curso: "Programar en 2027",
   bloque: "Bloque 1 - Fundamentos y logica",
   descripcion: "Primeros programas en notebook: salida, variables, tipos, operadores, decisiones y bucles.",
   duracion: "4 h",
@@ -33,7 +33,7 @@
       ejemplo: "nombre = \"Ana\"\nedad = 12\nle_gusta_python = True\nprint(nombre, edad, le_gusta_python)",
       modificar: "Cambia los valores para que describan a otra persona.",
       predecir: "Que imprimira si cambias edad a 13?",
-      reto: "Crea una variable curso con el texto Python 2027 e imprimela junto a tu nombre.",
+      reto: "Crea una variable curso con el texto Programar en 2027 e imprimela junto a tu nombre.",
       comprobar: "La salida debe usar los nuevos valores, no los anteriores.",
       nota: "Nombrar tipos dinamicos sin convertirlo en teoria."
     },

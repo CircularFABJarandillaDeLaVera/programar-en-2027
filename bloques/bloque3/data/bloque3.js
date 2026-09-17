@@ -1,6 +1,6 @@
 window.EDUSDK_BLOQUE = {
-  producto: "Programar con Python en 2027",
-  curso: "Programar con Python en 2027",
+  producto: "Programar en 2027",
+  curso: "Programar en 2027",
   bloque: "Bloque 3 - Funciones y programacion modular",
   descripcion: "Funciones, parametros, return, scope, excepciones, archivos TXT, JSON, CSV, modulos e imports.",
   duracion: "4 h",

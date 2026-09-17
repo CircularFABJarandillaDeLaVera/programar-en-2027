@@ -1,6 +1,6 @@
 window.EDUSDK_BLOQUE = {
-  producto: "Programar con Python en 2027",
-  curso: "Programar con Python en 2027",
+  producto: "Programar en 2027",
+  curso: "Programar en 2027",
   bloque: "Bloque 4 - Programacion orientada a objetos",
   descripcion: "Clases, objetos, atributos, metodos, self, __init__, encapsulacion, composicion, herencia, super() y polimorfismo basico.",
   duracion: "4 h",
