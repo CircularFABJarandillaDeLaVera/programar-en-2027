@@ -106,6 +106,31 @@ Ejemplo practico de referencia (no duplicado aqui): el proyecto
 `../proyectos-b7/agente-real/AGENTS.md`. En SAMI se aplica igual, pero sobre
 tu propio codigo.
 
+### Primera intervencion con agente (puente hacia tu SAMI)
+
+Ejemplo de tarea real, pequeña y reversible. Si tu SAMI necesita antes otra
+cosa, usala como modelo de tarea bien acotada en lugar de copiarla tal cual.
+
+**Objetivo:** cuando falta `data/got_1.csv`, el programa dice que archivo
+falta en lugar de mostrar una traza cruda.
+
+**Contexto:** funcion que carga el CSV en `src/analizador.py`; comportamiento
+esperado: mensaje con el nombre del archivo; restricciones: ver `Prohibido`
+(sin dependencias nuevas).
+
+**No tocar:** calculos con Pandas/NumPy, generacion del PDF, `requirements.txt`.
+
+**Verificacion:** renombra temporalmente el CSV, ejecuta `python main.py`
+(mensaje claro, sin traza), restaura el nombre y repite `plan-validacion.md`
+(entradas valida, invalida y ausente).
+
+Despues, el ciclo de siempre:
+
+1. punto seguro Git (`commit` con todo funcionando);
+2. tarea acotada al agente (este recuadro, tal cual);
+3. `git status`; 4. `git diff`; 5. ejecutar; 6. comprobar;
+7. ACEPTAR / MODIFICAR / RECHAZAR en `registro-ia.md`; `commit` solo de lo validado.
+
 Git acotado a lo ya usado en el curso: `status`, `diff`, `add`, `commit`
 (y `log` o revertir si hace falta volver al punto seguro). Sin ramas ni merges.
 

@@ -29,5 +29,13 @@ sami_oop/
 - Reporte polimorfico.
 - Configuracion JSON y CSV de transacciones.
 
+## Comprobar que sigue funcionando
+
+Tras modificar una clase, repite tres casos en consola (sin arrancar el menu):
+normal (`Teclado, 80.0, 1.2` + `Suite, 140.0` → total `229.8`),
+limite (`evaluar_alerta(100.0)` → `PRECIO_NORMAL`) e invalido
+(precio `-5.0` → `ValueError`). Si el total cambia donde no tocaste,
+el cambio no esta listo. Mismo habito de B3, ahora sobre objetos.
+
 ## Archivos base
 Los tres archivos Python estan en esta carpeta.
