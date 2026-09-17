@@ -17,6 +17,15 @@ Profesionalizar el entorno local de trabajo sin anadir grandes funcionalidades.
 - `sami_local/data/`
 - `sami_local/logs/`
 
+## Cambio acotado (Objetivo / Contexto / Verificacion)
+
+- **Objetivo:** que comportamiento quieres modificar, en una frase.
+- **Contexto:** que archivo y funcion tocas y que debe permanecer intacto
+  (ver EXP-05: QUIERO / NO QUIERO / ARCHIVO / FUNCION / casos).
+- **Verificacion:** ejecuta los casos ANTES y DESPUES, corre `python main.py`
+  y lee `git diff` antes de `commit` (ver EXP-06). Si el programa ya no hace
+  lo mismo que antes donde no lo tocaste, el cambio no esta listo.
+
 ## Evidencia
 
 - Estructura local reproducible.

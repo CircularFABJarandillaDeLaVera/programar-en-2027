@@ -65,6 +65,38 @@ cuando `precio_final == umbral`, devuelve `"PRECIO_EN_UMBRAL"`.
 2. **Límite:** precio que clave el umbral → `PRECIO_EN_UMBRAL`.
 3. **Inválido:** texto como precio → mensaje + línea en el log, sin detenerse.
 
+## COMPROBAR CON UNA FUNCIÓN (tu programa también comprueba)
+
+`analizador.py` trae `comprobar_transaccion(...)`: le das un caso conocido
+y devuelve `True` si el cálculo coincide, `False` si no. Pruébala en consola
+desde esta carpeta:
+
+```text
+python
+>>> from analizador import comprobar_transaccion
+>>> comprobar_transaccion(50, 0.21, 100.0, 60.5, "PRECIO_NORMAL")
+True
+>>> comprobar_transaccion(50, 0.21, 100.0, 999.0, "PRECIO_NORMAL")
+False
+```
+
+Un caso válido (`True`) y uno inválido (`False`). Si sale `False`, el
+programa te está diciendo que algo no cuadra: revisa tus valores esperados
+antes de tocar el cálculo.
+
+En tres preguntas: ¿qué quiero conseguir? (el caso esperado), ¿qué necesita
+saber la función? (precio, tasa, umbral), ¿cómo compruebo que funciona?
+(`True` en el válido, `False` en el inválido).
+
+## SI ALGO FALLA (depurar en 6 pasos)
+
+1. Reproduce el error con los mismos datos.
+2. Lee la última línea del traceback: dice el tipo de error.
+3. Localiza la función (`def`) donde ocurre.
+4. Escribe tu hipótesis en una frase ("falla porque...").
+5. Corrige una sola cosa.
+6. Vuelve a ejecutar y repite los tres casos de COMPROBAR.
+
 ## MINI-RETO (objetivo + pistas, sin receta)
 
 Añade en `analizador.py` una función

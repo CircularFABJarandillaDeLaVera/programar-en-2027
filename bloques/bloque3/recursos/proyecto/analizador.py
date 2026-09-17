@@ -12,3 +12,15 @@ def evaluar_alerta_precio(precio_final, umbral):
     if precio_final > umbral:
         return "ALERTA_PRECIO_ELEVADO"
     return "PRECIO_NORMAL"
+
+
+def comprobar_transaccion(precio_base, tasa_impuesto, umbral, precio_esperado, estado_esperado):
+    """Comprueba un caso conocido y devuelve True si el calculo coincide.
+
+    No es testing profesional: es el propio programa diciendo si un
+    ejemplo sale como esperamos. Prueba siempre un caso valido (True)
+    y uno invalido (False) desde la consola.
+    """
+    precio_final = calcular_precio_final(precio_base, tasa_impuesto)
+    estado = evaluar_alerta_precio(precio_final, umbral)
+    return precio_final == precio_esperado and estado == estado_esperado

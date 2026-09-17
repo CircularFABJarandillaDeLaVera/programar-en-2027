@@ -34,6 +34,27 @@ Analizar precios y disponibilidad de componentes de hardware.
 - Alertas de stock.
 - `reporte_final_sami.pdf` generado con `SimpleDocTemplate`, `Paragraph`, `Image`, `Table`, `TableStyle`, `Spacer`, `colors`, `A4` y `build()`.
 
+## Verificacion: que comprueba el script y que revisas tu
+
+### Objetivo
+
+Tabla analizada + indicadores + `reporte_final_sami.pdf` generados desde
+`datos_hardware.csv`, sin modificar los datos de entrada.
+
+### Contexto
+
+Datos: `datos_hardware.csv` (se lee, no se toca). Codigo: `analizador.py`,
+`generador_informe.py`, `main.py`. No entran `got_1.csv`, dependencias
+nuevas ni facturacion (ver `Reglas`).
+
+### Verificacion
+
+`python comprobar.py` (en `proyecto-sami-applied/`) comprueba datos y
+archivos: CSV con filas, indicadores presentes, PDF generado y no vacio.
+Lo que el script NO puede hacer —abrir el PDF y comprobar que la tabla y
+el resumen se leen bien— lo revisas tu a mano. Un script comprueba
+archivos; la persona valida el resultado.
+
 ## Flujo del informe PDF
 
 DATOS -> CALCULOS -> ESTRUCTURA -> REPORTLAB -> PDF
