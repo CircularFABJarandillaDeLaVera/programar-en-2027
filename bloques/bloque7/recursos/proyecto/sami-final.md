@@ -51,6 +51,64 @@ El alumno debe demostrar que gobierna el codigo: planifica, pide ayuda acotada, 
 - optimizaciones avanzadas fuera de alcance.
 - integrar codigo que el alumno no pueda explicar o defender.
 
+## Via avanzada: trabajar con un agente (opcional, sobre este mismo SAMI)
+
+No es otro proyecto ni otro final. El proyecto conductor sigue siendo SAMI Final.
+Esta via es una forma avanzada de intervenir sobre el mismo SAMI, solo cuando
+el alumno ya entiende el proyecto y lo tiene funcionando en la via base.
+
+Antes de delegar un cambio, escribe estas tres lineas:
+
+### Objetivo
+
+Que cambio concreto quiero (una sola funcion o comportamiento, verificable).
+
+### Contexto
+
+Que necesita saber el agente: archivo o zona relevante, comportamiento esperado,
+restricciones (ver `Prohibido` mas arriba) y como sabras que funciona.
+
+### Verificacion
+
+Como comprobare que el cambio es correcto: ejecucion, `plan-validacion.md`,
+pruebas puntuales y `git diff` revisado antes de aceptar nada.
+
+Flujo de cada intervencion del agente:
+
+```text
+reproducir necesidad o fallo
+  ↓
+punto seguro en Git (commit con todo funcionando)
+  ↓
+tarea acotada + contexto al agente
+  ↓
+AGENTE interviene
+  ↓
+git status        ¿Que archivos ha tocado?
+  ↓
+git diff          ¿Que ha cambiado exactamente?
+  ↓
+EJECUTAR          ¿Funciona?
+  ↓
+PRUEBAS           (`plan-validacion.md`, tests puntuales si los hay)
+  ↓
+REVISION HUMANA   ¿Aceptamos el cambio?
+  ↓
+ACEPTAR / MODIFICAR / RECHAZAR (registrado en `registro-ia.md`)
+  ↓
+git commit        Solo lo validado
+```
+
+Ejemplo practico de referencia (no duplicado aqui): el proyecto
+`agente-real` demuestra este mismo flujo sobre un fallo pequeno y verificable
+(validar edad entre 0 y 120). Ver
+`../proyectos-b7/agente-real/README.md` y sus reglas para el agente en
+`../proyectos-b7/agente-real/AGENTS.md`. En SAMI se aplica igual, pero sobre
+tu propio codigo.
+
+Git acotado a lo ya usado en el curso: `status`, `diff`, `add`, `commit`
+(y `log` o revertir si hace falta volver al punto seguro). Sin ramas ni merges.
+
 ## Evidencia
 
 - `README-defensa.md`
