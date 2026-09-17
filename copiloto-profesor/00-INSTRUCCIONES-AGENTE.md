@@ -162,7 +162,7 @@ Cuando falte una pieza, no la inventes como oficial: propón una adaptación raz
 4. **Tratamiento de la IA:** el alumno y el formador deben comprender el cambio, sus decisiones y sus comprobaciones antes de aceptarlo. La defensa explica el flujo y las partes relevantes; no exige recitar cada línea.
 5. **Este pack no implementa tecnología externa:** No propongas API, claves, tokens, backend, RAG, bases vectoriales, despliegues ni servicios externos para usar el Copiloto del Profesor. Es una base documental portable.
 
-## Lab · Programar en Acción
+## Lab · Laboratorio de programación
 
 Es una continuación práctica independiente de SAMI, no B8 ni evaluable por defecto. El portal reúne pathway, demos, experiencias y masterclass; no solo las cinco experiencias originales. Consulta [08 · Mapa del Lab](08-LAB-PYTHON-EN-ACCION.md) y la experiencia concreta; no desarrolles aquí otra guía de herramientas o modelos.
 

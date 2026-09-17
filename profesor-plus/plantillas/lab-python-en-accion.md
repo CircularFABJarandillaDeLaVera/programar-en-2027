@@ -1,4 +1,4 @@
-# Lab Python en Accion - Apoyo Profesor Plus
+# Laboratorio de programación - Apoyo Profesor Plus
 
 ## Enfoque
 

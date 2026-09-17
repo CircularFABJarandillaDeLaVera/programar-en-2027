@@ -228,7 +228,7 @@
     },
     {
       "id": "lab-python-en-accion",
-      "titulo": "Lab Programar en Acción",
+      "titulo": "Laboratorio de programación",
       "bloque": "Lab opcional",
       "sourceMd": "plantillas/lab-python-en-accion.md",
       "html": "secciones/lab-python-en-accion.html"

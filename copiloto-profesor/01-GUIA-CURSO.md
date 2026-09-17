@@ -109,9 +109,9 @@ El siguiente esquema resume la progresión en un único recorrido: SAMI es el pr
 
 Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 
-## 6. Lab · Programar en Acción: pathway y laboratorios
+## 6. Lab · Laboratorio de programación: pathway y laboratorios
 
-[Programar en Acción](../lab-python-en-accion/index.html) es una continuación práctica independiente: vitrina opcional para experimentar y ampliar, no B8, sin requisitos evaluables por defecto.
+[Laboratorio de programación](../lab-python-en-accion/index.html) es una continuación práctica independiente: vitrina opcional para experimentar y ampliar, no B8, sin requisitos evaluables por defecto.
 
 El portal contiene un pathway desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 

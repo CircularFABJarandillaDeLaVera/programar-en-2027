@@ -87,4 +87,4 @@ La defensa de SAMI Final usa [registro IA](../bloques/bloque7/recursos/proyecto/
 
 No se exige recitar el código ni inventar errores de la IA para rellenar un registro. El docente decide la evaluación aplicable y revisa las evidencias reales.
 
-El **Lab · Programar en Acción** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y pathway](08-LAB-PYTHON-EN-ACCION.md).
+El **Laboratorio de programación** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y pathway](08-LAB-PYTHON-EN-ACCION.md).

@@ -1,6 +1,6 @@
-# 08 · LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
+# 08 · LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
 
-Este documento orienta el uso docente del **Lab · Programar en Acción**, una continuación práctica opcional con pathway, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
+Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica opcional con pathway, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 

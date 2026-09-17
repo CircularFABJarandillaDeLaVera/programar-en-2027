@@ -262,7 +262,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 
 
-# LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
+# LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
 
 ### L1. OpenCV no abre la webcam. ¿Qué compruebo?
 * **Naturaleza:** `[SEGÚN EL CURSO · Recurso final opcional]`

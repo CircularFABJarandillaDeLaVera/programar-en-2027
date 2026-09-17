@@ -431,7 +431,7 @@ B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capaci
 
 ---
 
-# LAB FINAL OPCIONAL: PROGRAMAR EN ACCIÓN
+# LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
 
 * **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de SAMI.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.

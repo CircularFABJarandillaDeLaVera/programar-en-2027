@@ -44,7 +44,7 @@ Cada vez que el Copiloto del Profesor proporcione información técnica al forma
 | **Automatización Web (Scraping)** | Automatización de flujos básicos de navegación, esperas de elementos y extracción de texto visible con **Playwright** en B5. | No se cubren técnicas de evasión de sistemas anti-bot, resolución de captchas ni pipelines distribuidos de scraping masivo. |
 | **BeautifulSoup en B5** | Puede aparecer como concepto acotado para parsing de HTML estático si el material actual lo conserva. | No compite con el itinerario práctico principal NumPy -> Pandas -> Playwright -> ReportLab -> SAMI-Applied y no debe convertirse en dependencia central. |
 | **Orquestación de Agentes (LangGraph)** | EXP-05 de B7 contiene un grafo ejecutable sin LLM. Las reglas puras se pueden probar sin instalar LangGraph; el grafo queda no verificado si falta. | La orquestación conversacional avanzada de la ingeniería es una ampliación. No extrapolar su antigua etiqueta de opcional a la ruta actual ni fijar evaluación sin decisión docente. |
-| **Lab · Programar en Acción** | Pathway y laboratorios adicionales documentados en el portal; mapa en 08. | No es B8, no añade requisitos evaluables por defecto y no pertenece a SAMI. Cada experiencia conserva sus prerrequisitos. |
+| **Laboratorio de programación** | Pathway y laboratorios adicionales documentados en el portal; mapa en 08. | No es B8, no añade requisitos evaluables por defecto y no pertenece a SAMI. Cada experiencia conserva sus prerrequisitos. |
 | **OpenCV en el Lab** | Webcam interactiva con `VideoCapture`, `read`, `imshow`, `waitKey`, `cvtColor`, `GaussianBlur`, `Canny`, `imwrite`, `release` y `destroyAllWindows`. | No incluye reconocimiento facial, reconocimiento de objetos, `CascadeClassifier`, YOLO, MediaPipe ni modelos de IA. |
 | **Automatización de archivos del Lab** | Organización de archivos falsos exclusivamente dentro de `lab_archivos_prueba/`. | No recomendar Descargas, Documentos, Escritorio ni carpetas reales externas del alumno. |
 
@@ -67,7 +67,7 @@ Cuando el formador de Circular FAB consulte sobre algún tema que sobrepase el a
 
 Según el curso, ReportLab se trabaja de forma práctica en B5 mediante Platypus. La factura `factura_2027_001.pdf` y el informe PDF de SAMI-Applied son salidas reales.
 
-El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en el Lab (Programar en Acción) no amplían automáticamente B5.
+El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en el Laboratorio de programación no amplían automáticamente B5.
 
 ## 6. Límites del Pack Portable
 
