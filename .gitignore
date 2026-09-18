@@ -2,21 +2,28 @@
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 .venv/
 venv/
+env/
 
 # Entornos y secretos
 .env
 .env.*
 !.env.example
 
+# Jupyter
+.ipynb_checkpoints/
+
 # VS Code / sistema
 .vscode/
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Logs y temporales
 *.log
+*.temp
 *.tmp
 
 # Resultados generados por las practicas
@@ -28,3 +35,11 @@ lab-python-en-accion/recursos/captura_opencv.png
 
 # Carpetas de trabajo descomprimidas de practicas
 lab-python-en-accion/recursos/descargas/*/
+
+# Caches de herramientas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node (herramientas auxiliares)
+node_modules/

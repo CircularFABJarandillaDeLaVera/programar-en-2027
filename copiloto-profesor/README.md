@@ -1,10 +1,10 @@
-# Copiloto del Profesor · Programar en 2027
+# Copiloto Programar · Programar en 2027
 
-Este pack tiene dos usos: **ayudar a impartir Programar en 2027** (Python como lenguaje principal, hasta IA y agentes bajo revisión humana) y **mostrar cómo construir un agente docente para otro curso**. Conserva instrucciones, conocimiento seleccionado y apoyos de aula en archivos portables. No es una aplicación ni necesita desarrollar una integración.
+Este pack tiene dos perfiles: **alumnado** —resolver dudas, repasar, practicar, recibir pistas, depurar y ampliar contenidos— y **profesorado** —preparar sesiones, adaptar actividades, generar apoyos, revisar evidencias y planificar alternativas—. Sirve para Programar en 2027 (Python como lenguaje principal, hasta IA y agentes bajo revisión humana) y muestra cómo construir un asistente similar para otro curso. Conserva instrucciones, conocimiento seleccionado y apoyos en archivos portables. No es una aplicación ni necesita desarrollar una integración.
 
-## Qué es un agente docente
+## Qué es Copiloto Programar
 
-Un chat permite conversar; para que esa conversación sirva de apoyo docente necesita una función definida y una forma de trabajar. Aquí llamamos agente docente al asistente que sigue instrucciones, consulta el contexto y las fuentes disponibles, respeta límites y criterios pedagógicos, realiza tareas concretas y reconoce lo que no sabe. Su capacidad de leer archivos o modificarlos dependerá de la herramienta y los permisos, no del nombre del pack.
+Un chat permite conversar; para que esa conversación sirva de apoyo necesita una función definida y una forma de trabajar. Aquí llamamos Copiloto Programar al asistente que sigue instrucciones, consulta el contexto y las fuentes disponibles, respeta límites y criterios pedagógicos, realiza tareas concretas y reconoce lo que no sabe. Su capacidad de leer archivos o modificarlos dependerá de la herramienta y los permisos, no del nombre del pack.
 
 Debe explicar con claridad, adecuarse al nivel del alumnado y ayudar al profesor a decidir. **La responsabilidad pedagógica sigue siendo del docente.**
 
