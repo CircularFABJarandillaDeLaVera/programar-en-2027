@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Copiloto del Profesor · Programar en 2027</title>
+  <title>Copiloto Programar · Programar en 2027</title>
   <link rel="stylesheet" href="../assets/edusdk-design-system/tokens/tokens.css">
   <link rel="stylesheet" href="../assets/edusdk-design-system/tokens/semantic-tokens.css">
   <link rel="stylesheet" href="../assets/edusdk-design-system/components/components.css">
@@ -25,6 +25,7 @@
     .section p { color: var(--cf-color-text-muted); line-height: 1.6; margin: 0; max-width: 820px; }
     .grid { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cards { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards__note { color: var(--cf-color-text-muted); grid-column: 1 / -1; line-height: 1.6; margin: 0; }
     .process { counter-reset: step; display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .step { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-shadow: var(--cf-shadow-sm); display: grid; gap: var(--cf-space-2); min-height: 150px; padding: var(--cf-space-4); }
     .step::before { align-items: center; background: var(--cf-color-accent); border-radius: 999px; color: var(--cf-color-accent-text); content: counter(step); counter-increment: step; display: inline-flex; font-family: var(--cf-font-label); font-weight: 800; height: 32px; justify-content: center; width: 32px; }
@@ -41,11 +42,11 @@
     <header class="cf-topbar cf-topbar--course">
       <a class="brand" href="../inicio.html" aria-label="Volver al inicio del curso">
         <img src="../assets/branding/logo-circular-fab.png" alt="Circular FAB">
-        <strong>Circular FAB<span>Recurso para formadores</span></strong>
+        <strong>Circular FAB<span>Para alumnado y profesorado</span></strong>
       </a>
       <nav class="cf-nav cf-nav--horizontal" aria-label="Navegacion del recurso">
         <a class="cf-nav__link" href="../inicio.html">Curso</a>
-        <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Copiloto Profesor</a>
+        <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Copiloto Programar</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
         <span data-theme-icon aria-hidden="true">&#9790;</span>
@@ -56,21 +57,27 @@
     <section class="hero">
       <img class="cf-center-hero__pattern portal-hero__pattern" src="../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--info">Pack portable</span>
-      <h1>CREA TU PROPIO COPILOTO PROFESOR</h1>
-      <p>Un copiloto para preparar e impartir Programar en 2027 y un ejemplo para construir tu propio agente docente. Reúne instrucciones, fuentes, tareas, límites y criterios pedagógicos con supervisión del profesor.</p>
+      <h1>COPILOTO PROGRAMAR</h1>
+      <p>Pack portable de conocimiento para crear tu propio asistente especializado en Programar en 2027, tanto para aprender como para enseñar. Reúne instrucciones, fuentes, tareas, límites y criterios pedagógicos, con supervisión humana.</p>
     </section>
 
-    <section class="grid" aria-label="Que es y para que sirve">
+    <section class="cards" aria-label="Que es, para que sirve y como puede ayudarte">
       <article class="cf-card">
         <span class="cf-chip cf-chip--accent">Qué es</span>
-        <h2>Conocimiento listo para el formador</h2>
-        <p>Reúne instrucciones, guía del curso, prácticas, evaluación, errores habituales, patrones de apoyo docente, el proyecto práctico SAMI, Laboratorio de programación y límites del curso.</p>
+        <h2>Conocimiento del curso listo para usar</h2>
+        <p>Reúne la guía del curso, prácticas, evaluación, errores habituales, patrones de apoyo, el proyecto práctico SAMI, el Laboratorio de programación y los límites de Programar en 2027.</p>
       </article>
       <article class="cf-card">
         <span class="cf-chip cf-chip--success">Para qué sirve</span>
-        <h2>Apoyo docente práctico</h2>
-        <p>Ayuda a preparar una sesión, adaptar el tiempo disponible, obtener Plan B, revisar evidencias y distinguir entre contenido del curso y explicación complementaria.</p>
+        <h2>Acompañamiento para aprender y enseñar</h2>
+        <p>Ayuda a resolver dudas, repasar contenidos, practicar, preparar materiales, adaptar una sesión, revisar evidencias y distinguir entre contenido del curso y explicación complementaria.</p>
       </article>
+      <article class="cf-card">
+        <span class="cf-chip cf-chip--info">Cómo puede ayudarte</span>
+        <h2>Alumno y docente</h2>
+        <p><strong>Alumno:</strong> entender conceptos, recibir pistas, practicar, depurar código, preparar repasos y ampliar contenidos.<br><strong>Docente:</strong> preparar sesiones, adaptar actividades, generar apoyos, revisar evidencias y planificar alternativas.</p>
+      </article>
+      <p class="cards__note">El Copiloto diferencia sus respuestas entre <strong>[SEGÚN EL CURSO]</strong>, contenido respaldado directamente por Programar en 2027, y <strong>[EXPLICACIÓN COMPLEMENTARIA]</strong>, ampliaciones útiles que no forman parte del contenido oficial del curso.</p>
     </section>
 
     <section class="section" aria-label="Proceso">
@@ -99,7 +106,7 @@
 
     <section class="section" aria-label="Construye tu propio copiloto">
       <h2>Construye tu propio copiloto</h2>
-      <p>Un agente docente necesita más que conversación: instrucciones, contexto, fuentes, límites, tareas y una forma de reconocer lo que no sabe. El README del pack explica qué aporta cada archivo y cuándo consultarlo.</p>
+      <p>Un copiloto necesita más que conversación: instrucciones, contexto, fuentes, límites, tareas y una forma de reconocer lo que no sabe. El README del pack explica qué aporta cada archivo y cuándo consultarlo.</p>
       <ol>
         <li><strong>Define la función:</strong> qué curso impartes y a quién ayudas.</li>
         <li><strong>Da instrucciones:</strong> rol, objetivos, tono, límites y cómo reconocer dudas.</li>
@@ -117,6 +124,7 @@
     <section class="section" aria-label="Preguntas de ejemplo">
       <h2>Preguntas de ejemplo</h2>
       <ul class="quote-list">
+        <li>“No entiendo los bucles. Dame una pista sin darme la solución.”</li>
         <li>“Voy a impartir el Bloque 5 mañana. ¿Qué tengo que preparar y qué puede fallar?”</li>
         <li>“Explícame las comprensiones como si tuviera 12 años.”</li>
         <li>“Dame un Plan B si esta práctica falla.”</li>
