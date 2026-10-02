@@ -319,13 +319,96 @@ Anade pruebas automaticas para comprobar al menos:
 
 ## Nivel 4: cerrar el ciclo
 
-Repite el flujo:
+Repite el flujo hasta la revisión humana:
 
 ```text
-git status -> git diff -> ejecucion manual -> pruebas -> revision humana -> git commit
+git status -> git diff -> ejecucion manual -> pruebas -> revision humana
 ```
 
+Si vas a realizar la ampliación opcional siguiente, no hagas `git commit`
+todavía: conservarás esta misma tarea, este mismo estado y este mismo `diff`.
+Si terminas aquí, guarda después el cambio validado como aprendiste en el paso 10.
+
 El objetivo final no es obedecer al agente. Es aprender a colaborar con el sin dejar de ser responsable del codigo.
+
+---
+
+## Ampliación opcional: reutiliza tu procedimiento de revisión
+
+**Ampliación opcional · 15–20 min.**
+
+Ya has repetido varias veces este procedimiento de revisión. Como ya sabes
+hacerlo manualmente, ahora vas a probar qué ocurre si lo guardas como un
+procedimiento reutilizable para el agente.
+
+Una **habilidad del agente (Agent Skill)** guarda cómo realizar una tarea
+concreta:
+
+- **`AGENTS.md`:** reglas permanentes del proyecto.
+- **Habilidad:** procedimiento reutilizable para una tarea concreta.
+- **Herramientas:** capacidades que el agente ya puede utilizar, como leer
+  archivos, usar la terminal o ejecutar Git.
+
+### 1. Empaqueta el procedimiento
+
+Como ejemplo práctico, si tu agente reconoce una colección de habilidades en
+`.agents/skills/`, crea esta habilidad **fuera de la copia del proyecto que vas
+a revisar**:
+
+```text
+.agents/
+└── skills/
+    └── revisar-cambio/
+        └── SKILL.md
+```
+
+La ubicación o forma de cargar una habilidad puede cambiar según el agente. Lo
+importante aquí es el procedimiento reutilizable, no memorizar una ruta.
+
+Contenido mínimo de `SKILL.md`:
+
+```markdown
+---
+name: revisar-cambio
+description: Revisa un cambio ya realizado contra la tarea y sus límites, sin modificar código ni decidir por la persona.
+---
+
+# Revisar un cambio
+
+1. Lee la tarea original y anota su objetivo, sus límites y las comprobaciones autorizadas.
+2. Lee las reglas permanentes de AGENTS.md, pero no las copies dentro de esta habilidad.
+3. Ejecuta git status y revisa git diff. Si no puedes usar la terminal, solicita esas salidas.
+4. Señala archivos o cambios que estén fuera del alcance pedido.
+5. Ejecuta únicamente las comprobaciones autorizadas y registra su resultado real.
+6. Separa cada conclusión en: verificado, pendiente o no comprobado.
+7. Devuelve un informe con tarea, archivos cambiados, hallazgos, comprobaciones y evidencias.
+
+No modifiques código. No elimines pruebas. No hagas commit. No aceptes el cambio
+por la persona. No inventes ejecuciones ni declares algo verificado sin evidencia.
+```
+
+### 2. Aplícala al mismo cambio
+
+```text
+MISMA TAREA
+MISMO ESTADO DEL PROYECTO
+MISMO DIFF
+```
+
+1. Conserva el informe manual que acabas de preparar en el Nivel 4.
+2. Sin cambiar el código ni hacer commit, pide al agente que aplique
+   `revisar-cambio` a esa misma tarea y ese mismo `diff`.
+3. Comprueba con `git status` y `git diff` que la revisión no ha modificado nada.
+
+### 3. Compara y decide
+
+- ¿Detectamos los mismos archivos?
+- ¿Encontramos los mismos problemas y cambios fuera de alcance?
+- ¿Las pruebas que dice haber ejecutado son reales?
+- ¿Ha declarado algo verificado sin evidencia?
+- ¿Mi revisión manual encontró algo que la habilidad no encontró?
+
+**ACEPTO / MODIFICO / RECHAZO.** La decisión sigue siendo tuya.
 
 ---
 

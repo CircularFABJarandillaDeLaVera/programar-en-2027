@@ -229,8 +229,64 @@ git commit -m "fix: validar la edad de participantes"</code></pre>
           <li>Un nombre con caracteres especiales es rechazado.</li>
         </ul>
         <h3>Nivel 4: cerrar el ciclo</h3>
-        <pre class="lab-code"><code>git status -> git diff -> ejecucion manual -> pruebas -> revision humana -> git commit</code></pre>
+        <pre class="lab-code"><code>git status -> git diff -> ejecucion manual -> pruebas -> revision humana</code></pre>
+        <p>Si vas a realizar la ampliación opcional siguiente, no hagas <code>git commit</code> todavía: conservarás esta misma tarea, este mismo estado y este mismo <code>diff</code>. Si terminas aquí, guarda después el cambio validado como aprendiste en el paso 10.</p>
         <p>El objetivo final no es obedecer al agente. Es aprender a colaborar con el sin dejar de ser responsable del codigo.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>Ampliación opcional: reutiliza tu procedimiento de revisión</h2>
+        <p><strong>Ampliación opcional · 15–20 min.</strong></p>
+        <p>Ya has repetido varias veces este procedimiento de revisión. Como ya sabes hacerlo manualmente, ahora vas a probar qué ocurre si lo guardas como un procedimiento reutilizable para el agente.</p>
+        <p>Una <strong>habilidad del agente (Agent Skill)</strong> guarda cómo realizar una tarea concreta:</p>
+        <ul class="lab-list">
+          <li><strong><code>AGENTS.md</code>:</strong> reglas permanentes del proyecto.</li>
+          <li><strong>Habilidad:</strong> procedimiento reutilizable para una tarea concreta.</li>
+          <li><strong>Herramientas:</strong> capacidades que el agente ya puede utilizar, como leer archivos, usar la terminal o ejecutar Git.</li>
+        </ul>
+        <h3>1. Empaqueta el procedimiento</h3>
+        <p>Como ejemplo práctico, si tu agente reconoce una colección de habilidades en <code>.agents/skills/</code>, crea esta habilidad <strong>fuera de la copia del proyecto que vas a revisar</strong>:</p>
+        <pre class="lab-code"><code>.agents/
+└── skills/
+    └── revisar-cambio/
+        └── SKILL.md</code></pre>
+        <p>La ubicación o forma de cargar una habilidad puede cambiar según el agente. Lo importante aquí es el procedimiento reutilizable, no memorizar una ruta.</p>
+        <p>Contenido mínimo de <code>SKILL.md</code>:</p>
+        <pre class="lab-code"><code>---
+name: revisar-cambio
+description: Revisa un cambio ya realizado contra la tarea y sus límites, sin modificar código ni decidir por la persona.
+---
+
+# Revisar un cambio
+
+1. Lee la tarea original y anota su objetivo, sus límites y las comprobaciones autorizadas.
+2. Lee las reglas permanentes de AGENTS.md, pero no las copies dentro de esta habilidad.
+3. Ejecuta git status y revisa git diff. Si no puedes usar la terminal, solicita esas salidas.
+4. Señala archivos o cambios que estén fuera del alcance pedido.
+5. Ejecuta únicamente las comprobaciones autorizadas y registra su resultado real.
+6. Separa cada conclusión en: verificado, pendiente o no comprobado.
+7. Devuelve un informe con tarea, archivos cambiados, hallazgos, comprobaciones y evidencias.
+
+No modifiques código. No elimines pruebas. No hagas commit. No aceptes el cambio
+por la persona. No inventes ejecuciones ni declares algo verificado sin evidencia.</code></pre>
+        <h3>2. Aplícala al mismo cambio</h3>
+        <pre class="lab-code"><code>MISMA TAREA
+MISMO ESTADO DEL PROYECTO
+MISMO DIFF</code></pre>
+        <ol class="lab-list">
+          <li>Conserva el informe manual que acabas de preparar en el Nivel 4.</li>
+          <li>Sin cambiar el código ni hacer commit, pide al agente que aplique <code>revisar-cambio</code> a esa misma tarea y ese mismo <code>diff</code>.</li>
+          <li>Comprueba con <code>git status</code> y <code>git diff</code> que la revisión no ha modificado nada.</li>
+        </ol>
+        <h3>3. Compara y decide</h3>
+        <ul class="lab-list">
+          <li>¿Detectamos los mismos archivos?</li>
+          <li>¿Encontramos los mismos problemas y cambios fuera de alcance?</li>
+          <li>¿Las pruebas que dice haber ejecutado son reales?</li>
+          <li>¿Ha declarado algo verificado sin evidencia?</li>
+          <li>¿Mi revisión manual encontró algo que la habilidad no encontró?</li>
+        </ul>
+        <p><strong>ACEPTO / MODIFICO / RECHAZO.</strong> La decisión sigue siendo tuya.</p>
       </section>
 
 <section class="lab-panel">
