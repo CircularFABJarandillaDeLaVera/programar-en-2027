@@ -82,16 +82,26 @@ python comprobar.py</code></pre>
 
       <section class="lab-panel">
         <h2>MODIFICAR — Fase B: CON MINI-HARNESS (25-35 min)</h2>
-        <p><strong>B1. Alcance.</strong> Anota: toco <code>valor_total</code> + <code>anadir_pieza</code>. NO toco <code>cargar/guardar</code> ni <code>comprobar.py</code>.</p>
-        <pre class="lab-code"><code>QUIERO: descuento 10% si stock &gt; 10; validar precio &gt;= 0 y stock &gt;= 0.
-NO QUIERO: nuevas dependencias, reescribir el archivo, cambiar el JSON, menús ni funciones extra.</code></pre>
-        <p><strong>B2. Criterios</strong> (los mismos de <code>comprobar.py</code>): total ejemplo = <code>960.0</code> · stock 10 = <code>500.0</code> (borde, sin descuento) · precio negativo → <code>ValueError</code> · stock negativo → <code>ValueError</code> · guardar/cargar idéntico.</p>
+        <p><strong>B1. Prepara bien la tarea.</strong> Después de observar la petición vaga, responde estas cinco preguntas con la información que ya tienes:</p>
+        <pre class="lab-code"><code>1. ¿Qué quiero conseguir?
+   Descuento 10% si stock &gt; 10; validar precio &gt;= 0 y stock &gt;= 0.
+2. ¿En qué proyecto, archivo o función estoy trabajando?
+   harness-bolsillo · inventario_taller.py · valor_total y anadir_pieza.
+3. ¿Qué puede cambiar?
+   Solo valor_total y anadir_pieza, una tarea cada vez.
+4. ¿Qué debe dejar intacto?
+   cargar/guardar, comprobar.py, formato JSON y dependencias; sin menús ni funciones extra.
+5. ¿Cómo voy a comprobar que funciona?
+   Total 960.0 · stock 10 = 500.0 · negativos → ValueError · guardar/cargar idéntico.</code></pre>
+        <p><strong>B2. Divide el trabajo y marca su estado:</strong></p>
         <pre class="lab-code"><code>T1 descuento en valor_total -&gt; pendiente
 T2 validación en anadir_pieza -&gt; pendiente
 T3 verificar con comprobar.py -&gt; pendiente</code></pre>
-        <p><strong>B3. Pide PLAN, no código:</strong></p>
-        <pre class="lab-code"><code>Archivo: inventario_taller.py. Funciones: valor_total, anadir_pieza.
-Objetivo: &lt;pega tu QUIERO&gt;. Restricciones: &lt;pega tu NO QUIERO&gt;.
+        <p><strong>B3. Reutiliza tus respuestas y pide PLAN, no código:</strong></p>
+        <pre class="lab-code"><code>Proyecto: harness-bolsillo. Archivo: inventario_taller.py.
+Objetivo: &lt;respuesta 1&gt;. Contexto: &lt;respuesta 2&gt;.
+Puede cambiar: &lt;respuesta 3&gt;. Debe dejar intacto: &lt;respuesta 4&gt;.
+Comprobación: &lt;respuesta 5&gt;.
 Propón un plan por pasos para T1. No escribas código todavía.</code></pre>
         <p><strong>B4. OK humano (obligatorio).</strong> Lee el plan y escribe <code>OK - seguir con T1</code> o <code>NO - ajustar: …</code>. Sin tu OK no hay implementación. Marca <code>T1 en curso</code>.</p>
         <pre class="lab-code"><code>Implementa solo T1 según el plan aprobado. No toques nada más.</code></pre>
