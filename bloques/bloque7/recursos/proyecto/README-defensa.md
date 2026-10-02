@@ -18,7 +18,7 @@
 - Que modificaste.
 - Que rechazaste.
 - Que comprobaste personalmente.
-- Tres fallas o propuestas incorrectas que detectaste.
+- Propuestas incorrectas o fallos de la IA que observaste realmente; nunca inventados. Si no aparecieron tres, explica las intervenciones, sus comprobaciones y por que las aceptaste, modificaste o rechazaste.
 - Como usaste tracebacks, pruebas o impresiones de variables para comprobar la solucion.
 
 ## Demostracion

@@ -24,6 +24,15 @@ comprobación y validación, Git, e IA y agentes bajo revisión humana.
 - Design system: `assets/edusdk-design-system/`, `assets/js/theme-toggle.js`
 - Validaciones: `bloques/bloque7/recursos/proyecto/plan-validacion.md`, `bloques/bloque1/recursos/trazabilidad.md` (patrón repetido en bloque2-7)
 
+## Material externo de trabajo
+
+- `assets/referencias_privadas/` contiene material externo para auditorías y comparación. No forma parte del currículo, no es fuente canónica y no debe publicarse ni versionarse.
+
+## Copias del arnés de bolsillo
+
+- La fuente principal del proyecto descargable es `bloques/bloque7/recursos/proyectos-b7/harness-bolsillo/`; contiene los cuatro archivos de `proyecto-b7-harness.zip`.
+- `bloques/bloque7/recursos/practicas/harness-bolsillo/` es una copia auxiliar junto a la práctica en Markdown. No la sincronices ni la edites como fuente principal sin revisar antes el ZIP y la experiencia publicada.
+
 ## Reglas de trabajo
 
 1. Cambios pequeños e incrementales; no mezcles cambios ajenos.

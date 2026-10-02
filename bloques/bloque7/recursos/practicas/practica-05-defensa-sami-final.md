@@ -13,7 +13,7 @@ El alumno debe explicar:
 - decisiones aceptadas, modificadas o rechazadas.
 - uso de Playwright, Pandas, NumPy y ReportLab;
 - cierre de navegador y control de dependencias;
-- tres fallas o propuestas incorrectas de la IA.
+- propuestas incorrectas o fallos de la IA realmente observados; nunca inventados. Si no aparecen tres, documenta las intervenciones, sus comprobaciones y por que las aceptaste, modificaste o rechazaste.
 
 ## No hace falta
 

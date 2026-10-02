@@ -1,43 +1,21 @@
-# ESTADO — mini-harness Python 2027 (FASE 3)
+# ESTADO — Programar en 2027
 
-Verificado ahora: 2026-09-08 (UTC). Fuentes canónicas: ver `AGENTS.md`.
+Actualizado: 2026-10-02. Fuentes canónicas: ver `AGENTS.md`.
 
-- Rama actual: `feature/harness-python-2027`.
-- Último punto estable: `1281805` — árbol limpio (`git status --short` vacío al verificar).
-- En curso: FASE 3 del mini-harness. Verificador creado y ejecutado; sin correcciones aplicadas.
+## Comprobado ahora
 
-## Verificado ahora (FASE 3, `python scripts/verificar.py`)
+- Rama: `main`; commit de partida: `a324b34`.
+- El árbol contiene cambios sin commit. `.gitignore` ya estaba modificado al iniciar esta intervención.
+- El miniarnés existe en `scripts/verificar.py` y su plantilla en `plantillas/INFORME-VALIDACION.md`.
+- Hay pruebas versionadas en los proyectos de B7 y comprobadores específicos en B5 y B7.
 
-- Estado global: **NO_APTO** (un fallo real; Git sucio solo informativo).
-- Git: rama `feature/harness-python-2027`, commit `b1bf3a4`; árbol sucio por `scripts/` y `plantillas/` (nuevos, sin trackear) más `ESTADO.md`/`TASKS.md` (esta actualización). No bloquea.
-- JSON: 17/17 válidos (BOM UTF-8 tolerado).
-- Python: 25 .py trackeados compilan, sin ejecutar.
-- Rutas: 36 referencias locales revisadas, 0 ausentes.
-- Tests: 54 passed, 1 failed (`test_cargar_demo_existe`); 9 `test_api.py` NO_VERIFICADO por `fastapi` ausente (nada instalado).
-- Informe: plantilla `plantillas/INFORME-VALIDACION.md`, salida con `--informe <ruta>`.
+## Pendiente
 
-## Verificado antes
+- Ejecutar de nuevo el miniarnés en un entorno Python disponible y registrar un resultado actual.
+- Acordar qué proyectos y dependencias forman parte de su alcance antes del piloto.
+- No se considera vigente ningún resultado de pruebas que no proceda de una nueva ejecución.
 
-- `python -m pytest --collect-only -q`: 3 suites coleccionables + 9 módulos con error de colección.
-- Subconjunto ejecutable (55 tests): `langgraph-contexto` + `ollama-estructurado` + `ollama-explicacion` → **54 passed, 1 failed** (`test_cargar_demo_existe`, `assert path.exists()` sobre `datos_contexto_demo.json`).
-- `git ls-files "*.py"`: 25 ficheros trackeados, 0 suites de tests trackeadas. Los 12 ficheros `test_*.py` en disco están bajo `lab-python-en-accion/recursos/descargas/*/`, ruta ignorada por `.gitignore`.
+## Histórico
 
-## Pendiente de verificar
-
-- 9 módulos `test_api.py` (`control-horario*`, `docker-fastapi`, `postgresql-participantes`): no ejecutables aquí por falta de dependencia (ver abajo).
-
-## Histórico / no confirmado
-
-- `.pytest_cache/v/cache/{lastfailed,nodeids}`: no se usa como estado actual, solo referencia histórica.
-
-## Limitaciones del entorno actual
-
-- `ModuleNotFoundError: No module named 'fastapi'` — los 9 módulos `test_api.py` no pueden ejecutarse en este entorno; no demuestra que esos proyectos fallen.
-
-## Problemas reales
-
-- `test_cargar_demo_existe` falla (ruta relativa a CWD). Solo registrado, no corregido.
-
-## Siguiente paso autorizado
-
-- Ninguno ejecutado sin autorización: decidir alcance del harness (suites cubiertas + gestión de dependencias) antes de FASE 3.
+- La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.
+- Sus recuentos de pruebas, fallos y elementos no verificados son evidencia histórica, no el estado actual del repositorio.

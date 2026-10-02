@@ -4,7 +4,7 @@
 | --- | --- | --- | --- | --- | --- |
 | | | | | aceptar / modificar / rechazar | |
 
-Registra al menos 3 fallas o propuestas incorrectas de la IA. Ejemplos validos:
+Registra las propuestas incorrectas o fallos de la IA que observes realmente. Nunca los inventes. Si no aparecen tres, documenta las intervenciones realizadas, sus comprobaciones y por que fueron aceptadas, modificadas o rechazadas. Ejemplos validos:
 
 - olvido de `browser.close()` en Playwright;
 - uso de una dependencia no autorizada;

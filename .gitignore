@@ -36,6 +36,10 @@ lab-python-en-accion/recursos/captura_opencv.png
 # Carpetas de trabajo descomprimidas de practicas
 lab-python-en-accion/recursos/descargas/*/
 
+# Referencias privadas de trabajo
+referencias_privadas/
+assets/referencias_privadas/
+
 # Caches de herramientas
 .pytest_cache/
 .mypy_cache/

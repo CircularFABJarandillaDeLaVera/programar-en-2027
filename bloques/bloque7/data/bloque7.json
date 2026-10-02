@@ -422,7 +422,7 @@
       "sami_final/registro-ia.md",
       "sami_final/plan-validacion.md"
     ],
-    "evidencia": "Ejecucion por terminal, informe generado, defensa del proyecto, registro de 3 fallas sugeridas por la IA, validaciones manuales y decisiones aceptar/modificar/rechazar.",
+    "evidencia": "Ejecucion por terminal, informe generado, defensa del proyecto, registro de propuestas incorrectas o fallos de IA realmente observados, validaciones manuales y decisiones aceptar/modificar/rechazar. Si no aparecen tres fallos, se documentan las intervenciones, sus comprobaciones y el motivo de cada decision.",
     "alcance": "Cerrar SAMI-Local como SAMI Final con Playwright, Pandas, NumPy y ReportLab, sin introducir tecnologias nuevas ni dependencias no autorizadas."
   },
   "mapa_mental_fuente": "recursos/mapa-mental.md"

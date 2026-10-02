@@ -40,7 +40,7 @@ El alumno debe demostrar que gobierna el codigo: planifica, pide ayuda acotada, 
 - Usar Playwright solo donde aporte adquisicion/automatizacion de datos y cerrar procesos del navegador.
 - Usar ReportLab para producir el informe final.
 - Ejecutar `python main.py` y comprobar la salida completa.
-- Registrar al menos 3 fallas o propuestas incorrectas sugeridas por la IA y como fueron detectadas.
+- Registrar las propuestas incorrectas o fallos de la IA realmente observados y como fueron detectados. Nunca se inventan: si no aparecen tres, se documentan las intervenciones, sus comprobaciones y por que fueron aceptadas, modificadas o rechazadas.
 
 ## Prohibido
 

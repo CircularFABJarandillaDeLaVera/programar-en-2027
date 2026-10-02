@@ -22,4 +22,4 @@
 - Que decidiste aceptar, modificar o rechazar?
 - Que dependencia o API rechazaste por estar fuera de alcance?
 - Como sabes que no quedan procesos del navegador abiertos?
-- Que tres fallas sugeridas por la IA documentaste?
+- Que propuestas incorrectas o fallos de la IA observaste realmente? Si no aparecieron tres, que intervenciones realizaste, como las comprobaste y por que las aceptaste, modificaste o rechazaste?

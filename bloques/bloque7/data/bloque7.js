@@ -72,7 +72,7 @@ window.EDUSDK_BLOQUE = {
     titulo: "SAMI Final",
     evolucion: "SAMI-Lite -> SAMI-OOP -> SAMI-Applied -> SAMI-Local -> SAMI Final",
     estructura: ["main.py", "src/scraper.py", "src/analizador.py", "src/generador_pdf.py", "data/got_1.csv", "requirements.txt", ".gitignore", "sami_final/README-defensa.md", "sami_final/registro-ia.md", "sami_final/plan-validacion.md"],
-    evidencia: "Ejecucion por terminal, informe generado, defensa del proyecto, registro de 3 fallas sugeridas por la IA, validaciones manuales y decisiones aceptar/modificar/rechazar.",
+    evidencia: "Ejecucion por terminal, informe generado, defensa del proyecto, registro de propuestas incorrectas o fallos de IA realmente observados, validaciones manuales y decisiones aceptar/modificar/rechazar. Si no aparecen tres fallos, se documentan las intervenciones, sus comprobaciones y el motivo de cada decision.",
     alcance: "Cerrar SAMI-Local como SAMI Final con Playwright, Pandas, NumPy y ReportLab, sin introducir tecnologias nuevas ni dependencias no autorizadas."
   },
   mapa_mental_fuente: "recursos/mapa-mental.md"
