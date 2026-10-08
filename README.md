@@ -19,7 +19,7 @@ La persona entiende, revisa, prueba y decide.
 
 - **Bloques B1–B7.** Recorrido principal del curso, de los fundamentos a la programación con IA. Empieza en [inicio.html](inicio.html).
 - **Proyecto progresivo SAMI.** Proyecto que evoluciona con el alumno a lo largo de los bloques.
-- **Laboratorio de programación** ([Pathway](lab-python-en-accion/index.html) · [Prácticas](lab-python-en-accion/recursos/index.html)). Espacio opcional para explorar y experimentar más allá del recorrido principal. **No constituye un Bloque 8** ni es evaluable por defecto.
+- **Laboratorio de programación** ([Recorrido](lab-python-en-accion/index.html) · [Prácticas](lab-python-en-accion/recursos/index.html)). Espacio opcional para explorar y experimentar más allá del recorrido principal. **No constituye un Bloque 8** ni es evaluable por defecto.
 - **[Copiloto Programar](copiloto-profesor/inicio.html) para alumnado y profesorado.** Pack portable de conocimiento para crear un asistente especializado en el curso, tanto para aprender como para enseñar.
 
 ## v0.1.0 — Primera iteración
@@ -52,7 +52,7 @@ No requiere servidor, instalación ni conexión salvo las dependencias propias d
 
 - `inicio.html` — portada del curso.
 - `bloques/` — bloques B1–B7 del recorrido principal.
-- `lab-python-en-accion/` — Laboratorio de programación (Pathway y catálogo de Prácticas).
+- `lab-python-en-accion/` — Laboratorio de programación (Recorrido y catálogo de Prácticas).
 - `copiloto-profesor/` — Copiloto Programar: pack portable y su presentación.
 - `profesor-plus/` — materiales de apoyo para formadores.
 - `assets/` — sistema de diseño, marcas y recursos gráficos.
@@ -63,7 +63,7 @@ No requiere servidor, instalación ni conexión salvo las dependencias propias d
 
 Laboratorio opcional para explorar y experimentar con Python: webcam, imágenes, automatización, Excel, aplicaciones, APIs, datos, sistemas conectados e IA local.
 
-- **Pathway** ([lab-python-en-accion/index.html](lab-python-en-accion/index.html)): recorrido progresivo de estudiante a developer.
+- **Recorrido** ([lab-python-en-accion/index.html](lab-python-en-accion/index.html)): recorrido progresivo de estudiante a developer.
 - **Prácticas** ([lab-python-en-accion/recursos/index.html](lab-python-en-accion/recursos/index.html)): catálogo de experiencias, masterclass y descargables.
 
 ## Copiloto Programar

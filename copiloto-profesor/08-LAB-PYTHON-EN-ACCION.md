@@ -1,6 +1,6 @@
 # 08 · LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
 
-Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica opcional con pathway, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
+Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica opcional con recorrido, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 
@@ -23,6 +23,14 @@ El Copiloto debe indicar resultado esperado, evidencia observable, criterio de �
 
 El [portal del Lab](../lab-python-en-accion/index.html) es la entrada al recorrido. Consulta su página y el README descargable antes de describir comandos, requisitos o resultados. Las implementaciones no están incluidas en el ZIP de este pack.
 
+El portal separa tres capas:
+
+- **Recorrido práctico:** experiencias 07–24, desde agentes y API hasta contexto conectado e IA bajo control.
+- **Prácticas adicionales:** OpenCV, Pillow, archivos, Excel, Tkinter y RAG local.
+- **Extensiones:** masterclass y recursos técnicos opcionales.
+
+El JSON antiguo solo enumera las seis prácticas iniciales; no es el inventario del portal actual.
+
 | Tramo existente | Recursos publicados | Uso docente |
 | --- | --- | --- |
 | Trabajo con control | Agentes de programación (experiencia 07). | Conexión breve con instrucciones, contexto, límites, validación y supervisión humana; no duplicar su anexo de herramientas y tests. |
@@ -33,7 +41,9 @@ El [portal del Lab](../lab-python-en-accion/index.html) es la entrada al recorri
 | Extensión técnica | [Masterclass FIWARE real](../lab-python-en-accion/recursos/experiencias/masterclass-fiware-real.html). | Extensión opcional para técnicos, con el entorno previsto en su guía. |
 | Laboratorios adicionales | OpenCV, Pillow, archivos, Excel, Tkinter y [RAG local](../lab-python-en-accion/recursos/experiencias/06-rag-local.html). | Seleccionar una experiencia adecuada al grupo; RAG no es un requisito para usar el Copiloto. |
 
-No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del pathway en contenidos obligatorios de B1-B7.
+No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del recorrido en contenidos obligatorios de B1-B7.
+
+No mezcles los usos de LangGraph: B7 EXP-05 orquesta rutas de stock sin LLM; el Lab 22 decide a partir de contexto conectado; el Lab 23–24 separa decisión, explicación con Ollama y validación Python. Todo el Lab sigue siendo opcional aunque una tecnología aparezca también en B7.
 
 ## Fichas de apoyo de los cinco laboratorios originales
 

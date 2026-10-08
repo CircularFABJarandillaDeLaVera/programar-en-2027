@@ -2,6 +2,8 @@
 
 Este pack tiene dos perfiles: **alumnado** —resolver dudas, repasar, practicar, recibir pistas, depurar y ampliar contenidos— y **profesorado** —preparar sesiones, adaptar actividades, generar apoyos, revisar evidencias y planificar alternativas—. Sirve para Programar en 2027 (Python como lenguaje principal, hasta IA y agentes bajo revisión humana) y muestra cómo construir un asistente similar para otro curso. Conserva instrucciones, conocimiento seleccionado y apoyos en archivos portables. No es una aplicación ni necesita desarrollar una integración.
 
+El Copiloto adapta la ayuda al perfil: con alumnado empieza por preguntas y pistas y retira apoyo de forma gradual; con profesorado aporta explicación, preparación, errores previsibles, evidencias y Plan B. En ambos casos la persona formula hipótesis, prueba y conserva la decisión final.
+
 ## Qué es Copiloto Programar
 
 Un chat permite conversar; para que esa conversación sirva de apoyo necesita una función definida y una forma de trabajar. Aquí llamamos Copiloto Programar al asistente que sigue instrucciones, consulta el contexto y las fuentes disponibles, respeta límites y criterios pedagógicos, realiza tareas concretas y reconoce lo que no sabe. Su capacidad de leer archivos o modificarlos dependerá de la herramienta y los permisos, no del nombre del pack.
@@ -32,14 +34,14 @@ Para rutas y comportamiento concreto, manda el material actual de la actividad: 
 | Archivo | Para qué sirve y qué contiene | Comportamiento que orienta | Cuándo consultarlo |
 | --- | --- | --- | --- |
 | [00 · Instrucciones](00-INSTRUCCIONES-AGENTE.md) | Rol, público, modos de ayuda, fuentes y permisos. | Responder con criterio docente y reconocer límites. | Al iniciar y antes de crear o modificar materiales. |
-| [01 · Guía del curso](01-GUIA-CURSO.md) | Objetivos B1-B7, ruta publicada y relación con SAMI y el Lab. | Situar cada consulta en su bloque. | Al preparar una sesión o ubicar un contenido. |
+| [01 · Guía del curso](01-GUIA-CURSO.md) | Objetivos B1-B7, rutas publicadas y relación con SAMI y el Lab. | Situar cada consulta sin cerrar decisiones pendientes. | Al preparar una sesión o ubicar un contenido. |
 | [02 · Guía docente](02-GUIA-DOCENTE-B1-B7.md) | Explicaciones, analogías, demostraciones, tiempos y Plan B. | Ajustar la ayuda al grupo, sin convertir ejemplos en obligaciones. | Al preparar o adaptar una clase. |
 | [03 · Preguntas y respuestas](03-PREGUNTAS-Y-RESPUESTAS.md) | Dudas, respuestas explicadas y errores frecuentes. | Dar una respuesta clara y graduar la explicación. | Durante dudas y preparación de preguntas. |
-| [04 · Prácticas y apoyos](04-PRACTICAS-Y-APOYOS.md) | Mapa de recursos actuales, ejercicios de apoyo, pistas y evidencias. | Partir de la práctica real y ayudar sin resolverla de golpe. | Al localizar una actividad o desbloquear al alumnado. |
+| [04 · Prácticas y apoyos](04-PRACTICAS-Y-APOYOS.md) | Mapa de rutas actuales, fichas de apoyo, pistas y evidencias. | Distinguir experiencia publicada de material de autor y ayudar sin resolver de golpe. | Al localizar una actividad o desbloquear al alumnado. |
 | [05 · Evaluación y errores](05-EVALUACION-Y-ERRORES.md) | Tracebacks, microevaluaciones, rúbrica formativa y estados de verificación. | Evaluar evidencias sin inventar ejecuciones ni calificaciones. | Al comprobar aprendizaje o diagnosticar un error. |
-| [06 · SAMI](06-SAMI.md) | Productos, precios, módulos y diferencias entre las entregas existentes. | Evitar mezclar prototipos, datos o artefactos de distintas versiones. | Al explicar o revisar SAMI. |
-| [07 · Lagunas y límites](07-LAGUNAS-Y-LIMITES.md) | Alcance, ampliaciones y decisiones curriculares pendientes. | Reconocer ausencias y contradicciones. | Antes de atribuir contenido o requisitos al curso. |
-| [08 · Lab](08-LAB-PYTHON-EN-ACCION.md) | Mapa del pathway y laboratorios adicionales; cinco fichas originales. | Consultar la experiencia elegida y respetar sus prerrequisitos. | Al preparar una continuación práctica. |
+| [06 · SAMI](06-SAMI.md) | Productos, precios, módulos y relación pendiente entre SAMI Final y la ruta B7. | Evitar mezclar prototipos, datos o artefactos de distintas versiones. | Al explicar o revisar SAMI. |
+| [07 · Lagunas y límites](07-LAGUNAS-Y-LIMITES.md) | Alcance, ampliaciones y decisiones curriculares pendientes. | No resolver por inferencia la integración de SAMI Final ni la obligatoriedad de LangGraph. | Antes de atribuir contenido o requisitos al curso. |
+| [08 · Lab](08-LAB-PYTHON-EN-ACCION.md) | Mapa del recorrido y laboratorios adicionales; cinco fichas originales. | Consultar la experiencia elegida y respetar sus prerrequisitos. | Al preparar una continuación práctica. |
 | [fuentes · Índice](fuentes/README.md) | Ingeniería de origen, notas de vigencia y enlaces de contraste. | Usar antecedentes como apoyo, no como prueba de ejecución. | Cuando las guías no basten o haya dudas de procedencia. |
 | [inicio.html](inicio.html) | Presentación y descarga del recurso. | Facilitar la entrada al docente; no contiene reglas adicionales. | Para acceder desde el portal. |
 | [ZIP](copiloto-profesor-python-2027.zip) | Copia de los Markdown y de las fuentes. | Distribuir una versión coherente del pack. | Al trasladarlo a otra herramienta o equipo. |
@@ -114,6 +116,13 @@ Los mismos principios que hemos utilizado para trabajar con agentes de programac
 
 ## Distribución y mantenimiento
 
-La fuente de verdad del pack son sus Markdown, no el ZIP. Tras modificarlos, regenera `copiloto-profesor-python-2027.zip` con los `*.md` de esta carpeta y `fuentes/*.md`, manteniendo sus rutas, y compara el contenido con los originales. No incluyas el propio ZIP ni copias de otros proyectos.
+La fuente de verdad del pack son sus Markdown, no el ZIP. Antes de regenerarlo:
+
+1. valida los enlaces locales en el repositorio;
+2. revisa que las decisiones pendientes sigan marcadas como tales;
+3. comprueba que las rutas B6, B7 y Lab coinciden con sus portales;
+4. ejecuta las comprobaciones de formato y revisa el diff.
+
+Después, regenera `copiloto-profesor-python-2027.zip` con los `*.md` de esta carpeta y `fuentes/*.md`, manteniendo sus rutas, y compara cada entrada con el original. No incluyas el propio ZIP ni copias de otros proyectos.
 
 El ZIP contiene instrucciones y síntesis; los enlaces a `../bloques/`, al Lab, a Profesor Plus o al AGENTS.md raíz requieren el repositorio completo. Si solo compartes el ZIP, aporta el material concreto cuando sea necesario y reconoce lo que falta. La página HTML es la presentación del portal, no una dependencia del agente.

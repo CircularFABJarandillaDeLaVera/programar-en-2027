@@ -304,17 +304,19 @@ Resultado esperado en B5: datos procesados, cálculos claros, tabla revisable, f
 ---
 
 ## 5.5. Adaptaciones Temporales (B5)
-* **150 min:** NumPy vectorial (25 min) + Pandas con `got_1.csv` (45 min) + Playwright y ReportLab Platypus (30 min) + Integración SAMI-Applied (50 min).
-* **90 min:** NumPy esencial + Pandas y filtrado de datos (45 min), Automatización Playwright y factura PDF con ReportLab (30 min), Práctica 02 y 03 (15 min).
-* **60 min:** Pandas intensivo (carga, filtrado condicional, estadísticas) (35 min), generación de factura PDF simple (25 min).
-* **30 min:** Carga de un CSV con Pandas, cálculo de métricas agregadas con NumPy y explicación guiada del flujo DATOS -> CÁLCULOS -> PDF.
+Selecciona una ruta coherente; no intentes comprimir todas las librerías en una sesión. La ruta principal es **cuaderno de datos → SAMI-Applied → comprobación del PDF**. Playwright y la factura con ReportLab son prácticas separadas que pueden elegirse según el objetivo.
+
+* **150 min:** cuaderno de NumPy/Pandas (60 min) + SAMI-Applied con CSV (55 min) + generación, comprobación y revisión visual del PDF (35 min).
+* **90 min:** carga, filtro e indicadores del CSV de SAMI-Applied (55 min) + PDF y comprobación (35 min).
+* **60 min:** Pandas sobre el CSV e interpretación del resumen; dejar el PDF como demostración o continuación.
+* **30 min:** carga de un CSV, un filtro explicado y predicción del resultado. No presentar como generado un PDF que no se haya ejecutado.
 
 ---
 
 # BLOQUE 6: TRABAJO COMO DEVELOPER
 
 ## 6.1. Objetivo Operativo
-Trabajar dentro de una copia personal de SAMI-Local: orientarse, preparar entorno, seguir un dato, depurar, modificar y guardar con Git. Usa las [seis experiencias de B6](../bloques/bloque6/inicio.html); la salida final es un cambio funcional comprobado y un commit local explicado. GitHub queda como apoyo conceptual, no exige publicación.
+Trabajar dentro de una copia personal de SAMI-Local siguiendo las [seis experiencias de B6](../bloques/bloque6/inicio.html): orientarse, preparar entorno, comprender el flujo, romper y depurar sobre copia segura, modificar sin romper y registrar con Git. La salida final es un cambio funcional comprobado y un commit local explicado. La ruta publicada no exige GitHub, remoto ni `push`.
 
 ---
 
@@ -332,7 +334,7 @@ Trabajar dentro de una copia personal de SAMI-Local: orientarse, preparar entorn
 | **Notebook vs Script `.py`** | `if __name__ == "__main__":` | **Boceto en servilleta vs Plano de ingeniería:** El script se ejecuta de arriba abajo sin memoria oculta en celdas anteriores. | El bloque `if __name__ == '__main__':` asegura que el código principal solo se ejecuta cuando lanzamos el archivo directamente, no al importarlo. |
 | **Entornos Virtuales (`venv`)** | `python -m venv venv`<br>`source venv/bin/activate` | **Caja de arena / Burbuja aislada:** Cada proyecto tiene su propia habitación limpia; si instalas una librería para un proyecto, no contaminas ni rompes los demás programas del ordenador. | Siempre verificar que el prompt de la terminal muestra `(venv)` antes de instalar con `pip`. |
 | **`requirements.txt`** | `pip freeze > requirements.txt`<br>`pip install -r requirements.txt` | **Lista de la compra / Receta de ingredientes:** Permite que cualquier compañero en cualquier lugar del mundo clone tu proyecto e instale exactamente las mismas versiones de las librerías con un solo comando. | Es la base de la reproducibilidad en ingeniería de software. |
-| **Git y GitHub** | `git init`, `git add .`<br>`git commit -m "..."` | **Puntos de guardado en un videojuego:** Cada commit es una foto fija del proyecto a la que siempre puedes regresar si rompes algo más adelante. | Mantener los mensajes de commit claros y concisos. |
+| **Git local** | `git status`, `git diff`<br>`git add archivo`, `git diff --cached`, `git commit` | **Puntos de guardado en un videojuego:** Cada commit conserva un estado explicado del proyecto. | No usar `git add .` a ciegas: revisar qué archivo entra y comprobar el cambio antes del commit. |
 | **Debugger interactivo** | Breakpoints (punto rojo), `F5`, `F10` (Step Over) | **Congelar el tiempo / Cámara lenta:** Pausas la ejecución del programa en una línea exacta para inspeccionar qué valor tiene cada variable en la memoria en ese instante. | Es infinitamente más rápido y profesional que llenar el código de `print()` ciegos. |
 
 ---
@@ -353,23 +355,25 @@ Trabajar dentro de una copia personal de SAMI-Local: orientarse, preparar entorn
 ---
 
 ## 6.5. Adaptaciones Temporales (B6)
-* **150 min:** Estructura de proyecto y script `.py` (30 min) + `venv` y `pip` (35 min) + Git/GitHub (35 min) + Depurador VS Code y montaje SAMI-Local (50 min).
-* **90 min:** De notebook a script + `venv` y `requirements.txt` (35 min), Debugger en VS Code (30 min), Práctica 01 y 03 (25 min).
-* **60 min:** Configuración de `venv` + ejecución de script en terminal + uso básico de breakpoints (30 min), Práctica 05 (30 min).
-* **30 min:** Demostración de clonación de repositorio, activación de `venv`, instalación de dependencias y ejecución de depurador con punto de interrupción.
+Las seis experiencias duran 30–45 minutos cada una y reutilizan la misma copia; una sesión reducida selecciona experiencias completas o usa su Plan B.
+
+* **150 min:** EXP-01 a EXP-03 o EXP-04 a EXP-06, según el punto del grupo.
+* **90 min:** una experiencia completa y su mini-reto, seguida de una segunda experiencia reducida.
+* **60 min:** EXP-04 «Rompe, entiende y depura» o EXP-05 «Cambia una función sin romper».
+* **30 min:** lectura guiada de un traceback o de un diff preparado, con hipótesis, decisión y estado **no verificado** si no se ejecuta.
 
 ---
 
-# BLOQUE 7: PYTHON + IA (DESARROLLO ASISTIDO Y VALIDACIÓN)
+# BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
 ## 7.1. Objetivo Operativo
-Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. B7 tiene un solo proyecto final: **SAMI Final como conductor** ([guía](../bloques/bloque7/recursos/proyecto/sami-final.md)). La vía avanzada consiste en pedir al agente **una tarea acotada sobre ese mismo SAMI** (hay una primera intervención puente en la guía), proporcionar contexto, revisar `git status`/`git diff`, ejecutar, comprobar y decidir ACEPTAR, MODIFICAR o RECHAZAR, con commit solo de lo validado. La [ruta publicada](../bloques/bloque7/inicio.html) conserva además Harness, agente real como ejemplo de flujo, depuración, refactorización, LangGraph sin LLM e IA-Control. Conserva la defensa razonada con `registro-ia.md`, `plan-validacion.md` y `README-defensa.md`.
+Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. La [ruta publicada](../bloques/bloque7/inicio.html) contiene seis experiencias y cuatro proyectos de práctica: Harness, agente real —reutilizado en EXP-02→04—, LangGraph sin LLM e IA-Control. La [guía de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) y sus documentos de defensa se conservan como material separado. No mezcles ambas rutas ni decidas todavía si SAMI Final será su conductor definitivo.
 
 ---
 
 ## 7.2. Mesa del Instructor y Preparación
 * **Entorno:** VS Code con asistente de IA integrado o interfaz conversacional abierta en paralelo.
-* **Materiales:** SAMI del alumno (vía base) o la tarea acotada con su contexto (vía avanzada), instrucciones, pruebas y evidencia antes/después. Las plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` documentan la defensa de SAMI Final: qué se pidió, qué cambió el agente, qué se comprobó y qué se decidió.
+* **Materiales:** el proyecto indicado por la experiencia elegida, con instrucciones, pruebas y evidencia antes/después. Si se trabaja SAMI Final, sus plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` documentan qué se pidió, qué cambió el agente, qué se comprobó y qué se decidió.
 * **Frase clave:** *"La IA es un copiloto brillante pero ciego: tú eres el capitán del barco y el único responsable de que el código no se hunda."*
 
 ---
@@ -383,6 +387,8 @@ Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y dec
 | **Depuración con IA** | Proveer el código + el Traceback completo | **Ir al médico con los síntomas exactos:** Si le dices al médico "me duele algo", no sabe qué recetar. Si le llevas el análisis de sangre (el Traceback), diagnostica el problema al instante. | Pasar a la IA la traza exacta de error de la consola sin recortar. |
 | **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Una línea por intervención con tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR; registra solo fallas realmente observadas. |
 | **LangGraph en EXP-05** | Estado, nodos y rutas | **Cadena de pasos:** cada función procesa el estado y una regla Python decide la ruta. | Grafo ejecutable sin LLM; si no está instalado se prueban las reglas puras y el grafo queda no verificado. Memoria conversacional e intervención humana avanzada son ampliaciones. |
+
+La presencia de EXP-05 en la ruta confirma una experiencia práctica, pero no resuelve por sí sola si LangGraph es obligatorio o evaluable. No fijes ese criterio sin decisión curricular.
 
 ---
 

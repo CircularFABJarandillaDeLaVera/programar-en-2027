@@ -13,10 +13,10 @@ Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos t
 | B3 | [Cuaderno de funciones](../bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb) · [SAMI-Lite](../bloques/bloque3/proyecto-sami-lite/README_PROYECTO.md) | Seguir llamadas entre módulos y modificar una regla de precio con casos de comprobación. |
 | B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
 | B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
-| B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Copia base](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → depurar → modificar → Git local. |
-| B7 | [SAMI Final + vía avanzada](../bloques/bloque7/recursos/proyecto/sami-final.md) · [Seis experiencias y descargas](../bloques/bloque7/inicio.html) | Un solo final sobre SAMI; el agente interviene con tarea acotada → contexto → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
+| B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Copia base](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → romper y depurar → modificar sin romper → Git local. |
+| B7 | [Seis experiencias y cuatro proyectos](../bloques/bloque7/inicio.html) · [Material de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) | Ruta publicada de agentes y material SAMI separado; en ambos, contexto → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
 
-B6 conserva la misma copia personal durante sus seis experiencias. B7 trabaja sobre SAMI Final; `agente-real` sirve de ejemplo del flujo en EXP-02→04, EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. No exijas conexiones reales para las alternativas locales previstas.
+B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. SAMI Final conserva guía y plantillas propias, pero su integración definitiva en la ruta publicada está pendiente. No exijas conexiones reales para las alternativas locales previstas.
 
 **Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas SAMI de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-SAMI.md) detalla SAMI y [07](07-LAGUNAS-Y-LIMITES.md) recoge los conflictos de evaluación.
 
@@ -352,7 +352,9 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-# BLOQUE 6: DEL NOTEBOOK AL ENTORNO PROFESIONAL
+# BLOQUE 6: TRABAJO COMO DEVELOPER
+
+La ruta publicada se titula **Trabajo como developer** y usa este orden: EXP-01 orientarse → EXP-02 entorno → EXP-03 comprender el flujo → EXP-04 **Rompe, entiende y depura** → EXP-05 modificar sin romper → EXP-06 Git local. Las fichas siguientes son apoyos temáticos, no una renumeración de esas experiencias.
 
 ## Práctica 6.1: De Notebook a Script `.py`
 * **Objetivo:** Migrar código de celdas sueltas a un archivo `main.py` organizado con imports arriba, funciones intermedias y bloque `if __name__ == '__main__':` abajo.
@@ -385,9 +387,11 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ---
 
-# BLOQUE 7: PYTHON + IA (SAMI FINAL + VÍA AVANZADA)
+# BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
-B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capacidades que se ejercitan sobre ese mismo SAMI; la 7.5 es su defensa. Cuando intervenga un agente, el ciclo es: reproducir necesidad → punto seguro Git → tarea acotada → contexto → agente → `git status`/`git diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR → commit de lo validado. La guía de SAMI Final incluye una primera intervención puente.
+La portada de B7 publica seis experiencias y cuatro proyectos: Harness; `agente-real`, que se reutiliza en EXP-02→04; LangGraph sin LLM; e IA-Control. Las prácticas 7.1–7.5 y la guía de SAMI Final son materiales conservados aparte. Hasta que se decida su integración, no presentes una ruta como sustituta de la otra.
+
+Cuando intervenga un agente, el ciclo común es: reproducir necesidad → punto seguro Git → hipótesis propia → tarea acotada → contexto → plan → autorización → agente → `git status`/`git diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
 
 ## Práctica 7.1: Formulación de Plan y Contexto para IA
 * **Objetivo:** Escribir el objetivo y el contexto (entradas, salidas, tipos, restricciones y casos de error) antes de solicitar código a un asistente. Herramienta: OCV (Objetivo → Contexto → Verificación), sin plantilla obligatoria.
@@ -416,6 +420,8 @@ B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capaci
 
 ## Material de B7: SAMI Final y documentación
 
+Este material existe y puede utilizarse como cierre y defensa, pero la documentación actual no resuelve todavía si será el conductor definitivo de las seis experiencias publicadas.
+
 * **Entregables:**
   1. SAMI del alumno (código fuente modular ejecutable en VS Code).
   2. `registro-ia.md` (una línea por intervención: tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR).
@@ -425,9 +431,10 @@ B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capaci
 
 ---
 
-## Orquestación avanzada: ampliación de LangGraph
-* **Carácter:** Estrictamente opcional / Avanzado.
-* **Objetivo de ampliación:** Explorar memoria conversacional e intervención humana. Se distingue de EXP-05, que ya contiene un grafo ejecutable sin LLM; consultar su README y documentar las comprobaciones omitidas.
+## LangGraph: experiencia y ampliación
+* **EXP-05 publicada:** grafo ejecutable sin LLM, con reglas Python, estado y rutas observables. Si falta la librería, se prueban las reglas puras y el grafo queda no verificado.
+* **Decisión pendiente:** la documentación no fija todavía si EXP-05 es obligatoria o evaluable.
+* **Ampliación avanzada:** memoria conversacional, herramientas e intervención humana; no forma parte del grafo práctico actual.
 
 ---
 
@@ -435,6 +442,6 @@ B7 tiene un solo proyecto final: SAMI Final. Las prácticas 7.1–7.4 son capaci
 
 * **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de SAMI.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.
-* **Contenido:** pathway práctico y laboratorios adicionales. Las cinco experiencias originales se conservan junto con recursos posteriores; consultar el mapa de 08 y el portal.
+* **Contenido:** recorrido práctico y laboratorios adicionales. Las cinco experiencias originales se conservan junto con recursos posteriores; consultar el mapa de 08 y el portal.
 * **Uso docente:** emplear como cierre motivador del itinerario, no como nuevo bloque académico.
 * **Referencia operativa:** consultar [08-LAB-PYTHON-EN-ACCION.md](08-LAB-PYTHON-EN-ACCION.md).

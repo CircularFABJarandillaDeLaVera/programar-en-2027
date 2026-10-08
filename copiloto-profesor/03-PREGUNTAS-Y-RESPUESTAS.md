@@ -201,7 +201,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ---
 
-# BLOQUE 6: DEL NOTEBOOK AL ENTORNO PROFESIONAL
+# BLOQUE 6: TRABAJO COMO DEVELOPER
 
 ### P6.1. ¿Por qué usamos entornos virtuales (`venv`) si las librerías ya se pueden instalar en el ordenador?
 * **Naturaleza:** `[SEGÚN EL CURSO · Contenido existente]`
@@ -223,7 +223,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 ---
 
-# BLOQUE 7: PYTHON + IA
+# BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
 ### P7.1. ¿Por qué la IA me genera código que parece perfecto pero luego no funciona?
 * **Naturaleza:** `[SEGÚN EL CURSO · Síntesis pedagógica]`
@@ -246,7 +246,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 * **Naturaleza:** `[SEGÚN EL CURSO]`
 * **Respuesta:** La ruta actual incluye EXP-05 con un grafo ejecutable sin LLM: Python decide entre rutas de stock. Es distinto de la orquestación conversacional avanzada del diseño histórico, que se conserva como ampliación.
-* **Límite:** Si no está instalado LangGraph, se pueden probar las reglas puras; el grafo queda no verificado. Las fuentes antiguas no bastan para decidir la obligatoriedad de la evaluación actual: véase [07](07-LAGUNAS-Y-LIMITES.md).
+* **Límite:** Si no está instalado LangGraph, se pueden probar las reglas puras; el grafo queda no verificado. Que EXP-05 esté publicada no resuelve por sí solo si es obligatoria o evaluable: véase [07](07-LAGUNAS-Y-LIMITES.md).
 
 ### P7.4. ¿Necesito Ollama para terminar IA-Control?
 
@@ -257,6 +257,21 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 * **Naturaleza:** `[SEGÚN EL CURSO]`
 * **Respuesta:** No. Pide comandos, resultados y evidencia. Una revisión de código no equivale a una ejecución. Marca lo que falta como no verificado y conserva la supervisión humana.
+
+### P7.6. ¿Analizar con un agente significa autorizarle a modificar?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** No. En B7 se separan análisis, plan, autorización y cambio. Primero formulas tu hipótesis y pides que investigue; después revisas el plan y autorizas solo una modificación acotada.
+
+### P7.7. ¿Qué reviso antes de aceptar un cambio del agente?
+
+* **Naturaleza:** `[SEGÚN EL CURSO]`
+* **Respuesta:** Comprueba tarea y alcance, archivos modificados, `git diff`, dependencias nuevas, pruebas ejecutadas y comportamiento antes/después. Si falta evidencia, no está verificado. La decisión final es ACEPTAR, MODIFICAR o RECHAZAR.
+
+### P7.8. ¿SAMI Final es ya el único proyecto de la ruta B7?
+
+* **Naturaleza:** `[SEGÚN EL CURSO · Decisión pendiente]`
+* **Respuesta:** La portada actual publica seis experiencias con cuatro proyectos de práctica; además existen la guía y las plantillas de SAMI Final. Su integración definitiva no está resuelta. Identifica qué material está usando el grupo y no mezcles sus entregables.
 
 ---
 

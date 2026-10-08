@@ -63,20 +63,22 @@ El flujo real de `main.py` carga configuración y datos, calcula precios, filtra
 
 Evidencia: cambio funcional comprobado y commit local explicado. La experiencia de Git no exige remoto ni push. Si falta entorno o ejecución, se documenta como no verificado.
 
-## B7 · SAMI Final con vía avanzada de agentes
+## B7 · SAMI Final y ruta publicada de agentes
 
-B7 tiene un solo proyecto final: **SAMI Final** ([guía](../bloques/bloque7/recursos/proyecto/sami-final.md)). La vía base lo trabaja manualmente; la vía avanzada pide al agente **una tarea acotada sobre ese mismo SAMI** (la guía incluye una primera intervención puente: mensaje claro cuando falta `data/got_1.csv`).
+La guía de **SAMI Final** se conserva en [recursos/proyecto](../bloques/bloque7/recursos/proyecto/sami-final.md) con una primera intervención puente: mostrar un mensaje claro cuando falta `data/got_1.csv`. Por otra parte, la [portada publicada de B7](../bloques/bloque7/inicio.html) organiza seis experiencias y cuatro proyectos propios. La integración definitiva de SAMI Final como conductor de esa ruta está pendiente; identifica siempre qué material utiliza el grupo.
 
 Ciclo de cada intervención: reproducir necesidad → punto seguro Git → tarea acotada → contexto → agente → `git status`/`git diff` → ejecutar → comprobar → revisión humana → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
 
-La [ruta publicada de B7](../bloques/bloque7/inicio.html) conserva como apoyos:
+La ruta publicada utiliza:
 
 - Harness: contexto, restricciones, plan, autorización y comprobación.
 - [Agente real](../bloques/bloque7/recursos/proyectos-b7/agente-real/README.md): ejemplo del flujo (validar participantes, depurar y refactorizar con pruebas y diff).
 - [LangGraph](../bloques/bloque7/recursos/proyectos-b7/langgraph-taller/README.md): grafo ejecutable sin LLM; reglas Python y rutas observables.
 - [IA bajo control](../bloques/bloque7/recursos/proyectos-b7/ia-control/README.md): validación de respuestas y alternativa determinista; Ollama es opcional.
 
-La defensa de SAMI Final usa [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md) (una línea por intervención con decisión), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md).
+EXP-05 confirma una práctica ejecutable de LangGraph sin LLM, pero no determina por sí sola su obligatoriedad o evaluación. Memoria conversacional, herramientas e intervención humana pertenecen a la ampliación avanzada.
+
+Si se trabaja SAMI Final, su defensa usa [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md) (una línea por intervención con decisión), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md).
 
 ## Preguntas para la revisión docente
 
@@ -87,4 +89,4 @@ La defensa de SAMI Final usa [registro IA](../bloques/bloque7/recursos/proyecto/
 
 No se exige recitar el código ni inventar errores de la IA para rellenar un registro. El docente decide la evaluación aplicable y revisa las evidencias reales.
 
-El **Laboratorio de programación** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y pathway](08-LAB-PYTHON-EN-ACCION.md).
+El **Laboratorio de programación** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y recorrido](08-LAB-PYTHON-EN-ACCION.md).

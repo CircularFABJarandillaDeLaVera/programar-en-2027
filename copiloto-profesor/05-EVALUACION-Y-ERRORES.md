@@ -119,7 +119,11 @@ Las microevaluaciones son preguntas conceptuales rápidas (tipo SoloLearn) integ
 | **1. Inicial / Necesita Apoyo** | * Se bloquea ante cualquier Traceback en consola y pide ayuda sin leer el mensaje.<br>* Confunde `print` con `return`.<br>* Copia código de la IA sin entender qué variables intervienen. |
 | **2. En Desarrollo** | * Lee la última línea del Traceback e identifica el tipo de error.<br>* Utiliza listas, diccionarios y funciones básicas con soltura.<br>* Necesita orientación para estructurar clases o aislar entornos virtuales. |
 | **3. Autónomo / Competente (Objetivo del Curso)** | * Resuelve de forma autónoma errores de sintaxis y tipado.<br>* Estructura proyectos modulares en VS Code con `venv` y `requirements.txt`.<br>* Aplica el flujo 2027: planifica antes de pedir código a la IA, audita lo generado y defiende su solución oralmente. |
-| **4. Avanzado / Excelente** | * Propone mejoras dentro del alcance del curso: comprehensions, vectorización NumPy, filtrado Pandas, estructura modular o defensa más clara.<br>* Diseña jerarquías de clases limpias con polimorfismo cuando el bloque lo permite.<br>* Justifica las rutas de la experiencia LangGraph o la validación de IA-Control cuando se trabajen; no se exige conexión a Ollama ni ampliación conversacional. |
+| **4. Avanzado / Excelente** | * Propone mejoras dentro del alcance del curso: comprehensions, vectorización NumPy, filtrado Pandas, estructura modular o defensa más clara.<br>* Diseña jerarquías de clases limpias con polimorfismo cuando el bloque lo permite.<br>* Si el grupo trabaja LangGraph o IA-Control, justifica rutas y validaciones; este descriptor no convierte esas experiencias en requisito ni fija su evaluación. |
+
+La autonomía se observa como una retirada gradual de ayuda: primero reproduce con guía; después predice y modifica; más adelante formula hipótesis, define criterios, ejecuta pruebas y explica por qué acepta, modifica o rechaza un resultado. Que un agente complete el cambio no demuestra por sí solo dominio del alumno.
+
+En el enfoque **«Rompe y repara»**, conserva evidencia del estado sano, el fallo controlado, la hipótesis, la causa localizada, la reparación acotada y la repetición de pruebas. El nombre es metodológico: no reemplaza títulos publicados como **Rompe, entiende y depura**.
 
 ## Evidencia y Comprobación
 
@@ -136,7 +140,7 @@ El Copiloto no debe afirmar que una práctica fue ejecutada o validada si solo e
 - **B3-B4:** seguir el flujo de SAMI y justificar el lugar del cambio, con casos normal, límite e inválido.
 - **B5:** comprobaciones del proyecto y apertura del PDF para revisar su contenido; que exista no garantiza que esté bien maquetado.
 - **B6:** cambio acotado, resultados antes/después y commit local revisado; no se exige push.
-- **B7:** contexto y plan, autorización, diff, pruebas y decisión razonada. En LangGraph distingue pruebas de reglas puras y del grafo; en IA-Control distingue respuesta aceptada, descartada y alternativa determinista.
+- **B7:** hipótesis propia, contexto y plan, autorización, revisión crítica del diff, pruebas y decisión razonada. En LangGraph distingue pruebas de reglas puras y del grafo; en IA-Control distingue respuesta aceptada, descartada y alternativa determinista. La obligatoriedad de EXP-05 y la integración final de SAMI siguen pendientes.
 
 Estados para informar al docente: **verificado** (evidencia disponible), **no verificado** (comprobación necesaria que no se pudo realizar) y **opcional/no ejecutado** (variante que no era requisito). No conviertas una conexión opcional ausente en suspenso ni una prueba omitida en éxito.
 

@@ -1,7 +1,7 @@
 # INGENIERÍA DE DISEÑO: LAB FINAL OPCIONAL
 ## "Python en Acción: 5 Cosas Más que Puedes Hacer"
 
-> **Nota de vigencia (revisión documental 2026-09-10):** Diseño de las cinco experiencias iniciales. Se conservan sus fichas; el recurso ha crecido con un pathway y más laboratorios. Consulta el [mapa actual de 08](../08-LAB-PYTHON-EN-ACCION.md). Véase el [criterio de fuentes](README.md).
+> **Nota de vigencia (revisión documental 2026-09-10):** Diseño de las cinco experiencias iniciales. Se conservan sus fichas; el recurso ha crecido con un recorrido y más laboratorios. Consulta el [mapa actual de 08](../08-LAB-PYTHON-EN-ACCION.md). Véase el [criterio de fuentes](README.md).
 
 
 Este documento constituye la especificación técnica y de diseño instruccional para el **Lab Final Opcional: "Python en Acción: 5 Cosas Más que Puedes Hacer"**, preparado con orientación tecnológica para **2027**. 

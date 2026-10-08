@@ -49,13 +49,17 @@ graph LR
 ### Metodología "Anti-Zombi"
 Se denomina **programador zombi** a quien copia y pega fragmentos de código autogenerados por IA sin comprender su funcionamiento, sin saber depurarlos cuando fallan y sin poder justificar sus decisiones de diseño. El curso implementa una evaluación continua basada en **defensa oral, predicción de salidas y lectura crítica de trazas de error**.
 
+### Acompañamiento y autonomía
+
+La ayuda disminuye de forma progresiva: el docente o el Copiloto modela, acompaña una primera ejecución, ofrece pistas graduadas y retira apoyo hasta que el alumno puede formular una hipótesis, modificar, probar y explicar su decisión. El enfoque transversal **«Rompe y repara»** parte de un estado sano y recuperable, provoca un fallo controlado, localiza su causa y repite pruebas después de repararlo. Conserva los títulos de las actividades, como **Rompe, entiende y depura** en B6.
+
 ---
 
 ## 3. Mapa Curricular del Curso (B1 a B7)
 
 La ruta publicada empieza en los [inicios de los bloques](../inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
 
-El siguiente esquema resume la progresión en un único recorrido: SAMI es el proyecto conductor de B3 a B7 y los agentes son la vía avanzada para intervenir sobre ese mismo SAMI en B7.
+El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven una ruta pública de seis experiencias y materiales separados de SAMI Final; su integración definitiva sigue pendiente de decisión curricular.
 
 ```
 [B1: Fundamentos y Lógica]
@@ -73,12 +77,12 @@ El siguiente esquema resume la progresión en un único recorrido: SAMI es el pr
 [B5: Python Aplicado y Librerías] ──► [Proyecto B5: SAMI-Applied (CSV, NumPy, Pandas, PDF)]
         │
         ▼
-[B6: Del Notebook al Entorno Profesional] ──► [Proyecto B6: SAMI-Local (VS Code, venv, Git, Debugger)]
+[B6: Trabajo como developer] ──► [Proyecto B6: SAMI-Local (VS Code, venv, Git, Debugger)]
         │
         ▼
-[B7: Python + IA] ──► [Harness, agente real, LangGraph e IA-Control]
-        │
-        └─► [Ingeniería histórica: SAMI Final y orquestación conversacional avanzada]
+[B7: Trabajo como developer con agentes]
+        ├─► [Ruta publicada: Harness, agente real, LangGraph e IA-Control]
+        └─► [Material disponible: SAMI Final, registro, validación y defensa]
 ```
 
 ---
@@ -92,8 +96,8 @@ El siguiente esquema resume la progresión en un único recorrido: SAMI es el pr
 | **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **SAMI-Lite**: Gestor modular de datos de consola con persistencia física en JSON/CSV. |
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
 | **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
-| **B6** | **Trabajo como developer**<br>Desarrollo local | VS Code Local | De `.ipynb` a scripts `.py`, terminal integrada, entornos virtuales (`python -m venv`), gestión con `pip` y `requirements.txt`, control de versiones (`Git/GitHub`), debugger interactivo de VS Code. | **SAMI-Local**: Estructura de paquete profesional en disco local con repositorio Git, virtualenv y depuración con breakpoints. |
-| **B7** | **Python + IA**<br>Desarrollo asistido y validación | VS Code + LLMs | Flujo de desarrollo asistido 2027, prompts estructurados para código, auditoría crítica de IA, depuración asistida, refactorización segura, plan de validación. LangGraph ejecutable sin LLM e IA-Control con Ollama opcional. | **SAMI Final como proyecto conductor**; vía avanzada con agentes sobre ese mismo SAMI: tarea acotada → contexto → `status`/`diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR. |
+| **B6** | **Trabajo como developer**<br>Desarrollo local | VS Code Local | Seis experiencias: orientación, entorno y dependencias, flujo, depuración, cambio acotado y Git local. | **SAMI-Local**: copia personal con un cambio funcional comprobado y un commit local explicado; no exige `push`. |
+| **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: Harness, agente real, depuración, refactor y diff, LangGraph sin LLM e IA-Control con Ollama opcional. | Cuatro proyectos de práctica publicados. SAMI Final conserva guía y documentos de defensa separados; no se fija todavía su integración definitiva ni la obligatoriedad de LangGraph. |
 
 ---
 
@@ -105,15 +109,15 @@ El siguiente esquema resume la progresión en un único recorrido: SAMI es el pr
 2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
 3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
 4. **B6 · SAMI-Local:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
-5. **B7 · SAMI Final:** cierre del proyecto con programación asistida crítica y, como vía avanzada, intervenciones de agentes sobre el mismo SAMI con revisión y decisión humanas.
+5. **B7 · material SAMI Final:** conserva una propuesta de cierre, registro de IA, plan de validación y defensa. La portada de B7 publica además seis experiencias con proyectos propios. Hasta resolver su integración, el Copiloto debe identificar qué ruta o material se está usando y no mezclarlos.
 
 Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 
-## 6. Lab · Laboratorio de programación: pathway y laboratorios
+## 6. Lab · Laboratorio de programación: recorrido y laboratorios
 
 [Laboratorio de programación](../lab-python-en-accion/index.html) es una continuación práctica independiente: vitrina opcional para experimentar y ampliar, no B8, sin requisitos evaluables por defecto.
 
-El portal contiene un pathway desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
+El portal contiene un recorrido desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 
 Las cinco fichas originales siguen siendo útiles; ya no representan todo el recurso. No deduzcas el catálogo a partir de un subtítulo numérico antiguo.
 
