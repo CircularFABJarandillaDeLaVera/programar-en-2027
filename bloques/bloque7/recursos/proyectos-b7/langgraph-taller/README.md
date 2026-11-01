@@ -2,10 +2,9 @@
 
 Grafo sencillo y ejecutable. Sin modelo de lenguaje, sin red, sin FIWARE.
 
-Es una ampliación opcional y pendiente de validación específica. El ZIP
-descargable es plano: si decides probarlo, crea o elige una carpeta vacía,
-descomprímelo directamente dentro y abre esa carpeta en tu terminal. No se
-crea automáticamente una carpeta `langgraph-taller`.
+El ZIP descargable es plano: crea o elige una carpeta vacía, descomprímelo
+directamente dentro y abre esa carpeta en tu terminal. No se crea
+automáticamente una carpeta `langgraph-taller`.
 
 ## Idea en una frase
 
@@ -31,6 +30,41 @@ mi-grafo-b7/
   (`obtener_contexto`, `validar_datos`, `evaluar_estado`, ...).
 - **Condicion**: `decidir_siguiente(stock, minimo)` elige la ruta.
 - **Rutas**: `sin_stock` / `pedir_material` / `disponible`.
+
+## Qué aporta frente a Python normal
+
+Este flujo tiene tres nodos y una condición. Python normal, con llamadas
+secuenciales y un `if`, resuelve la misma necesidad con menos instalación y
+mantenimiento. LangGraph hace visibles el estado, los nodos y las transiciones;
+empieza a aportar cuando el flujo crece y necesitas inspeccionar u organizar
+muchas rutas. No se añade una segunda implementación: se compara la idea, no se
+duplica el proyecto.
+
+El ejemplo es un grafo determinista: no usa LLM, claves, Ollama, red ni
+servicios externos. Una ampliación con IA pondría un modelo dentro de un nodo y
+necesitaría validación adicional. Un sistema multiagente tendría varios agentes
+coordinados; este proyecto no lo implementa.
+
+## Preparación y comprobación
+
+Desde la carpeta donde extrajiste los cinco archivos:
+
+```bash
+python --version
+python -m venv .venv
+# activa .venv antes de continuar
+pip install -r requirements.txt
+python flujo_taller.py --demo
+python flujo_taller.py --demo --stock 0
+python flujo_taller.py --demo --stock 20
+python -m unittest -v
+```
+
+La salida principal debe terminar en `PEDIR_MATERIAL`; con stock 0 termina en
+`SIN_STOCK` y con stock 20 en `DISPONIBLE`. Las 8 pruebas pasan cuando la
+dependencia está instalada. Sin ella, las pruebas puras pasan y la prueba del
+grafo queda `skipped`/`NO_VERIFICADO`. Un argumento no entero, como
+`--stock no-es-numero`, produce un error de uso y código de salida 2.
 
 ## Instalacion
 
@@ -74,6 +108,6 @@ python flujo_taller.py --demo --stock 20
 python -m unittest -v
 ```
 
-La regla pura (`decidir_siguiente`) se prueba siempre, sin langgraph.
-El grafo completo solo se prueba si langgraph esta instalado; si no,
-queda NO_VERIFICADO, que no es un fallo.
+La regla pura (`decidir_siguiente`) y los nodos se pueden probar sin LangGraph.
+El grafo completo requiere la dependencia declarada; no requiere modelo de
+lenguaje ni servicios externos.

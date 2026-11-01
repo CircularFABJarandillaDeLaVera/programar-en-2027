@@ -41,25 +41,25 @@
         <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
         <div class="lab-experience__header">
           <div>
-            <p class="lab-kicker">EXP-05 · ampliación opcional · LangGraph · Sin LLM · Sin red</p>
+            <p class="lab-kicker">EXP-05 · LangGraph · Sin LLM · Sin red</p>
             <h1 class="lab-experience__title">Grafo de flujo: Python orquesta</h1>
           </div>
         </div>
-        <p>Objetivo opcional: distinguir un grafo ejecutable sin modelo de lenguaje de una ampliación con IA. LangGraph organiza los pasos; Python decide el flujo. Esta experiencia queda pendiente de validación específica y no es necesaria para cerrar B7.</p>
+        <p>Objetivo: representar y ejecutar un flujo pequeño con estado, nodos y rutas. LangGraph organiza los pasos; Python decide el flujo. Al terminar podrás explicar qué aporta el grafo y cuándo basta una secuencia normal de Python.</p>
         <pre class="lab-code"><code>estado → nodo → condición → ruta A / ruta B → resultado observable</code></pre>
       </section>
 
       <section class="lab-panel">
         <h2>PREPARAR</h2>
-        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-langgraph.zip" download>Descargar grafo de flujo opcional</a></p>
-        <p><strong>El ZIP es plano:</strong> si quieres probar esta ampliación, crea o elige una carpeta vacía, por ejemplo <code>mi-grafo-b7/</code>, descomprímelo directamente dentro y abre PowerShell en esa carpeta. No es una instalación obligatoria para B7. Solo hay 5 archivos:</p>
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-langgraph.zip" download>Descargar grafo de flujo</a></p>
+        <p><strong>El ZIP es plano:</strong> crea o elige una carpeta vacía, por ejemplo <code>mi-grafo-b7/</code>, descomprímelo directamente dentro y abre PowerShell en esa carpeta. Solo hay 5 archivos:</p>
         <pre class="lab-code"><code>mi-grafo-b7/
 ├── flujo_taller.py      # estado -&gt; nodos -&gt; condición -&gt; ruta -&gt; resultado
 ├── datos_demo.json      # contexto local (pieza, stock, mínimo)
 ├── test_flujo_taller.py # pruebas con unittest (librería estándar)
 ├── requirements.txt     # solo langgraph
 └── README.md            # guía del proyecto</code></pre>
-        <p>Solo si vas a probar el grafo completo en un entorno autorizado, instala la única dependencia declarada:</p>
+        <p>Para ejecutar el grafo completo, crea un entorno virtual e instala la única dependencia declarada:</p>
         <pre class="lab-code"><code>pip install -r requirements.txt</code></pre>
       </section>
 
@@ -75,6 +75,21 @@
         <p>Ejecuta y observa la ruta que toma con los datos de demostración:</p>
         <pre class="lab-code"><code>python flujo_taller.py --demo</code></pre>
         <p>Deberías ver <code>pedir_material</code> y la decisión <code>PEDIR_MATERIAL</code>. Explica en una frase por qué se tomó esa ruta (pista: stock 3 frente a mínimo 5).</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>SEGUIR EL FLUJO REAL</h2>
+        <p>El diccionario de <strong>estado</strong> lleva <code>pieza</code>, <code>stock</code>, <code>stock_minimo</code>, <code>ruta</code> y <code>decision</code>. Los nodos <code>obtener_contexto</code>, <code>validar_datos</code> y <code>evaluar_estado</code> lo van actualizando. La condición <code>decidir_siguiente(stock, minimo)</code> selecciona:</p>
+        <pre class="lab-code"><code>stock es None o stock &lt;= 0  → sin_stock
+stock &lt; minimo              → pedir_material
+stock &gt;= minimo             → disponible</code></pre>
+        <p>LangGraph conecta esos nodos con <code>START</code>, <code>END</code> y aristas condicionales. No inventa la decisión ni consulta un modelo: la regla está escrita en Python y el resultado observable es la ruta y su etiqueta.</p>
+      </section>
+
+      <section class="lab-panel">
+        <h2>¿LANGGRAPH O PYTHON NORMAL?</h2>
+        <p>Para este flujo corto, Python normal basta: una secuencia de llamadas y un <code>if</code> resuelven la misma necesidad con menos instalación y mantenimiento. LangGraph aporta una representación explícita cuando crecen los nodos, las transiciones o la necesidad de inspeccionar el estado; aquí se usa solo para ver esa organización, no porque sea imprescindible.</p>
+        <p>Este ejemplo es un <strong>grafo determinista</strong>: no usa LLM, claves, Ollama, red ni servicios externos. Una ampliación con IA añadiría un modelo dentro de un nodo y sus riesgos de coste, disponibilidad y validación. Un sistema multiagente requeriría varios agentes con responsabilidades y coordinación; este proyecto no lo implementa.</p>
       </section>
 
       <section class="lab-panel">
@@ -122,12 +137,12 @@ PEDIR_MATERIAL</code></pre>
         <h2>COMPROBAR</h2>
         <pre class="lab-code"><code>python flujo_taller.py --demo
 python -m unittest -v</code></pre>
-        <p>Checklist de salida: ¿estado/nodos/condición/rutas identificados? ¿3 rutas probadas con datos? ¿1 modificación de orquestación hecha por ti? ¿pruebas en verde (o NO_VERIFICADO justificado)? ¿puedes explicar por qué se toma cada ruta?</p>
+        <p>Checklist de salida: ¿estado, nodos, condición y rutas identificados? ¿3 rutas probadas con datos? ¿1 modificación de orquestación hecha por ti? ¿pruebas en verde o <code>NO_VERIFICADO</code> justificado? ¿puedes explicar por qué se toma cada ruta?</p>
       </section>
 
       <section class="lab-panel">
         <h2>PLAN B (sin red / si pip falla)</h2>
-        <p>Sin langgraph instalado: la regla pura se sigue probando (<code>decidir_siguiente</code> + nodos son Python estándar). Ejecuta <code>python -m unittest -v</code>: verás las pruebas puras en verde y la del grafo como <code>skipped</code> (NO_VERIFICADO documentado). Dibuja el grafo en papel con sus 3 rutas y predice la salida de cada caso del mini-reto.</p>
+        <p>Sin langgraph instalado: la regla pura se sigue probando (<code>decidir_siguiente</code> y los nodos son Python estándar). Ejecuta <code>python -m unittest -v</code>: las pruebas puras quedarán en verde y la del grafo aparecerá como <code>skipped</code> (<code>NO_VERIFICADO</code>). Dibuja el grafo con sus 3 rutas y predice la salida de cada caso.</p>
       </section>
 
       <section class="lab-panel">
@@ -136,7 +151,8 @@ python -m unittest -v</code></pre>
       </section>
 
       <nav class="lab-pager" aria-label="Anterior y siguiente">
-        <a class="lab-action lab-action--secondary" href="../exp-04-refactor-pruebas-diff/index.html">← EXP-04</a>
+        <a class="lab-action lab-action--secondary" href="../../../inicio.html">← Volver al bloque 7</a>
+        <a class="lab-action lab-action--secondary" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="lab-action lab-action--primary" href="../exp-06-ia-local-bajo-control/index.html">Siguiente: EXP-06 →</a>
       </nav>
     </article>

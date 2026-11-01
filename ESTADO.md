@@ -238,3 +238,33 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 - La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.
 - Sus recuentos de pruebas, fallos y elementos no verificados son evidencia histórica, no el estado actual del repositorio.
+
+## Microfase 9 — LangGraph opcional en B7 (pendiente de revisión)
+
+### Cambios
+
+- EXP-05 y el README del proyecto explican el grafo real: estado, nodos, transiciones, condición de ruta y resultados para `sin_stock`, `pedir_material` y `disponible`.
+- Se distingue el grafo determinista actual, una futura ampliación con modelo de lenguaje y un sistema multiagente. No se añadió IA, Ollama, claves, red, agentes adicionales ni una segunda implementación en Python.
+- La actividad y la guía de ampliación aplican el criterio ludus/dojo: LangGraph es una opción de práctica, no una obligación del itinerario; su instalación es requisito técnico solo para ejecutar el grafo completo. Se explica cómo continuar o saltar EXP-05.
+- Se corrigieron las instrucciones de extracción y ejecución desde la carpeta elegida, y EXP-05 conserva accesos explícitos a `Volver al bloque 7` e `Inicio del curso` con rutas relativas compatibles con GitHub Pages.
+- Se sincronizó `proyecto-b7-langgraph.zip` con los cinco archivos de `recursos/proyectos-b7/langgraph-taller/`. No se modificó código de ejecución ni EduSDK.
+- Se depuró la redacción dirigida al alumno: se retiraron avisos repetidos sobre opcionalidad y estado interno, conservando en esta documentación solo el objetivo, requisitos, comandos, resultados, errores, comparación conceptual y siguiente paso.
+
+### Validación real
+
+- Desde una extracción limpia se creó un entorno virtual temporal y se instalaron únicamente los requisitos declarados: `langgraph>=0.2.74,<0.3.0`. Versiones usadas: Python `3.12.10`, `langgraph 0.2.76` y `langchain-core 0.3.86`.
+- `python -m unittest -v`: 8 pruebas correctas, incluida la del grafo completo; no hubo pruebas omitidas con la dependencia instalada.
+- `python flujo_taller.py --demo`: ruta `pedir_material`, decisión `PEDIR_MATERIAL`, con stock 3 y mínimo 5.
+- `--stock 0`: ruta `sin_stock`, decisión `SIN_STOCK`. `--stock 20`: ruta `disponible`, decisión `DISPONIBLE`.
+- `--stock no-es-numero` produjo error de uso y código 2. Sin modo de ejecución produjo el mensaje de ayuda y código 1. No se usaron credenciales ni servicios externos.
+- La extracción del ZIP se comprobó contra sus cinco fuentes canónicas; los README, requisitos y archivos descargados coinciden. La comprobación de enlaces locales y las rutas de navegación de EXP-05 quedan pendientes de revisión humana en navegador.
+
+### Utilidad pedagógica y límites
+
+- Para tres nodos y una condición, Python normal basta y tiene menor coste de preparación y mantenimiento. LangGraph aporta una representación explícita cuando crecen estados y transiciones, no una necesidad artificial de este ejemplo.
+- El grafo validado es determinista y no es un sistema multiagente. La ampliación con IA y la coordinación multiagente siguen fuera de esta microfase.
+- No se modificaron otros bloques, el Recorrido práctico ni EduSDK. Se conserva `Cambios_portada_2027/` fuera del alcance.
+
+### Siguiente paso
+
+- Revisar EXP-05 en `http://localhost:8000/bloques/bloque7/recursos/experiencias/exp-05-langgraph-orquesta/index.html` y la portada de B7. La microfase queda sin commit ni tag.
