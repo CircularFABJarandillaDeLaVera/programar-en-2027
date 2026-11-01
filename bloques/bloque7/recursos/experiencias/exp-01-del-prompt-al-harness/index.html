@@ -69,6 +69,22 @@ python comprobar.py</code></pre>
       </section>
 
       <section class="lab-panel">
+        <h2>ARNÉS FUNCIONAL · CAMBIO CONTROLADO</h2>
+        <p>Trabaja siempre sobre una copia limpia. El arnés funcional es <code>comprobar.py</code>: ejecuta comprobaciones repetibles y solo informa; no modifica <code>inventario_taller.py</code> ni decide por ti.</p>
+        <ol>
+          <li><strong>Base:</strong> ejecuta los dos comandos de VER y guarda la salida. El estado inicial esperado es <strong>3 APTO, 2 NO_APTO y 1 NO_VERIFICADO</strong>.</li>
+          <li><strong>Cambio controlado:</strong> modifica únicamente <code>valor_total</code> para aplicar el 10% cuando <code>stock &gt; 10</code>. Ejecuta <code>python comprobar.py</code> antes de tocar la validación: debe desaparecer solo ese <code>NO_APTO</code>.</li>
+          <li><strong>Fallo observable:</strong> comprueba que queda <code>valida_entradas</code> en <strong>NO_APTO</strong>. Ese resultado demuestra que el arnés detecta una regla todavía incumplida.</li>
+          <li><strong>Corrección:</strong> modifica después únicamente <code>anadir_pieza</code> para lanzar <code>ValueError</code> con precio o stock negativos. Vuelve a ejecutar el arnés.</li>
+        </ol>
+        <p>El resultado esperado al final es <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. No conviertas <code>NO_VERIFICADO</code> en <code>APTO</code> cambiando el comprobador: significa que el rendimiento con miles de piezas queda pendiente.</p>
+        <p><strong>El script comprueba automáticamente</strong> la carga de las cinco piezas, el descuento, el borde <code>stock == 10</code>, los valores negativos y el ciclo guardar/cargar. <strong>Tú revisas</strong> el diff, que solo cambiaste las funciones autorizadas, los mensajes y tipos de error, el caso manual y si los criterios representan realmente el encargo. Después decides <strong>ACEPTO / MODIFICO / RECHAZO</strong>.</p>
+        <p>Este proyecto no tiene interfaz de usuario: no se añade comparación visual. La revisión humana del código y de la salida sigue siendo necesaria aunque todo lo comprobable aparezca como <code>APTO</code>.</p>
+        <p><strong>Regresión reproducible:</strong> con las dos correcciones aplicadas y desde la carpeta extraída, ejecuta <code>python comprobar.py</code> y conserva el resultado <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. Cambia temporalmente en <code>valor_total</code> <code>stock &gt; 10</code> por <code>stock &gt;= 10</code>. Es código válido, pero vuelve a ejecutar el comando: <code>descuento_stock_alto</code> y <code>borde_stock_10</code> deben pasar a <strong>NO_APTO</strong>, con resumen <strong>3 APTO, 2 NO_APTO y 1 NO_VERIFICADO</strong>. Restaura <code>stock &gt; 10</code> y repite el comando: debe volver a <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. No uses un error de sintaxis para provocar la regresión ni edites <code>comprobar.py</code>.</p>
+        <p><strong>¿Por qué fallan dos comprobaciones?</strong> La única línea mutada es <code>if pieza[&quot;stock&quot;] &gt;= 10:</code>; el estado corregido usa <code>if pieza[&quot;stock&quot;] &gt; 10:</code>. Con los datos del JSON, Broca 20 y Filamento 12 cumplen ambas condiciones y siguen aportando 180.0 y 270.0. La Placa base tiene stock 10: antes aporta 500.0 y con la mutación aporta 450.0. Por eso el total agregado esperado de <code>descuento_stock_alto</code> es 960.0 y el obtenido pasa a 910.0. El comprobador de borde usa otra pieza con stock 10 y espera 500.0, pero obtiene 450.0. La regresión no es un error de sintaxis y la copia temporal solo cambia ese operador.</p>
+      </section>
+
+      <section class="lab-panel">
         <h2>PROBAR — Fase A: SIN HARNESS (10-20 min)</h2>
         <p>Pide esto a tu agente (OpenCode, Codex, Copilot, Claude Code u otro), tal cual, sin nada más (pega el .py si tu herramienta lo necesita):</p>
         <pre class="lab-code"><code>Mejora este programa para que gestione descuentos y sea mas robusto.</code></pre>

@@ -213,5 +213,28 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 ## Histórico
 
+## Microfase 8 — arnés funcional en B7 (pendiente de cierre)
+
+### Cambios
+
+- Se amplió EXP-01 para practicar el arnés funcional existente sobre una copia limpia: ejecución inicial, cambio controlado de una regla, detección del `NO_APTO` restante y corrección posterior.
+- La guía explica la diferencia entre `APTO`, `NO_APTO` y `NO_VERIFICADO`, qué comprueba automáticamente `comprobar.py` y qué debe revisar y decidir la persona.
+- Se actualizó `chuleta-harness.md` con el mismo procedimiento mínimo. No se añadió infraestructura, dependencia, interfaz ni arnés visual: el proyecto reutilizado es de consola y no tiene una interfaz real que comparar.
+
+### Validación y límites
+
+- Desde una extracción limpia del ZIP se ejecutó `python inventario_taller.py`: funcionó y mostró las cinco piezas y el total inicial `1010.0`.
+- Desde esa extracción se ejecutó `python comprobar.py`: resultado inicial real `3 APTO`, `2 NO_APTO`, `1 NO_VERIFICADO`, con código de salida 1 por los dos criterios pendientes.
+- En una copia temporal limpia se aplicó la secuencia documentada sin modificar el repositorio: tras corregir primero el descuento quedó solo `valida_entradas` en `NO_APTO`; tras corregir después la validación se obtuvo `5 APTO`, `0 NO_APTO`, `1 NO_VERIFICADO`, con salida 0. El rendimiento sigue sin verificarse deliberadamente.
+- Se completó una demostración de regresión en otra copia temporal ya corregida: el cambio válido `stock > 10` → `stock >= 10` hizo que `descuento_stock_alto` y `borde_stock_10` pasaran a `NO_APTO`, produciendo `3 APTO`, `2 NO_APTO`, `1 NO_VERIFICADO`; al restaurar `stock > 10`, `comprobar.py` volvió a `5 APTO`, `0 NO_APTO`, `1 NO_VERIFICADO`. La base descargable no se cambió y conserva sus dos fallos pedagógicos iniciales.
+- La causa queda documentada: stock 12 cumple ambas condiciones y no cambia; la diferencia la produce la Placa base con stock 10, que baja de 500.0 a 450.0 y hace pasar el total agregado de 960.0 a 910.0. La comparación de la copia temporal mostró únicamente la mutación del operador `>` a `>=` respecto al estado corregido, sin error de sintaxis ni cambios en `comprobar.py` o en los datos.
+- La guía y la chuleta indican ejecutar todos los comandos desde la carpeta donde se extrajo el ZIP y dejan la regresión reproducible sin editar el comprobador.
+- No se instalaron dependencias ni se ejecutaron suites `pytest`. No se realizó una comparación visual porque no existe interfaz en este proyecto; la revisión humana del diff, del resultado y de los criterios sigue siendo obligatoria.
+- La microfase 7 permanece cerrada en `3e1b77f` y `v2027-b7-m7`. Esta microfase 8 queda sin commit ni tag para revisión. `Cambios_portada_2027/` y cualquier cambio ajeno permanecen fuera del alcance.
+
+### Siguiente paso
+
+- Revisar `http://localhost:8000/bloques/bloque7/recursos/experiencias/exp-01-del-prompt-al-harness/index.html` y, si procede, validar la práctica humana antes de cerrar la microfase 8.
+
 - La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.
 - Sus recuentos de pruebas, fallos y elementos no verificados son evidencia histórica, no el estado actual del repositorio.
