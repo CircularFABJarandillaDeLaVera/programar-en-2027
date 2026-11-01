@@ -112,7 +112,7 @@ window.EDUSDK_MAP_DATA = {
       err: 'Crear dependencias cruzadas entre archivos.'
     },
     {
-      id: 'sami-lite',
+      id: 'proyecto-aplicado-1',
       parent: 'root',
       x: 1290,
       y: 755,

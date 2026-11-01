@@ -1,14 +1,14 @@
-# 06 · SAMI: PROYECTOS, VERSIONES Y EVIDENCIAS
+# 06 · Contexto de proyectos y evidencias
 
-## Qué es SAMI
+## Qué problema resuelven los proyectos
 
-**SAMI** se presenta en el portal como **Sistema de Auditoría de Precios y Generación Automatizada de Reportes de Mercado**. Los proyectos de B3-B5 trabajan con productos, precios y registros; las antiguas descripciones basadas en `Sensor`, `Actuador` o `FabLabManager` no describen esos proyectos.
+Los proyectos de B3-B5 trabajan con productos, precios y registros; las antiguas descripciones basadas en `Sensor`, `Actuador` o `FabLabManager` no describen esos proyectos.
 
 La progresión conceptual continúa hacia entorno local y desarrollo asistido. Para explicar una entrega concreta, identifica primero la carpeta: las versiones publicadas no son copias idénticas ni producen siempre los mismos artefactos.
 
-## B3 · SAMI-Lite
+## B3 · Proyecto aplicado 1
 
-Referencia práctica: [README del proyecto de B3](../bloques/bloque3/proyecto-sami-lite/README_PROYECTO.md). Es una copia de trabajo del [material de autor](../bloques/bloque3/recursos/proyecto/).
+Referencia práctica: [descarga del Proyecto aplicado 1](../bloques/bloque3/proyecto-b3-calcula-precios.zip). La carpeta extraída contiene la copia de trabajo.
 
 - `main.py` coordina la entrada y llama a `procesar_transaccion`.
 - `analizador.py` contiene `calcular_precio_final` y `evaluar_alerta_precio`.
@@ -18,9 +18,9 @@ Referencia práctica: [README del proyecto de B3](../bloques/bloque3/proyecto-sa
 
 Evidencia: el alumno sigue un precio desde la entrada hasta su cálculo, alerta y registro. El cambio guiado distingue el precio exactamente igual al umbral; se comprueban un caso normal, el límite y una entrada inválida. `analizador.py` incluye además `comprobar_transaccion(...)`, que devuelve `True`/`False` para un caso conocido: el programa comprueba su propio cálculo. No se exige POO.
 
-## B4 · SAMI-OOP
+## B4 · Proyecto aplicado 2
 
-Referencia: [README del proyecto de B4](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md).
+Referencia: [descarga del Proyecto aplicado 2](../bloques/bloque4/proyecto-b4-productos-clases.zip).
 
 | Clase | Responsabilidad |
 | --- | --- |
@@ -36,26 +36,26 @@ El alumnado decide qué objeto debe validar el peso y revisa la diferencia real 
 
 Evidencia: justificar composición y herencia, localizar la clase responsable, realizar un cambio acotado y explicar el reporte antes y después. Tras modificar una clase se repiten tres casos en consola (normal, límite, inválido); si el total cambia donde no se tocó, el cambio no está listo.
 
-## B5 · SAMI-Applied
+## B5 · Proyecto aplicado 3
 
-Referencia: [README del proyecto de B5](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md).
+Referencia: [descarga del Proyecto aplicado 3](../bloques/bloque5/proyecto-b5-informe-productos.zip).
 
 ```text
 datos_hardware.csv
   → analizador.py (Pandas: lectura y filtro; NumPy: indicadores)
   → generador_informe.py (ReportLab Platypus)
-  → reporte_final_sami.pdf + resumen por consola
+  → informe_productos.pdf + resumen por consola
 ```
 
 Este proyecto usa CSV local, `numpy`, `pandas` y `reportlab`. **Playwright no es requisito para generar su PDF**: su demo queda aparte en el material de autor. `got_1.csv` se utiliza en el cuaderno de Pandas y no se mezcla con los datos de hardware.
 
 El README declara como resultado esperado del CSV inicial cuatro ofertas válidas, precio medio 147.35 y stock total 26. Son valores de referencia documental; hay que ejecutarlo para comprobar una copia concreta.
 
-El cambio consiste en destacar el stock bajo. `comprobar.py` comprueba el CSV, la estructura del análisis y la existencia de un PDF no vacío; el docente revisa además su contenido visual. La factura `factura_2027_001.pdf` es otra práctica de ReportLab, no la salida de SAMI-Applied.
+El cambio consiste en destacar el stock bajo. `comprobar.py` comprueba el CSV, la estructura del análisis y la existencia de un PDF no vacío; la persona revisa además su contenido visual. La factura `factura_2027_001.pdf` es otra práctica de ReportLab, no la salida del Proyecto aplicado 3.
 
-## B6 · SAMI-Local: trabajar dentro de un proyecto
+## B6 · Herramientas para trabajar con tus proyectos
 
-La [ruta de B6](../bloques/bloque6/inicio.html) usa una copia personal de [proyecto-seguro](../bloques/bloque6/recursos/proyecto-seguro/), también distribuida como [base de trabajo B6](../bloques/bloque6/proyecto-b6-entorno-control.zip). Este documento conserva el identificador SAMI como antecedente técnico; no es el nombre público de la actividad.
+La [ruta de B6](../bloques/bloque6/inicio.html) usa una copia personal de [proyecto-seguro](../bloques/bloque6/recursos/proyecto-seguro/), también distribuida como [base de trabajo B6](../bloques/bloque6/proyecto-b6-entorno-control.zip).
 
 Seis experiencias: orientarse, preparar entorno, seguir el flujo, depurar, modificar sin romper y registrar con Git. La base contiene `main.py`, `src/`, `config.json`, `data/datos_hardware.csv` y `requirements.txt`.
 
@@ -76,9 +76,9 @@ La ruta publicada utiliza:
 - [LangGraph](../bloques/bloque7/recursos/proyectos-b7/langgraph-taller/README.md): grafo ejecutable sin LLM; reglas Python y rutas observables.
 - [IA bajo control](../bloques/bloque7/recursos/proyectos-b7/ia-control/README.md): validación de respuestas y alternativa determinista; Ollama es opcional.
 
-EXP-05 confirma una práctica ejecutable de LangGraph sin LLM, pero no determina por sí sola su obligatoriedad o evaluación. Memoria conversacional, herramientas e intervención humana pertenecen a la ampliación avanzada.
+EXP-05 confirma una práctica ejecutable de LangGraph sin LLM y queda como ampliación separada. Memoria conversacional, herramientas e intervención humana pertenecen a la ampliación avanzada.
 
-Si se trabaja SAMI Final, su defensa usa [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md) (una línea por intervención con decisión), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md).
+Si se trabaja el proyecto final heredado, su defensa usa [registro IA](../bloques/bloque7/recursos/proyecto/registro-ia.md) (una línea por intervención con decisión), [plan de validación](../bloques/bloque7/recursos/proyecto/plan-validacion.md) y [README de defensa](../bloques/bloque7/recursos/proyecto/README-defensa.md).
 
 ## Preguntas para la revisión docente
 
@@ -87,6 +87,6 @@ Si se trabaja SAMI Final, su defensa usa [registro IA](../bloques/bloque7/recurs
 3. ¿Qué propuso la IA y por qué lo aceptaste, modificaste o rechazaste?
 4. ¿Qué muestra el diff y puedes explicar el cambio?
 
-No se exige recitar el código ni inventar errores de la IA para rellenar un registro. El docente decide la evaluación aplicable y revisa las evidencias reales.
+No se exige recitar el código ni inventar errores de la IA para rellenar un registro. La persona revisa las evidencias reales.
 
-El **Laboratorio de programación** es una continuación práctica independiente; no añade una fase a SAMI ni se convierte en B8. Consulta [08 · Lab y recorrido](08-LAB-PYTHON-EN-ACCION.md).
+El **Laboratorio de programación** es una continuación práctica independiente y no se convierte en B8. Consulta [08 · Lab y recorrido](08-LAB-PYTHON-EN-ACCION.md).

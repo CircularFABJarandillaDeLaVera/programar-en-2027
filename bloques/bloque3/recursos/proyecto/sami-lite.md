@@ -5,11 +5,11 @@ Construir y comprobar un programa modular de consola con funciones, manejo de
 errores y persistencia local. Puede empezarse sin terminar antes el cuaderno.
 
 La descarga pública es `proyecto-b3-calcula-precios.zip`; la carpeta técnica
-de extracción conserva el nombre `proyecto-sami-lite`.
+El ZIP se extrae sin carpeta raíz; abre la carpeta que contiene los archivos del proyecto.
 
 ## Estructura
 ```text
-sami_lite/
+proyecto-aplicado-1/
   persistencia.py
   analizador.py
   main.py

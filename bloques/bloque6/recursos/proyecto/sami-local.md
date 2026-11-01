@@ -1,6 +1,6 @@
 # Proyecto base B6 · Entorno local y control de cambios
 
-La carpeta técnica `sami_local` conserva un identificador interno. El nombre
+La carpeta técnica de la base conserva un identificador interno. El nombre
 público de este apoyo es «Entorno local y control de cambios»; no es una cuarta
 práctica aplicada.
 
@@ -15,12 +15,12 @@ registrarlo con Git sin añadir grandes funcionalidades.
 
 ## Estructura
 
-- `sami_local/.gitignore`
-- `sami_local/requirements.txt`
-- `sami_local/main.py`
-- `sami_local/src/`
-- `sami_local/data/`
-- `sami_local/logs/`
+- `.gitignore`
+- `requirements.txt`
+- `main.py`
+- `src/`
+- `data/`
+- `logs/`
 
 La descarga pública es `proyecto-b6-entorno-control.zip`. Se extrae sin carpeta
 raíz y contiene la misma base que `recursos/proyecto-seguro/`: `main.py`,

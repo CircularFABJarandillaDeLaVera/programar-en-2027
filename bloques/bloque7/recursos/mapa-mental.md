@@ -17,7 +17,7 @@ PROBLEMA -> PLAN -> CONTEXTO -> IA -> CODIGO -> EJECUTAR -> ENTENDER -> DEPURAR 
 - Depuracion: traceback y fragmento minimo.
 - Refactorizacion: conservar comportamiento.
 - cierre de B7: defensa, registro IA y plan de validacion.
-- LangGraph: ampliacion opcional no evaluable.
+- LangGraph: ampliacion separada.
 
 ## Regla
 

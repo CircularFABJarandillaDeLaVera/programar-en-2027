@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Programar en 2027 · Preparación del ordenador</title>
+  <style>
+    @page { size: A4; margin: 18mm; }
+    body { color: #17324d; font: 11pt/1.45 Arial, sans-serif; }
+    h1 { color: #0b6b6b; margin-bottom: .2em; }
+    h2 { color: #0b6b6b; border-bottom: 1px solid #9bcaca; padding-bottom: .15em; margin-top: 1.3em; }
+    code { background: #eef5f5; padding: .1em .25em; }
+    li { margin: .25em 0; }
+    .note { background: #eef7f4; border-left: 4px solid #0b6b6b; padding: .7em 1em; }
+    .url { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <h1>Programar en 2027</h1>
+  <p><strong>Preparación sencilla del ordenador · Windows</strong><br>Circular FAB Jarandilla de la Vera · 29/10/2026</p>
+
+  <h2>1. Prepara el ordenador</h2>
+  <ol>
+    <li>Descarga el paquete de preparación para Windows y pulsa <strong>Extraer todo</strong>.</li>
+    <li>Cierra VS Code. En la carpeta extraída abre <code>Preparar_curso.cmd</code> con doble clic. Conserva <code>preparar.py</code> junto al CMD.</li>
+    <li>Pulsa una tecla para empezar y acepta los avisos de instalación que correspondan. Necesitas Internet y no debes cerrar la ventana mientras se prepara el equipo.</li>
+    <li>Al terminar debe aparecer <code>PREPARACION COMPLETADA</code>. El paquete prepara Python, VS Code, Git, extensiones y un espacio de trabajo local; no es un lanzador de la web.</li>
+  </ol>
+  <p class="note">No hace falta abrirlo como administrador. El paquete no cambia la política de ejecución de PowerShell ni crea cuentas o suscripciones.</p>
+
+  <h2>2. Abre el espacio de trabajo local</h2>
+  <p>Dentro de <code>Programar2027</code>, abre <code>Abrir_curso.cmd</code> para abrir VS Code en castellano. Inicia sesión en GitHub/Copilot desde VS Code solo si vas a utilizar esa herramienta.</p>
+  <p>El curso se consulta en GitHub Pages:</p>
+  <p class="url"><a href="https://circularfabjarandilladelavera.github.io/programar-en-2027/inicio.html">https://circularfabjarandilladelavera.github.io/programar-en-2027/inicio.html</a></p>
+
+  <h2>3. Prueba Python y el cuaderno</h2>
+  <ul>
+    <li>Abre <code>hola.py</code>, ejecútalo en la terminal y escribe tu nombre.</li>
+    <li>Abre <code>prueba.ipynb</code> y elige el kernel <code>Python (Programar 2027)</code>.</li>
+    <li>Ejecuta la celda: debe mostrar «¡El cuaderno funciona!».</li>
+  </ul>
+
+  <h2>4. Elige una práctica</h2>
+  <p>Extrae cada ZIP dentro de <code>Programar2027</code>, abre la carpeta extraída en VS Code y sigue su README. Los cuadernos sirven para estudiar Python; no tienes que completarlos antes de abrir una práctica aplicada.</p>
+  <ul>
+    <li><strong>B3:</strong> Proyecto aplicado 1 · Calcula y guarda precios.</li>
+    <li><strong>B4:</strong> Proyecto aplicado 2 · Organiza productos con clases.</li>
+    <li><strong>B5:</strong> Proyecto aplicado 3 · Crea un informe PDF con tus datos.</li>
+    <li><strong>B6:</strong> Herramientas para trabajar con tus proyectos.</li>
+    <li><strong>B7:</strong> prácticas de agentes, arneses y procedimientos reutilizables.</li>
+  </ul>
+
+  <h2>5. Si algo falla</h2>
+  <ul>
+    <li>Sin WinGet: actualiza «Instalador de aplicación» desde Microsoft Store o pide ayuda al responsable del equipo.</li>
+    <li>Sin Python o Git: reinicia Windows y repite <code>Preparar_curso.cmd</code>.</li>
+    <li>Sin kernel: cierra y vuelve a abrir VS Code con <code>Abrir_curso.cmd</code>.</li>
+    <li>Comparte el mensaje de error y <code>preparacion.log</code>. No ejecutes <code>preparar.py</code> con doble clic.</li>
+  </ul>
+  <p>Fuentes: <a href="https://learn.microsoft.com/windows/package-manager/winget/install">WinGet</a>, <a href="https://code.visualstudio.com/download">VS Code</a>, <a href="https://git-scm.com/downloads">Git</a> y <a href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">kernels de Jupyter</a>.</p>
+</body>
+</html>

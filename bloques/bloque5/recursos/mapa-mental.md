@@ -15,7 +15,7 @@ DATOS -> CALCULOS -> ESTRUCTURA -> REPORTLAB -> PDF
 - Playwright: navegador sincronico, page.goto y browser.close.
 - BeautifulSoup: parsing estatico conceptual.
 - ReportLab: PDF con Platypus, story, Paragraph, Image, Table, TableStyle y build().
-- SAMI-Applied: precios, disponibilidad de hardware e informe PDF.
+- Proyecto aplicado 3: precios, disponibilidad de hardware e informe PDF.
 
 ## Idea clave
 

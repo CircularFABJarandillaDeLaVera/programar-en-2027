@@ -124,14 +124,14 @@ window.EDUSDK_MAP_DATA = {
       err: 'Romper la firma comun del metodo.'
     },
     {
-      id: 'sami',
+      id: 'proyecto-aplicado-2',
       parent: 'root',
       x: 1310,
       y: 120,
       type: 'rama',
       title: 'Proyecto aplicado 2 · Organiza productos con clases',
       subtitle: 'Proyecto',
-      def: 'Evoluciona SAMI-Lite a clases cohesivas.',
+      def: 'Organiza el Proyecto aplicado 2 con clases cohesivas.',
       key: 'Producto, subclases, AuditoriaMercado y ManejadorDatos.',
       err: 'Introducir librerias de bloques posteriores.'
     }

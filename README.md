@@ -18,7 +18,7 @@ La persona entiende, revisa, prueba y decide.
 ## Estructura
 
 - **Bloques B1–B7.** Recorrido principal del curso, de los fundamentos a la programación con IA. Empieza en [inicio.html](inicio.html).
-- **Proyecto progresivo SAMI.** Proyecto que evoluciona con el alumno a lo largo de los bloques.
+- **Proyectos aplicados B3–B5.** Tres prácticas independientes y relacionadas por los conceptos: calcular precios, organizar productos con clases y generar un informe PDF.
 - **Laboratorio de programación** ([Recorrido](lab-python-en-accion/index.html) · [Prácticas](lab-python-en-accion/recursos/index.html)). Espacio opcional para explorar y experimentar más allá del recorrido principal. **No constituye un Bloque 8** ni es evaluable por defecto.
 - **[Copiloto Programar](copiloto-profesor/inicio.html) para alumnado y profesorado.** Pack portable de conocimiento para crear un asistente especializado en el curso, tanto para aprender como para enseñar.
 
@@ -43,7 +43,7 @@ Esta es una primera iteración de trabajo, no un producto definitivamente termin
 ## Cómo abrir el curso
 
 1. Descarga o clona este repositorio.
-2. Abre `index.html` en el navegador (redirige a `inicio.html`, la portada del curso).
+2. Abre `inicio.html` en el navegador, la portada del curso.
 3. Sigue los bloques B1–B7 en orden.
 
 No requiere servidor, instalación ni conexión salvo las dependencias propias de cada práctica.

@@ -42,7 +42,7 @@ def compilar_reporte_ejecutivo_pdf(ruta_pdf, tabla, indicadores, ruta_logo=None)
         story.append(Image(str(logo), width=120, height=42))
         story.append(Spacer(1, 12))
 
-    story.append(Paragraph("SAMI-Applied: informe de mercado", styles["Heading1"]))
+    story.append(Paragraph("Proyecto aplicado 3: informe de mercado", styles["Heading1"]))
     story.append(Paragraph(
         "Resumen ejecutivo de componentes disponibles generado a partir de datos de hardware.",
         styles["BodyText"],

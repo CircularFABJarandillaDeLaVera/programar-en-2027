@@ -21,10 +21,10 @@ numérico) y `TypeError` (dato interno no válido). Ambos quedan en el log.
 ## PREPARAR Y EJECUTAR
 
 La descarga pública es `proyecto-b3-calcula-precios.zip`. El ZIP no añade una
-carpeta raíz: tras extraerlo, abre esta carpeta técnica (`proyecto-sami-lite`)
-en VS Code.
+carpeta raíz: tras extraerlo, abre en VS Code la carpeta que contiene
+`main.py`, `analizador.py`, `persistencia.py` y este README.
 
-1. Abre esta carpeta (`proyecto-sami-lite`) en VS Code.
+1. Abre en VS Code la carpeta que contiene los cuatro archivos del proyecto.
 2. Nada que instalar: solo librería estándar (`csv`, `json`, `datetime`).
 3. Desde esta carpeta ejecuta `python --version` y después `python main.py`.
 4. La carpeta actual importa: ahí se crean `config.json`,

@@ -12,4 +12,4 @@ Orientaciones posibles:
 - Automatizacion profesional.
 - IA y agentes.
 
-Estos caminos son orientacion. No forman parte de la evaluacion ni abren un bloque nuevo.
+Estos caminos son orientación y no abren un bloque nuevo.

@@ -1,6 +1,6 @@
-# 05 · EVALUACIÓN, GESTIÓN DE ERRORES Y MICROEVALUACIONES
+# 05 · COMPROBACIONES, GESTIÓN DE ERRORES Y EVIDENCIAS
 
-Este documento ayuda al formador de la **Red Circular FAB** a diagnosticar errores, leer trazas y evaluar el aprendizaje. Las microevaluaciones y la rúbrica son apoyos formativos; la evaluación aplicable la decide el docente a partir de la actividad actual y sus evidencias.
+Este documento ayuda al formador de la **Red Circular FAB** a diagnosticar errores, leer trazas y revisar evidencias de aprendizaje. Las comprobaciones y los criterios son apoyos formativos para la actividad actual; no constituyen un requisito común ni una entrega obligatoria.
 
 ---
 
@@ -45,9 +45,9 @@ TypeError: can't multiply sequence by non-int of type 'float'
 
 ---
 
-## 3. Banco de Microevaluaciones Explicadas (B1 a B7)
+## 3. Banco de Comprobaciones Explicadas (B1 a B7)
 
-Las microevaluaciones son preguntas conceptuales rápidas (tipo SoloLearn) integradas al final de cada tema para afianzar el aprendizaje activo.
+Las comprobaciones son preguntas conceptuales rápidas y opcionales para afianzar el aprendizaje activo cuando encajen con la actividad elegida.
 
 ### Bloque 1: Operaciones y Control de Flujo
 * **Pregunta:** ¿Cuál es la salida de `print(14 // 3, 14 % 3)`?
@@ -112,14 +112,14 @@ Las microevaluaciones son preguntas conceptuales rápidas (tipo SoloLearn) integ
 
 ---
 
-## 4. Rúbrica de Evaluación Formativa para el Docente
+## 4. Criterios de revisión formativa para el docente
 
 | Nivel de Dominio | Indicadores Observables en el Alumno |
 | :--- | :--- |
 | **1. Inicial / Necesita Apoyo** | * Se bloquea ante cualquier Traceback en consola y pide ayuda sin leer el mensaje.<br>* Confunde `print` con `return`.<br>* Copia código de la IA sin entender qué variables intervienen. |
 | **2. En Desarrollo** | * Lee la última línea del Traceback e identifica el tipo de error.<br>* Utiliza listas, diccionarios y funciones básicas con soltura.<br>* Necesita orientación para estructurar clases o aislar entornos virtuales. |
 | **3. Autónomo / Competente (Objetivo del Curso)** | * Resuelve de forma autónoma errores de sintaxis y tipado.<br>* Estructura proyectos modulares en VS Code con `venv` y `requirements.txt`.<br>* Aplica el flujo 2027: planifica antes de pedir código a la IA, audita lo generado y defiende su solución oralmente. |
-| **4. Avanzado / Excelente** | * Propone mejoras dentro del alcance del curso: comprehensions, vectorización NumPy, filtrado Pandas, estructura modular o defensa más clara.<br>* Diseña jerarquías de clases limpias con polimorfismo cuando el bloque lo permite.<br>* Si el grupo trabaja LangGraph o IA-Control, justifica rutas y validaciones; este descriptor no convierte esas experiencias en requisito ni fija su evaluación. |
+| **4. Avanzado / Excelente** | * Propone mejoras dentro del alcance del curso: comprehensions, vectorización NumPy, filtrado Pandas, estructura modular o defensa más clara.<br>* Diseña jerarquías de clases limpias con polimorfismo cuando el bloque lo permite.<br>* Si el grupo trabaja LangGraph o IA-Control, justifica rutas y validaciones; este descriptor no convierte esas experiencias en parte del recorrido principal. |
 
 La autonomía se observa como una retirada gradual de ayuda: primero reproduce con guía; después predice y modifica; más adelante formula hipótesis, define criterios, ejecuta pruebas y explica por qué acepta, modifica o rechaza un resultado. Que un agente complete el cambio no demuestra por sí solo dominio del alumno.
 
@@ -132,18 +132,18 @@ El Copiloto no debe afirmar que una práctica fue ejecutada o validada si solo e
 - **Evidencia observable:** salida de consola, archivo generado, tabla filtrada, PDF creado, traceback leído o explicación oral del alumno.
 - **Criterio de éxito:** condición mínima para pasar al siguiente paso.
 - **Método de comprobación:** ejecutar el script, inspeccionar el archivo, comparar la salida esperada, revisar el traceback o pedir explicación al alumno.
-- **Artefacto:** solo se cita cuando el curso realmente lo genera, por ejemplo `factura_2027_001.pdf`, `ventas_lab.xlsx`, JSON/CSV de SAMI o documentos de defensa de B7.
+- **Artefacto:** solo se cita cuando el curso realmente lo genera, por ejemplo `factura_2027_001.pdf`, `ventas_lab.xlsx`, JSON/CSV de un proyecto aplicado o documentos de defensa de B7.
 
 ## Validación en las experiencias actuales
 
 - **B1-B2:** predicción, modificación, checkpoints y elección de estructuras.
-- **B3-B4:** seguir el flujo de SAMI y justificar el lugar del cambio, con casos normal, límite e inválido.
+- **B3-B4:** seguir el flujo de los proyectos aplicados y justificar el lugar del cambio, con casos normal, límite e inválido.
 - **B5:** comprobaciones del proyecto y apertura del PDF para revisar su contenido; que exista no garantiza que esté bien maquetado.
 - **B6:** cambio acotado, resultados antes/después y commit local revisado; no se exige push.
-- **B7:** hipótesis propia, contexto y plan, autorización, revisión crítica del diff, pruebas y decisión razonada. En LangGraph distingue pruebas de reglas puras y del grafo; en IA-Control distingue respuesta aceptada, descartada y alternativa determinista. La obligatoriedad de EXP-05 y la integración final de SAMI siguen pendientes.
+- **B7:** hipótesis propia, contexto y plan, autorización, revisión crítica del diff, pruebas y decisión razonada. En LangGraph distingue pruebas de reglas puras y del grafo; en IA-Control distingue respuesta aceptada, descartada y alternativa determinista. EXP-05 y el proyecto final heredado quedan descritos por separado.
 
 Estados para informar al docente: **verificado** (evidencia disponible), **no verificado** (comprobación necesaria que no se pudo realizar) y **opcional/no ejecutado** (variante que no era requisito). No conviertas una conexión opcional ausente en suspenso ni una prueba omitida en éxito.
 
-El `registro-ia.md` de SAMI Final recoge las propuestas incorrectas o fallos de IA realmente observados. Nunca se inventan para alcanzar una cantidad: si no aparecen tres, se documentan las intervenciones realizadas, sus comprobaciones y por qué fueron aceptadas, modificadas o rechazadas. No extrapoles un número fijo a las demás experiencias.
+El `registro-ia.md` del proyecto final heredado recoge las propuestas incorrectas o fallos de IA realmente observados. Nunca se inventan para alcanzar una cantidad: si no aparecen tres, se documentan las intervenciones realizadas, sus comprobaciones y por qué fueron aceptadas, modificadas o rechazadas. No extrapoles un número fijo a las demás experiencias.
 
 Las cinco preguntas del [README](README.md) validan el comportamiento del agente docente: respuesta documentada, fuera de temario, ambigua, propuesta de práctica y petición imposible. No son un examen adicional del alumnado.

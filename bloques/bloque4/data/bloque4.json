@@ -21,7 +21,7 @@
     "Distinguir composicion de herencia.",
     "Usar super() en subclases.",
     "Sobrescribir metodos y observar polimorfismo basico.",
-    "Evolucionar SAMI-Lite hacia SAMI-OOP sin librerias posteriores."
+    "Organizar el Proyecto aplicado 2 con clases sin librerias posteriores."
   ],
   "slides": [
     {
@@ -170,14 +170,14 @@
     },
     {
       "titulo": "Proyecto aplicado 2: Organiza productos con clases",
-      "objetivo": "Evolucionar SAMI-Lite a objetos manteniendo el problema conocido.",
+      "objetivo": "Organizar el problema conocido con objetos y responsabilidades.",
       "guion": "Reorganiza Producto, ProductoHardware, ProductoLicencia, AuditoriaMercado y ManejadorDatos en modulos.",
-      "pregunta": "Que mejora aporta SAMI-OOP respecto a SAMI-Lite?",
+      "pregunta": "Que mejora aporta organizar productos con clases respecto a B3?",
       "ejemplo": "from analizador import AuditoriaMercado, ProductoHardware, ProductoLicencia\n\nauditoria = AuditoriaMercado(umbral_alerta=100)\nauditoria.agregar_producto(ProductoHardware(\"Teclado\", 80, 1.2))\nauditoria.agregar_producto(ProductoLicencia(\"Suite\", 140, \"ABC-123\"))\nprint(auditoria.generar_reporte(0.21))",
       "modificar": "Anade una nueva licencia y observa el total.",
       "predecir": "Que clase contiene la lista de productos?",
       "error_util": "Crear un unico archivo enorme y perder separacion de responsabilidades.",
-      "reto": "Entrega SAMI-OOP con analizador.py, persistencia.py y main.py.",
+"reto": "Comprueba el Proyecto aplicado 2 con analizador.py, persistencia.py y main.py.",
       "comprobar": "El proyecto usa objetos sin depender de librerias posteriores."
     }
   ],
@@ -414,7 +414,7 @@
   ],
   "proyecto": {
     "titulo": "Proyecto aplicado 2 · Organiza productos con clases",
-    "evolucion": "SAMI-Lite -> SAMI-OOP",
+    "evolucion": "Proyecto aplicado 1 -> Proyecto aplicado 2",
     "estructura": [
       "analizador.py",
       "persistencia.py",

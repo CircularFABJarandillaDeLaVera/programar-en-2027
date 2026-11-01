@@ -7,7 +7,7 @@
 ## Matriz
 | Concepto | Fuente | Practica | Microevaluacion | Proyecto |
 | --- | --- | --- | --- | --- |
-| Clase y objeto | B4 final | Practica 01 | Clase / objeto | SAMI-OOP |
+| Clase y objeto | B4 final | Practica 01 | Clase / objeto | Proyecto aplicado 2 |
 | Atributos y metodos | B4 final | Practica 02 | Atributos | Producto |
 | self | B4 final | Practica 02 | Error con self | Metodos de Producto |
 | __init__ | B4 final | Practica 02 | Completar constructor | Constructores |

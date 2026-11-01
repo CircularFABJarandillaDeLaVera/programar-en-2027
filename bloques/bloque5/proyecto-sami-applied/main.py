@@ -7,7 +7,7 @@ from generador_informe import compilar_reporte_ejecutivo_pdf
 def ejecutar():
     base_dir = Path(__file__).resolve().parent
     tabla, indicadores = analizar_hardware(base_dir / "datos_hardware.csv")
-    print("SAMI-Applied")
+    print("Proyecto aplicado 3 · Crea un informe PDF con tus datos")
     print(f"Ofertas validas: {indicadores['ofertas_validas']}")
     print(f"Precio medio: {indicadores['precio_medio']}")
     print(f"Stock total: {indicadores['stock_total']}")

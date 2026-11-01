@@ -50,7 +50,7 @@ Factura:
 4. Tabla de conceptos.
 5. Base imponible, IVA y total.
 
-Enfoque obligatorio:
+Enfoque de esta práctica:
 
 ```python
 from reportlab.lib import colors
@@ -64,4 +64,4 @@ story = [Paragraph("FACTURA", styles["Heading1"])]
 doc.build(story)
 ```
 
-Canvas queda como ampliacion no evaluable.
+Canvas queda como ampliacion separada del flujo principal.

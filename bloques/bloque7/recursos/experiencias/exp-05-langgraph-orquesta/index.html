@@ -52,15 +52,25 @@
       <section class="lab-panel">
         <h2>PREPARAR</h2>
         <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-langgraph.zip" download>Descargar grafo de flujo</a></p>
-        <p><strong>El ZIP es plano:</strong> crea o elige una carpeta vacía, por ejemplo <code>mi-grafo-b7/</code>, descomprímelo directamente dentro y abre PowerShell en esa carpeta. Solo hay 5 archivos:</p>
+        <p><strong>El ZIP es plano:</strong> crea o elige una carpeta vacía, por ejemplo <code>mi-grafo-b7/</code>, y descomprímelo directamente dentro. Abre esa carpeta en VS Code y, desde VS Code, abre una terminal situada en esa carpeta. Solo hay 5 archivos:</p>
         <pre class="lab-code"><code>mi-grafo-b7/
 ├── flujo_taller.py      # estado -&gt; nodos -&gt; condición -&gt; ruta -&gt; resultado
 ├── datos_demo.json      # contexto local (pieza, stock, mínimo)
 ├── test_flujo_taller.py # pruebas con unittest (librería estándar)
-├── requirements.txt     # solo langgraph
+├── requirements.txt     # dependencias del proyecto
 └── README.md            # guía del proyecto</code></pre>
-        <p>Para ejecutar el grafo completo, crea un entorno virtual e instala la única dependencia declarada:</p>
-        <pre class="lab-code"><code>pip install -r requirements.txt</code></pre>
+        <p>Prepara un entorno virtual antes de ejecutar el grafo. <code>.venv</code> mantiene las dependencias de este proyecto separadas de las de otros proyectos.</p>
+        <p><strong>Windows PowerShell</strong></p>
+        <pre class="lab-code"><code>py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt</code></pre>
+        <p><strong>macOS/Linux</strong></p>
+        <pre class="lab-code"><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt</code></pre>
+        <p>Si <code>.venv</code> ya existe, basta con activarlo o utilizar su intérprete. Si PowerShell bloquea la activación, no cambies la política de ejecución del sistema: instala y ejecuta directamente con:</p>
+        <pre class="lab-code"><code>.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe flujo_taller.py --demo</code></pre>
       </section>
 
       <section class="lab-panel">

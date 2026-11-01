@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Empieza por aquí · Programar en 2027</title>
+  <link rel="stylesheet" href="assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="assets/edusdk-design-system/components/components.css">
+  <script src="assets/js/theme-toggle.js" defer></script>
+  <style>
+    body { margin: 0; background: var(--cf-color-background); color: var(--cf-color-text); font-family: var(--cf-font-body); }
+    .preparation-shell { box-sizing: border-box; display: grid; gap: var(--cf-space-5); grid-template-columns: minmax(0, 1fr); margin: 0 auto; max-width: 980px; min-width: 0; padding: var(--cf-space-5); width: min(980px, 100%); }
+    .brand { align-items: center; color: inherit; display: flex; gap: var(--cf-space-2); min-width: 0; text-decoration: none; }
+    .brand img { height: 52px; width: auto; }
+    .brand strong { min-width: 0; }
+    .brand strong span { color: var(--cf-color-text-muted); display: block; font-family: var(--cf-font-label); font-size: .82rem; font-weight: 800; text-transform: uppercase; }
+    .preparation-content { background: var(--cf-color-surface); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-sizing: border-box; min-width: 0; overflow-wrap: anywhere; padding: clamp(24px, 5vw, 48px); width: 100%; }
+    .preparation-content .cf-topbar, .preparation-content .cf-nav, .preparation-shell > .cf-topbar { min-width: 0; max-width: 100%; }
+    .preparation-shell > .cf-topbar { width: 100%; }
+    .preparation-shell .cf-nav__link { min-width: 0; overflow-wrap: anywhere; }
+    .preparation-content h1 { margin-top: 0; }
+    .preparation-content h2 { border-bottom: 1px solid var(--cf-color-border); margin-top: 2rem; padding-bottom: .45rem; }
+    .preparation-content h3 { margin-top: 1.5rem; }
+    .preparation-content p, .preparation-content li { line-height: 1.6; }
+    .preparation-content a:not(.cf-button) { color: var(--cf-color-accent); }
+    .preparation-content a.cf-button--primary,
+    .preparation-content a.cf-button--primary:visited,
+    .preparation-content a.cf-button--primary:hover,
+    .preparation-content a.cf-button--primary:focus-visible { color: var(--cf-color-accent-text); }
+    .preparation-actions { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); margin: var(--cf-space-4) 0; }
+    .preparation-note { background: var(--cf-color-accent-soft); border-left: 4px solid var(--cf-color-accent); padding: var(--cf-space-3); }
+    .preparation-footer { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); justify-content: space-between; }
+    @media (max-width: 560px) {
+      .preparation-shell { padding: var(--cf-space-3); }
+      .preparation-actions .cf-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="preparation-shell">
+    <header class="cf-topbar cf-topbar--course">
+      <a class="brand" href="inicio.html" aria-label="Inicio del curso">
+        <img src="assets/branding/logo-circular-fab.png" alt="Circular FAB">
+        <strong>Circular FAB<span>Curso independiente</span></strong>
+      </a>
+      <nav class="cf-nav cf-nav--horizontal" aria-label="Navegación del curso">
+        <a class="cf-nav__link" href="inicio.html">Inicio del curso</a>
+        <a class="cf-nav__link is-active" href="preparacion.html" aria-current="page">Empieza por aquí</a>
+      </nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
+        <span data-theme-icon aria-hidden="true">&#9790;</span>
+        <span data-theme-label>Modo dark</span>
+      </button>
+    </header>
+
+    <article class="preparation-content">
+      <span class="cf-chip cf-chip--accent">Preparación del ordenador</span>
+      <h1>Empieza por aquí</h1>
+      <p>Prepara las herramientas, tu editor y el acceso a GitHub. El curso se consulta en GitHub Pages; esta página y sus descargas preparan el ordenador para trabajar con las prácticas.</p>
+      <p><a href="prepara-tu-copiloto.html">Prepara tu copiloto del curso</a>: una guía breve para pedir ayuda sobre tu primera práctica.</p>
+
+      <div class="preparation-actions">
+        <a class="cf-button cf-button--primary" href="assets/descargas/guia-inicio-python.pdf" download>Descargar guía de preparación</a>
+        <a class="cf-button cf-button--secondary" href="assets/descargas/preparar-python-windows-2027.zip" download>Paquete de preparación para Windows</a>
+      </div>
+
+      <h2>Guía y descargas oficiales</h2>
+      <ul>
+        <li><a href="https://github.com/signup">Crear cuenta de GitHub</a>: confirma tu correo.</li>
+        <li><a href="https://www.python.org/downloads/windows/">Python para Windows</a>.</li>
+        <li><a href="https://www.python.org/downloads/">Python para macOS/Linux y otros sistemas</a>.</li>
+        <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a>.</li>
+        <li><a href="https://git-scm.com/downloads">Git</a> para guardar versiones y trabajar con repositorios.</li>
+        <li>Extensiones de VS Code: <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>, <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-es">Español</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a> y <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat">GitHub Copilot Chat</a>.</li>
+        <li><a href="https://code.visualstudio.com/docs/setup/copilot">Iniciar sesión y preparar Copilot</a>. La disponibilidad y los límites dependen de tu cuenta.</li>
+        <li>OpenCode queda como ampliación: <a href="https://opencode.ai/download">descarga oficial</a>.</li>
+      </ul>
+
+      <h2>Cómo empezar una práctica</h2>
+      <p>Consulta el curso en <a href="https://circularfabjarandilladelavera.github.io/programar-en-2027/inicio.html">GitHub Pages</a>. Para una práctica, extrae su ZIP dentro de tu espacio de trabajo, abre la carpeta extraída en VS Code y sigue su README. Los cuadernos sirven para estudiar Python; no tienes que completarlos antes de abrir una práctica aplicada.</p>
+      <ul>
+        <li><strong>B3:</strong> Proyecto aplicado 1 · Calcula y guarda precios.</li>
+        <li><strong>B4:</strong> Proyecto aplicado 2 · Organiza productos con clases.</li>
+        <li><strong>B5:</strong> Proyecto aplicado 3 · Crea un informe PDF con tus datos.</li>
+        <li><strong>B6:</strong> Herramientas para trabajar con tus proyectos.</li>
+        <li><strong>B7:</strong> prácticas de agentes, arneses y procedimientos reutilizables.</li>
+      </ul>
+
+      <h2>Comprobación mínima</h2>
+      <ol>
+        <li>Abre VS Code y crea o abre una carpeta de trabajo.</li>
+        <li>Comprueba que Python responde con <code>python --version</code>.</li>
+        <li>Abre una terminal en esa carpeta y ejecuta un archivo pequeño o una celda de prueba.</li>
+      </ol>
+
+      <h2>Si algo falla</h2>
+      <ul>
+        <li>Sin Python o Git: revisa las instrucciones oficiales de tu sistema y vuelve a comprobar las versiones.</li>
+        <li>Sin kernel de Jupyter: selecciona el intérprete o kernel de la carpeta de trabajo y vuelve a abrir VS Code.</li>
+        <li>Si PowerShell bloquea un script de preparación, no cambies la política del sistema: usa las instrucciones alternativas del README de la práctica.</li>
+        <li>Comparte el mensaje de error y el contexto de la carpeta abierta con el docente o con tu agente.</li>
+      </ul>
+      <p class="preparation-note">La preparación del ordenador y la consulta de la web son pasos distintos: el paquete local no abre ni sustituye la web del curso.</p>
+    </article>
+
+    <nav class="preparation-footer" aria-label="Navegación de preparación">
+      <a class="cf-button cf-button--secondary" href="inicio.html">Inicio del curso</a>
+      <a class="cf-button cf-button--secondary" href="lab-python-en-accion/index.html">Laboratorio</a>
+    </nav>
+  </main>
+</body>
+</html>

@@ -11,7 +11,7 @@ Revisar:
 - funciones que el alumno no entiende;
 - ausencia de prueba.
 
-## Defensa de SAMI Final
+## Defensa del proyecto final heredado
 
 El alumno debe explicar:
 

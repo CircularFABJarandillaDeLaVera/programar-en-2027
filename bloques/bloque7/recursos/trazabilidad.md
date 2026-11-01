@@ -16,7 +16,7 @@
 | Refactorizacion controlada | Prompt B7 y V4 | Practica 04 | Comportamiento conservado | Salida antes/despues |
 | cierre de B7 | Prompt B7 y V4 | Practica 05 | proyecto parte de base de herramientas de B6 | Defensa |
 | Defensa del proyecto | Prompt B7 y V4 | Practica 05 | Explicar sin recitar | README-defensa |
-| LangGraph opcional | Prompt B7 y V4 | Ampliacion | No evaluable | Mapa conceptual |
+| LangGraph | Prompt B7 y V4 | Ampliacion separada | Mapa conceptual | Mapa conceptual |
 
 ## Lagunas respetadas
 

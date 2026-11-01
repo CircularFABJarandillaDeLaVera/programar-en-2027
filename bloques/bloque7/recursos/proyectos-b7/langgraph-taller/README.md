@@ -18,7 +18,7 @@ mi-grafo-b7/
 ├── flujo_taller.py      # estado -> nodos -> condicion -> ruta -> resultado
 ├── datos_demo.json      # contexto local (pieza, stock, minimo)
 ├── test_flujo_taller.py # pruebas con unittest (libreria estandar)
-├── requirements.txt     # solo langgraph
+├── requirements.txt     # dependencias del proyecto
 └── README.md            # esta guia
 ```
 
@@ -47,13 +47,41 @@ coordinados; este proyecto no lo implementa.
 
 ## Preparación y comprobación
 
-Desde la carpeta donde extrajiste los cinco archivos:
+Primero descomprime el ZIP en una carpeta nueva o que hayas elegido para este
+proyecto. Después abre esa carpeta en VS Code y abre una terminal allí. Desde
+esa terminal, prepara el entorno virtual:
+
+`.venv` mantiene las dependencias del proyecto separadas de las de otros
+proyectos.
+
+Windows PowerShell:
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+macOS/Linux:
 
 ```bash
-python --version
-python -m venv .venv
-# activa .venv antes de continuar
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Si `.venv` ya existe, basta con activarlo o utilizar su intérprete. Si PowerShell
+bloquea la activación, no cambies la política de ejecución del sistema. Ejecuta
+directamente:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe flujo_taller.py --demo
+```
+
+Con el entorno preparado, conserva estos comandos de ejecución y pruebas:
+
+```bash
 python flujo_taller.py --demo
 python flujo_taller.py --demo --stock 0
 python flujo_taller.py --demo --stock 20
@@ -65,12 +93,6 @@ La salida principal debe terminar en `PEDIR_MATERIAL`; con stock 0 termina en
 dependencia está instalada. Sin ella, las pruebas puras pasan y la prueba del
 grafo queda `skipped`/`NO_VERIFICADO`. Un argumento no entero, como
 `--stock no-es-numero`, produce un error de uso y código de salida 2.
-
-## Instalacion
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Ejecucion
 

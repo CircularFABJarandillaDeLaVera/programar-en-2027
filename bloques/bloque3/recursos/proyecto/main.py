@@ -27,12 +27,12 @@ def procesar_transaccion(config, nombre_producto, precio_base):
 
 
 def ejecutar():
-    """Coordina SAMI-Lite desde consola."""
+    """Coordina el Proyecto aplicado 1 desde consola."""
     config = cargar_configuracion("config.json")
     while True:
         nombre = pedir_producto()
         if nombre.lower() == "salir":
-            print("Fin de SAMI-Lite")
+            print("Fin del proyecto")
             break
         try:
             precio = pedir_precio()

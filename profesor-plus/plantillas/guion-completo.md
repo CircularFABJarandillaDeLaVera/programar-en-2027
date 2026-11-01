@@ -23,6 +23,6 @@ Hoy no vamos a memorizar Python. Vamos a escribir codigo pequeno, predecir que p
 
 ## Cierre
 
-Cada alumno entrega un ejemplo que haya modificado y una frase: "Se que funciona porque lo he probado con...".
+Cada alumno conserva un ejemplo que haya modificado y una frase: "Sé que funciona porque lo he probado con...".
 
 

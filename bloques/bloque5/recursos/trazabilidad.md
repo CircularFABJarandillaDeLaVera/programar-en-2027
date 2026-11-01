@@ -15,7 +15,7 @@
 | Playwright sincronico | B5 final | Practica 04 | browser.close | Titulo extraido |
 | BeautifulSoup conceptual | B5 final | Practica 05 | Parsing estatico | Decision razonada |
 | ReportLab Platypus | B5 final | Practica 05 | Image, Table y build | factura_2027_001.pdf generado |
-| SAMI-Applied | V4 y B5 final | Proyecto | Flujo aplicado | CSV, resumen y PDF |
+| Proyecto aplicado 3 | V4 y B5 final | Proyecto | Flujo aplicado | CSV, resumen y PDF |
 
 ## Lagunas respetadas
 

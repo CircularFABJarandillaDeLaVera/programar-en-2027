@@ -15,7 +15,7 @@ Una libreria entra cuando resuelve una necesidad real.
 ## Cuidado
 
 - `got_1.csv` es practica de Pandas.
-- SAMI-Applied usa datos de hardware.
+- El Proyecto aplicado 3 usa datos de hardware.
 - BeautifulSoup queda en nivel conceptual.
 - ReportLab se practica con Platypus: `SimpleDocTemplate`, `Paragraph`, `Image`, `Table`, `TableStyle`, `Spacer`, `colors`, `A4` y `build()`.
-- Canvas queda como ampliacion no evaluable.
+- Canvas queda como ampliacion separada del flujo principal.

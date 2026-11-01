@@ -40,6 +40,6 @@ El material de evidencia y defensa es opcional. LangGraph es una ampliación
 opcional pendiente de validación específica; no se presenta un sistema
 multiagente como implementado.
 
-Cuando termines las comprobaciones de B7, continúa de forma no obligatoria en
+Cuando termines las comprobaciones de B7, continúa en
 [Recorrido práctico · Construye y conecta tus proyectos](../../../lab-python-en-accion/index.html).
 

@@ -7,7 +7,7 @@
 - Confundir `loc` con `iloc`.
 - Escribir `and` u `or` en filtros Pandas.
 - Olvidar `browser.close()` en Playwright.
-- Mezclar `got_1.csv` con SAMI-Applied.
+- Mezclar `got_1.csv` con el Proyecto aplicado 3.
 - Intentar meter textos largos en `Table` sin envolverlos en `Paragraph`.
 - Llamar a `build()` antes de completar la `story`.
 - Usar Canvas como si fuera obligatorio.

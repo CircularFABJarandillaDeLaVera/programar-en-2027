@@ -19,7 +19,7 @@ window.EDUSDK_BLOQUE = {
     "Capturar errores con try/except y leer la excepcion antes de corregir.",
     "Leer y escribir TXT, JSON y CSV con with open().",
     "Separar responsabilidades en varios archivos e importarlas con import.",
-    "Construir SAMI-Lite como programa modular de consola."
+    "Construir el Proyecto aplicado 1 como programa modular de consola."
   ],
   slides: [
     {
@@ -163,7 +163,7 @@ window.EDUSDK_BLOQUE = {
       modificar: "Cambia un import selectivo por import del modulo completo y ajusta la llamada.",
       predecir: "Que pasa si el nombre importado no existe?",
       error_util: "Importar desde el archivo equivocado o crear dependencias cruzadas.",
-      reto: "Organiza SAMI-Lite en persistencia.py, analizador.py y main.py.",
+      reto: "Organiza el Proyecto aplicado 1 en persistencia.py, analizador.py y main.py.",
       comprobar: "main.py coordina; los otros archivos no preguntan datos al usuario."
     },
     {
@@ -175,7 +175,7 @@ window.EDUSDK_BLOQUE = {
       modificar: "Anade otro producto y prueba una entrada no numerica.",
       predecir: "Que archivo se modifica si cambia la forma de guardar CSV?",
       error_util: "Mezclar lectura de teclado dentro del modulo de calculo.",
-      reto: "Entrega los tres archivos y evidencia de JSON, CSV y log.",
+reto: "Comprueba los tres archivos y conserva evidencia de JSON, CSV y log.",
       comprobar: "El programa modular se ejecuta sin detenerse ante errores de entrada."
     }
   ],
@@ -198,7 +198,7 @@ window.EDUSDK_BLOQUE = {
     { titulo: "Firma flexible", situacion: "Un calculo de envio debe funcionar con peso solo, o con coste base personalizado.", preguntas: ["Que parametro es obligatorio?", "Que parametro tiene valor por defecto?", "Donde colocas cada uno?"] },
     { titulo: "Scope controlado", situacion: "Un contador de visitas debe aumentar desde una funcion.", preguntas: ["La variable es local o exterior?", "Hace falta global?", "Como evitas usarlo en calculos normales?"] },
     { titulo: "Archivo ausente", situacion: "El programa intenta cargar config.json y no existe todavia.", preguntas: ["Que excepcion esperas?", "Que archivo se crea por defecto?", "Como vuelve a continuar el programa?"] },
-    { titulo: "Separar responsabilidades", situacion: "SAMI-Lite mezcla calculo, archivos y consola en un unico script.", preguntas: ["Que va a analizador.py?", "Que va a persistencia.py?", "Que deja main.py?"] }
+    { titulo: "Separar responsabilidades", situacion: "El proyecto inicial mezcla calculo, archivos y consola en un unico script.", preguntas: ["Que va a analizador.py?", "Que va a persistencia.py?", "Que deja main.py?"] }
   ],
   test: [
     { tipo: "salida", pregunta: "Que imprime este codigo?\n\ndef doble(n):\n    return n * 2\n\nprint(doble(4))", opciones: ["8", "doble", "None"], correcta: 0, explicacion: "return devuelve 8 y print muestra ese valor." },

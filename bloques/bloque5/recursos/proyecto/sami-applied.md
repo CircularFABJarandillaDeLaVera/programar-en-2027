@@ -1,13 +1,13 @@
 # Proyecto aplicado 3 · Crea un informe PDF con tus datos
 
-SAMI-Applied es la denominación técnica interna de este proyecto.
+Esta es la fuente de apoyo del Proyecto aplicado 3.
 
 La descarga pública es `proyecto-b5-informe-productos.zip`; la carpeta técnica
-de extracción conserva el nombre `proyecto-sami-applied`.
+de extracción no añade carpeta raíz; abre la carpeta que contiene los archivos.
 
 ## Evolucion
 
-SAMI-Lite -> SAMI-OOP -> SAMI-Applied
+Proyecto aplicado 1 -> Proyecto aplicado 2 -> Proyecto aplicado 3
 
 ## Objetivo
 
@@ -23,13 +23,13 @@ Analizar precios y disponibilidad de componentes de hardware.
 
 ## Reglas
 
-- `got_1.csv` no entra en SAMI-Applied.
+- `got_1.csv` no entra en el Proyecto aplicado 3.
 - NumPy se usa para calculos numericos.
 - Pandas se usa para cargar y filtrar tablas.
 - Playwright se conserva como práctica opcional; no es necesario para generar el informe desde el CSV.
 - BeautifulSoup queda como decision conceptual para HTML estatico.
 - ReportLab genera el PDF real del informe mediante Platypus.
-- Canvas queda como ampliacion no evaluable.
+- Canvas queda como ampliacion separada del flujo principal.
 
 ## Evidencia esperada
 
@@ -54,7 +54,7 @@ nuevas ni facturacion (ver `Reglas`).
 
 ### Verificacion
 
-`python comprobar.py` (en `proyecto-sami-applied/`) comprueba datos y
+`python comprobar.py` (en la carpeta extraída) comprueba datos y
 archivos: CSV con filas, indicadores presentes, PDF generado y no vacio.
 Lo que el script NO puede hacer —abrir el PDF y comprobar que la tabla y
 el resumen se leen bien— lo revisas tu a mano. Un script comprueba
@@ -64,4 +64,4 @@ archivos; la persona valida el resultado.
 
 DATOS -> CALCULOS -> ESTRUCTURA -> REPORTLAB -> PDF
 
-El generador no convierte SAMI-Applied en un proyecto de facturacion. Su tarea es presentar el analisis de mercado en un documento profesional: logo, resumen de indicadores, tabla de componentes disponibles y conclusion ejecutiva.
+El generador no convierte el proyecto en un proyecto de facturacion. Su tarea es presentar el analisis de mercado en un documento profesional: logo, resumen de indicadores, tabla de componentes disponibles y conclusion ejecutiva.

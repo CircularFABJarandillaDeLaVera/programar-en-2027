@@ -27,7 +27,7 @@ TXT para texto. JSON para diccionarios. CSV para tablas.
 ## Modulos
 Separa responsabilidades. Importa solo lo necesario.
 
-## SAMI-Lite
+## Proyecto aplicado 1 · Calcula y guarda precios
 `persistencia.py` guarda y carga.  
 `analizador.py` calcula y valida.  
 `main.py` coordina.

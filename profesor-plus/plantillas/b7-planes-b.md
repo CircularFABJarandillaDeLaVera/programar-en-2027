@@ -20,5 +20,5 @@
 
 ## LangGraph
 
-Mostrar solo como ampliacion opcional no evaluable.
+Mostrar solo como ampliacion separada.
 

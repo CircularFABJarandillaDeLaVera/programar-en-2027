@@ -13,7 +13,7 @@
 9. Componer `Producto` con `AuditoriaMercado`.
 10. Crear `ProductoHardware` y `ProductoLicencia` con herencia y `super()`.
 11. Sobrescribir un metodo y observar polimorfismo.
-12. Conectar todo con SAMI-OOP.
+12. Conectar todo con el Proyecto aplicado 2.
 
 ## Demostracion base
 

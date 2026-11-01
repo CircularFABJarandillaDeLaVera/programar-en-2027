@@ -9,7 +9,7 @@ Su propósito es capacitar a ciudadanos, emprendedores, técnicos y profesionale
 ### Objetivos Generales
 1. **Desmitificar la programación:** Transformar la barrera técnica inicial en una habilidad práctica accesible mediante entornos interactivos inmediatos (Google Colab / Jupyter Notebooks).
 2. **Dominar las estructuras esenciales del lenguaje:** Comprender la lógica algorítmica, las colecciones de datos, el paradigma funcional/modular y los fundamentos de la Programación Orientada a Objetos (POO).
-3. **Manejar datos y automatización:** Usar NumPy, Pandas y ReportLab en SAMI-Applied a partir de CSV local; conocer Playwright en los materiales de automatización de B5.
+3. **Manejar datos y automatización:** Usar NumPy, Pandas y ReportLab en el Proyecto aplicado 3 a partir de CSV local; conocer Playwright en los materiales de automatización de B5.
 4. **Dar el salto al entorno profesional:** Migrar con soltura del cuaderno interactivo a proyectos locales estructurados en Visual Studio Code, con entornos virtuales (`venv`), gestión de paquetes (`pip`) y control de versiones básico (`Git`).
 5. **Gobernar el desarrollo asistido por IA (2027):** Integrar asistentes y modelos de lenguaje como copilotos de programación bajo un protocolo estricto de auditoría y validación crítica, erradicando el "desarrollo zombi".
 
@@ -47,7 +47,7 @@ graph LR
 8. **Validar:** Ejecutar baterías de pruebas con datos extremos y verificar la ausencia de efectos secundarios.
 
 ### Metodología "Anti-Zombi"
-Se denomina **programador zombi** a quien copia y pega fragmentos de código autogenerados por IA sin comprender su funcionamiento, sin saber depurarlos cuando fallan y sin poder justificar sus decisiones de diseño. El curso implementa una evaluación continua basada en **defensa oral, predicción de salidas y lectura crítica de trazas de error**.
+Se denomina **programador zombi** a quien copia y pega fragmentos de código autogenerados por IA sin comprender su funcionamiento, sin saber depurarlos cuando fallan y sin poder justificar sus decisiones de diseño. El curso fomenta la **explicación oral, predicción de salidas y lectura crítica de trazas de error**.
 
 ### Acompañamiento y autonomía
 
@@ -68,13 +68,13 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 [B2: Estructuras de Datos] ──► [Proyecto B2: Clasificador e Indexador de Palabras]
         │
         ▼
-[B3: Funciones y Modularidad] ──► [Proyecto B3: SAMI-Lite (Persistencia JSON/CSV)]
+[B3: Funciones y Modularidad] ──► [Proyecto aplicado 1 (Persistencia JSON/CSV)]
         │
         ▼
-[B4: Programación Orientada a Objetos] ──► [Proyecto B4: SAMI-OOP (Clases y Herencia)]
+[B4: Programación Orientada a Objetos] ──► [Proyecto aplicado 2 (Clases y Herencia)]
         │
         ▼
-[B5: Python Aplicado y Librerías] ──► [Proyecto B5: SAMI-Applied (CSV, NumPy, Pandas, PDF)]
+[B5: Python Aplicado y Librerías] ──► [Proyecto aplicado 3 (CSV, NumPy, Pandas, PDF)]
         │
         ▼
 [B6: Herramientas para trabajar con tus proyectos] ──► [Base de trabajo B6 (VS Code, venv, Git, depuración)]
@@ -93,29 +93,29 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 | :--- | :--- | :--- | :--- | :--- |
 | **B1** | **Fundamentos y Lógica**<br>Primeros programas en notebook | Google Colab / Notebook | `print()`, variables, tipos (`str`, `int`, `float`, `bool`), `divmod()`, casting, `input()`, f-strings, `if/elif/else`, bucles `for`/`while`, `range()`, `break`, `continue`. | Prácticas 01 a 04: operaciones, tramos de precios, cálculo de medias y bucles interactivos. |
 | **B2** | **Estructuras de Datos**<br>Colecciones y manipulación | Google Colab / Notebook | Cadenas (slicing bidireccional y reversión), listas y mutabilidad, tuplas (inmutabilidad), sets (unicidad y teoría de conjuntos), diccionarios (claves y `.get()`), comprehensions. | **Clasificador e Indexador de Palabras Clave** (análisis de texto y conteo estructurado). |
-| **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **SAMI-Lite**: Gestor modular de datos de consola con persistencia física en JSON/CSV. |
-| **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
-| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
+| **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **Proyecto aplicado 1**: calcula y guarda precios desde consola. |
+| **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **Proyecto aplicado 2**: organiza productos con clases. |
+| **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **Proyecto aplicado 3**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
 | **B6** | **Herramientas para trabajar con tus proyectos**<br>Desarrollo local | VS Code Local | Seis experiencias: orientación, entorno y dependencias, flujo, depuración, cambio acotado y Git local. | **Base de trabajo B6**: copia personal con un cambio funcional comprobado y un commit local explicado; no exige `push`. |
-| **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: arnés, repositorio de participantes, depuración, refactor y diff, grafo sin LLM e IA bajo control con Ollama opcional. | Cuatro proyectos de práctica publicados. El cierre heredado no es obligatorio; LangGraph sigue siendo opcional y pendiente de validación específica. |
+| **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: arnés, repositorio de participantes, depuración, refactor y diff, grafo sin LLM e IA bajo control con Ollama opcional. | Cuatro proyectos de práctica publicados. El cierre heredado queda fuera del recorrido; LangGraph se presenta como ampliación separada. |
 
 ---
 
-## 5. El Eje Vertebrador: La Progresión SAMI
+## 5. La progresión de proyectos aplicados
 
-**SAMI** se presenta como Sistema de Auditoría de Precios y Generación Automatizada de Reportes de Mercado.
+Los proyectos aplicados de B3 a B5 desarrollan una misma familia de problemas de forma progresiva, sin exigir que se reutilicen automáticamente archivos entre bloques.
 
-1. **B3 · SAMI-Lite:** funciones y módulos para calcular precios, evaluar alertas y registrar transacciones en CSV, con configuración JSON y log.
-2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
-3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
+1. **B3 · Proyecto aplicado 1:** funciones y módulos para calcular precios, evaluar alertas y registrar transacciones en CSV, con configuración JSON y log.
+2. **B4 · Proyecto aplicado 2:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
+3. **B5 · Proyecto aplicado 3:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
 4. **B6 · Herramientas para trabajar con tus proyectos:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
 5. **B7 · material opcional de evidencia y defensa:** se aplica sobre un proyecto ya ejecutado. La portada de B7 publica además seis experiencias con proyectos propios; no se añade una base final nueva.
 
-Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
+Consulta [06 · Contexto de proyectos](06-CONTEXTO-PROYECTOS.md) solo para antecedentes técnicos. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 
 ## 6. Lab · Laboratorio de programación: recorrido y laboratorios
 
-[Laboratorio de programación](../lab-python-en-accion/index.html) es una continuación práctica independiente: vitrina opcional para experimentar y ampliar, no B8, sin requisitos evaluables por defecto.
+[Recorrido práctico · Construye y conecta tus proyectos](../lab-python-en-accion/index.html) es una continuación práctica independiente para experimentar y ampliar.
 
 El portal contiene un recorrido desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 

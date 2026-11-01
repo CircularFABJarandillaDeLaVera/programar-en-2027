@@ -23,4 +23,4 @@ proyecto/
 `main.py` coordina. Los modulos auxiliares calculan o guardan, pero no preguntan datos al usuario.
 
 ## Mini-reto
-Organiza SAMI-Lite en los tres archivos previstos.
+Organiza el Proyecto aplicado 1 en los tres archivos previstos.

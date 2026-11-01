@@ -10,7 +10,7 @@
 7. Capturar `ValueError` y `FileNotFoundError`.
 8. Guardar TXT, JSON y CSV.
 9. Separar en `persistencia.py`, `analizador.py` y `main.py`.
-10. Ejecutar SAMI-Lite y corregir errores.
+10. Ejecutar el Proyecto aplicado 1 y corregir errores.
 
 ## Ritmo de aula
 Explicacion breve, codigo, prediccion, ejecucion, modificacion, error util, mini-reto, feedback y continuar.

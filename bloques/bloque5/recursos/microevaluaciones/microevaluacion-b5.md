@@ -16,9 +16,9 @@ Las preguntas estan cargadas en `data/bloque5.js`.
 ## Restricciones
 
 - Mantener exactamente 12 preguntas.
-- No evaluar `_pageNumber`.
-- No evaluar internals de ReportLab.
-- No evaluar Canvas como contenido obligatorio.
+- No usar `_pageNumber` como criterio de comprobación.
+- No revisar los internals de ReportLab en esta práctica.
+- Canvas queda fuera del contenido de esta práctica.
 - No introducir APIs avanzadas.
 
 ## Feedback

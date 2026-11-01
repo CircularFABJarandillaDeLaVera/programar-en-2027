@@ -1,13 +1,11 @@
 # Proyecto aplicado 3 · Crea un informe PDF con tus datos
 
-SAMI-Applied es el nombre técnico de esta base de B5.
-
 La descarga pública es `proyecto-b5-informe-productos.zip`. El ZIP no añade
-una carpeta raíz: tras extraerlo, abre en VS Code la carpeta técnica
-`proyecto-sami-applied`.
+una carpeta raíz: elige o crea una carpeta para extraerlo y ábrela en VS Code.
 
-Evolución: **SAMI-Lite (B3: funciones) → SAMI-OOP (B4: objetos) → SAMI-Applied
-(B5: librerías + datos externos → artefacto útil)**.
+Continuidad conceptual: **Proyecto aplicado 1 (B3: funciones) → Proyecto
+aplicado 2 (B4: objetos) → Proyecto aplicado 3 (B5: librerías + datos externos
+→ artefacto útil)**.
 Competencia: «Sé usar Python y librerías para transformar datos en un resultado útil».
 
 Si vienes del paso ①, ya exploraste CSV, filtros y valores ausentes en
@@ -31,7 +29,7 @@ En los filtros, cada condición va entre paréntesis y se combinan con `&`
 ## Estructura
 
 ```text
-proyecto-sami-applied/
+proyecto-aplicado-3/
   datos_hardware.csv  # entrada: 6 ofertas de componentes
   analizador.py       # Pandas + NumPy: carga, filtra, calcula
   generador_informe.py# ReportLab Platypus -> PDF (logo opcional con fallback)

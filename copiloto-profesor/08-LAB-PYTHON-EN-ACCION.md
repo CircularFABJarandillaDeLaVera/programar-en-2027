@@ -1,14 +1,12 @@
-# 08 · LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
+# 08 · RECORRIDO PRÁCTICO · CONSTRUYE Y CONECTA TUS PROYECTOS
 
-Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica opcional con recorrido, demos, experiencias y masterclass. No es B8, no es evaluable y no forma parte de SAMI. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
+Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica con recorrido, demos, experiencias y masterclass. No es B8. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 
-- Es un recurso final opcional.
-- No es B8.
-- No forma parte de la progresión obligatoria B1-B7.
-- No es evaluable.
-- No pertenece a SAMI.
+- Es una continuación práctica independiente de los bloques.
+- No forma parte de la progresión principal B1-B7.
+- No pertenece a los proyectos aplicados B3–B5.
 - Su objetivo es motivar: "Ya sabes Python. Ahora mira todo lo que puedes hacer con él".
 
 El flujo base, ampliado por los pasos propios de cada experiencia, es:
@@ -41,7 +39,7 @@ El JSON antiguo solo enumera las seis prácticas iniciales; no es el inventario 
 | Extensión técnica | [Masterclass FIWARE real](../lab-python-en-accion/recursos/experiencias/masterclass-fiware-real.html). | Extensión opcional para técnicos, con el entorno previsto en su guía. |
 | Laboratorios adicionales | OpenCV, Pillow, archivos, Excel, Tkinter y [RAG local](../lab-python-en-accion/recursos/experiencias/06-rag-local.html). | Seleccionar una experiencia adecuada al grupo; RAG no es un requisito para usar el Copiloto. |
 
-No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del recorrido en contenidos obligatorios de B1-B7.
+No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del recorrido en contenidos de B1-B7.
 
 No mezcles los usos de LangGraph: B7 EXP-05 orquesta rutas de stock sin LLM; el Lab 22 decide a partir de contexto conectado; el Lab 23–24 separa decisión, explicación con Ollama y validación Python. Todo el Lab sigue siendo opcional aunque una tecnología aparezca también en B7.
 
@@ -242,4 +240,4 @@ el alumno entiende que `command=funcion` registra una acción y `mainloop()` man
 
 ## Cierre Docente
 
-El Lab no abre nuevos contenidos obligatorios. Permite continuar con imagen, automatización, ofimática, interfaces, datos y agentes. Selecciona un tramo y sus prerrequisitos; si falta tiempo o entorno, ofrece lectura, predicción o demostración y señala qué no se ha ejecutado.
+El Lab no abre nuevos contenidos del recorrido principal. Permite continuar con imagen, automatización, ofimática, interfaces, datos y agentes. Selecciona un tramo y sus prerrequisitos; si falta tiempo o entorno, ofrece lectura, predicción o demostración y señala qué no se ha ejecutado.

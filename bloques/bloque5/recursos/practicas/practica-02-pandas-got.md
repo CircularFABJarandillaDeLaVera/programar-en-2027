@@ -2,7 +2,7 @@
 
 ## Necesidad
 
-Aprender a cargar y consultar tablas reales sin mezclar este dataset con SAMI-Applied.
+Aprender a cargar y consultar tablas reales sin mezclar este dataset con el Proyecto aplicado 3.
 
 ## Codigo
 

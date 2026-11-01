@@ -9,7 +9,7 @@ Solo biblioteca estándar (`csv`, `json`, `datetime`). Sin conceptos avanzados.
 ## Estructura
 
 ```text
-proyecto-sami-oop/
+proyecto-aplicado-2/
   analizador.py    # Producto, ProductoHardware, ProductoLicencia, AuditoriaMercado
   persistencia.py  # ManejadorDatos
   main.py          # entrada: pide datos, crea objetos, genera reporte
@@ -22,7 +22,7 @@ se ejecuta al lanzar el programa y puede importarse para estudiar sus funciones.
 ## Preparar y ejecutar
 
 1. Descarga `proyecto-b4-productos-clases.zip` y extráelo. El ZIP no añade
-   una carpeta raíz; abre en VS Code la carpeta técnica que contiene los archivos.
+   una carpeta raíz; elige o crea una carpeta para extraerlo y ábrela en VS Code.
 2. Abre en VS Code la carpeta que contiene `analizador.py`, `persistencia.py`,
    `main.py` y este README.
 3. No instales dependencias: se usa la biblioteca estándar de Python.

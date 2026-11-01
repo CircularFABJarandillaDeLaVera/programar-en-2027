@@ -16,5 +16,5 @@
 
 ## Frase guia
 
-Hoy no hacemos SAMI mas grande: hacemos SAMI mas reproducible.
+Hoy no hacemos el proyecto más grande: hacemos el entorno más reproducible.
 

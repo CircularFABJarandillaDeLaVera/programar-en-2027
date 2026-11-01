@@ -16,9 +16,9 @@ Esta carpeta conserva la ingeniería de origen de Python 2027 como respaldo peda
 | --- | --- | --- |
 | [Marco V4](ingenieria-conocimiento-python-v4-saneada.md) | Progresión B1-B7 y aprendizaje activo. | Contexto de diseño; las rutas actuales están en 01 y 04. |
 | [Bloque 2](ingenieria-python-bloque2-final.md) | Resumen del alcance: colecciones, slicing y clasificador. | Es un resumen de diseño, no el desarrollo completo que anunciaba el texto original. Usar el cuaderno y recursos de B2 para prácticas. |
-| [Bloque 3](ingenieria-python-bloque3-final.md) | Funciones, errores, JSON/CSV y arquitectura comercial de SAMI-Lite. | Apoyo conceptual; contrastar las firmas y ejercicios con la copia de trabajo de B3. |
-| [Bloque 4](ingenieria-python-bloque4-final.md) | POO, composición, herencia y productos de SAMI-OOP. | Explicar responsabilidades; no exigir todos los ejemplos ni patrones de la ingeniería. |
-| [Bloque 5](ingenieria-python-bloque5-final.md) | NumPy, Pandas, Playwright y ReportLab Platypus. | La fuente desarrolla sobre todo ReportLab. El SAMI-Applied práctico actual parte de CSV y no exige scraping. |
+| [Bloque 3](ingenieria-python-bloque3-final.md) | Funciones, errores, JSON/CSV y arquitectura modular del Proyecto aplicado 1. | Apoyo conceptual; contrastar las firmas y ejercicios con la copia de trabajo de B3. |
+| [Bloque 4](ingenieria-python-bloque4-final.md) | POO, composición, herencia y productos del Proyecto aplicado 2. | Explicar responsabilidades; no exigir todos los ejemplos ni patrones de la ingeniería. |
+| [Bloque 5](ingenieria-python-bloque5-final.md) | NumPy, Pandas, Playwright y ReportLab Platypus. | La fuente desarrolla sobre todo ReportLab. El Proyecto aplicado 3 parte de CSV y no exige scraping. |
 | [Bloque 6](ingenieria-python-bloque6-refinada.md) | Entorno local, Git, depuración y base de herramientas. | Diseño histórico: la ruta actual tiene seis experiencias, Git local y salida descriptiva por consola. |
 | [Bloque 7](ingenieria-python-bloque7.md) | Contexto, revisión crítica, defensa y grafos. | Diseño histórico: contrastar con los proyectos publicados de Harness, agente real, LangGraph e IA bajo control. |
 | [Lab original](ingenieria-lab-python-en-accion.md) | OpenCV, Pillow, archivos, openpyxl y Tkinter. | Solo las cinco experiencias iniciales; el mapa ampliado está en 08 y en el portal del Lab. |
@@ -28,3 +28,7 @@ Esta carpeta conserva la ingeniería de origen de Python 2027 como respaldo peda
 Conservamos los ejemplos útiles y distinguimos sus propuestas del material vigente. No se importan al currículo las ampliaciones recomendadas al final de una fuente sin decisión docente. Profesor Plus aporta patrones de apoyo, no requisitos ni una arquitectura necesaria para el agente.
 
 El ZIP se regenera desde los Markdown; no debe utilizarse para sobrescribir sus fuentes. Los enlaces hacia el curso completo requieren el repositorio y no viajan dentro del ZIP documental.
+
+Los documentos `ingenieria-*.md` de esta carpeta son antecedentes de diseño conservados
+en el repositorio para auditoría. No forman parte del ZIP distribuido al alumnado porque
+mantienen nombres y decisiones históricas que no deben reaparecer como instrucciones actuales.

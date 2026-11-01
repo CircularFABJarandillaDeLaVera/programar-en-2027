@@ -2,7 +2,7 @@
 
 ## Enfoque
 
-Este Lab final opcional no es B8 y no forma parte de la evaluacion obligatoria. Sirve para cerrar el curso con cinco demostraciones cortas:
+Este Lab no es B8 y sirve para cerrar el curso con cinco demostraciones cortas:
 
 VER -> PROBAR -> MODIFICAR -> MINI-RETO
 
@@ -16,8 +16,8 @@ Ya sabes Python. Ahora mira todo lo que puedes hacer con el.
 - Preparar un entorno donde puedan abrirse ventanas de escritorio.
 - Instalar solo las librerias necesarias si se van a ejecutar todas las experiencias: `opencv-python`, `Pillow` y `openpyxl`.
 - Revisar antes de clase `lab-python-en-accion/recursos/requirements-lab.txt`.
-- No tocar SAMI ni presentar el Lab como nuevo bloque.
-- No plantear notas, test ni microevaluaciones obligatorias.
+- No presentar el Lab como un nuevo bloque ni mezclarlo con los proyectos aplicados.
+- No plantear notas ni convertir las comprobaciones en requisitos de acceso.
 
 ## OpenCV
 

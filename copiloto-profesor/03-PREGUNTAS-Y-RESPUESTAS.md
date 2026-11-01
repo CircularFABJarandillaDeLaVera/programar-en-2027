@@ -246,7 +246,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 
 * **Naturaleza:** `[SEGÚN EL CURSO]`
 * **Respuesta:** La ruta actual incluye EXP-05 con un grafo ejecutable sin LLM: Python decide entre rutas de stock. Es distinto de la orquestación conversacional avanzada del diseño histórico, que se conserva como ampliación.
-* **Límite:** Si no está instalado LangGraph, se pueden probar las reglas puras; el grafo queda no verificado. Que EXP-05 esté publicada no resuelve por sí solo si es obligatoria o evaluable: véase [07](07-LAGUNAS-Y-LIMITES.md).
+* **Límite:** Si no está instalado LangGraph, se pueden probar las reglas puras; el grafo queda no verificado. EXP-05 se mantiene como ampliación separada: véase [07](07-LAGUNAS-Y-LIMITES.md).
 
 ### P7.4. ¿Necesito Ollama para terminar IA-Control?
 
@@ -268,16 +268,16 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 * **Naturaleza:** `[SEGÚN EL CURSO]`
 * **Respuesta:** Comprueba tarea y alcance, archivos modificados, `git diff`, dependencias nuevas, pruebas ejecutadas y comportamiento antes/después. Si falta evidencia, no está verificado. La decisión final es ACEPTAR, MODIFICAR o RECHAZAR.
 
-### P7.8. ¿SAMI Final es ya el único proyecto de la ruta B7?
+### P7.8. ¿El proyecto final heredado es ya el único proyecto de la ruta B7?
 
 * **Naturaleza:** `[SEGÚN EL CURSO · Decisión pendiente]`
-* **Respuesta:** La portada actual publica seis experiencias con cuatro proyectos de práctica; además existen la guía y las plantillas de SAMI Final. Su integración definitiva no está resuelta. Identifica qué material está usando el grupo y no mezcles sus entregables.
+* **Respuesta:** La portada actual publica seis experiencias con cuatro proyectos de práctica; además se conserva una guía heredada de proyecto final como antecedente separado. No forma parte del recorrido publicado ni sustituye sus prácticas.
 
 ---
 
 
 
-# LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
+# RECORRIDO PRÁCTICO · CONSTRUYE Y CONECTA TUS PROYECTOS
 
 ### L1. OpenCV no abre la webcam. ¿Qué compruebo?
 * **Naturaleza:** `[SEGÚN EL CURSO · Recurso final opcional]`

@@ -1,4 +1,4 @@
-"""Comprobacion minima del proyecto SAMI-Applied.
+"""Comprobacion minima del Proyecto aplicado 3.
 
 Solo biblioteca estandar. No inspecciona el diseno visual del PDF:
 eso lo compruebas tu abriendo el archivo generado.

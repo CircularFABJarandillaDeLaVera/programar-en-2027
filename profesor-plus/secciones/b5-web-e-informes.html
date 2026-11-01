@@ -84,7 +84,7 @@ with sync_playwright() as p:
 <li>Tabla de conceptos.</li>
 <li>Base imponible, IVA y total.</li>
 </ol>
-<p class="pp-label">Enfoque obligatorio:</p>
+<p class="pp-label">Enfoque de esta práctica:</p>
 <pre class="pp-code"><code class="language-python">from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
@@ -94,7 +94,7 @@ styles = getSampleStyleSheet()
 doc = SimpleDocTemplate(&quot;factura_2027_001.pdf&quot;, pagesize=A4)
 story = [Paragraph(&quot;FACTURA&quot;, styles[&quot;Heading1&quot;])]
 doc.build(story)</code></pre>
-<p>Canvas queda como ampliacion no evaluable.</p>
+<p>Canvas queda como ampliacion separada del flujo principal.</p>
 </section>
 
       <nav class="pp-pager" aria-label="Navegación de secciones Profesor Plus">

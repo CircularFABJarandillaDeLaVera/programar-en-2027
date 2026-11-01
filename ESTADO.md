@@ -294,3 +294,295 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 - Quedan por ejecutar, si se autoriza en una fase posterior, las prácticas del Recorrido en copias limpias y la revisión humana detallada de cada README. Docker, PostgreSQL, FIWARE, MQTT, Ollama y hardware no se activaron.
 - No se modificó EduSDK, no se sincronizaron los materiales globales de apoyo y no se inició la microfase 11. `Cambios_portada_2027/` y cualquier cambio ajeno permanecen fuera del alcance.
+## Microfase 11 · sincronización de materiales de apoyo (en curso)
+
+Punto de partida: `921bc5e` (`v2027-recorrido-m10`). No se ha hecho commit, tag,
+push ni publicación.
+
+### Cambios realizados
+
+- Se actualizaron el README raíz, las guías, trazabilidades, mapas y datos JSON/JS
+  de B3–B6 para usar los nombres descriptivos de los proyectos y de la base de
+  herramientas, sin restaurar una secuencia obligatoria cuaderno → proyecto.
+- Se actualizaron los textos visibles de los cuadernos B3–B5 sin alterar sus
+  ejercicios, resultados ni celdas de ejecución. Las celdas que necesitan una
+  ruta técnica existente conservan esa ruta para no romper imports; queda anotada
+  como excepción técnica, no como nombre público.
+- Se sincronizaron fuentes y copias de B3–B5 donde correspondía, se retiraron
+  nombres heredados de los README y salidas visibles, y se regeneraron
+  `proyecto-b3-calcula-precios.zip`, `proyecto-b4-productos-clases.zip` y
+  `proyecto-b5-informe-productos.zip` desde sus copias descargables.
+- El recurso RAG del Laboratorio cambió `manual_sami.txt` por
+  `manual_proyecto.txt`; se actualizaron la experiencia Markdown/HTML y
+  `rag-local.zip`.
+- El archivo del copiloto `06-SAMI.md` pasó a llamarse
+  `06-CONTEXTO-PROYECTOS.md`; se corrigieron sus enlaces y se regeneró
+  `copiloto-profesor-python-2027.zip` sin la entrada antigua.
+- B5 conserva el comportamiento validado del proyecto; solo se actualizaron
+  etiquetas/documentación de salida, sin cambiar reglas de análisis.
+
+### Comprobaciones realizadas
+
+- `git diff --check`: sin errores de espacios.
+- Los cuatro JSON de datos y los tres cuadernos afectados se pudieron analizar
+  con `json.loads`; los cuatro datos JS pasaron `node --check`.
+- Los archivos Python afectados pasaron `python -m py_compile`. No se instalaron
+  dependencias ni se repitieron suites funcionales de código intacto.
+- Cada ZIP B3–B5 contiene exactamente los archivos de su copia descargable y sus
+  bytes coinciden; el ZIP RAG contiene `manual_proyecto.txt` y no contiene
+  `manual_sami.txt`.
+- El ZIP del copiloto contiene `06-CONTEXTO-PROYECTOS.md`, no `06-SAMI.md`, y no
+  reintroduce SAMI en sus documentos docentes actuales ni en sus nombres de
+  entrada.
+- La revisión PDF quedó limitada a inspección de disponibilidad: no existen
+  `pdftotext`, `pdfinfo`, `mutool` ni una fuente editable local identificable para
+  `assets/descargas/guia-inicio-python.pdf` fuera de `Cambios_portada_2027/`.
+  No se modificó ni se declaró validada visualmente esa guía PDF.
+
+### Límites y excepciones pendientes
+
+- La retirada global no se declara terminada. Permanecen referencias en fuentes
+  de ingeniería histórica y en el contenido histórico de
+  `06-CONTEXTO-PROYECTOS.md`; no se ofrecen como instrucciones o nombres
+  públicos actuales.
+- Las carpetas fuente técnicas `proyecto-sami-lite`, `proyecto-sami-oop` y
+  `proyecto-sami-applied`, además de las rutas internas de algunas celdas, se
+  conservan para no romper dependencias, imports ni trazabilidad. Los ZIP planos
+  no entregan esas carpetas raíz; sus README indican abrir la carpeta extraída.
+- No se ejecutaron los proyectos B3–B6 ni suites pytest en esta microfase. La
+  comprobación humana de las páginas y la revisión visual del PDF siguen
+  pendientes. `Cambios_portada_2027/` se conservó sin modificar ni incluir.
+
+### Revisión complementaria de pendientes de microfase 11 · en curso
+
+Esta revisión no reabre la sincronización estructural ya comprobada. Se atendieron
+solo los cinco pendientes solicitados y no se hizo commit, tag, push ni publicación.
+
+#### Evaluación, entregas y acceso
+
+- Se retiraron de los materiales vigentes las formulaciones de actividad «no
+  evaluable», evaluación obligatoria, contenido obligatorio para aprobar y entrega
+  obligatoria. El cambio afecta a las guías y datos de B5, las plantillas y
+  secciones de Profesor Plus, el cierre del Laboratorio, y los textos de retos de
+  B3–B7 que pedían «entregar» como requisito. Se conservaron las
+  autoevaluaciones, los estados `APTO`/`NO_APTO`/`NO_VERIFICADO`, las comprobaciones
+  técnicas y la aprobación humana que forma parte del protocolo del arnés, no del
+  acceso o aprobación del curso.
+- La comprobación HTTP contra `http://127.0.0.1:8000` se hizo enviando una cabecera
+  `Cookie` vacía. Respondieron `200` la portada `/inicio.html` y las siete entradas
+  `/bloques/bloque1/inicio.html` a `/bloques/bloque7/inicio.html`; ninguna emitió
+  `Set-Cookie`. La única persistencia del curso localizada es `localStorage` del
+  selector claro/oscuro (`assets/js/theme-toggle.js`). No hay guardia de tests ni
+  comprobación de aprobación que intercepte esas rutas. Una carga real con perfil
+  Chrome nuevo confirmó además el título de B1. El resto queda respaldado por las
+  respuestas HTTP, la inspección del código de navegación y la ausencia de estado
+  de acceso; no se declara una prueba manual de clic independiente para cada bloque.
+
+#### Retirada de la promesa de integración final
+
+- La promesa estaba en el cierre heredado de B7 y sus materiales de apoyo: la tabla
+  de B7 de `copiloto-profesor/00-INSTRUCCIONES-AGENTE.md`, la fila B7 de
+  `01-GUIA-CURSO.md`, la pregunta P7.8 de `03-PREGUNTAS-Y-RESPUESTAS.md`, el mapa
+  de apoyos de `04-PRACTICAS-Y-APOYOS.md`, la tabla de límites de
+  `07-LAGUNAS-Y-LIMITES.md` y el antiguo contexto de proyectos de `06-SAMI.md`.
+- No se limitó a cambiar el nombre: se eliminó la relación de cierre obligatorio y
+  de integración final con la ruta publicada. La redacción vigente presenta ese
+  material como antecedente separado, no dirige B7, no añade entregables a las
+  seis experiencias y no se usa para declarar aprobado el curso. La búsqueda de
+  las cadenas «integración definitiva» y «Proyecto final obligatorio» no devuelve
+  coincidencias en esos materiales vigentes.
+
+#### Menciones SAMI restantes y clasificación
+
+- **Plan y seguimiento, no instrucciones al alumno:** `OBJETIVOS_PROGRAMAR_2027.md`
+  conserva la tabla histórica y la instrucción explícita de retirada;
+  `TASKS.md` conserva una tarea histórica marcada como realizada; `ESTADO.md`
+  conserva el registro de decisiones y excepciones.
+- **Fuentes históricas de ingeniería, no materiales distribuidos:**
+  `copiloto-profesor/fuentes/ingenieria-conocimiento-python-v4-saneada.md`,
+  `ingenieria-lab-python-en-accion.md`,
+  `ingenieria-python-bloque3-final.md`,
+  `ingenieria-python-bloque4-final.md`,
+  `ingenieria-python-bloque5-final.md`,
+  `ingenieria-python-bloque6-refinada.md` e
+  `ingenieria-python-bloque7.md`, además de los equivalentes en
+  `ingenieria/`. `copiloto-profesor/fuentes/README.md` los clasifica como
+  históricos y el ZIP del copiloto ya no los incluye.
+- **Excepciones técnicas conservadas:** las carpetas fuente
+  `bloques/bloque3/proyecto-sami-lite/`,
+  `bloques/bloque4/proyecto-sami-oop/`,
+  `bloques/bloque5/proyecto-sami-applied/` y
+  `bloques/bloque6/recursos/proyecto/sami_local/`, junto a los documentos
+  técnicos `sami-lite.md`, `sami-oop.md`, `sami-applied.md` y `sami-local.md`.
+  También permanecen las rutas internas de proyecto usadas por las celdas de
+  `bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb` y
+  `bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb`. Se mantienen para no romper
+  imports, trazabilidad o sincronizaciones; no se ofrecen como nombres públicos.
+- **No vigentes ni reintroducidas en descargas:** el antiguo `06-SAMI.md` fue
+  sustituido por `06-CONTEXTO-PROYECTOS.md`; `manual_sami.txt` por
+  `manual_proyecto.txt`. Los ZIP B3, B4, B5 y del copiloto no contienen `SAMI` en
+  sus nombres ni en sus documentos actuales. `bloques/bloque7/recursos/proyecto/sami_final/`
+  queda como carpeta técnica histórica sin uso en la ruta publicada.
+- `assets/referencias_privadas/` queda fuera de esta clasificación curricular y no
+  se publica ni se sincroniza.
+
+#### PDF de preparación
+
+- La ruta exacta es `assets/descargas/guia-inicio-python.pdf` (673.533 bytes,
+  actualizado el 29-10-2026). No se encontró una fuente editable local asociada
+  fuera de `Cambios_portada_2027/`.
+- La inspección quedó bloqueada de forma concreta: en el entorno no están
+  disponibles `pdftotext`, `pdfinfo`, `mutool`, `soffice` ni `libreoffice`, y tampoco
+  están instalados módulos Python de lectura/renderizado PDF (`pypdf`, `PyPDF2`,
+  `fitz`, `PIL`). Por tanto no se puede determinar con evidencia el contenido de
+  sus páginas ni declarar que necesite o no actualización. No se modificó el PDF
+  ni se siguieron probando herramientas indefinidamente.
+
+#### Comprobaciones de esta revisión
+
+- El ZIP del copiloto contiene `05-COMPROBACIONES-Y-ERRORES.md` y
+  `06-CONTEXTO-PROYECTOS.md`, además de `fuentes/README.md`; no contiene los
+  nombres antiguos ni las fuentes históricas de ingeniería.
+- JSON B3–B7 y los JS afectados se vuelven a validar después de los textos; no se
+  ejecutaron proyectos ni suites pytest porque no cambió su lógica. La comprobación
+  final pendiente es `git diff --check`. `Cambios_portada_2027/` permanece sin
+  modificar y fuera del alcance.
+
+#### Ajuste posterior de microfase 11: paquete de preparacion Windows
+
+- Se recupero `Preparar_curso_2027.zip` y se extrajo en una carpeta temporal de
+  trabajo. Se revisaron estaticamente `LEEME.txt`, `Preparar_curso.cmd` y
+  `preparar.py`; no se ejecutaron instalaciones, WinGet, VS Code, Git ni
+  extensiones.
+- `LEEME.txt` ya no menciona SAMI. Ahora usa los nombres actuales de B3, B4, B5,
+  B6 y B7, enlaza la consulta del curso en GitHub Pages y aclara que el paquete
+  prepara el ordenador y el espacio de trabajo local de VS Code, pero no es un
+  lanzador de la web.
+- El CMD conserva su funcion de preparacion de Windows y `preparar.py` conserva
+  la configuracion tecnica; solo se ajustaron sus mensajes para describir el
+  espacio de trabajo local. `python -m py_compile preparar.py` paso sin ejecutar
+  su funcion principal ni instalar nada.
+- Se genero `assets/descargas/preparar-python-windows-2027.zip` con exactamente
+  `LEEME.txt`, `preparar.py` y `Preparar_curso.cmd`. La carpeta de trabajo
+  descomprimida no se conserva como descarga separada.
+- La portada `inicio.html`, en el panel «Empieza por aqui», enlaza el nuevo ZIP
+  junto a la guia PDF. La ruta de la web sigue siendo GitHub Pages; el paquete
+  no intenta abrirla ni sustituirla.
+- La guia PDF `assets/descargas/guia-inicio-python.pdf` no se regenero: sigue sin
+  existir una fuente editable local y el entorno no dispone de herramientas de
+  lectura o generacion PDF. Este bloqueo queda pendiente y no se presenta como
+  sincronizacion completada.
+
+#### Ajuste posterior de microfase 11: preparacion de LangGraph
+
+- Se actualizo unicamente la preparacion de EXP-05 en la guia
+  `bloques/bloque7/recursos/experiencias/exp-05-langgraph-orquesta/index.html` y
+  en `bloques/bloque7/recursos/proyectos-b7/langgraph-taller/README.md`.
+- Ambos documentos indican ahora la secuencia completa: descomprimir el ZIP,
+  abrir la carpeta extraida en VS Code y abrir alli una terminal; crear o activar
+  `.venv`; instalar las dependencias del proyecto en Windows PowerShell o
+  macOS/Linux; y usar el interprete directo si PowerShell bloquea la activacion,
+  sin pedir cambios en la politica de ejecucion.
+- Se sustituyo "la unica dependencia" por "las dependencias del proyecto" y se
+  explico que `.venv` separa estas dependencias de otros proyectos. Se
+  conservaron los comandos de demostracion y `python -m unittest -v` ya
+  documentados.
+- El ZIP `bloques/bloque7/proyecto-b7-langgraph.zip` se regenero desde los cinco
+  archivos de `bloques/bloque7/recursos/proyectos-b7/langgraph-taller/`, sin
+  incluir `__pycache__`. La extraccion contiene `README.md` actualizado y los
+  cuatro archivos restantes del proyecto.
+- Verificado: el README extraido coincide con su fuente, no queda la expresion
+  "unica dependencia" en guia/README y `git diff --check` no detecta errores.
+  No se ejecuto de nuevo el grafo ni sus pruebas porque solo cambio la
+  documentacion.
+
+#### Actualizacion del PDF de preparacion
+
+- La nota anterior sobre el bloqueo del PDF queda superada para esta revision.
+  Se creo la fuente editable `assets/descargas/guia-inicio-python.html` y se
+  genero de nuevo `assets/descargas/guia-inicio-python.pdf` con Chrome en modo
+  headless, sin instalar herramientas ni dependencias.
+- La guia PDF actualizada elimina SAMI, usa los nombres publicos B3-B7, enlaza
+  GitHub Pages como lugar de consulta y describe el paquete Windows como
+  preparador del ordenador, no como lanzador de la web.
+- La generacion fue real; no se ejecuto `Preparar_curso.cmd`, `preparar.py` ni
+  ninguna instalacion del paquete. La revision visual detallada del PDF queda
+  pendiente si se requiere una comprobacion humana pagina por pagina.
+
+#### Ajuste posterior de microfase 11: pagina de preparacion y contraste
+
+- `inicio.html` conserva ahora solo el acceso compacto «Empieza por aqui» y
+  enlaza a `preparacion.html`. Se elimino el panel completo de preparacion de la
+  landing; no queda oculto ni desplegable en ella. `course-home.js` sigue
+  gestionando unicamente el panel de bloques.
+- `preparacion.html` concentra la guia PDF, el ZIP Windows, enlaces oficiales,
+  ayuda para macOS/Linux y otros sistemas, instrucciones de practicas,
+  resolucion de problemas, comprobacion minima, «Inicio del curso» y la
+  identidad Circular FAB.
+- La regla generica `.course-panel a` podia sobrescribir el color de texto de
+  `.cf-button--primary`. Se excluyeron los botones con `:not(.cf-button)` en la
+  portada y se aplicaron en la pagina nueva los tokens
+  `--cf-color-accent-text` y `--cf-color-focus` para normal, hover, focus y
+  visited, sin modificar globalmente otros enlaces.
+- Contraste calculado para el boton primario: claro normal `4.53:1`, claro hover
+  `6.38:1`, oscuro normal `7.72:1` y oscuro hover `9.96:1`. Todos superan
+  `4.5:1`.
+- Validacion HTTP real: `inicio.html`, `preparacion.html`, PDF y ZIP respondieron
+  `200`; la portada ya no contiene `id="preparacion"` ni
+  `data-course-panel="preparacion"`; la pagina nueva contiene ambos enlaces de
+  descarga, los enlaces oficiales y el regreso a `inicio.html`.
+- Revision visual con Chrome en 390 y 1440 px, claro y oscuro. La medicion del
+  documento a 390 px dio `scrollWidth=375`, sin desbordamiento horizontal. Se
+  conservaron los textos completos, botones utilizables y estados de foco.
+
+#### Ajuste posterior de microfase 11: rutas y practica temprana del copiloto
+
+- `inicio.html` ya no presenta el panel separado «El mismo hilo práctico en
+  ambas rutas». Las dos rutas incluyen los mismos tres proyectos aplicados,
+  cada una explica cómo acceder a ellos desde sus bloques sin duplicarlos y
+  conserva el cuaderno como material de consulta en la ruta correspondiente.
+- La continuidad común queda dentro del panel de rutas y enlaza con los
+  títulos comprobados de B6, B7 y del Recorrido práctico. Se retiraron del pie
+  los enlaces sueltos al copiloto y a su ZIP.
+- Se añadió `prepara-tu-copiloto.html`, enlazada desde `preparacion.html` y
+  desde la entrada de la ruta con agentes. La guía reutiliza el pack vigente,
+  explica sus archivos, la configuración mediante una conversación con
+  adjuntos sin exigir un GPT personalizado, el prompt de la primera práctica,
+  los criterios de comprobación y la diferencia entre el copiloto orientador
+  y un agente de programación que modifica archivos.
+- Validación HTTP real: respondieron `200` la portada, preparación, guía del
+  copiloto, pack ZIP, B3, B6, B7 y el Recorrido práctico.
+- Navegación mediante clics reales en Chrome: `inicio.html` →
+  `prepara-tu-copiloto.html` → comprobación de los enlaces al pack y a B3 →
+  `inicio.html`. La secuencia terminó con «regreso confirmado».
+- Revisión visual en Chrome de portada y guía a 390 y 1440 px, claro y oscuro.
+  La guía a 390 px midió `scrollWidth=375`; el panel superior reorganiza la
+  navegación en varias filas y los botones y textos permanecen utilizables.
+- No se ejecutaron proyectos ni pruebas funcionales de código. No se
+  reconstruyó el sistema del copiloto, no se instalaron herramientas y no se
+  modificó `Cambios_portada_2027/` ni EduSDK.
+
+#### Ajuste posterior de microfase 11: depuración de duplicaciones en la portada
+
+- `inicio.html` conserva la presentación del curso, la cabecera y un único
+  acceso compacto «Empieza por aquí» hacia `preparacion.html`.
+- El panel de rutas ahora muestra arriba las dos formas de trabajar. La ruta
+  con agentes resume construir, revisar y comprobar; la ruta Python conserva
+  los accesos a B1 y B2 y explica el trabajo con cuadernos.
+- La lista de los tres proyectos aplicados aparece una sola vez, a todo el
+  ancho del panel. La continuación común aparece después y enlaza una sola
+  vez con B6, B7 y el Recorrido práctico. El acceso contextual al copiloto
+  queda únicamente en la ruta con agentes; su descarga continúa en la guía
+  específica.
+- Se retiraron de esa zona las listas numeradas repetidas, las menciones a
+  proyectos duplicadas en cada columna, el enlace superior al Recorrido
+  práctico y las frases de confluencia repetidas. La navegación general y el
+  panel de los siete bloques se conservan.
+- Verificación de destinos por HTTP local: `preparacion.html`, B1-B7 y
+  `lab-python-en-accion/index.html` respondieron `200`. Los accesos
+  contextuales a preparación, copiloto, proyectos y continuidad quedaron
+  comprobados en el HTML resultante.
+- Revisión visual con Chrome a 390 y 1440 px, claro y oscuro. En móvil las
+  columnas se apilan y los textos, botones y enlaces permanecen legibles.
+- No se modificaron preparación, copiloto, bloques, proyectos ni descargas;
+  `Cambios_portada_2027/` y los cambios ajenos se conservaron.

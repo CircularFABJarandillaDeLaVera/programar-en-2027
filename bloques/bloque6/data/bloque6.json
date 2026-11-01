@@ -61,9 +61,9 @@
     {
       "titulo": "Estructura de proyecto",
       "objetivo": "Pasar de archivos sueltos a carpetas con responsabilidad.",
-      "guion": "Construye el mapa sami_local: main.py, src, data, logs.",
+      "guion": "Construye el mapa de la base: main.py, src, data, logs.",
       "pregunta": "Por que data no debe mezclarse con src?",
-      "ejemplo": "sami_local/\n  main.py\n  src/\n  data/\n  logs/",
+      "ejemplo": "proyecto/\n  main.py\n  src/\n  data/\n  logs/",
       "modificar": "Anade README.md y explica su funcion.",
       "predecir": "Donde guardarias un CSV de entrada?",
       "error_util": "Usar rutas absolutas locales que rompen portabilidad.",
@@ -159,11 +159,11 @@
       "objetivo": "Profesionalizar el entorno de trabajo sin anadir grandes funcionalidades.",
       "guion": "Organiza estructura, requirements, .gitignore, ejecucion, trazas y protocolo IA.",
       "pregunta": "Que cambia en la base: funciones o entorno?",
-      "ejemplo": "sami_local/\n  .gitignore\n  requirements.txt\n  main.py\n  src/\n  data/\n  logs/",
+      "ejemplo": "proyecto/\n  .gitignore\n  requirements.txt\n  main.py\n  src/\n  data/\n  logs/",
       "modificar": "Anade una carpeta docs si el profesor la permite.",
       "predecir": "Que carpeta no deberia subirse al repositorio?",
       "error_util": "Subir venv o logs por no usar .gitignore.",
-      "reto": "Entregar estructura local reproducible.",
+"reto": "Comprobar una estructura local reproducible.",
       "comprobar": "La base demuestra entorno preparado, no nuevas funciones grandes."
     }
   ],
@@ -411,12 +411,12 @@
     "titulo": "Herramientas para trabajar con tus proyectos",
     "evolucion": "Proyectos aplicados B3-B5 -> base de herramientas B6",
     "estructura": [
-      "sami_local/.gitignore",
-      "sami_local/requirements.txt",
-      "sami_local/main.py",
-      "sami_local/src",
-      "sami_local/data",
-      "sami_local/logs"
+      ".gitignore",
+      "requirements.txt",
+      "main.py",
+      "src",
+      "data",
+      "logs"
     ],
     "evidencia": "Proyecto local estructurado, dependencias declaradas, .gitignore, lectura de traceback y protocolo de uso de asistente IA.",
     "alcance": "Profesionalizar el entorno sin anadir funcionalidades importantes."

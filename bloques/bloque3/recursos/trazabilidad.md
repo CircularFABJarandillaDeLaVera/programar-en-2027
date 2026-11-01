@@ -16,7 +16,7 @@
 - try, except, else y finally.
 - with open(), TXT, JSON y CSV.
 - modulos, import y separacion de responsabilidades.
-- SAMI-Lite en `persistencia.py`, `analizador.py` y `main.py`.
+- Proyecto aplicado 1 en `persistencia.py`, `analizador.py` y `main.py`.
 
 ## Limites
 Se mantienen como lagunas o ampliacion: `*args`, `**kwargs`, recursividad, `async`, `asyncio`, `yield` y paquetes complejos.

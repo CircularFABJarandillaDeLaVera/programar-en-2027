@@ -15,7 +15,7 @@ Debe explicar con claridad, adecuarse al nivel del alumnado y ayudar al profesor
 1. Copia esta carpeta o descomprime el [pack de distribución](copiloto-profesor-python-2027.zip).
 2. Usa [00-INSTRUCCIONES-AGENTE.md](00-INSTRUCCIONES-AGENTE.md) como instrucciones base.
 3. Facilita primero la [guía del curso](01-GUIA-CURSO.md) y los [límites](07-LAGUNAS-Y-LIMITES.md); añade después los documentos pertinentes del mapa.
-4. Indica bloque, nivel, tiempo y material concreto: «Tengo 60 minutos para B5; usa el proyecto SAMI-Applied y prepara apoyos para explicar su PDF».
+4. Indica bloque, nivel, tiempo y material concreto: «Tengo 60 minutos para B5; usa el Proyecto aplicado 3 y prepara apoyos para explicar su PDF».
 5. Comprueba que el asistente puede consultar esos archivos. Si solo tiene el ZIP documental, facilita aparte la práctica o el código al que se refiere la consulta.
 6. Revisa su respuesta y prueba las preguntas de validación de esta guía antes de usarlo en clase.
 
@@ -23,8 +23,8 @@ La estructura puede adaptarse a ChatGPT, Codex, Copilot, Antigravity, OpenCode u
 
 ## Regla de conocimiento y de respuesta
 
-- **[SEGÚN EL CURSO]:** afirmación respaldada por un material identificado. Indica documento y apartado; distingue actividad del bloque, recurso de apoyo y ampliación. Estar documentado no convierte algo automáticamente en obligatorio.
-- **[EXPLICACIÓN COMPLEMENTARIA]:** explicación o propuesta útil que no debe atribuirse al temario. No es evaluable por defecto.
+- **[SEGÚN EL CURSO]:** afirmación respaldada por un material identificado. Indica documento y apartado; distingue actividad del bloque, recurso de apoyo y ampliación. Estar documentado no convierte algo automáticamente en una instrucción para todo el recorrido.
+- **[EXPLICACIÓN COMPLEMENTARIA]:** explicación o propuesta útil que no debe atribuirse al temario.
 - **Si falta información:** di qué material consultaste, qué no puedes verificar y qué dato necesitas. No rellenes el hueco como si fuera oficial.
 
 Para rutas y comportamiento concreto, manda el material actual de la actividad: página, README, código y comprobaciones. Las síntesis de este pack orientan; las fuentes históricas dan contexto. Si se contradicen, señala la discrepancia y no inventes una resolución curricular. El [índice de fuentes](fuentes/README.md) explica su alcance.
@@ -34,17 +34,17 @@ Para rutas y comportamiento concreto, manda el material actual de la actividad: 
 | Archivo | Para qué sirve y qué contiene | Comportamiento que orienta | Cuándo consultarlo |
 | --- | --- | --- | --- |
 | [00 · Instrucciones](00-INSTRUCCIONES-AGENTE.md) | Rol, público, modos de ayuda, fuentes y permisos. | Responder con criterio docente y reconocer límites. | Al iniciar y antes de crear o modificar materiales. |
-| [01 · Guía del curso](01-GUIA-CURSO.md) | Objetivos B1-B7, rutas publicadas y relación con SAMI y el Lab. | Situar cada consulta sin cerrar decisiones pendientes. | Al preparar una sesión o ubicar un contenido. |
+| [01 · Guía del curso](01-GUIA-CURSO.md) | Objetivos B1-B7, rutas publicadas y relación con los proyectos y el Lab. | Situar cada consulta sin cerrar decisiones pendientes. | Al preparar una sesión o ubicar un contenido. |
 | [02 · Guía docente](02-GUIA-DOCENTE-B1-B7.md) | Explicaciones, analogías, demostraciones, tiempos y Plan B. | Ajustar la ayuda al grupo, sin convertir ejemplos en obligaciones. | Al preparar o adaptar una clase. |
 | [03 · Preguntas y respuestas](03-PREGUNTAS-Y-RESPUESTAS.md) | Dudas, respuestas explicadas y errores frecuentes. | Dar una respuesta clara y graduar la explicación. | Durante dudas y preparación de preguntas. |
 | [04 · Prácticas y apoyos](04-PRACTICAS-Y-APOYOS.md) | Mapa de rutas actuales, fichas de apoyo, pistas y evidencias. | Distinguir experiencia publicada de material de autor y ayudar sin resolver de golpe. | Al localizar una actividad o desbloquear al alumnado. |
-| [05 · Evaluación y errores](05-EVALUACION-Y-ERRORES.md) | Tracebacks, microevaluaciones, rúbrica formativa y estados de verificación. | Evaluar evidencias sin inventar ejecuciones ni calificaciones. | Al comprobar aprendizaje o diagnosticar un error. |
-| [06 · SAMI](06-SAMI.md) | Productos, precios, módulos y relación pendiente entre SAMI Final y la ruta B7. | Evitar mezclar prototipos, datos o artefactos de distintas versiones. | Al explicar o revisar SAMI. |
-| [07 · Lagunas y límites](07-LAGUNAS-Y-LIMITES.md) | Alcance, ampliaciones y decisiones curriculares pendientes. | No resolver por inferencia la integración de SAMI Final ni la obligatoriedad de LangGraph. | Antes de atribuir contenido o requisitos al curso. |
+| [05 · Comprobaciones y errores](05-COMPROBACIONES-Y-ERRORES.md) | Tracebacks, comprobaciones formativas, criterios de comprobación y estados de verificación. | Revisar evidencias sin inventar ejecuciones ni resultados. | Al comprobar aprendizaje o diagnosticar un error. |
+| [06 · Contexto de proyectos](06-CONTEXTO-PROYECTOS.md) | Antecedentes técnicos de las prácticas de productos y precios. | Evitar mezclar prototipos, datos o artefactos de distintas versiones. Es documentación histórica, no un nombre público. | Al estudiar la evolución técnica. |
+| [07 · Lagunas y límites](07-LAGUNAS-Y-LIMITES.md) | Alcance y límites de las ampliaciones. | No resolver por inferencia el papel del proyecto final heredado ni de LangGraph. | Antes de atribuir contenido o requisitos al curso. |
 | [08 · Lab](08-LAB-PYTHON-EN-ACCION.md) | Mapa del recorrido y laboratorios adicionales; cinco fichas originales. | Consultar la experiencia elegida y respetar sus prerrequisitos. | Al preparar una continuación práctica. |
 | [fuentes · Índice](fuentes/README.md) | Ingeniería de origen, notas de vigencia y enlaces de contraste. | Usar antecedentes como apoyo, no como prueba de ejecución. | Cuando las guías no basten o haya dudas de procedencia. |
 | [inicio.html](inicio.html) | Presentación y descarga del recurso. | Facilitar la entrada al docente; no contiene reglas adicionales. | Para acceder desde el portal. |
-| [ZIP](copiloto-profesor-python-2027.zip) | Copia de los Markdown y de las fuentes. | Distribuir una versión coherente del pack. | Al trasladarlo a otra herramienta o equipo. |
+| [ZIP](copiloto-profesor-python-2027.zip) | Copia de las guías vigentes y del índice de fuentes. | Distribuir una versión coherente sin antecedentes heredados. | Al trasladarlo a otra herramienta o equipo. |
 
 Los patrones de explicación, analogía, pistas y Plan B procedentes de Profesor Plus se conservan aquí. [Profesor Plus](../profesor-plus/README.md) sigue en el repositorio como base reutilizable de plantillas; no es un segundo currículo ni una dependencia de este pack.
 
@@ -123,6 +123,6 @@ La fuente de verdad del pack son sus Markdown, no el ZIP. Antes de regenerarlo:
 3. comprueba que las rutas B6, B7 y Lab coinciden con sus portales;
 4. ejecuta las comprobaciones de formato y revisa el diff.
 
-Después, regenera `copiloto-profesor-python-2027.zip` con los `*.md` de esta carpeta y `fuentes/*.md`, manteniendo sus rutas, y compara cada entrada con el original. No incluyas el propio ZIP ni copias de otros proyectos.
+Después, regenera `copiloto-profesor-python-2027.zip` con los `*.md` vigentes de esta carpeta y `fuentes/README.md`, manteniendo sus rutas, y compara cada entrada con el original. Los documentos de ingeniería histórica permanecen en el repositorio, pero no se distribuyen en este ZIP.
 
 El ZIP contiene instrucciones y síntesis; los enlaces a `../bloques/`, al Lab, a Profesor Plus o al AGENTS.md raíz requieren el repositorio completo. Si solo compartes el ZIP, aporta el material concreto cuando sea necesario y reconoce lo que falta. La página HTML es la presentación del portal, no una dependencia del agente.

@@ -7,14 +7,14 @@ La carpeta descargada es una base nueva e independiente y no reutiliza
 automáticamente archivos ni datos de B3.
 
 La descarga pública es `proyecto-b4-productos-clases.zip`; la carpeta técnica
-de extracción conserva el nombre `proyecto-sami-oop`.
+El ZIP se extrae sin carpeta raíz; abre la carpeta que contiene los archivos del proyecto.
 
 ## Objetivo
 Reorganizar el problema conocido de auditoria de mercado usando objetos.
 
 ## Estructura
 ```text
-sami_oop/
+proyecto-aplicado-2/
   analizador.py
   persistencia.py
   main.py

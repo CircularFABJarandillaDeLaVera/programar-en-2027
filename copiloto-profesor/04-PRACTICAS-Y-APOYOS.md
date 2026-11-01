@@ -10,15 +10,15 @@ Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos t
 | --- | --- | --- |
 | B1 | [Inicio](../bloques/bloque1/inicio.html) · [Cuaderno de fundamentos](../bloques/bloque1/cuadernos/fundamentos-python-b1.ipynb) | Predicción, modificación y taquilla del día; checkpoints de fundamentos y decisiones. |
 | B2 | [Inicio](../bloques/bloque2/inicio.html) · [Cuaderno de colecciones](../bloques/bloque2/cuadernos/colecciones-datos-b2.ipynb) | Elegir estructuras, analizar frases y justificar el clasificador de palabras. |
-| B3 | [Cuaderno de funciones](../bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb) · [SAMI-Lite](../bloques/bloque3/proyecto-sami-lite/README_PROYECTO.md) | Seguir llamadas entre módulos y modificar una regla de precio con casos de comprobación. |
-| B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
-| B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
+| B3 | [Cuaderno de funciones](../bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb) · [Proyecto aplicado 1](../bloques/bloque3/proyecto-b3-calcula-precios.zip) | Seguir llamadas entre módulos y modificar una regla de precio con casos de comprobación. |
+| B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [Proyecto aplicado 2](../bloques/bloque4/proyecto-b4-productos-clases.zip) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
+| B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [Proyecto aplicado 3](../bloques/bloque5/proyecto-b5-informe-productos.zip) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
 | B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Base de trabajo](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → romper y depurar → modificar sin romper → Git local. |
 | B7 | [Seis experiencias y cuatro proyectos](../bloques/bloque7/inicio.html) · [Material opcional de evidencia](../bloques/bloque7/recursos/proyecto/cierre-b7.md) | Ruta publicada de agentes y ficha opcional de cierre; en ambos, contexto → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
 
-B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. El cierre opcional usa una ficha de evidencia sobre un proyecto ya ejecutado y no es obligatorio. No exijas conexiones reales para las alternativas locales previstas.
+B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. El cierre heredado usa una ficha de evidencia sobre un proyecto ya ejecutado y queda separado de las experiencias publicadas. No exijas conexiones reales para las alternativas locales previstas.
 
-**Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas SAMI de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-SAMI.md) detalla SAMI y [07](07-LAGUNAS-Y-LIMITES.md) recoge los conflictos de evaluación.
+**Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-CONTEXTO-PROYECTOS.md) conserva antecedentes técnicos y [07](07-LAGUNAS-Y-LIMITES.md) recoge las discrepancias de alcance.
 
 
 
@@ -242,8 +242,8 @@ Plan B:
 
 ---
 
-## Proyecto B3: SAMI-Lite (Gestor Modular y Persistencia)
-* **Objetivo:** Trabajar con `main.py`, `analizador.py` y `persistencia.py` para calcular precios, evaluar alertas y guardar transacciones. Los archivos reales son `config.json`, `transacciones_auditoras.csv` y `auditoria_errores.log`; consulta [06 · SAMI](06-SAMI.md).
+## Proyecto B3: Proyecto aplicado 1 · Calcula y guarda precios
+* **Objetivo:** Trabajar con `main.py`, `analizador.py` y `persistencia.py` para calcular precios, evaluar alertas y guardar transacciones. Los archivos reales son `config.json`, `transacciones_auditoras.csv` y `auditoria_errores.log`.
 * **Artefacto/Evidencia:** módulos `.py`, archivos JSON/CSV generados y ejecución donde el alumno demuestra `return`, manejo de error y lectura/escritura.
 
 ---
@@ -286,15 +286,15 @@ Plan B:
 
 ---
 
-## Proyecto B4: SAMI-OOP
-* **Objetivo:** Arquitectura con `Producto`, `ProductoHardware`, `ProductoLicencia`, `AuditoriaMercado` y `ManejadorDatos`. La copia práctica pide validar peso y razonar sobre la diferencia de IVA; consulta [06 · SAMI](06-SAMI.md).
+## Proyecto B4: Proyecto aplicado 2 · Organiza productos con clases
+* **Objetivo:** Arquitectura con `Producto`, `ProductoHardware`, `ProductoLicencia`, `AuditoriaMercado` y `ManejadorDatos`. La copia práctica pide validar peso y razonar sobre la diferencia de IVA.
 * **Artefacto/Evidencia:** clases instanciables, relación de composición, al menos una subclase con `super()` y una llamada polimórfica explicada por el alumno.
 
 ---
 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
 
-La ruta publicada es **cuaderno de datos → SAMI-Applied con CSV → PDF**. Se conservan apoyos sobre NumPy, Pandas, Playwright y ReportLab; Playwright no es requisito del proyecto práctico de B5.
+La ruta publicada es **cuaderno de datos → Proyecto aplicado 3 con CSV → PDF**. Se conservan apoyos sobre NumPy, Pandas, Playwright y ReportLab; Playwright no es requisito del proyecto práctico de B5.
 
 BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático si el material actual lo conserva. No debe competir con Playwright ni convertirse en práctica central.
 
@@ -312,7 +312,7 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
 
 ## Práctica 5.2: Carga y Exploración con Pandas (`got_1.csv`)
 * **Objetivo:** Cargar el dataset de Game of Thrones, explorar dimensiones con `.shape`, tipos con `.info()` y primeras filas con `.head()`.
-* **Validación:** el alumno muestra columnas, primeras filas y entiende que `got_1.csv` es dataset didáctico de Pandas, no datos de SAMI-Applied.
+* **Validación:** el alumno muestra columnas, primeras filas y entiende que `got_1.csv` es dataset didáctico de Pandas, no datos del Proyecto aplicado 3.
 
 ---
 
@@ -339,14 +339,14 @@ BeautifulSoup puede aparecer solo como decisión conceptual para HTML estático 
   * *Nivel 2:* "Calcula primero los importes en variables normales antes de crear la tabla."
   * *Nivel 3:* "La lista `story` debe recibir elementos Platypus y al final se llama a `doc.build(story)`."
 * **Plan B:** Si no se genera el PDF, comprobar instalación de `reportlab`, ruta de salida, permisos de escritura, existencia del logo y que el archivo PDF no esté abierto en otro programa.
-* **Límite:** `canvas` puede mencionarse como ampliación no evaluable; la práctica de factura usa Platypus.
+* **Límite:** `canvas` puede mencionarse como ampliación separada; la práctica de factura usa Platypus.
 * **Artefacto/Evidencia:** archivo `factura_2027_001.pdf` generado por el script, con tabla, importes y estructura legible.
 * **Criterio de Éxito:** el alumno puede señalar dónde se definen los datos, dónde se calculan subtotales/IVA/total y dónde se añade cada elemento a `story`.
 
 ---
 
-## Proyecto B5: SAMI-Applied
-* **Objetivo:** Leer `datos_hardware.csv`, filtrar con Pandas, calcular indicadores con NumPy y generar `reporte_final_sami.pdf` con `generador_informe.py` y ReportLab Platypus.
+## Proyecto B5: Proyecto aplicado 3 · Crea un informe PDF con tus datos
+* **Objetivo:** Leer `datos_hardware.csv`, filtrar con Pandas, calcular indicadores con NumPy y generar `informe_productos.pdf` con `generador_informe.py` y ReportLab Platypus.
 * **Comprobación:** `comprobar.py` y revisión humana del PDF. El scraping se conserva aparte como ampliación online; no convertir el proyecto en facturación.
 * **Artefacto/Evidencia:** CSV o registros de hardware, tabla analizada, resumen por consola y PDF de informe. `got_1.csv` se mantiene fuera del proyecto aplicado.
 
@@ -389,7 +389,7 @@ La ruta publicada se titula **Trabajo como developer** y usa este orden: EXP-01 
 
 # BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
-La portada de B7 publica seis experiencias y cuatro proyectos: arnés de bolsillo; `agente-real`, que se reutiliza en EXP-02→04; grafo de flujo sin LLM; e IA bajo control. El material opcional de cierre y defensa se aplica sobre un proyecto ya ejecutado; no es obligatorio ni sustituye la ruta publicada.
+La portada de B7 publica seis experiencias y cuatro proyectos: arnés de bolsillo; `agente-real`, que se reutiliza en EXP-02→04; grafo de flujo sin LLM; e IA bajo control. El material de cierre y defensa se aplica sobre un proyecto ya ejecutado y queda separado de la ruta publicada.
 
 Cuando intervenga un agente, el ciclo común es: reproducir necesidad → punto seguro Git → hipótesis propia → tarea acotada → contexto → plan → autorización → agente → `git status`/`git diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
 
@@ -422,7 +422,7 @@ Cuando intervenga un agente, el ciclo común es: reproducir necesidad → punto 
 
 Este material puede utilizarse como cierre y defensa sobre cualquiera de los proyectos publicados, pero no es una base nueva ni un requisito para completar las seis experiencias.
 
-* **Entregables:**
+* **Evidencias que conviene conservar:**
   1. Proyecto B7 elegido y su código ejecutable.
   2. `registro-ia.md` (una línea por intervención: tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR).
   3. `plan-validacion.md` (casos de prueba y resultados obtenidos).
@@ -433,14 +433,14 @@ Este material puede utilizarse como cierre y defensa sobre cualquiera de los pro
 
 ## LangGraph: experiencia y ampliación
 * **EXP-05 publicada:** grafo ejecutable sin LLM, con reglas Python, estado y rutas observables. Si falta la librería, se prueban las reglas puras y el grafo queda no verificado.
-* **Decisión pendiente:** la documentación no fija todavía si EXP-05 es obligatoria o evaluable.
+* **Alcance:** EXP-05 se presenta como ampliación separada del recorrido principal.
 * **Ampliación avanzada:** memoria conversacional, herramientas e intervención humana; no forma parte del grafo práctico actual.
 
 ---
 
-# LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
+# RECORRIDO PRÁCTICO · CONSTRUYE Y CONECTA TUS PROYECTOS
 
-* **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de la ruta obligatoria de B7.
+* **Carácter:** Recurso final separado de las seis experiencias publicadas de B7.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.
 * **Contenido:** recorrido práctico y laboratorios adicionales. Las cinco experiencias originales se conservan junto con recursos posteriores; consultar el mapa de 08 y el portal.
 * **Uso docente:** emplear como cierre motivador del itinerario, no como nuevo bloque académico.

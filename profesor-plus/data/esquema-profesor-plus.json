@@ -229,7 +229,7 @@
     {
       "id": "lab-python-en-accion",
       "titulo": "Laboratorio de programación",
-      "bloque": "Lab opcional",
+      "bloque": "Recorrido práctico",
       "sourceMd": "plantillas/lab-python-en-accion.md",
       "html": "secciones/lab-python-en-accion.html"
     }

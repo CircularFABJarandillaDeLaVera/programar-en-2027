@@ -13,7 +13,7 @@ DATOS -> CALCULOS -> ESTRUCTURA -> REPORTLAB -> PDF
 5. Playwright: automatizar carga minima y cerrar navegador.
 6. BeautifulSoup: decidir cuando basta HTML estatico.
 7. ReportLab: construir una factura PDF con Platypus.
-8. SAMI-Applied: producir tabla analizada, resumen y PDF de informe.
+8. Proyecto aplicado 3: producir tabla analizada, resumen y PDF de informe.
 
 ## Dinamica
 

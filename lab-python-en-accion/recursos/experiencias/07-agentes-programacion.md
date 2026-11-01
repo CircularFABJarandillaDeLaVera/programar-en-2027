@@ -2,7 +2,7 @@
 
 ## Anexo práctico: elegir con criterio
 
-**[EXPLICACIÓN COMPLEMENTARIA] · Exploración opcional, no evaluable.**
+**[EXPLICACIÓN COMPLEMENTARIA] · Exploración separada del recorrido principal.**
 
 **No necesitas el mejor modelo. Necesitas saber elegir una herramienta y un modelo suficientemente buenos para la tarea que quieres resolver.**
 

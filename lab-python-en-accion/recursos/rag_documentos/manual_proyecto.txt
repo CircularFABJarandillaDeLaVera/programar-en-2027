@@ -1,0 +1,5 @@
+Manual de usuario del proyecto de aula.
+
+El asistente del centro ayuda a organizar notas técnicas y tareas del taller.
+
+La versión de demostración se denomina Faro. Su función principal es organizar notas técnicas, registrar eventos de aula y gestionar pequeñas listas de tareas del taller.

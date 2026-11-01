@@ -1,6 +1,6 @@
 # 02 · GUÍA DOCENTE BLOQUE A BLOQUE (B1 A B7)
 
-Esta guía conserva explicaciones, analogías, demostraciones y Plan B para los siete bloques. Empieza por el [mapa de recursos actuales](04-PRACTICAS-Y-APOYOS.md) y adapta estos apoyos a la actividad real. Los ejemplos ilustrativos —incluidos los de sensores— no describen necesariamente las clases de SAMI. Las duraciones reducidas son propuestas docentes, no la duración oficial del bloque.
+Esta guía conserva explicaciones, analogías, demostraciones y Plan B para los siete bloques. Empieza por el [mapa de recursos actuales](04-PRACTICAS-Y-APOYOS.md) y adapta estos apoyos a la actividad real. Los ejemplos ilustrativos —incluidos los de sensores— no describen necesariamente las clases de los proyectos aplicados. Las duraciones reducidas son propuestas docentes, no la duración oficial del bloque.
 
 ---
 
@@ -147,7 +147,7 @@ Dominar el almacenamiento y la manipulación de colecciones en memoria: slicing 
 # BLOQUE 3: FUNCIONES Y MODULARIDAD
 
 ## 3.1. Objetivo Operativo
-Realizar la transición mental de scripts lineales a programas modulares, reutilizables y estructurados mediante funciones (`def`), comprendiendo el retorno explícito de datos (`return`) frente a la salida por pantalla (`print`), gestión de parámetros por defecto, aislamiento de variables (scope local vs global), documentación estándar con docstrings (`"""..."""`), control robusto de excepciones (`try-except-else-finally`), persistencia en disco con `with open()` en formatos JSON y CSV, y división en múltiples archivos `.py` con `import`. Culmina con el hito **SAMI-Lite**.
+Realizar la transición mental de scripts lineales a programas modulares, reutilizables y estructurados mediante funciones (`def`), comprendiendo el retorno explícito de datos (`return`) frente a la salida por pantalla (`print`), gestión de parámetros por defecto, aislamiento de variables (scope local vs global), documentación estándar con docstrings (`"""..."""`), control robusto de excepciones (`try-except-else-finally`), persistencia en disco con `with open()` en formatos JSON y CSV, y división en múltiples archivos `.py` con `import`. Culmina con el **Proyecto aplicado 1 · Calcula y guarda precios**.
 
 ---
 
@@ -191,7 +191,7 @@ Realizar la transición mental de scripts lineales a programas modulares, reutil
 ---
 
 ## 3.5. Adaptaciones Temporales (B3)
-* **150 min:** `def` y `return` (30 min) + Scope y excepciones (30 min) + Persistencia JSON/CSV (30 min) + Desarrollo guiado de SAMI-Lite (60 min).
+* **150 min:** `def` y `return` (30 min) + Scope y excepciones (30 min) + Persistencia JSON/CSV (30 min) + Desarrollo guiado del Proyecto aplicado 1 (60 min).
 * **90 min:** Funciones y retorno + Excepciones (30 min), `with open` y JSON (25 min), Prácticas 01, 03 y 04 (35 min).
 * **60 min:** Funciones con `return` + `try/except` + persistencia básica (25 min), Práctica 04 (JSON) guiada (35 min).
 * **30 min:** Demo completa de una función que lee un JSON, añade un registro con validación `try/except` y lo vuelve a guardar.
@@ -201,7 +201,7 @@ Realizar la transición mental de scripts lineales a programas modulares, reutil
 # BLOQUE 4: PROGRAMACIÓN ORIENTADA A OBJETOS (POO)
 
 ## 4.1. Objetivo Operativo
-Evolucionar de la programación procedural/modular a la Programación Orientada a Objetos. Comprender el acoplamiento de estado (atributos) y comportamiento (métodos) en una clase, la auto-referencia con `self`, el constructor `__init__`, la encapsulación mediante convenciones (`_`), la diferencia entre relaciones de composición ("tiene un") y herencia ("es un"), la llamada al constructor base con `super()`, y el polimorfismo mediante métodos comunes. Culmina con el hito **SAMI-OOP**.
+Evolucionar de la programación procedural/modular a la Programación Orientada a Objetos. Comprender el acoplamiento de estado (atributos) y comportamiento (métodos) en una clase, la auto-referencia con `self`, el constructor `__init__`, la encapsulación mediante convenciones (`_`), la diferencia entre relaciones de composición ("tiene un") y herencia ("es un"), la llamada al constructor base con `super()`, y el polimorfismo mediante métodos comunes. Culmina con el **Proyecto aplicado 2 · Organiza productos con clases**.
 
 ---
 
@@ -244,7 +244,7 @@ Evolucionar de la programación procedural/modular a la Programación Orientada 
 ---
 
 ## 4.5. Adaptaciones Temporales (B4)
-* **150 min:** Fundamentos clase/objeto y `self` (35 min) + Encapsulación y herencia/`super()` (35 min) + Polimorfismo (20 min) + Desarrollo guiado de SAMI-OOP (60 min).
+* **150 min:** Fundamentos clase/objeto y `self` (35 min) + Encapsulación y herencia/`super()` (35 min) + Polimorfismo (20 min) + Desarrollo guiado del Proyecto aplicado 2 (60 min).
 * **90 min:** Clases, `__init__`, `self` y herencia con `super()` (35 min), Prácticas 01, 02 y 04 (40 min), ensamblado de clases (15 min).
 * **60 min:** De diccionarios a Clases + Herencia básica (25 min), Prácticas 01 y 04 (35 min).
 * **30 min:** Demostración de una clase base `Sensor` y dos subclases que implementan polimórficamente el método `leer_valor()`.
@@ -254,15 +254,15 @@ Evolucionar de la programación procedural/modular a la Programación Orientada 
 # BLOQUE 5: PYTHON APLICADO Y LIBRERÍAS
 
 ## 5.1. Objetivo Operativo
-Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales a partir de los materiales de **NumPy, Pandas, Playwright y ReportLab**, distinguiendo las demostraciones del proyecto **SAMI-Applied**, que parte de un CSV local: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv` como práctica didáctica separada), automatización y scraping web moderno con **Playwright**, y generación real de informes estructurados en PDF con **ReportLab Platypus**. Culmina con el hito **SAMI-Applied**.
+Integrar librerías del ecosistema estándar de la ciencia de datos y automatización para resolver flujos reales a partir de los materiales de **NumPy, Pandas, Playwright y ReportLab**, distinguiendo las demostraciones del **Proyecto aplicado 3**, que parte de un CSV local: operaciones numéricas vectorizadas con **NumPy**, manipulación, filtrado condicional y análisis tabular con **Pandas** (utilizando el dataset de Game of Thrones `got_1.csv` como práctica didáctica separada), automatización y scraping web moderno con **Playwright**, y generación real de informes estructurados en PDF con **ReportLab Platypus**.
 
 ---
 
-La ruta actual empieza con el cuaderno de datos y continúa en el proyecto CSV de SAMI-Applied. Playwright se conserva en los materiales de autor como demo aparte, no como requisito de ese PDF.
+La ruta actual puede empezar con el cuaderno de datos y continuar en el proyecto CSV del Proyecto aplicado 3. Playwright se conserva en los materiales de autor como demo aparte, no como requisito de ese PDF.
 
 ## 5.2. Mesa del Instructor y Preparación
 * **Archivos en carpeta:** `got_1.csv` listo para cargar en Colab / VS Code.
-* **Instalación:** seguir el README y `requirements.txt` de la actividad elegida. SAMI-Applied práctico usa Pandas, NumPy y ReportLab; instalar navegador solo si se va a realizar la demo separada de Playwright.
+* **Instalación:** seguir el README y `requirements.txt` de la actividad elegida. El Proyecto aplicado 3 usa Pandas, NumPy y ReportLab; instalar navegador solo si se va a realizar la demo separada de Playwright.
 * **Factura PDF:** Tener localizada la práctica de ReportLab Platypus y comprobar que el logo de ejemplo existe antes de ejecutar el script.
 * **Mensaje clave:** separar datos y presentación. Primero se calculan base imponible, IVA y total; después se maqueta el PDF con `story` y `build()`.
 * **Límite B5:** BeautifulSoup solo puede tratarse como concepto acotado de parsing de HTML estático si aparece en el material actual. No debe competir con el recorrido práctico NumPy -> Pandas -> Playwright -> ReportLab.
@@ -304,10 +304,10 @@ Resultado esperado en B5: datos procesados, cálculos claros, tabla revisable, f
 ---
 
 ## 5.5. Adaptaciones Temporales (B5)
-Selecciona una ruta coherente; no intentes comprimir todas las librerías en una sesión. La ruta principal es **cuaderno de datos → SAMI-Applied → comprobación del PDF**. Playwright y la factura con ReportLab son prácticas separadas que pueden elegirse según el objetivo.
+Selecciona una ruta coherente; no intentes comprimir todas las librerías en una sesión. La ruta principal es **cuaderno de datos → Proyecto aplicado 3 → comprobación del PDF**. Playwright y la factura con ReportLab son prácticas separadas que pueden elegirse según el objetivo.
 
-* **150 min:** cuaderno de NumPy/Pandas (60 min) + SAMI-Applied con CSV (55 min) + generación, comprobación y revisión visual del PDF (35 min).
-* **90 min:** carga, filtro e indicadores del CSV de SAMI-Applied (55 min) + PDF y comprobación (35 min).
+* **150 min:** cuaderno de NumPy/Pandas (60 min) + Proyecto aplicado 3 con CSV (55 min) + generación, comprobación y revisión visual del PDF (35 min).
+* **90 min:** carga, filtro e indicadores del CSV del Proyecto aplicado 3 (55 min) + PDF y comprobación (35 min).
 * **60 min:** Pandas sobre el CSV e interpretación del resumen; dejar el PDF como demostración o continuación.
 * **30 min:** carga de un CSV, un filtro explicado y predicción del resultado. No presentar como generado un PDF que no se haya ejecutado.
 
@@ -388,7 +388,7 @@ Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y dec
 | **Registro y Validación** | `registro-ia.md` + `plan-validacion.md` | **Diario de a bordo / Caja negra de avión:** Documenta qué le pediste a la máquina, qué te devolvió, qué modificaciones tuviste que hacerle tú a mano y cómo probaste que funciona. | Una línea por intervención con tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR; registra solo fallas realmente observadas. |
 | **LangGraph en EXP-05** | Estado, nodos y rutas | **Cadena de pasos:** cada función procesa el estado y una regla Python decide la ruta. | Grafo ejecutable sin LLM; si no está instalado se prueban las reglas puras y el grafo queda no verificado. Memoria conversacional e intervención humana avanzada son ampliaciones. |
 
-La presencia de EXP-05 en la ruta confirma una experiencia práctica, pero no resuelve por sí sola si LangGraph es obligatorio o evaluable. No fijes ese criterio sin decisión curricular.
+La presencia de EXP-05 en la ruta confirma una experiencia práctica; su explicación y comprobación se mantienen separadas del recorrido principal.
 
 ---
 
@@ -397,7 +397,7 @@ La presencia de EXP-05 en la ruta confirma una experiencia práctica, pero no re
 ### Demostración 1: La alucinación de la IA en librerías o sintaxis obsoleta
 1. Pide a un modelo de IA que resuelva una tarea usando una función inventada o una sintaxis ambigua.
 2. Copia el código en VS Code y ejecútalo delante de los alumnos mostrando cómo falla en consola.
-3. **Explicación docente:** *"La IA genera texto estadísticamente probable, no código garantizado. La ejecución y la validación física en el entorno local son obligatorias e indelegables."*
+3. **Explicación docente:** *"La IA genera texto estadísticamente probable, no código garantizado. La ejecución y la validación física en el entorno local corresponden a la persona."*
 
 ### Demostración 2: El protocolo de refactorización guiada
 1. Toma una función monolítica de 50 líneas.
@@ -426,5 +426,5 @@ Si se usa una adaptación sin ejecución, no se presenta como práctica ejecutad
 Al finalizar cualquier bloque formativo, el formador de Circular FAB debe asegurar que:
 - [ ] Todos los alumnos han guardado sus cuadernos (en Google Drive) o han hecho `git commit` de sus cambios locales.
 - [ ] Se han recogido las dudas no resueltas para la apertura de la siguiente sesión.
-- [ ] Los alumnos han completado las microevaluaciones del bloque para consolidar conceptos.
+- [ ] Se han elegido y realizado, si ayudan a la sesión, comprobaciones formativas del bloque.
 - [ ] Se ha relacionado lo aprendido con el proyecto o experiencia que realmente está realizando el grupo.

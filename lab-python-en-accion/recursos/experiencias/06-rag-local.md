@@ -173,7 +173,7 @@ rag-local/
 ├── rag_local_visible.py         (script principal)
 ├── requirements-rag.txt         (librería de conexión Python)
 └── rag_documentos/
-    ├── manual_sami.txt          (manual del sistema)
+    ├── manual_proyecto.txt      (manual del sistema)
     ├── tarifas_envio.txt        (tarifas y envíos)
     └── protocolo_aula.txt       (normas y ubicación de materiales)
 ```

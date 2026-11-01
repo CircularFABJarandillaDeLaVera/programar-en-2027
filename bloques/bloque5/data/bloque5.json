@@ -14,11 +14,11 @@
     "Entender que una libreria se usa cuando resuelve una necesidad real.",
     "Usar NumPy para arrays y operaciones vectorizadas sencillas.",
     "Usar Pandas para cargar CSV, consultar filas y filtrar tablas.",
-    "Practicar Pandas con got_1.csv sin mezclarlo con SAMI-Applied.",
+    "Practicar Pandas con got_1.csv sin mezclarlo con el Proyecto aplicado 3.",
     "Automatizar una carga web minima con Playwright y cerrar el navegador.",
     "Distinguir BeautifulSoup de Playwright a nivel conceptual.",
     "Generar una factura PDF sencilla con ReportLab usando Platypus.",
-    "Evolucionar SAMI-OOP hacia SAMI-Applied con datos de hardware."
+    "Usar datos de hardware en el Proyecto aplicado 3."
   ],
   "slides": [
     {
@@ -60,7 +60,7 @@
     {
       "titulo": "Pandas: leer got_1.csv",
       "objetivo": "Usar un CSV real como recurso de aprendizaje de tablas.",
-      "guion": "Carga got_1.csv para practicar DataFrame, columnas e indices sin llevar GOT al proyecto SAMI.",
+      "guion": "Carga got_1.csv para practicar DataFrame, columnas e indices sin llevar GOT al proyecto aplicado.",
       "pregunta": "Por que este dataset sirve para aprender Pandas aunque el proyecto sea de hardware?",
       "ejemplo": "import pandas as pd\n\ndf = pd.read_csv(\"got_1.csv\")\nprint(df.head())",
       "modificar": "Imprime solo los nombres de columnas con df.columns.",
@@ -144,7 +144,7 @@
     {
       "titulo": "Proyecto aplicado 3: datos coherentes",
       "objetivo": "Separar GOT como practica de Pandas y hardware como proyecto aplicado.",
-      "guion": "Explica que SAMI-Applied solo usa precios y disponibilidad de componentes.",
+      "guion": "Explica que el Proyecto aplicado 3 solo usa precios y disponibilidad de componentes.",
       "pregunta": "Por que no mezclamos personajes de GOT con precios de hardware?",
       "ejemplo": "ofertas = [\n    {\"id\": \"CPU-01\", \"componente\": \"CPU\", \"precio\": 189.0, \"stock\": 7},\n    {\"id\": \"RAM-02\", \"componente\": \"RAM\", \"precio\": 64.0, \"stock\": 0}\n]\nprint(ofertas)",
       "modificar": "Anade una oferta de placa base.",
@@ -168,7 +168,7 @@
     {
       "titulo": "Proyecto aplicado 3: resultado",
       "objetivo": "Producir una evidencia clara sin convertir B5 en proyecto final.",
-      "guion": "Entrega tabla analizada, resumen por consola y PDF de informe con ReportLab Platypus.",
+"guion": "Comprueba la tabla analizada, el resumen por consola y el PDF de informe con ReportLab Platypus.",
       "pregunta": "Que evidencia demuestra que el flujo funciono?",
       "ejemplo": "resultado = {\n    \"ofertas_validas\": 3,\n    \"precio_medio\": 112.5,\n    \"salida\": \"informe_productos.pdf\"\n}\nprint(resultado)",
       "modificar": "Anade una alerta si el stock total es bajo.",
@@ -224,7 +224,7 @@
       "Generacion de PDF con Platypus: story, tablas, parrafos, logo y build()."
     ],
     [
-      "SAMI-Applied usa datos de...",
+      "El Proyecto aplicado 3 usa datos de...",
       "Precios y disponibilidad de componentes de hardware."
     ]
   ],
@@ -242,7 +242,7 @@
       "titulo": "GOT como practica",
       "situacion": "got_1.csv se usa para aprender loc, iloc y filtros.",
       "preguntas": [
-        "Por que no entra en SAMI-Applied?",
+        "Por que no entra en el Proyecto aplicado 3?",
         "Que tecnica de Pandas si se transfiere?",
         "Que evidencia produce?"
       ]
@@ -280,7 +280,7 @@
       "preguntas": [
         "Que secciones debe tener el informe?",
         "Que elementos van como Paragraph, Image o Table?",
-        "Que evidencia se entrega?"
+"Que evidencia conviene conservar?"
       ]
     }
   ],
@@ -420,7 +420,7 @@
   ],
   "proyecto": {
     "titulo": "Proyecto aplicado 3 · Crea un informe PDF con tus datos",
-    "evolucion": "SAMI-Lite -> SAMI-OOP -> SAMI-Applied",
+    "evolucion": "Proyecto aplicado 1 -> Proyecto aplicado 2 -> Proyecto aplicado 3",
     "estructura": [
       "datos_hardware.csv",
       "scraper.py",

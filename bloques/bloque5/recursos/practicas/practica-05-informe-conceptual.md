@@ -8,7 +8,7 @@ Flujo de trabajo:
 
 DATOS -> CALCULOS -> ESTRUCTURA -> REPORTLAB -> PDF
 
-## Herramientas obligatorias
+## Herramientas necesarias
 
 Usa el enfoque de alto nivel Platypus:
 
@@ -23,7 +23,7 @@ Usa el enfoque de alto nivel Platypus:
 - `A4`
 - `build()`
 
-Canvas queda como ampliacion no evaluable.
+Canvas queda como ampliacion separada del flujo principal.
 
 ## Datos de entrada
 

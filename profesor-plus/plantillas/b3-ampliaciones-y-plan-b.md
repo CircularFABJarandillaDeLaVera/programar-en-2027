@@ -3,7 +3,7 @@
 ## Alumnos bloqueados
 - Dar una funcion ya escrita y pedir solo la llamada.
 - Mostrar primero el error y despues la correccion.
-- Separar SAMI-Lite en tres pasos: calculo, archivo, coordinacion.
+- Separar el Proyecto aplicado 1 en tres pasos: calculo, archivo, coordinacion.
 
 ## Alumnos rapidos
 - Anadir mas campos al CSV.

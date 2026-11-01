@@ -19,7 +19,7 @@
     "Aceptar, modificar o rechazar sugerencias de IA con criterio.",
     "Preparar cierre de B7 partiendo de base de herramientas de B6.",
     "Defender el proyecto explicando decisiones, flujo y validaciones.",
-    "Reconocer LangGraph como ampliacion opcional no evaluable."
+    "Reconocer LangGraph como ampliacion separada del recorrido principal."
   ],
   "slides": [
     {
@@ -156,15 +156,15 @@
     },
     {
       "titulo": "LangGraph opcional",
-      "objetivo": "Presentar StateGraph, nodos, aristas, estado, reducers, memoria y human-in-the-loop como ampliacion no evaluable.",
-      "guion": "Identificar visualmente como AMPLIACION OPCIONAL - NO EVALUABLE. No entra en cierre de B7.",
-      "pregunta": "LangGraph es requisito para aprobar?",
+      "objetivo": "Presentar StateGraph, nodos, aristas, estado, reducers, memoria y human-in-the-loop como ampliacion separada.",
+      "guion": "Identificar visualmente que es una ampliacion separada y no confundirla con un sistema multiagente.",
+      "pregunta": "Que papel tiene LangGraph en este bloque?",
       "ejemplo": "ampliacion = \"opcional\"\nprint(ampliacion)",
       "modificar": "Enumera conceptos sin implementarlos.",
       "predecir": "Debe dominar el bloque?",
       "error_util": "Convertir la ampliacion en requisito.",
-      "reto": "Dibuja un grafo conceptual simple sin codigo obligatorio.",
-      "comprobar": "Queda separado del proyecto evaluable."
+      "reto": "Dibuja un grafo conceptual simple sin codigo adicional.",
+      "comprobar": "Queda separado del recorrido principal."
     }
   ],
   "flashcards": [
@@ -214,7 +214,7 @@
     ],
     [
       "LangGraph B7",
-      "Ampliacion opcional no evaluable, fuera de cierre de B7."
+      "Ampliacion separada, fuera del cierre publicado de B7."
     ]
   ],
   "casos": [
@@ -240,7 +240,7 @@
       "titulo": "Codigo que no entiende",
       "situacion": "El codigo funciona una vez, pero el alumno no puede explicarlo.",
       "preguntas": [
-        "Esta listo para entrega?",
+"Esta listo para comprobarlo?",
         "Que debe pedir a la IA?",
         "Que debe comprobar personalmente?"
       ]
@@ -267,7 +267,7 @@
       "titulo": "LangGraph brillante",
       "situacion": "Un equipo quiere meter grafos en cierre de B7.",
       "preguntas": [
-        "Es evaluable?",
+        "Forma parte del recorrido principal?",
         "Debe entrar en proyecto?",
         "Como lo dejarian como ampliacion?"
       ]
@@ -280,7 +280,7 @@
       "opciones": [
         "archivo, objetivo, restricciones y criterio de validacion",
         "solo 'hazlo mejor'",
-        "un framework nuevo obligatorio"
+        "un framework nuevo no previsto"
       ],
       "correcta": 0,
       "explicacion": "El contexto acotado reduce invenciones y facilita validar."
@@ -334,7 +334,7 @@
       "pregunta": "Si no puedes explicar el codigo aceptado, debes...",
       "opciones": [
         "Pedir explicacion, probar y simplificar",
-        "Entregarlo igual",
+"Aceptarlo sin comprobar",
         "Ocultar que usaste IA"
       ],
       "correcta": 0,
@@ -379,7 +379,7 @@
       "opciones": [
         "base de herramientas de B6",
         "un framework nuevo",
-        "LangGraph obligatorio"
+        "actividad principal del bloque"
       ],
       "correcta": 0,
       "explicacion": "cierre de B7 evoluciona desde base de herramientas de B6."
@@ -399,12 +399,12 @@
       "tipo": "langgraph",
       "pregunta": "LangGraph en B7 es...",
       "opciones": [
-        "ampliacion opcional no evaluable",
-        "requisito para aprobar",
-        "parte obligatoria de cierre de B7"
+        "ampliacion separada del recorrido",
+        "actividad separada del recorrido",
+        "parte del cierre publicado de B7"
       ],
       "correcta": 0,
-      "explicacion": "Debe quedar separado del proyecto evaluable."
+        "explicacion": "Debe quedar separado del recorrido principal."
     }
   ],
   "proyecto": {

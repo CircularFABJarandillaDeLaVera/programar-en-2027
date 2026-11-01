@@ -37,24 +37,28 @@
     .course-panel { background: var(--cf-color-surface); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-lg); padding: var(--cf-space-5); }
     .course-panel h2 { margin-top: 0; }
     .course-panel p, .course-panel li { line-height: 1.6; }
-    .course-panel a, .support-links a { color: var(--cf-color-accent); }
+    .course-panel a:not(.cf-button), .support-links a { color: var(--cf-color-accent); }
     .setup-actions, .support-links { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); align-items: center; }
     .journey__item a:focus-visible, .course-panel a:focus-visible, .support-links a:focus-visible { outline: 3px solid var(--cf-color-accent); outline-offset: 4px; }
     .journey__item a[aria-expanded="true"] { text-decoration: underline; }
     .route-grid { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .route-card { display: grid; gap: var(--cf-space-3); }
+    .route-projects { border-top: 1px solid var(--cf-color-border); display: grid; gap: var(--cf-space-2); grid-column: 1 / -1; padding-top: var(--cf-space-4); }
+    .route-projects h2 { margin: 0; }
+    .route-projects a { color: var(--cf-color-accent); font-weight: 750; }
+    .route-projects__list { display: grid; gap: var(--cf-space-2); margin: 0; padding-left: 1.25rem; }
+    .route-common { border-top: 1px solid var(--cf-color-border); display: grid; gap: var(--cf-space-3); grid-column: 1 / -1; padding-top: var(--cf-space-4); }
+    .route-common h2 { margin: 0; }
+    .route-common__links { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .route-common__links a { color: inherit; text-decoration: none; }
     .route-card h2, .route-card h3 { margin: 0; }
     .route-card p, .route-card li { line-height: 1.55; }
     .route-card ul { margin: 0; padding-left: 1.25rem; }
     .route-card__next { border-top: 1px solid var(--cf-color-border); color: var(--cf-color-text-muted); padding-top: var(--cf-space-3); }
-    .project-strip { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--cf-space-4); }
-    .project-strip a { color: inherit; text-decoration: none; }
-    .project-strip .cf-card { min-height: 0; }
-    .continuation { margin-top: var(--cf-space-4); }
     @media (max-width: 1000px) { .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 1120px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 720px) {
-      .grid, .journey, .route-grid, .project-strip { grid-template-columns: 1fr; }
+      .grid, .journey, .route-grid, .project-strip, .route-common__links { grid-template-columns: 1fr; }
       .shell { max-width: 100vw; padding: var(--cf-space-3); width: 100vw; }
       .cf-topbar--course { flex-wrap: wrap; }
       .cf-topbar--course .cf-nav { flex-direction: column; max-width: 100%; order: 3; overflow: hidden; width: 100%; }
@@ -97,13 +101,7 @@
         <span class="journey__kicker">Prepara tu equipo</span>
         <h2>Empieza por aquí</h2>
         <p>Prepara las herramientas y tu cuenta de GitHub. Sigue la guía y pide ayuda si te atascas.</p>
-        <a href="#preparacion" data-course-panel="preparacion" aria-controls="preparacion" aria-expanded="false">Ver guía de preparación</a>
-      </div>
-      <div class="journey__item">
-        <span class="journey__kicker">Continuación posterior</span>
-        <h2>Recorrido práctico</h2>
-        <p>Después de B7, construye y conecta tus proyectos para comprender cómo se relacionan sus piezas.</p>
-        <a href="lab-python-en-accion/index.html">Construye y conecta tus proyectos</a>
+        <a href="preparacion.html">Ver guía de preparación</a>
       </div>
       <div class="journey__item">
         <span class="journey__kicker">Consulta</span>
@@ -123,63 +121,38 @@
       <article class="route-card">
         <span class="cf-chip cf-chip--accent">Ruta A · Crear proyectos con agentes</span>
         <h2 id="rutas-title">Construye primero; estudia cuando lo necesites</h2>
-        <p>Haz la preparación mínima, pide cambios pequeños a un agente, revisa el resultado y compruébalo. No necesitas terminar los cuadernos para entrar en esta ruta.</p>
-        <ol>
-          <li>Empieza por el <a href="bloques/bloque3/inicio.html">Proyecto aplicado 1 · Calcula y guarda precios</a>.</li>
-          <li>Continúa con los proyectos aplicados 2 y 3.</li>
-          <li>Después pasa a <a href="bloques/bloque6/inicio.html">B6</a> y <a href="bloques/bloque7/inicio.html">B7</a>.</li>
-        </ol>
-        <p class="route-card__next"><strong>Siguiente paso:</strong> abre la guía de B3 y realiza una primera ejecución que puedas explicar.</p>
+        <ul>
+          <li>Construye una primera versión con ayuda del agente.</li>
+          <li>Revisa los cambios y comprueba el resultado.</li>
+        </ul>
+        <p><a href="prepara-tu-copiloto.html">Prepara tu copiloto del curso</a> para orientar tu primera práctica.</p>
       </article>
       <article class="route-card">
         <span class="cf-chip cf-chip--neutral">Ruta B · Aprender programación con Python</span>
         <h2>Estudia los fundamentos y aplícalos</h2>
-        <p>Avanza con los cuadernos desde B1, conecta cada concepto con una práctica y usa los proyectos aplicados para comprobar lo aprendido.</p>
-        <ol>
-          <li>Recorre <a href="bloques/bloque1/inicio.html">B1 y B2</a>.</li>
-          <li>Aplica lo aprendido en <a href="bloques/bloque3/inicio.html">B3</a>, <a href="bloques/bloque4/inicio.html">B4</a> y <a href="bloques/bloque5/inicio.html">B5</a>.</li>
-          <li>Continúa hacia <a href="bloques/bloque6/inicio.html">B6</a> y <a href="bloques/bloque7/inicio.html">B7</a>.</li>
-        </ol>
-        <p class="route-card__next"><strong>En cada proyecto:</strong> el cuaderno prepara conceptos; la práctica los convierte en una entrega ejecutable.</p>
+        <p>Estudia los fundamentos mediante los cuadernos, ejecuta sus celdas en orden y aplica cada idea en una práctica.</p>
+        <p>Empieza por <a href="bloques/bloque1/inicio.html">B1 · Fundamentos y lógica</a> y continúa con <a href="bloques/bloque2/inicio.html">B2 · Estructuras de datos</a>.</p>
       </article>
-    </section>
 
-    <section class="course-panel continuation" aria-labelledby="projects-title">
-      <span class="cf-chip cf-chip--neutral">Tres proyectos aplicados</span>
-      <h2 id="projects-title">El mismo hilo práctico en ambas rutas</h2>
-      <div class="project-strip">
-        <a class="cf-card cf-card--interactive" href="bloques/bloque3/inicio.html"><h3>B3 · Calcula y guarda precios</h3><p>Funciones, archivos y una primera entrega de consola.</p></a>
-        <a class="cf-card cf-card--interactive" href="bloques/bloque4/inicio.html"><h3>B4 · Organiza productos con clases</h3><p>Objetos y responsabilidades sobre el mismo problema.</p></a>
-        <a class="cf-card cf-card--interactive" href="bloques/bloque5/inicio.html"><h3>B5 · Crea un informe PDF con tus datos</h3><p>Datos, librerías y un resultado que puedes revisar.</p></a>
+      <div class="route-projects">
+        <h2>Proyectos aplicados</h2>
+        <p>Abre cada bloque para consultar su guía, descargar el proyecto y comprobar lo que construyes.</p>
+        <ul class="route-projects__list">
+          <li><a href="bloques/bloque3/inicio.html">Proyecto 1 · Calcula y guarda precios</a></li>
+          <li><a href="bloques/bloque4/inicio.html">Proyecto 2 · Organiza productos con clases</a></li>
+          <li><a href="bloques/bloque5/inicio.html">Proyecto 3 · Crea un informe PDF con tus datos</a></li>
+        </ul>
       </div>
-      <p class="route-card__next"><strong>Después de B7:</strong> abre el <a href="lab-python-en-accion/index.html">Recorrido práctico · Construye y conecta tus proyectos</a>. Es una continuación libre; no obliga a repetir estas prácticas.</p>
-    </section>
 
-    <section class="course-panel" id="preparacion" aria-labelledby="preparacion-title" hidden>
-      <h2 id="preparacion-title" tabindex="-1">Empieza por aquí</h2>
-      <p>Sigue la guía para instalar las herramientas y preparar tu cuenta de GitHub. Hazlo paso a paso y comprueba cada apartado antes de continuar.</p>
-      <div class="setup-actions">
-        <a class="cf-button cf-button--primary" href="assets/descargas/guia-inicio-python.pdf" download>Descargar guía de preparación</a>
+      <div class="route-common">
+        <span class="cf-chip cf-chip--neutral">Continuación</span>
+        <h2>Conecta y amplía tus proyectos</h2>
+        <div class="route-common__links">
+          <a class="cf-card cf-card--interactive" href="bloques/bloque6/inicio.html"><h3>B6 · Herramientas para trabajar con tus proyectos</h3><p>Entorno, dependencias, depuración, Git y ayuda de agentes.</p></a>
+          <a class="cf-card cf-card--interactive" href="bloques/bloque7/inicio.html"><h3>B7 · Agentes, procedimientos reutilizables y comprobaciones</h3><p>Petición acotada, procedimientos, arneses y validación bajo revisión humana.</p></a>
+          <a class="cf-card cf-card--interactive" href="lab-python-en-accion/index.html"><h3>Recorrido práctico · Construye y conecta tus proyectos</h3><p>Relaciona las piezas y decide cuáles necesita tu proyecto.</p></a>
+        </div>
       </div>
-      <h3>Guía y descargas oficiales</h3>
-      <ul>
-        <li><a href="https://github.com/signup">Crear cuenta de GitHub</a>: confirma tu correo.</li>
-        <li><a href="https://www.python.org/downloads/windows/">Descargar Python para Windows</a>.</li>
-        <li><a href="https://code.visualstudio.com/download">Descargar Visual Studio Code</a>.</li>
-        <li><a href="https://git-scm.com/downloads">Descargar Git</a> para guardar versiones y trabajar con repositorios.</li>
-        <li>Extensiones de VS Code: <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>, <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-es">Español</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a> y <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat">GitHub Copilot Chat</a>.</li>
-        <li><a href="https://code.visualstudio.com/docs/setup/copilot">Iniciar sesión y preparar Copilot</a>. La disponibilidad y los límites dependen de tu cuenta.</li>
-        <li>Opcional: <a href="https://opencode.ai/download">descargar OpenCode</a>, siguiendo el anexo de la guía.</li>
-      </ul>
-      <h3>¿Te has atascado?</h3>
-      <p>Sube la guía a un GPT y pídele que te acompañe paso a paso. Indica en qué apartado estás y copia el mensaje de error o añade una captura. También puedes pedir una tutoría al docente para resolverlo juntos.</p>
-      <h3>Comprobación mínima</h3>
-      <ol>
-        <li>Abre VS Code y crea o abre una carpeta de trabajo.</li>
-        <li>Comprueba que Python responde con <code>python --version</code>.</li>
-        <li>Abre una terminal en esa carpeta y ejecuta un archivo pequeño o una celda de prueba.</li>
-      </ol>
-      <p>Cuando la comprobación funcione, elige una ruta. Puedes cambiar de ruta más adelante.</p>
     </section>
 
     <section class="course-panel" id="bloques" aria-labelledby="bloques-title" hidden>
@@ -195,11 +168,7 @@
       </div>
     </section>
 
-    <nav class="support-links" aria-label="Ayuda para aprender con IA">
-      <a href="copiloto-profesor/inicio.html">Copiloto Programar · Ayuda para aprender y enseñar</a>
-      <a href="copiloto-profesor/copiloto-profesor-python-2027.zip" download>Descargar pack del copiloto</a>
-    </nav>
-    <noscript><style>.course-panel[hidden] { display: block !important; }</style><p>JavaScript está desactivado: la guía y los bloques se muestran a continuación de los accesos.</p></noscript>
+    <noscript><style>.course-panel[hidden] { display: block !important; }</style><p>JavaScript está desactivado: los bloques se muestran a continuación de los accesos.</p></noscript>
 
     <footer class="corp-band" aria-label="Logos institucionales">
       <img class="corp-band__logo corp-logo--light" src="assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
