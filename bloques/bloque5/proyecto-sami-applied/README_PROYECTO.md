@@ -1,4 +1,10 @@
-# SAMI-Applied (B5) — De datos externos a un PDF real
+# Proyecto aplicado 3 · Crea un informe PDF con tus datos
+
+SAMI-Applied es el nombre técnico de esta base de B5.
+
+La descarga pública es `proyecto-b5-informe-productos.zip`. El ZIP no añade
+una carpeta raíz: tras extraerlo, abre en VS Code la carpeta técnica
+`proyecto-sami-applied`.
 
 Evolución: **SAMI-Lite (B3: funciones) → SAMI-OOP (B4: objetos) → SAMI-Applied
 (B5: librerías + datos externos → artefacto útil)**.
@@ -6,6 +12,10 @@ Competencia: «Sé usar Python y librerías para transformar datos en un resulta
 
 Si vienes del paso ①, ya exploraste CSV, filtros y valores ausentes en
 `../cuadernos/explorar-datos-b5.ipynb`. Aquí aplicas esas ideas en un proyecto.
+
+El proyecto es una base nueva de B5: no necesita los archivos ni los datos de
+B3 o B4. Su entrada independiente es el `datos_hardware.csv` incluido en esta
+carpeta; puedes sustituirlo por otro CSV con las mismas columnas.
 
 ## Una librería por necesidad (no al revés)
 
@@ -40,7 +50,7 @@ analizador.filtrar_ofertas_disponibles (activo == "si" & stock > 0)
   ↓  analizador.calcular_indicadores (np.array: media/min/max + conteos)
 tabla disponible + indicadores
   ↓  generador_informe.compilar_reporte_ejecutivo_pdf (story -> build)
-reporte_final_sami.pdf + resumen por consola
+informe_productos.pdf + resumen por consola
 ```
 
 `main.ejecutar` orquesta. La RAM-02 (stock 0) y la CASE-06 (activo "no")
@@ -74,8 +84,12 @@ Ejecuta sin modificar:
 python main.py
 ```
 
-Obtén el artefacto base (`reporte_final_sami.pdf`) y el resumen por consola.
-Abre el PDF.
+Obtén el artefacto base (`informe_productos.pdf`) y el resumen por consola.
+Abre el PDF y comprueba que sus cifras corresponden al CSV.
+
+El resultado inicial esperado es 4 ofertas válidas, precio medio 147.35 EUR y
+stock total 26. El informe se guarda en la misma carpeta como
+`informe_productos.pdf`.
 
 ## COMPRENDER
 
@@ -107,8 +121,8 @@ de `analizar_hardware` ni de `compilar_reporte_ejecutivo_pdf`.
    ```
 
    Verifica: existe `datos_hardware.csv`, el análisis devuelve estructura
-   coherente y `reporte_final_sami.pdf` existe y pesa más de 0 bytes.
-2. Abre `reporte_final_sami.pdf` y comprueba visualmente que el informe
+   coherente y `informe_productos.pdf` existe y pesa más de 0 bytes.
+2. Abre `informe_productos.pdf` y comprueba visualmente que el informe
    tiene sentido: existe, muestra el resumen, contiene la tabla con los
    datos esperados y no está vacío ni roto. Esto es deliberado: el diseño
    visual lo revisa una persona, no un script.
@@ -122,7 +136,7 @@ precio como texto → falla la media y hay que limpiar antes de convertir).
 Añade al PDF una línea de conclusión con el número de productos en stock
 bajo. Restricciones: no cambies firmas públicas innecesariamente; el
 resultado debe aparecer en el PDF. Artefacto esperado:
-`reporte_final_sami.pdf` regenerado con la línea visible.
+`informe_productos.pdf` regenerado con la línea visible.
 
 ## Ampliación online (opcional, fuera del flujo)
 

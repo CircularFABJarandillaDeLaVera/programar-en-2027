@@ -169,7 +169,7 @@ window.EDUSDK_BLOQUE = {
       comprobar: "La llamada es comun; el comportamiento depende del objeto real."
     },
     {
-      titulo: "Proyecto B4: SAMI-OOP",
+      titulo: "Proyecto aplicado 2: Organiza productos con clases",
       objetivo: "Evolucionar SAMI-Lite a objetos manteniendo el problema conocido.",
       guion: "Reorganiza Producto, ProductoHardware, ProductoLicencia, AuditoriaMercado y ManejadorDatos en modulos.",
       pregunta: "Que mejora aporta SAMI-OOP respecto a SAMI-Lite?",
@@ -217,7 +217,7 @@ window.EDUSDK_BLOQUE = {
     { tipo: "polimorfismo", pregunta: "Si una lista contiene ProductoHardware y ProductoLicencia, que permite llamar producto.calcular_precio_final(0.21) a todos?", opciones: ["Polimorfismo basico", "CSV", "Docstring"], correcta: 0, explicacion: "La misma llamada ejecuta el metodo propio del objeto real." }
   ],
   proyecto: {
-    titulo: "SAMI-OOP",
+    titulo: "Proyecto aplicado 2 · Organiza productos con clases",
     evolucion: "SAMI-Lite -> SAMI-OOP",
     estructura: ["analizador.py", "persistencia.py", "main.py"],
     evidencia: "Jerarquia Producto, subclases, composicion en AuditoriaMercado, persistencia y ejecucion con errores controlados.",

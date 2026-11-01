@@ -167,7 +167,7 @@ window.EDUSDK_BLOQUE = {
       comprobar: "main.py coordina; los otros archivos no preguntan datos al usuario."
     },
     {
-      titulo: "Proyecto B3: SAMI-Lite",
+      titulo: "Proyecto aplicado 1: Calcula y guarda precios",
       objetivo: "Integrar funciones, responsabilidades, imports, validacion, excepciones, JSON y CSV.",
       guion: "Construye primero analizador.py, despues persistencia.py y por ultimo main.py. Ejecuta, observa errores, interpreta y corrige.",
       pregunta: "Que responsabilidad tiene cada archivo?",
@@ -215,7 +215,7 @@ window.EDUSDK_BLOQUE = {
     { tipo: "modulos", pregunta: "Como importas una funcion concreta desde analizador.py?", opciones: ["from analizador import calcular_precio_final", "import calcular_precio_final from analizador", "open analizador calcular_precio_final"], correcta: 0, explicacion: "La sintaxis from modulo import nombre trae una funcion concreta." }
   ],
   proyecto: {
-    titulo: "SAMI-Lite",
+    titulo: "Proyecto aplicado 1 · Calcula y guarda precios",
     estructura: ["persistencia.py", "analizador.py", "main.py"],
     evidencia: "Tres archivos Python, config.json generado, transacciones CSV, log TXT y captura de ejecucion con error controlado.",
     alcance: "Programa modular de consola con funciones, imports, validacion, excepciones y persistencia local."

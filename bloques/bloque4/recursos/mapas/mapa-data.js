@@ -129,7 +129,7 @@ window.EDUSDK_MAP_DATA = {
       x: 1310,
       y: 120,
       type: 'rama',
-      title: 'SAMI-OOP',
+      title: 'Proyecto aplicado 2 · Organiza productos con clases',
       subtitle: 'Proyecto',
       def: 'Evoluciona SAMI-Lite a clases cohesivas.',
       key: 'Producto, subclases, AuditoriaMercado y ManejadorDatos.',

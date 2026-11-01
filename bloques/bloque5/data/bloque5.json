@@ -142,7 +142,7 @@
       "comprobar": "El alumno genera factura_2027_001.pdf con Platypus."
     },
     {
-      "titulo": "SAMI-Applied: datos coherentes",
+      "titulo": "Proyecto aplicado 3: datos coherentes",
       "objetivo": "Separar GOT como practica de Pandas y hardware como proyecto aplicado.",
       "guion": "Explica que SAMI-Applied solo usa precios y disponibilidad de componentes.",
       "pregunta": "Por que no mezclamos personajes de GOT con precios de hardware?",
@@ -154,7 +154,7 @@
       "comprobar": "Los datos del proyecto son de mercado de hardware."
     },
     {
-      "titulo": "SAMI-Applied: procesar",
+      "titulo": "Proyecto aplicado 3: procesar",
       "objetivo": "Pasar registros a DataFrame y calcular indicadores utiles.",
       "guion": "Usa Pandas para tabla y NumPy para calculos numericos sencillos.",
       "pregunta": "Que parte hace mejor Pandas y que parte hace mejor NumPy?",
@@ -166,11 +166,11 @@
       "comprobar": "El alumno usa cada libreria por una necesidad real."
     },
     {
-      "titulo": "SAMI-Applied: resultado",
+      "titulo": "Proyecto aplicado 3: resultado",
       "objetivo": "Producir una evidencia clara sin convertir B5 en proyecto final.",
       "guion": "Entrega tabla analizada, resumen por consola y PDF de informe con ReportLab Platypus.",
       "pregunta": "Que evidencia demuestra que el flujo funciono?",
-      "ejemplo": "resultado = {\n    \"ofertas_validas\": 3,\n    \"precio_medio\": 112.5,\n    \"salida\": \"reporte_final_sami.pdf\"\n}\nprint(resultado)",
+      "ejemplo": "resultado = {\n    \"ofertas_validas\": 3,\n    \"precio_medio\": 112.5,\n    \"salida\": \"informe_productos.pdf\"\n}\nprint(resultado)",
       "modificar": "Anade una alerta si el stock total es bajo.",
       "predecir": "Que salida puede revisar una persona sin leer codigo?",
       "error_util": "Ocultar resultados en estructuras internas sin resumen final.",
@@ -419,7 +419,7 @@
     }
   ],
   "proyecto": {
-    "titulo": "SAMI-Applied",
+    "titulo": "Proyecto aplicado 3 · Crea un informe PDF con tus datos",
     "evolucion": "SAMI-Lite -> SAMI-OOP -> SAMI-Applied",
     "estructura": [
       "datos_hardware.csv",
@@ -428,7 +428,7 @@
       "generador_informe.py",
       "main.py"
     ],
-    "evidencia": "CSV de hardware, tabla analizada, resumen por consola y reporte_final_sami.pdf.",
+    "evidencia": "CSV de hardware, tabla analizada, resumen por consola y informe_productos.pdf.",
     "alcance": "Python aplicado con datos de hardware; GOT queda solo como practica didactica de Pandas."
   },
   "mapa_mental_fuente": "recursos/mapa-mental.md"

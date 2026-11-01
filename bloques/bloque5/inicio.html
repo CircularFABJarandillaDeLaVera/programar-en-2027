@@ -49,15 +49,20 @@
       <h2>Elige cómo trabajar este bloque</h2>
       <div class="cf-panel cf-panel--raised">
         <h3>Crear proyectos con agentes</h3>
-        <p>Puedes abrir directamente el proyecto aplicado para transformar datos en un informe PDF. El cuaderno queda como consulta opcional.</p>
-        <p><a class="cf-button cf-button--primary" href="proyecto-b5-sami-applied.zip" download>Descargar Proyecto aplicado 3</a></p>
-        <p>Descomprime el ZIP, abre la carpeta en VS Code, instala las dependencias indicadas por el proyecto y sigue su flujo para generar el informe PDF.</p>
+        <p>Puedes empezar directamente, sin completar antes el cuaderno. Descarga el <strong>Proyecto aplicado 3 · Crea un informe PDF con tus datos</strong>; el cuaderno queda como consulta opcional.</p>
+        <p><a class="cf-button cf-button--primary" href="proyecto-b5-informe-productos.zip" download>Descargar Proyecto aplicado 3</a></p>
+        <ol>
+          <li>Descomprime el ZIP y abre la carpeta <code>proyecto-sami-applied</code> en VS Code.</li>
+          <li>Comprueba que tienes Python 3 y ejecuta <code>python -m pip install -r requirements.txt</code>.</li>
+          <li>Ejecuta <code>python main.py</code> desde esa carpeta. Lee el resumen de la consola y abre <code>informe_productos.pdf</code>.</li>
+        </ol>
+        <p>El CSV de ejemplo <code>datos_hardware.csv</code> ya está incluido y no depende de B3 ni B4. Con él se esperan 4 ofertas válidas, precio medio 147.35 EUR y stock total 26. Si el CSV falta, está vacío o contiene datos inválidos, la ejecución debe detenerse para corregir la entrada. Playwright pertenece a una práctica opcional y no hace falta para generar este informe desde CSV.</p>
       </div>
       <div class="cf-panel cf-panel--raised">
         <h3>Aprender programación con Python</h3>
         <p><a class="cf-button cf-button--primary" href="cuadernos/explorar-datos-b5.ipynb" download>Descargar cuaderno B5</a></p>
         <p>Abre el cuaderno en Jupyter o VS Code y ejecuta sus celdas en orden para explorar el CSV, los filtros y los valores ausentes.</p>
-        <p>Después aplica lo aprendido en el mismo <a class="cf-button cf-button--secondary" href="proyecto-b5-sami-applied.zip" download>Proyecto aplicado 3 · Crea un informe PDF con tus datos</a>.</p>
+        <p>Después aplica lo aprendido en el mismo <a class="cf-button cf-button--secondary" href="proyecto-b5-informe-productos.zip" download>Proyecto aplicado 3 · Crea un informe PDF con tus datos</a>.</p>
       </div>
       <p><strong>Cierre común:</strong> ambas rutas confluyen en el Proyecto aplicado 3. Tras comprobar los datos, las dependencias y el PDF generado, continúa con el <a href="../bloque6/inicio.html">Bloque 6 · Herramientas para trabajar con tus proyectos</a>.</p>
     </section>

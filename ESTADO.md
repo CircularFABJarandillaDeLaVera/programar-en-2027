@@ -100,6 +100,47 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 - Revisar visualmente la guía B4 y el README/ZIP extraído. No iniciar la microfase 4 de B5 todavía.
 
+## Microfase 4 — Proyecto aplicado 3 · Crea un informe PDF con tus datos
+
+### Comprobado ahora
+
+- Punto de partida confirmado: `d12e1f6` en `main`, con el tag `v2027-b4-m3`. El cierre de B4 ya estaba completado; no se mezclaron cambios de B5 con ese punto de control.
+- Se revisaron antes de sincronizar las tres capas de B5: fuente técnica `bloques/bloque5/recursos/proyecto/`, copia descargable `bloques/bloque5/proyecto-sami-applied/` y `bloques/bloque5/proyecto-b5-sami-applied.zip`. La copia tenía una localización de logo tolerante a carpetas y una guardia de entrada en `main.py`; se conservaron esas funciones útiles y se alineó la fuente con ellas. `scraper.py` permanece como material de autor opcional y no entra en el ZIP.
+- El ZIP se reconstruyó desde la copia descargable. La extracción limpia contiene `main.py`, `analizador.py`, `generador_informe.py`, `datos_hardware.csv`, `requirements.txt`, `comprobar.py` y `README_PROYECTO.md`; los siete archivos coinciden por SHA-256 con la copia descargable.
+- B5 es una base nueva y autónoma: no necesita los archivos de B3 ni B4. `datos_hardware.csv` es el ejemplo independiente del proyecto; `got_1.csv` queda limitado al cuaderno de Pandas y no se mezcla con el análisis de hardware.
+- El nombre público es `Proyecto aplicado 3 · Crea un informe PDF con tus datos`. La guía, el README, el comprobador y el código usan `informe_productos.pdf`. Playwright queda fuera del flujo de generación desde CSV y no es requisito.
+- Se documentaron carpeta, Python 3, instalación con `python -m pip install -r requirements.txt`, comando `python main.py`, entrada, salida, cifras esperadas (4 ofertas válidas, precio medio 147.35 EUR y stock total 26), errores de CSV y siguiente paso. No se cambiaron las reglas de filtrado ni se añadieron funciones de análisis.
+- En extracción limpia se ejecutó `py_compile` sin errores y el comprobador confirmó el CSV de ejemplo con 6 filas. Los casos de CSV ausente y CSV vacío produjeron errores claros en el comprobador.
+- En un entorno virtual temporal se instalaron exactamente las dependencias declaradas (`pandas 3.1.0`, `numpy 2.5.4` y `reportlab 5.1.0`); el Python global no se modificó y Playwright no se instaló.
+- Desde esa extracción limpia, `main.py` terminó con código 0 y produjo `informe_productos.pdf`. `comprobar.py` terminó con `COMPROBACION SUPERADA` y confirmó 4 ofertas y precio medio 147.35.
+- El contraste de las seis filas confirmó que `RAM-02` (stock 0) y `CASE-06` (activo `no`) quedan fuera; las cuatro restantes producen precio medio 147.35 EUR, mínimo 72.90 EUR, máximo 249.00 EUR y stock total 26.
+- Se probaron de forma real CSV ausente (`FileNotFoundError`), vacío (`EmptyDataError`) e inválido con precio no numérico (`TypeError`).
+- La extracción textual del PDF generado encontró título, resumen, los cinco indicadores, las cuatro filas válidas y la conclusión. El PDF tiene una sola página A4; la inspección geométrica del contenido mantiene las tablas y textos dentro de los márgenes, sin coordenadas recortadas.
+
+### Evidencia y límites
+
+- La revisión visual directa mediante el renderizador PDF disponible no pudo completarse: Chrome produjo una captura vacía y LibreOffice no exportó una imagen. Por ello, la legibilidad visual queda pendiente de revisión humana en un visor PDF; no se declara superada por la inspección textual o geométrica.
+- No se ejecutaron suites con `pytest`. Esta microfase no incluye B6, EduSDK ni cambios ajenos; `Cambios_portada_2027/` se conserva sin incluir.
+
+### Siguiente paso
+
+- Abrir `http://localhost:8000/bloques/bloque5/inicio.html` con el servidor local del repositorio. La extracción limpia y el PDF generado durante esta validación están en `C:\Users\CIRCUL~1\AppData\Local\Temp\b5-m4-run-net-71c23d6e04d6408eb89374d085994080`; el archivo es `informe_productos.pdf`. La revisión humana final debe abrirlo en un visor PDF.
+
+## Corrección transversal — nombres públicos de descargas B3–B5
+
+### Comprobado ahora
+
+- Las descargas públicas pasan a llamarse `proyecto-b3-calcula-precios.zip`, `proyecto-b4-productos-clases.zip` y `proyecto-b5-informe-productos.zip`. Los enlaces web con `download`, los README y las guías fuente usan esos nombres.
+- Las tres copias mantienen sus carpetas técnicas (`proyecto-sami-lite`, `proyecto-sami-oop` y `proyecto-sami-applied`) para no cambiar comandos ni rutas internas. Ninguno de los ZIP tiene carpeta raíz: sus archivos se extraen directamente.
+- Se regeneraron los tres ZIP desde sus copias descargables. Las extracciones limpias contienen, respectivamente, 4, 4 y 7 archivos; cada archivo coincide por SHA-256 con su copia. Los archivos Python también coinciden con las fuentes canónicas de `recursos/proyecto/`.
+- Las etiquetas principales visibles de los datos y mapas B3–B5 usan ahora los nombres públicos. Las menciones SAMI que permanecen son referencias técnicas, de evolución o históricas; no se ofrecen como nombre principal de descarga.
+- No se modificó código de ejecución ni comportamiento validado. El punto Git de B5 permanece en `d12e1f6` con `v2027-b4-m3`; no se reescribió el commit ni se movió el tag.
+
+### Evidencia y límites
+
+- JSON B3–B5 válido y `git diff --check` correcto. El verificador general mantiene `pytest` como no disponible/no ejecutado.
+- Se conserva `Cambios_portada_2027/` sin incluir ni descartar.
+
 ## Histórico
 
 - La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.

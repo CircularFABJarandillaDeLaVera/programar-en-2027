@@ -32,7 +32,7 @@ def comprobar_pdf_generado_y_no_vacio():
     from generador_informe import compilar_reporte_ejecutivo_pdf
 
     tabla, indicadores = analizar_hardware(BASE_DIR / "datos_hardware.csv")
-    ruta_pdf = BASE_DIR / "reporte_final_sami.pdf"
+    ruta_pdf = BASE_DIR / "informe_productos.pdf"
     compilar_reporte_ejecutivo_pdf(ruta_pdf, tabla, indicadores)
     assert ruta_pdf.exists(), "no se genero el PDF"
     peso = ruta_pdf.stat().st_size

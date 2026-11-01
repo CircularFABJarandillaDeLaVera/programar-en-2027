@@ -21,7 +21,8 @@ se ejecuta al lanzar el programa y puede importarse para estudiar sus funciones.
 
 ## Preparar y ejecutar
 
-1. Descarga `proyecto-b4-sami-oop.zip` y extráelo.
+1. Descarga `proyecto-b4-productos-clases.zip` y extráelo. El ZIP no añade
+   una carpeta raíz; abre en VS Code la carpeta técnica que contiene los archivos.
 2. Abre en VS Code la carpeta que contiene `analizador.py`, `persistencia.py`,
    `main.py` y este README.
 3. No instales dependencias: se usa la biblioteca estándar de Python.

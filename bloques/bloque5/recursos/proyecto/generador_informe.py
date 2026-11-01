@@ -10,9 +10,22 @@ def formato_eur(valor):
     return f"{float(valor):.2f} EUR"
 
 
-def compilar_reporte_ejecutivo_pdf(ruta_pdf, tabla, indicadores):
-    raiz_proyecto = Path(__file__).resolve().parents[4]
-    ruta_logo = raiz_proyecto / "assets" / "branding" / "logo-circular-fab.png"
+def buscar_logo():
+    """Localiza el logo sin depender de una profundidad fija de carpetas.
+
+    Si no hay logo disponible, devuelve None y el PDF se genera sin logo:
+    un logo ausente nunca debe romper el informe.
+    """
+    for base in Path(__file__).resolve().parents:
+        candidato = base / "assets" / "branding" / "logo-circular-fab.png"
+        if candidato.exists():
+            return candidato
+    local = Path(__file__).resolve().parent / "logo-circular-fab.png"
+    return local if local.exists() else None
+
+
+def compilar_reporte_ejecutivo_pdf(ruta_pdf, tabla, indicadores, ruta_logo=None):
+    logo = Path(ruta_logo) if ruta_logo else buscar_logo()
 
     doc = SimpleDocTemplate(
         str(ruta_pdf),
@@ -25,8 +38,8 @@ def compilar_reporte_ejecutivo_pdf(ruta_pdf, tabla, indicadores):
     styles = getSampleStyleSheet()
     story = []
 
-    if ruta_logo.exists():
-        story.append(Image(str(ruta_logo), width=120, height=42))
+    if logo is not None and logo.exists():
+        story.append(Image(str(logo), width=120, height=42))
         story.append(Spacer(1, 12))
 
     story.append(Paragraph("SAMI-Applied: informe de mercado", styles["Heading1"]))

@@ -6,6 +6,9 @@ B3 separa funciones y módulos; B4 organiza el mismo problema con objetos.
 La carpeta descargada es una base nueva e independiente y no reutiliza
 automáticamente archivos ni datos de B3.
 
+La descarga pública es `proyecto-b4-productos-clases.zip`; la carpeta técnica
+de extracción conserva el nombre `proyecto-sami-oop`.
+
 ## Objetivo
 Reorganizar el problema conocido de auditoria de mercado usando objetos.
 

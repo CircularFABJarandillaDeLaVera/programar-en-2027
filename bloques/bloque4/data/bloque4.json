@@ -169,7 +169,7 @@
       "comprobar": "La llamada es comun; el comportamiento depende del objeto real."
     },
     {
-      "titulo": "Proyecto B4: SAMI-OOP",
+      "titulo": "Proyecto aplicado 2: Organiza productos con clases",
       "objetivo": "Evolucionar SAMI-Lite a objetos manteniendo el problema conocido.",
       "guion": "Reorganiza Producto, ProductoHardware, ProductoLicencia, AuditoriaMercado y ManejadorDatos en modulos.",
       "pregunta": "Que mejora aporta SAMI-OOP respecto a SAMI-Lite?",
@@ -413,7 +413,7 @@
     }
   ],
   "proyecto": {
-    "titulo": "SAMI-OOP",
+    "titulo": "Proyecto aplicado 2 · Organiza productos con clases",
     "evolucion": "SAMI-Lite -> SAMI-OOP",
     "estructura": [
       "analizador.py",

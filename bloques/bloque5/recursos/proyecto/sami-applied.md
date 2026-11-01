@@ -1,4 +1,9 @@
-# Proyecto B5 - SAMI-Applied
+# Proyecto aplicado 3 · Crea un informe PDF con tus datos
+
+SAMI-Applied es la denominación técnica interna de este proyecto.
+
+La descarga pública es `proyecto-b5-informe-productos.zip`; la carpeta técnica
+de extracción conserva el nombre `proyecto-sami-applied`.
 
 ## Evolucion
 
@@ -21,7 +26,7 @@ Analizar precios y disponibilidad de componentes de hardware.
 - `got_1.csv` no entra en SAMI-Applied.
 - NumPy se usa para calculos numericos.
 - Pandas se usa para cargar y filtrar tablas.
-- Playwright se usa solo si hay necesidad de navegador.
+- Playwright se conserva como práctica opcional; no es necesario para generar el informe desde el CSV.
 - BeautifulSoup queda como decision conceptual para HTML estatico.
 - ReportLab genera el PDF real del informe mediante Platypus.
 - Canvas queda como ampliacion no evaluable.
@@ -32,13 +37,13 @@ Analizar precios y disponibilidad de componentes de hardware.
 - Precio medio.
 - Componentes disponibles.
 - Alertas de stock.
-- `reporte_final_sami.pdf` generado con `SimpleDocTemplate`, `Paragraph`, `Image`, `Table`, `TableStyle`, `Spacer`, `colors`, `A4` y `build()`.
+- `informe_productos.pdf` generado con `SimpleDocTemplate`, `Paragraph`, `Image`, `Table`, `TableStyle`, `Spacer`, `colors`, `A4` y `build()`.
 
 ## Verificacion: que comprueba el script y que revisas tu
 
 ### Objetivo
 
-Tabla analizada + indicadores + `reporte_final_sami.pdf` generados desde
+Tabla analizada + indicadores + `informe_productos.pdf` generados desde
 `datos_hardware.csv`, sin modificar los datos de entrada.
 
 ### Contexto

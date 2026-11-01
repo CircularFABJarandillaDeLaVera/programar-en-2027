@@ -17,6 +17,6 @@ window.EDUSDK_MAP_DATA = {
     { id: 'playwright', parent: 'root', x: 880, y: 90, type: 'rama', title: 'Playwright', subtitle: 'Automatizar', def: 'sync_playwright, chromium.launch, new_page, goto y browser.close.', key: 'Cerrar siempre el navegador.', err: 'Dejar procesos abiertos.' },
     { id: 'bs', parent: 'root', x: 900, y: 270, type: 'rama', title: 'BeautifulSoup', subtitle: 'Conceptual', def: 'Parsing de HTML estatico cuando no hace falta navegador.', key: 'Decidir herramienta ligera.', err: 'Inventar APIs no trazadas.' },
     { id: 'reportlab', parent: 'root', x: 900, y: 470, type: 'rama', title: 'ReportLab', subtitle: 'Platypus', def: 'PDF con story, Paragraph, Image, Table, TableStyle, Spacer y build().', key: 'Separar datos, calculos y presentacion.', err: 'Evaluar Canvas o usar strings largos sin Paragraph.' },
-    { id: 'sami', parent: 'root', x: 485, y: 610, type: 'rama', title: 'SAMI-Applied', subtitle: 'Proyecto', def: 'Precios, disponibilidad de hardware e informe PDF.', key: 'CSV, analisis y reporte_final_sami.pdf.', err: 'Convertirlo en proyecto de facturacion.' }
+    { id: 'sami', parent: 'root', x: 485, y: 610, type: 'rama', title: 'Proyecto aplicado 3 · Crea un informe PDF con tus datos', subtitle: 'Proyecto', def: 'Precios, disponibilidad de hardware e informe PDF.', key: 'CSV, analisis y informe_productos.pdf.', err: 'Convertirlo en proyecto de facturacion.' }
   ]
 };

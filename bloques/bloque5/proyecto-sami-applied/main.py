@@ -12,7 +12,7 @@ def ejecutar():
     print(f"Precio medio: {indicadores['precio_medio']}")
     print(f"Stock total: {indicadores['stock_total']}")
 
-    ruta = compilar_reporte_ejecutivo_pdf(base_dir / "reporte_final_sami.pdf", tabla, indicadores)
+    ruta = compilar_reporte_ejecutivo_pdf(base_dir / "informe_productos.pdf", tabla, indicadores)
     print(f"Informe PDF generado: {ruta}")
 
 

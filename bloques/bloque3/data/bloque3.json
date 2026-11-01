@@ -167,7 +167,7 @@
       "comprobar": "main.py coordina; los otros archivos no preguntan datos al usuario."
     },
     {
-      "titulo": "Proyecto B3: SAMI-Lite",
+      "titulo": "Proyecto aplicado 1: Calcula y guarda precios",
       "objetivo": "Integrar funciones, responsabilidades, imports, validacion, excepciones, JSON y CSV.",
       "guion": "Construye primero analizador.py, despues persistencia.py y por ultimo main.py. Ejecuta, observa errores, interpreta y corrige.",
       "pregunta": "Que responsabilidad tiene cada archivo?",
@@ -411,7 +411,7 @@
     }
   ],
   "proyecto": {
-    "titulo": "SAMI-Lite",
+    "titulo": "Proyecto aplicado 1 · Calcula y guarda precios",
     "estructura": [
       "persistencia.py",
       "analizador.py",

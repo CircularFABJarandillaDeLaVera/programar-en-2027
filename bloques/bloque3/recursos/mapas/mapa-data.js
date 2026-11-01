@@ -117,7 +117,7 @@ window.EDUSDK_MAP_DATA = {
       x: 1290,
       y: 755,
       type: 'rama',
-      title: 'SAMI-Lite',
+      title: 'Proyecto aplicado 1 · Calcula y guarda precios',
       subtitle: 'Proyecto',
       def: 'persistencia.py, analizador.py y main.py integran el bloque.',
       key: 'Funciones, imports, validacion, excepciones, JSON, CSV y TXT.',
