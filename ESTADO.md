@@ -38,6 +38,44 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 - Acordar qué proyectos y dependencias forman parte de su alcance antes del piloto.
 - No se considera vigente ningún resultado de pruebas que no proceda de una nueva ejecución.
 
+## Microfase 2 — Proyecto aplicado 1 · Calcula y guarda precios
+
+### Comprobado ahora
+
+- Se revisaron por separado la fuente docente `bloques/bloque3/recursos/proyecto/`, la copia de trabajo `bloques/bloque3/proyecto-sami-lite/` y el ZIP público `bloques/bloque3/proyecto-b3-sami-lite.zip` antes de sincronizar.
+- La base elegida conserva las funciones útiles de la fuente, incluida `comprobar_transaccion`, y mantiene la guardia de `main.py` para que importar sus funciones no arranque el menú.
+- La copia descargable y el ZIP contienen exactamente `analizador.py`, `main.py`, `persistencia.py` y `README_PROYECTO.md`; la extracción limpia coincide por hash con la copia de trabajo.
+- B3 explica la descarga, la carpeta que debe abrirse, los requisitos de Python 3, el comando `python main.py`, el resultado esperado con `50`, los errores, los archivos generados y el siguiente paso.
+- La guía web y el README incluyen el paso `Convierte tu programa en una aplicación con ventana`, el prompt de Tkinter y sus comprobaciones. La interfaz no se entrega terminada.
+- La sección `Elige cómo trabajar este bloque` de B3 separa las rutas de agentes y Python sin numeración consecutiva; ambas confluyen en el mismo Proyecto aplicado 1 y enlazan el paso visual y B4.
+- Se amplió únicamente esta corrección de navegación a B4 y B5: cada bloque presenta las opciones `Crear proyectos con agentes` y `Aprender programación con Python`, mantiene sus ZIP y cuadernos reales, y cierra en el siguiente bloque.
+- En una extracción limpia se ejecutó con Python 3.12: compilación, importación sin arrancar el menú, flujo normal (`50` → `60.5`), entrada no numérica con registro de error, precio `0` aceptado según la regla actual y `comprobar_transaccion` con resultados `True` y `False`.
+- En una extracción limpia se comprobó también `-10`: el resultado real es `-12.1 - PRECIO_NORMAL` con IVA del 21 %, se registra en el CSV y no se rechaza. La regla permanece sin cambios.
+- Fuentes del ZIP: `analizador.py`, `main.py` y `persistencia.py` proceden de `bloques/bloque3/recursos/proyecto/` y se construyen desde la copia alineada `bloques/bloque3/proyecto-sami-lite/`; `README_PROYECTO.md` tiene como fuente canónica esa misma copia de trabajo. Los cuatro archivos extraídos coinciden por SHA-256 con sus fuentes correspondientes.
+
+### Evidencia y límites
+
+- `scripts/verificar.py`: JSON 17/17 correcto, sintaxis Python 53/53 correcta y 52 rutas revisadas; las suites no se ejecutaron porque `pytest` no está disponible. El verificador se ejecutó con Python 3.12 explícito porque el alias `py` del sistema apunta a un intérprete de Windows Store no utilizable.
+- No se corrigieron silenciosamente los precios `0` o negativos: siguen aceptándose y cualquier rechazo será un cambio funcional separado en la lógica compartida.
+- No se generó ni se probó una ventana real: esa interfaz debe crearla el alumno desde la base de consola. Su aspecto, interacción, tabulación, limpieza, redimensionado y cierre quedan pendientes de revisión humana.
+- No se ejecutaron suites de proyecto ni dependencias externas; no se instalaron dependencias.
+- Se revisó la presentación en escritorio y móvil: las dos opciones y sus acciones se adaptan al ancho disponible. La captura móvil mantiene un desbordamiento horizontal preexistente del encabezado general de B3, fuera de esta sección y fuera de alcance.
+- Se comprobó B3, B4 y B5 en capturas de escritorio y móvil tras la ampliación. No se trasladó a B4 ni B5 el paso visual de generar la ventana de B3 ni se revisaron sus códigos, ZIP o contenidos de microfases posteriores.
+- Límite de cierre: la interfaz debe generarla el alumno desde la base de consola; no se entrega terminada.
+- Límite de cierre: las suites con `pytest` siguen sin ejecutarse porque no está disponible en el entorno.
+- Límite de cierre: los proyectos de B4 y B5 todavía no se han revisado; esta ampliación solo corrigió su navegación de entrada.
+
+### Corrección responsive del encabezado
+
+- Causa: en el breakpoint de 560 px, `cf-topbar` mantenía `display: flex` y su `gap` mientras `.block-brand`, `.block-nav`, los enlaces y `.theme-toggle` pasaban a ocupar el 100 %; el ancho de los elementos y los espacios se sumaban y desbordaban el viewport.
+- Archivos afectados: `bloques/bloque1/bloque-theme.css` hasta `bloques/bloque7/bloque-theme.css`. En móvil, `.block-topbar` usa una columna grid, los hijos admiten `min-width: 0` y el texto de marca puede envolver. No se añadió `overflow-x: hidden` a `html` ni a `body`.
+- Comprobado en Chrome a 390 px para B1–B7, en claro y oscuro: `documentWidth` y `bodyWidth` quedan en 390, sin desbordamiento; los textos y botones permanecen dentro del viewport. El enlace Inicio y el control de tema reciben foco por teclado; los controles conservan tamaños utilizables para interacción táctil en el viewport emulado.
+- La comprobación táctil se realizó mediante viewport y geometría de controles en Chrome; no sustituye una prueba física en dispositivos reales.
+
+### Siguiente paso
+
+- Revisar visualmente la página B3 y el README/ZIP extraído. No avanzar a B4 ni a otra microfase hasta aceptar esta revisión.
+
 ## Histórico
 
 - La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.

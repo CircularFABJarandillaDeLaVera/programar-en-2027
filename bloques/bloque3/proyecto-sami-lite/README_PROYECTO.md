@@ -1,8 +1,7 @@
-# SAMI-Lite — Proyecto de B3 (prototipo, copia de trabajo)
+# Proyecto aplicado 1 · Calcula y guarda precios
 
-> Copia intacta del SAMI-Lite real de `bloques/bloque3/recursos/proyecto/`
-> (`main.py`, `analizador.py`, `persistencia.py`). El original no se toca:
-> aquí se experimenta y se rompe sin miedo.
+> Base de consola del proyecto aplicado de B3. No incluye una interfaz
+> terminada: la ventana se genera desde esta base después de comprobarla.
 
 ## Flujo real del programa
 
@@ -19,10 +18,13 @@ resultado en consola + archivos
 Errores previstos sin detener el programa: `ValueError` (precio no
 numérico) y `TypeError` (dato interno no válido). Ambos quedan en el log.
 
-## PREPARAR
+## PREPARAR Y EJECUTAR
 
 1. Abre esta carpeta (`proyecto-sami-lite`) en VS Code.
 2. Nada que instalar: solo librería estándar (`csv`, `json`, `datetime`).
+3. Desde esta carpeta ejecuta `python --version` y después `python main.py`.
+4. La carpeta actual importa: ahí se crean `config.json`,
+   `transacciones_auditoras.csv` y `auditoria_errores.log`.
 
 ## ORIENTARSE
 
@@ -113,3 +115,82 @@ lista para mostrar, y úsala en `main.py` donde hoy se imprime el precio final.
   la que arrancas: ejecuta siempre con esta carpeta como actual.
 - `main.py` solo arranca al ejecutarse directamente (guardia `if __name__ == "__main__"`);
   al importarlo, solo trae sus funciones sin entrar en el bucle.
+
+## Resultado inicial y límites
+
+Con la configuración inicial (`iva_aplicado: 0.21`), `Teclado` y `50` deben
+mostrar `Precio final: 60.5 - PRECIO_NORMAL`. La entrada `abc` debe mostrar un
+error, escribir en el log y permitir reintentar. Los precios `0` y negativos se
+aceptan todavía: no se corrigen en esta práctica y cualquier rechazo posterior
+debe ser un cambio funcional separado en la lógica compartida.
+
+## Convierte tu programa en una aplicación con ventana
+
+Después de la primera ejecución correcta, pide a un agente que genere
+`interfaz.py` desde esta base. No sustituyas el ejercicio por una interfaz ya
+terminada. Usa este prompt:
+
+```text
+Estoy haciendo mi primera práctica de programación con ayuda de un agente.
+Quiero convertir este programa de consola de productos y precios en una
+aplicación con una ventana clara y agradable de usar.
+
+Lee primero los archivos actuales y comprueba cómo se conectan main.py,
+analizador.py y persistencia.py. Revisa el estado y las diferencias de Git
+si esta carpeta está bajo control de versiones. Conserva mis cambios previos.
+
+Implementa una interfaz en interfaz.py usando Tkinter y tkinter.ttk.
+Comprueba primero que Tkinter está disponible en el intérprete elegido.
+Si falta, explica cómo resolverlo en mi sistema; no intentes instalarlo
+con pip ni cambies de tecnología automáticamente.
+
+La ventana debe tener:
+- Un título en español que explique que calculamos y guardamos precios.
+- Campos con etiquetas claras para nombre del producto y precio base.
+- Un botón principal «Calcular y guardar».
+- Un resultado visible con el precio final y el estado de la alerta.
+- Botones «Limpiar» y «Salir» y mensajes de error fáciles de entender.
+- Buena legibilidad, separación entre elementos, tamaño de ventana razonable,
+  orden de tabulación y un uso discreto de verde en la acción principal.
+
+Reutiliza las funciones existentes para cargar la configuración, calcular,
+evaluar la alerta y guardar la operación. En esta copia, comprueba si puedes
+reutilizar procesar_transaccion en vez de repetir sus pasos en la interfaz.
+Una pulsación debe guardar una sola operación. Reutiliza el registro de errores.
+
+Mantén la entrada por consola y sus resultados. No cambies los cálculos,
+los umbrales, el formato del CSV ni las reglas de precios para añadir la ventana.
+Separa los mensajes y la conversión de entradas de la lógica de negocio.
+No abras la ventana ni arranques el menú al importar un módulo.
+
+No añadas imágenes, servicios externos ni dependencias nuevas. Añade comentarios
+breves en español cuando ayuden a entender cómo se conecta la interfaz.
+
+Explica brevemente el plan y realiza este cambio acotado. Después indica:
+1. Qué archivos has creado o modificado y para qué sirve cada uno.
+2. La carpeta desde la que debo ejecutar y el comando para abrir interfaz.py.
+3. Cómo comparar el resultado con main.py y revisar los archivos generados.
+4. Qué has comprobado realmente y qué debo comprobar yo en la ventana.
+
+Prueba o guíame para probar un producto de precio 50, una entrada no numérica,
+precios 0 y negativos, limpiar campos y cerrar la ventana.
+Describe el comportamiento real. Si detectas que la regla actual acepta
+precios no positivos, señálalo como un cambio funcional posterior; no lo
+corrijas silenciosamente en esta tarea visual. No hagas commit ni publiques.
+```
+
+### Comprobaciones del paso visual
+
+- `50` debe dar `60.5` con IVA del 21 %, igual que la consola.
+- Compara una operación de consola y otra de ventana: deben quedar dos filas,
+  sin duplicados por una pulsación.
+- Una entrada no numérica debe mostrar un error, no registrar una operación
+  válida y permitir reintentar.
+- La ventana no debe depender de preguntas ocultas en la terminal.
+- Configuración, CSV y log deben conservar la misma carpeta.
+- Comprueba limpiar, tabulación, redimensionado y cierre sin procesos colgados.
+- La sintaxis no certifica el aspecto ni la interacción: si no puedes abrir la
+  ventana, deja esa revisión pendiente de comprobación humana.
+
+Cuando puedas explicar la consola y, si procede, la ventana, continúa con el
+Proyecto aplicado 2 de B4: **Organiza productos con clases**.

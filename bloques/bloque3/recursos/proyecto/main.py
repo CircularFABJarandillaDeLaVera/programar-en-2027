@@ -47,4 +47,5 @@ def ejecutar():
             print(f"Precio final: {precio_final} - {estado}")
 
 
-ejecutar()
+if __name__ == "__main__":
+    ejecutar()

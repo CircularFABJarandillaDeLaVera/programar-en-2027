@@ -1,7 +1,8 @@
-# Proyecto B3 - SAMI-Lite
+# Proyecto aplicado 1 · Calcula y guarda precios
 
 ## Objetivo
-Construir un programa modular de consola con funciones, validacion, excepciones y persistencia local.
+Construir y comprobar un programa modular de consola con funciones, manejo de
+errores y persistencia local. Puede empezarse sin terminar antes el cuaderno.
 
 ## Estructura
 ```text
@@ -27,3 +28,6 @@ EJECUTAR -> OBSERVAR ERROR/EXCEPCION -> INTERPRETAR -> CORREGIR -> VOLVER A EJEC
 
 ## Archivos base
 Los tres archivos estan en esta carpeta como punto de partida.
+
+`main.py` solo arranca el menú cuando se ejecuta directamente. Esto permite
+que una interfaz posterior importe `procesar_transaccion` sin abrir la consola.

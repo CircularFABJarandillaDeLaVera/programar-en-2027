@@ -234,11 +234,22 @@ img {
     padding: var(--cf-space-3);
   }
 
+  .block-topbar {
+    display: grid;
+    gap: var(--cf-space-2);
+  }
+
   .block-brand,
   .block-nav,
   .block-nav .cf-nav__link,
   .theme-toggle {
+    min-width: 0;
     width: 100%;
+  }
+
+  .block-brand > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
 

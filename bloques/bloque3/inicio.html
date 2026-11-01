@@ -46,18 +46,89 @@
       </ul>
       <h2>Resultado esperado</h2>
       <p>Al terminar podrás orientarte en un pequeño proyecto Python, localizar una función, modificarla y comprobar el resultado.</p>
-      <h2>Tu recorrido en orden</h2>
-      <ol class="block-steps">
-        <li>
-          <p><a class="cf-button cf-button--primary" href="cuadernos/funciones-proyecto-b3.ipynb" download>PASO 1 · Descargar cuaderno B3</a></p>
-          <p><strong>Ruta B:</strong> empieza aquí. Aprende funciones, errores, ficheros y módulos.</p>
-        </li>
-        <li>
-          <p><a class="cf-button cf-button--secondary" href="proyecto-b3-sami-lite.zip" download>PASO 2 · Descargar Proyecto aplicado 1</a></p>
-          <p><strong>Proyecto aplicado 1 · Calcula y guarda precios.</strong> Ruta A puede abrirlo directamente; Ruta B llega aquí después del cuaderno.</p>
-        </li>
-      </ol>
-      <p>Ábrelo en Jupyter o VS Code y ejecuta las celdas en orden: ejecuta → cambia → predice → comprueba. El cuaderno termina donde empieza el proyecto. Después continúa con B4.</p>
+      <h2>Elige cómo trabajar este bloque</h2>
+      <div class="cf-panel cf-panel--raised">
+        <h3>CREAR PROYECTOS CON AGENTES</h3>
+        <p>Puedes empezar directamente con el proyecto, sin completar antes el cuaderno.</p>
+        <p><a class="cf-button cf-button--primary" href="proyecto-b3-sami-lite.zip" download>Descargar Proyecto aplicado 1</a></p>
+        <p>Descomprime el ZIP, abre en VS Code la carpeta que contiene <code>main.py</code>, <code>analizador.py</code> y <code>persistencia.py</code>, ejecuta <code>python main.py</code> y comprueba el resultado.</p>
+        <p>Después, continúa con <a href="#proyecto-b3-visual">Convierte tu programa en una aplicación con ventana</a>. El cuaderno B3 queda como consulta opcional.</p>
+      </div>
+      <div class="cf-panel cf-panel--raised">
+        <h3>APRENDER PROGRAMACIÓN CON PYTHON</h3>
+        <p><a class="cf-button cf-button--primary" href="cuadernos/funciones-proyecto-b3.ipynb" download>Descargar cuaderno B3</a></p>
+        <p>Abre el cuaderno en Jupyter o VS Code y ejecuta sus celdas en orden: ejecuta → cambia → predice → comprueba.</p>
+        <p>Después conecta con el mismo <a class="cf-button cf-button--secondary" href="proyecto-b3-sami-lite.zip" download>Proyecto aplicado 1 · Calcula y guarda precios</a>; no es un proyecto distinto ni una segunda copia del recorrido.</p>
+      </div>
+      <p><strong>Cierre común:</strong> ambas rutas confluyen en el Proyecto aplicado 1. Tras comprobar la consola y realizar el paso visual, continúa con el <a href="../bloque4/inicio.html">Proyecto aplicado 2 · Organiza productos con clases</a>.</p>
+    </section>
+
+    <section class="cf-panel cf-panel--raised" aria-labelledby="proyecto-b3-title">
+      <span class="cf-chip cf-chip--accent">Proyecto aplicado 1 · Calcula y guarda precios</span>
+      <h2 id="proyecto-b3-title">Puedes empezar directamente desde la consola</h2>
+      <p>Descarga el ZIP, extráelo y abre la carpeta que contiene <code>main.py</code>, <code>analizador.py</code> y <code>persistencia.py</code>. No necesitas completar antes el cuaderno. Abre esa carpeta en VS Code, comprueba <code>python --version</code> y ejecuta <code>python main.py</code>.</p>
+      <p>Con la configuración inicial (IVA del 21 %), prueba <code>Teclado</code> y <code>50</code>: debe aparecer <code>Precio final: 60.5 - PRECIO_NORMAL</code>. Escribe <code>salir</code> para terminar. La ejecución crea o actualiza <code>config.json</code>, <code>transacciones_auditoras.csv</code> y <code>auditoria_errores.log</code> en la carpeta desde la que arrancas.</p>
+      <p>Si escribes <code>abc</code> como precio, debe aparecer un error, quedar una línea en el log y poderse reintentar. Los precios <code>0</code> y negativos se conservan como comportamiento actual; rechazarlos será un cambio funcional posterior, no parte de este paso.</p>
+      <h3 id="proyecto-b3-visual">Convierte tu programa en una aplicación con ventana</h3>
+      <p>Después de comprobar la consola, genera <code>interfaz.py</code> desde esta base con ayuda de un agente. No se entrega una ventana terminada. En la ruta de programación, usa este paso para relacionar interfaz, lógica y persistencia.</p>
+      <details>
+        <summary>Mostrar prompt para el agente</summary>
+        <pre style="box-sizing:border-box;max-width:100%;overflow-x:auto;overflow-wrap:anywhere;white-space:pre-wrap"><code>Estoy haciendo mi primera práctica de programación con ayuda de un agente.
+Quiero convertir este programa de consola de productos y precios en una
+aplicación con una ventana clara y agradable de usar.
+
+Lee primero los archivos actuales y comprueba cómo se conectan main.py,
+analizador.py y persistencia.py. Revisa el estado y las diferencias de Git
+si esta carpeta está bajo control de versiones. Conserva mis cambios previos.
+
+Implementa una interfaz en interfaz.py usando Tkinter y tkinter.ttk.
+Comprueba primero que Tkinter está disponible en el intérprete elegido.
+Si falta, explica cómo resolverlo en mi sistema; no intentes instalarlo
+con pip ni cambies de tecnología automáticamente.
+
+La ventana debe tener:
+- Un título en español que explique que calculamos y guardamos precios.
+- Campos con etiquetas claras para nombre del producto y precio base.
+- Un botón principal «Calcular y guardar».
+- Un resultado visible con el precio final y el estado de la alerta.
+- Botones «Limpiar» y «Salir» y mensajes de error fáciles de entender.
+- Buena legibilidad, separación entre elementos, tamaño de ventana razonable,
+  orden de tabulación y un uso discreto de verde en la acción principal.
+
+Reutiliza las funciones existentes para cargar la configuración, calcular,
+evaluar la alerta y guardar la operación. En esta copia, comprueba si puedes
+reutilizar procesar_transaccion en vez de repetir sus pasos en la interfaz.
+Una pulsación debe guardar una sola operación. Reutiliza el registro de errores.
+
+Mantén la entrada por consola y sus resultados. No cambies los cálculos,
+los umbrales, el formato del CSV ni las reglas de precios para añadir la ventana.
+Separa los mensajes y la conversión de entradas de la lógica de negocio.
+No abras la ventana ni arranques el menú al importar un módulo.
+
+No añadas imágenes, servicios externos ni dependencias nuevas. Añade comentarios
+breves en español cuando ayuden a entender cómo se conecta la interfaz.
+
+Explica brevemente el plan y realiza este cambio acotado. Después indica:
+1. Qué archivos has creado o modificado y para qué sirve cada uno.
+2. La carpeta desde la que debo ejecutar y el comando para abrir interfaz.py.
+3. Cómo comparar el resultado con main.py y revisar los archivos generados.
+4. Qué has comprobado realmente y qué debo comprobar yo en la ventana.
+
+Prueba o guíame para probar un producto de precio 50, una entrada no numérica,
+precios 0 y negativos, limpiar campos y cerrar la ventana.
+Describe el comportamiento real. Si detectas que la regla actual acepta
+precios no positivos, señálalo como un cambio funcional posterior; no lo
+corrijas silenciosamente en esta tarea visual. No hagas commit ni publiques.</code></pre>
+      </details>
+      <h4>Comprobaciones del paso visual</h4>
+      <ul>
+        <li><code>50</code> debe producir <code>60.5</code> en consola y ventana.</li>
+        <li>Una operación en cada interfaz debe dejar dos filas, sin duplicados.</li>
+        <li>Una entrada no numérica debe mostrar error, no guardar una operación válida y permitir reintentar.</li>
+        <li>Comprueba la misma carpeta para configuración, CSV y log, además de limpiar, tabulación, redimensionado y cierre.</li>
+        <li>La sintaxis no certifica el aspecto: si no puedes abrir la ventana, deja la revisión visual pendiente.</li>
+      </ul>
+      <p>Cuando puedas explicar la consola y, si procede, la ventana, continúa con el <a href="../bloque4/inicio.html">Proyecto aplicado 2 · Organiza productos con clases</a>.</p>
     </section>
 
     <footer class="corp-band" aria-label="Logos institucionales">
