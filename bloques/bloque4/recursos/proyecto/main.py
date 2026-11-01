@@ -50,4 +50,5 @@ def ejecutar():
             print("Entrada no valida. Revisa el dato y vuelve a intentarlo.")
 
 
-ejecutar()
+if __name__ == "__main__":
+    ejecutar()

@@ -65,6 +65,24 @@
       <p><strong>Cierre común:</strong> ambas rutas confluyen en el Proyecto aplicado 2. Tras comprobar el comportamiento y explicar qué responsabilidad tiene cada clase, continúa con el <a href="../bloque5/inicio.html">Proyecto aplicado 3 · Crea un informe PDF con tus datos</a>.</p>
     </section>
 
+    <section class="cf-panel cf-panel--raised" aria-labelledby="proyecto-b4-title">
+      <span class="cf-chip cf-chip--accent">Proyecto aplicado 2 · Organiza productos con clases</span>
+      <h2 id="proyecto-b4-title">Qué carpeta abres y qué cambia respecto a B3</h2>
+      <p>El ZIP contiene una base nueva e independiente con sus propios <code>analizador.py</code>, <code>persistencia.py</code> y <code>main.py</code>. Es una continuación conceptual de B3, pero no reutiliza automáticamente sus archivos ni sus datos.</p>
+      <p>Descomprime el ZIP, abre en VS Code la carpeta que contiene esos tres archivos y el README, comprueba <code>python --version</code> y ejecuta <code>python main.py</code>. No hay dependencias externas: se usa la biblioteca estándar de Python.</p>
+      <h3>Responsabilidades reales del proyecto</h3>
+      <ul>
+        <li><code>Producto</code> guarda nombre y precio validado y calcula el precio base con IVA.</li>
+        <li><code>ProductoHardware</code> es un producto con peso y añade recargo si supera 5 kg.</li>
+        <li><code>ProductoLicencia</code> es un producto digital con clave y aplica un 5 % de descuento si supera 100.</li>
+        <li><code>AuditoriaMercado</code> tiene productos, evalúa alertas y genera el reporte.</li>
+        <li><code>ManejadorDatos</code> carga <code>config.json</code> y registra CSV y log.</li>
+      </ul>
+      <p>Prueba un <code>hardware</code> llamado <code>Teclado</code>, precio <code>80</code>, peso <code>1.2</code>, y una <code>licencia</code> llamada <code>Suite</code>, precio <code>140</code>, clave <code>ABC-123</code>. Escribe <code>salir</code>: el resultado inicial esperado es <code>Total auditado: 229.8</code>, con filas <code>96.8 PRECIO_NORMAL</code> y <code>133.0 ALERTA_PRECIO_ELEVADO</code>.</p>
+      <p>El precio negativo provoca <code>ValueError</code> y un tipo de producto desconocido provoca <code>ValueError</code>; ambos se registran y permiten continuar. El peso cero o negativo se acepta inicialmente: rechazarlo es un reto posterior, no un comportamiento ya entregado.</p>
+      <p>Cuando puedas explicar qué objeto calcula, qué objeto contiene la lista y qué clase aplica cada regla, continúa con el <a href="../bloque5/inicio.html">Proyecto aplicado 3 · Crea un informe PDF con tus datos</a>.</p>
+    </section>
+
     <footer class="corp-band" aria-label="Logos institucionales">
       <img class="corp-band__logo corp-logo--light" src="../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
       <img class="corp-band__logo corp-logo--dark" src="../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">

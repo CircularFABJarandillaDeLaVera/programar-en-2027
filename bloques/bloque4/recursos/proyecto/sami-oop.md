@@ -1,7 +1,10 @@
-# Proyecto B4 - SAMI-OOP
+# Proyecto aplicado 2 · Organiza productos con clases
 
 ## Evolucion
-SAMI-Lite -> SAMI-OOP.
+Continuación conceptual de Proyecto aplicado 1 · Calcula y guarda precios:
+B3 separa funciones y módulos; B4 organiza el mismo problema con objetos.
+La carpeta descargada es una base nueva e independiente y no reutiliza
+automáticamente archivos ni datos de B3.
 
 ## Objetivo
 Reorganizar el problema conocido de auditoria de mercado usando objetos.
@@ -39,3 +42,6 @@ el cambio no esta listo. Mismo habito de B3, ahora sobre objetos.
 
 ## Archivos base
 Los tres archivos Python estan en esta carpeta.
+
+Ejecuta `python main.py` desde esta carpeta. El comportamiento inicial acepta
+pesos no positivos; investigarlos y rechazarlos es un reto posterior separado.

@@ -74,7 +74,31 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 ### Siguiente paso
 
-- Revisar visualmente la página B3 y el README/ZIP extraído. No avanzar a B4 ni a otra microfase hasta aceptar esta revisión.
+- La microfase 2 quedó aceptada y cerrada en `7f6ba1e`; la revisión de B4 se realiza ahora en su microfase autorizada.
+
+## Microfase 3 — Proyecto aplicado 2 · Organiza productos con clases
+
+### Comprobado ahora
+
+- Se compararon la fuente docente `bloques/bloque4/recursos/proyecto/`, la copia de trabajo `bloques/bloque4/proyecto-sami-oop/` y `bloques/bloque4/proyecto-b4-sami-oop.zip` antes de sincronizar.
+- `analizador.py` y `persistencia.py` ya coincidían entre fuente, copia y ZIP. `main.py` tenía la misma lógica en fuente y copia, pero la fuente no protegía el arranque; se añadió la guardia `if __name__ == "__main__":` para alinear la fuente y permitir importar sin iniciar el menú.
+- El ZIP se reconstruyó desde los cuatro archivos de `proyecto-sami-oop/` y la extracción limpia contiene exactamente `analizador.py`, `persistencia.py`, `main.py` y `README_PROYECTO.md`. Los cuatro coinciden por SHA-256 con sus fuentes correspondientes.
+- La guía web y el README usan el nombre público `Proyecto aplicado 2 · Organiza productos con clases`, explican que es una continuación conceptual de B3 pero una base técnica nueva, y aclaran carpeta, requisitos, comando, resultados, errores y siguiente paso.
+- Se documentaron las responsabilidades reales de `Producto`, `ProductoHardware`, `ProductoLicencia`, `AuditoriaMercado` y `ManejadorDatos`, con ejemplos concretos del reporte.
+- El comportamiento inicial y el reto posterior quedaron separados: el precio negativo provoca `ValueError`; el peso `0` se acepta inicialmente y su validación queda como reto separado.
+
+### Evidencia y límites
+
+- En extracciones limpias con Python 3.12 se comprobó compilación, importación sin menú, flujo normal con Teclado y Suite (`229.8`, filas `96.8` y `133.0`), tipo desconocido registrado, precio `-5` registrado como error sin fila CSV y peso `0` aceptado (`96.8`).
+- No se ejecutaron suites con `pytest`; no se instalaron dependencias.
+- No se añadió interfaz gráfica ni funcionalidad nueva para ilustrar las clases.
+- B5 no se ha revisado: esta microfase se limita a B4 y su seguimiento.
+- La guía de B4 queda aceptada por el usuario para este punto de control.
+- Las suites con `pytest` siguen sin ejecutarse; esta aceptación no las presenta como ejecutadas.
+
+### Siguiente paso
+
+- Revisar visualmente la guía B4 y el README/ZIP extraído. No iniciar la microfase 4 de B5 todavía.
 
 ## Histórico
 

@@ -1,6 +1,9 @@
-# SAMI-OOP (prototipo B4) — De SAMI-Lite a objetos con responsabilidades
+# Proyecto aplicado 2 · Organiza productos con clases
 
-Evolución: **SAMI-Lite (B3: funciones + módulos) → SAMI-OOP (B4: objetos + responsabilidades)**.
+Continuación conceptual de **Proyecto aplicado 1 · Calcula y guarda precios**:
+en B3 separaste funciones y módulos; aquí organizas el mismo problema con
+objetos y responsabilidades. La carpeta descargada es una base nueva e
+independiente: no reutiliza automáticamente los archivos ni los datos de B3.
 Solo biblioteca estándar (`csv`, `json`, `datetime`). Sin conceptos avanzados.
 
 ## Estructura
@@ -13,9 +16,24 @@ proyecto-sami-oop/
   README_PROYECTO.md
 ```
 
-Diferencia intencionada con el B4 real: `main.py` protege el arranque con
-`if __name__ == "__main__":` para poder importarlo sin ejecutar el programa.
-El resto es idéntico al material real.
+`main.py` protege el arranque con `if __name__ == "__main__":`, por lo que solo
+se ejecuta al lanzar el programa y puede importarse para estudiar sus funciones.
+
+## Preparar y ejecutar
+
+1. Descarga `proyecto-b4-sami-oop.zip` y extráelo.
+2. Abre en VS Code la carpeta que contiene `analizador.py`, `persistencia.py`,
+   `main.py` y este README.
+3. No instales dependencias: se usa la biblioteca estándar de Python.
+4. Desde esa carpeta, comprueba `python --version` y ejecuta:
+
+   ```text
+   python main.py
+   ```
+
+El programa pide productos de tipo `hardware` o `licencia`. Escribe `salir`
+para generar el reporte. Crea `config.json`, añade filas a
+`transacciones_oop.csv` y registra errores en `auditoria_oop.log`.
 
 ## Clases y responsabilidades (una frase cada una)
 
@@ -31,9 +49,10 @@ sobrescritura de `calcular_precio_final`, reporte polimórfico.
 
 ## Experiencia
 
-### PREPARAR
+### PREPARAR Y ORIENTARSE
 
-Abrir esta carpeta en VS Code. Solo `main.py` se ejecuta; los demás se importan.
+Abre esta carpeta en VS Code. Solo `main.py` se ejecuta; `analizador.py` y
+`persistencia.py` se importan. Antes de ejecutar, responde:
 
 ### ORIENTARSE (10 min, responde por escrito)
 
@@ -54,10 +73,12 @@ La auditoría delega; cada objeto aplica SU regla con la MISMA llamada.
 2. `ProductoHardware` acepta cualquier `peso_kg`. ¿Qué clase debe impedir
    un peso no positivo y por qué ella y no `AuditoriaMercado`?
 
-### MODIFICAR (cambio acotado, una sola clase)
+### RETO POSTERIOR (cambio acotado, no es el comportamiento inicial)
 
-`ProductoHardware` debe rechazar `peso_kg` no positivo con una excepción clara,
-siguiendo el estilo de `set_precio`. Ningún otro archivo cambia.
+En el comportamiento inicial, `ProductoHardware` acepta cualquier `peso_kg`.
+Como reto posterior separado, haz que rechace un peso no positivo con una
+excepción clara, siguiendo el estilo de `set_precio`. Ningún otro archivo debe
+cambiar en ese reto.
 
 ### COMPROBAR (casos manuales suficientes)
 
@@ -65,8 +86,8 @@ siguiendo el estilo de `set_precio`. Ningún otro archivo cambia.
 normal:   Teclado, 80.0, 1.2  +  Suite, 140.0, ABC-123  → total 229.8
           (96.8 PRECIO_NORMAL + 133.0 ALERTA_PRECIO_ELEVADO)
 límite:   evaluar_alerta(100.0) → PRECIO_NORMAL; evaluar_alerta(100.01) → ALERTA
-inválido: precio -5.0 → ValueError; agregar "texto" → TypeError;
-          peso 0 o -3 → ValueError (tras tu cambio)
+inválido: precio -5.0 → ValueError; agregar "texto" → TypeError.
+Estado inicial: peso 0 o -3 se aceptan; el rechazo pertenece al reto posterior.
 ```
 
 En Python, sin arrancar el menú:
