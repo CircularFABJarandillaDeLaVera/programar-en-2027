@@ -10,7 +10,7 @@ window.EDUSDK_MAP_DATA = {
   centerWidth: 320,
   legend: [{ label: 'Flujo', tone: 'blue' }, { label: 'Herramienta', tone: 'green' }, { label: 'Laguna', tone: 'amber' }],
   nodes: [
-    { id: 'root', parent: null, x: 480, y: 300, type: 'central', title: 'Bloque 6', subtitle: 'Entorno profesional', def: 'Notebook -> script -> VS Code -> proyecto -> venv -> Git -> debugger -> IA.', key: 'Profesionalizar el entorno.', err: 'Anadir grandes funcionalidades a SAMI.' },
+    { id: 'root', parent: null, x: 480, y: 300, type: 'central', title: 'Bloque 6', subtitle: 'Herramientas para trabajar con tus proyectos', def: 'Notebook -> script -> VS Code -> proyecto -> venv -> Git -> debugger -> IA.', key: 'Profesionalizar el entorno.', err: 'Anadir grandes funcionalidades a la base.' },
     { id: 'script', parent: 'root', x: 80, y: 70, type: 'rama', title: 'Script .py', subtitle: 'Salida explicita', def: 'Un script ejecuta de arriba abajo y necesita print para mostrar resultados.', key: 'Sin sintaxis de notebook.', err: 'Pegar %pip o !ls en un .py.' },
     { id: 'vscode', parent: 'root', x: 80, y: 230, type: 'rama', title: 'VS Code', subtitle: 'Editor y terminal', def: 'Explorador, editor, terminal integrada e interprete.', key: 'Comandos en terminal.', err: 'Escribir python main.py dentro del archivo.' },
     { id: 'proyecto', parent: 'root', x: 80, y: 390, type: 'rama', title: 'Proyecto', subtitle: 'src/data/logs', def: 'Separar codigo, datos, configuracion y registros.', key: 'Rutas relativas.', err: 'Usar rutas absolutas locales.' },

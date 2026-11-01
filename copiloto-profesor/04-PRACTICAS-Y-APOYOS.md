@@ -13,7 +13,7 @@ Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos t
 | B3 | [Cuaderno de funciones](../bloques/bloque3/cuadernos/funciones-proyecto-b3.ipynb) · [SAMI-Lite](../bloques/bloque3/proyecto-sami-lite/README_PROYECTO.md) | Seguir llamadas entre módulos y modificar una regla de precio con casos de comprobación. |
 | B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
 | B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
-| B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Copia base](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → romper y depurar → modificar sin romper → Git local. |
+| B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Base de trabajo](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → romper y depurar → modificar sin romper → Git local. |
 | B7 | [Seis experiencias y cuatro proyectos](../bloques/bloque7/inicio.html) · [Material de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) | Ruta publicada de agentes y material SAMI separado; en ambos, contexto → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
 
 B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. SAMI Final conserva guía y plantillas propias, pero su integración definitiva en la ruta publicada está pendiente. No exijas conexiones reales para las alternativas locales previstas.
@@ -381,7 +381,7 @@ La ruta publicada se titula **Trabajo como developer** y usa este orden: EXP-01 
 
 ---
 
-## Proyecto B6: SAMI-Local
+## Base de trabajo B6: entorno local y control de cambios
 * **Objetivo:** Proyecto local completamente estructurado en disco con su carpeta `venv`, archivo `requirements.txt`, repositorio Git inicializado y ejecución depurada.
 * **Artefacto/Evidencia:** árbol de carpetas reproducible, entorno activo, dependencias declaradas, ejecución por terminal y explicación de al menos un breakpoint.
 

@@ -1,4 +1,1 @@
-numpy
 pandas
-pytest-playwright
-reportlab

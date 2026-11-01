@@ -77,7 +77,7 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 [B5: Python Aplicado y Librerías] ──► [Proyecto B5: SAMI-Applied (CSV, NumPy, Pandas, PDF)]
         │
         ▼
-[B6: Trabajo como developer] ──► [Proyecto B6: SAMI-Local (VS Code, venv, Git, Debugger)]
+[B6: Herramientas para trabajar con tus proyectos] ──► [Base de trabajo B6 (VS Code, venv, Git, depuración)]
         │
         ▼
 [B7: Trabajo como developer con agentes]
@@ -96,7 +96,7 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 | **B3** | **Funciones y Modularidad**<br>Programas reutilizables | Colab / Scripts `.py` | `def`, `return` frente a `print()`, parámetros opcionales por defecto, scope local vs global, docstrings, `try-except-else-finally`, `with open()`, JSON nativo, CSV, `import`. | **SAMI-Lite**: Gestor modular de datos de consola con persistencia física en JSON/CSV. |
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
 | **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
-| **B6** | **Trabajo como developer**<br>Desarrollo local | VS Code Local | Seis experiencias: orientación, entorno y dependencias, flujo, depuración, cambio acotado y Git local. | **SAMI-Local**: copia personal con un cambio funcional comprobado y un commit local explicado; no exige `push`. |
+| **B6** | **Herramientas para trabajar con tus proyectos**<br>Desarrollo local | VS Code Local | Seis experiencias: orientación, entorno y dependencias, flujo, depuración, cambio acotado y Git local. | **Base de trabajo B6**: copia personal con un cambio funcional comprobado y un commit local explicado; no exige `push`. |
 | **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: Harness, agente real, depuración, refactor y diff, LangGraph sin LLM e IA-Control con Ollama opcional. | Cuatro proyectos de práctica publicados. SAMI Final conserva guía y documentos de defensa separados; no se fija todavía su integración definitiva ni la obligatoriedad de LangGraph. |
 
 ---
@@ -108,7 +108,7 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 1. **B3 · SAMI-Lite:** funciones y módulos para calcular precios, evaluar alertas y registrar transacciones en CSV, con configuración JSON y log.
 2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
 3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
-4. **B6 · SAMI-Local:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
+4. **B6 · Herramientas para trabajar con tus proyectos:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
 5. **B7 · material SAMI Final:** conserva una propuesta de cierre, registro de IA, plan de validación y defensa. La portada de B7 publica además seis experiencias con proyectos propios. Hasta resolver su integración, el Copiloto debe identificar qué ruta o material se está usando y no mezclarlos.
 
 Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.

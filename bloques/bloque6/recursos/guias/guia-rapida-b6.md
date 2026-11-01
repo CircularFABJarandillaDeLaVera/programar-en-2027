@@ -1,6 +1,6 @@
-# Guia rapida - Bloque 6
+# Guía rápida · Herramientas para trabajar con tus proyectos
 
-## Del notebook al entorno profesional
+## Del notebook al entorno local y controlado
 
 1. NOTEBOOK: identifica celdas maduras.
 2. SCRIPT: mueve codigo a `.py` y usa `print`.
@@ -15,5 +15,7 @@
 
 ## Regla clave
 
-SAMI-Local profesionaliza el entorno. No anade grandes funcionalidades.
+La base de B6 profesionaliza el entorno. No añade grandes funcionalidades ni
+es una cuarta práctica aplicada. Sus seis experiencias reutilizan la misma
+copia de trabajo y su salida principal es la consola.
 

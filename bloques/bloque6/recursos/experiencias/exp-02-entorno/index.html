@@ -25,7 +25,8 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
         <a class="cf-nav__link" href="../exp-01-orientarse/index.html">← Anterior: EXP-01</a>
-        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 6</a>
+        <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-03-flujo/index.html">Siguiente: EXP-03 →</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -50,9 +51,9 @@
       <section class="lab-panel">
         <h2>PREPARAR</h2>
         <p>Trabajas sobre tu copia personal (<code>mi-proyecto-b6/</code>), la misma de EXP-01. Nada del proyecto canónico se toca.</p>
-        <pre class="lab-code"><code>proyecto-seguro/
+        <pre class="lab-code"><code>mi-proyecto-b6/
 ├── main.py · config.json · data/ · src/
-├── requirements.txt   # numpy, pandas, pytest-playwright, reportlab
+├── requirements.txt   # pandas
 └── .gitignore         # venv/ y logs/ ya están ignorados (ábelo y compruébalo)</code></pre>
         <p>Abre VS Code en <code>proyecto-seguro/</code> y su terminal integrada. Confirma la raíz:</p>
         <pre class="lab-code"><code>dir</code></pre>
@@ -63,11 +64,8 @@
         <p>Antes de crear nada, retrata tu punto de partida (lo compararás al final):</p>
         <pre class="lab-code"><code>python -c "import sys; print(sys.executable)"
 python -m pip --version</code></pre>
-        <p>La ruta apunta al Python global del equipo. Ahora lee <code>requirements.txt</code> (4 líneas, sin teoría):</p>
-        <pre class="lab-code"><code>numpy
-pandas
-pytest-playwright
-reportlab</code></pre>
+        <p>La ruta apunta al Python global del equipo. Ahora lee <code>requirements.txt</code> (una dependencia del flujo principal):</p>
+        <pre class="lab-code"><code>pandas</code></pre>
         <p>Respuesta que debes poder dar: “estas son las dependencias declaradas del proyecto”. Declaradas no significa instaladas: eso lo compruebas ahora.</p>
       </section>
 

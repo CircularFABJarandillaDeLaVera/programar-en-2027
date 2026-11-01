@@ -13,6 +13,7 @@
     .lab-hero > :not(.lab-pattern) { position: relative; }
     .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
     [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    .lab-panel, .lab-code { min-width: 0; max-width: 100%; box-sizing: border-box; }
   </style>
   <script src="../../../../../assets/js/theme-toggle.js" defer></script>
 </head>
@@ -25,7 +26,8 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
         <a class="cf-nav__link" href="../exp-04-depurar/index.html">← Anterior: EXP-04</a>
-        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 6</a>
+        <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-06-git/index.html">Siguiente: EXP-06 →</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -91,7 +93,7 @@ umbral 7: ['CPU-01', 'RAM-02']  (borde: Ryzen 5 ahora alerta)</code></pre>
 
       <section class="lab-panel">
         <h2>MINI-RETO (autonomía)</h2>
-        <p>Sin pasos. En el proyecto SAMI-Lite del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/analizador.py</code>, stdlib, sin red): cambia <code>evaluar_alerta_precio</code> de <code>&gt;</code> a <code>&gt;=</code>. Define cambio + límite, comprueba ANTES (<code>precio == umbral</code> → hoy <code>PRECIO_NORMAL</code>), modifica, comprueba DESPUÉS (borde + un caso por encima + uno por debajo). Solo esa función.</p>
+        <p>Sin pasos. En el <strong>Proyecto aplicado 1 · Calcula y guarda precios</strong> del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/analizador.py</code>, stdlib, sin red): cambia <code>evaluar_alerta_precio</code> de <code>&gt;</code> a <code>&gt;=</code>. Define cambio + límite, comprueba ANTES (<code>precio == umbral</code> → hoy <code>PRECIO_NORMAL</code>), modifica, comprueba DESPUÉS (borde + un caso por encima + uno por debajo). Solo esa función.</p>
       </section>
 
       <section class="lab-panel">

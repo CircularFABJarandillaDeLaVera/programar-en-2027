@@ -17,11 +17,12 @@ Comprueba si aparece `(venv)` antes de instalar paquetes.
 ## requirements.txt
 
 ```text
-numpy
 pandas
-pytest-playwright
-reportlab
 ```
+
+La base de B6 solo declara `pandas` porque es la dependencia que usa su flujo
+principal. Playwright y ReportLab pertenecen a otros materiales y no son
+requisitos de estas seis experiencias.
 
 ## Ejecutar
 

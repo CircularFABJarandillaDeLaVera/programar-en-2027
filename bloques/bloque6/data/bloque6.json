@@ -87,7 +87,7 @@
       "objetivo": "Registrar dependencias para reproducir el proyecto.",
       "guion": "Muestra requirements.txt como contrato de paquetes.",
       "pregunta": "Por que no basta decir 'instala pandas'?",
-      "ejemplo": "numpy\npandas\npytest-playwright\nreportlab",
+      "ejemplo": "pandas",
       "modificar": "Anade una linea solo si el proyecto la necesita.",
       "predecir": "Que lee pip install -r requirements.txt?",
       "error_util": "Instalar paquetes uno a uno y olvidar documentarlos.",
@@ -155,16 +155,16 @@
       "comprobar": "El alumno valida cualquier ayuda antes de integrarla."
     },
     {
-      "titulo": "SAMI-Local",
-      "objetivo": "Profesionalizar SAMI-Applied sin anadir grandes funcionalidades.",
+      "titulo": "Base de herramientas: entorno y control",
+      "objetivo": "Profesionalizar el entorno de trabajo sin anadir grandes funcionalidades.",
       "guion": "Organiza estructura, requirements, .gitignore, ejecucion, trazas y protocolo IA.",
-      "pregunta": "Que cambia en SAMI-Local: funciones o entorno?",
+      "pregunta": "Que cambia en la base: funciones o entorno?",
       "ejemplo": "sami_local/\n  .gitignore\n  requirements.txt\n  main.py\n  src/\n  data/\n  logs/",
       "modificar": "Anade una carpeta docs si el profesor la permite.",
       "predecir": "Que carpeta no deberia subirse al repositorio?",
       "error_util": "Subir venv o logs por no usar .gitignore.",
       "reto": "Entregar estructura local reproducible.",
-      "comprobar": "SAMI-Local demuestra entorno preparado, no nuevas funciones grandes."
+      "comprobar": "La base demuestra entorno preparado, no nuevas funciones grandes."
     }
   ],
   "flashcards": [
@@ -408,8 +408,8 @@
     }
   ],
   "proyecto": {
-    "titulo": "SAMI-Local",
-    "evolucion": "SAMI-Lite -> SAMI-OOP -> SAMI-Applied -> SAMI-Local",
+    "titulo": "Herramientas para trabajar con tus proyectos",
+    "evolucion": "Proyectos aplicados B3-B5 -> base de herramientas B6",
     "estructura": [
       "sami_local/.gitignore",
       "sami_local/requirements.txt",

@@ -55,7 +55,7 @@ El cambio consiste en destacar el stock bajo. `comprobar.py` comprueba el CSV, l
 
 ## B6 · SAMI-Local: trabajar dentro de un proyecto
 
-La [ruta de B6](../bloques/bloque6/inicio.html) usa una copia personal de [proyecto-seguro](../bloques/bloque6/recursos/proyecto-seguro/), también distribuida como [ZIP de B6](../bloques/bloque6/proyecto-b6-trabajo-developer.zip).
+La [ruta de B6](../bloques/bloque6/inicio.html) usa una copia personal de [proyecto-seguro](../bloques/bloque6/recursos/proyecto-seguro/), también distribuida como [base de trabajo B6](../bloques/bloque6/proyecto-b6-entorno-control.zip). Este documento conserva el identificador SAMI como antecedente técnico; no es el nombre público de la actividad.
 
 Seis experiencias: orientarse, preparar entorno, seguir el flujo, depurar, modificar sin romper y registrar con Git. La base contiene `main.py`, `src/`, `config.json`, `data/datos_hardware.csv` y `requirements.txt`.
 

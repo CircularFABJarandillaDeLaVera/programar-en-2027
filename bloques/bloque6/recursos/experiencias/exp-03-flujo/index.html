@@ -25,7 +25,8 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
         <a class="cf-nav__link" href="../exp-02-entorno/index.html">← Anterior: EXP-02</a>
-        <a class="cf-nav__link" href="../../../inicio.html">Inicio B6</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 6</a>
+        <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-04-depurar/index.html">Siguiente: EXP-04 →</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -69,7 +70,7 @@
   → persistencia.cargar_configuracion("config.json") ... ENTRA la config (iva, stock_minimo)
   → analizador.calcular_precio_final(tabla, iva) ... TRANSFORMA (columna precio_final)
   → analizador.filtrar_stock_bajo(tabla, stock_minimo)  TRANSFORMA (alertas)
-  → generador_pdf.describir_informe(tabla, alertas)  ... SALE el informe
+  → generador_pdf.describir_informe(tabla, alertas)  ... SALE un resumen en consola
   → print(tabla) + print(informe) ................... SALE por consola
   → (si falla) persistencia.registrar_error(...) .... SALE a logs/</code></pre>
         <p>Fíjate también en lo que NO se usa: <code>scraper.comprobar_pagina</code> existe pero <code>main.py</code> no la llama. Saber qué no participa también es leer.</p>
@@ -83,12 +84,12 @@
         <h2>MODIFICAR (tu modelo mental, no el código)</h2>
         <p>Reescribe tu frase inicial. El formato válido es:</p>
         <pre class="lab-code"><code>Pensaba que main.py hacía ___; ahora veo que coordina ___.</code></pre>
-        <p>Responde además, sin tocar archivos: ¿dónde entra el programa? ¿dónde se cargan los datos? ¿dónde se transforman? ¿dónde sale el resultado? ¿para cambiar el stock mínimo, qué archivo mirarías primero? ¿y para cambiar el PDF?</p>
+        <p>Responde además, sin tocar archivos: ¿dónde entra el programa? ¿dónde se cargan los datos? ¿dónde se transforman? ¿dónde sale el resultado? ¿para cambiar el stock mínimo, qué archivo mirarías primero? ¿y para cambiar el resumen?</p>
       </section>
 
       <section class="lab-panel">
         <h2>MINI-RETO (autonomía)</h2>
-        <p>Sin pasos. Abre el proyecto SAMI-Lite del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/</code>: <code>main.py</code> + <code>analizador.py</code> + <code>persistencia.py</code>, solo librería estándar) y entrega: archivo de entrada · 2 funciones localizadas · el viaje de un dato (precio_base → precio_final → estado) · dónde sale el resultado · qué archivo tocarías para cambiar el cálculo del precio. Si lo ejecutas, escribe <code>salir</code> a la primera pregunta: verás <code>Fin de SAMI-Lite</code> y solo se creará <code>config.json</code> con valores por defecto (así funciona <code>cargar_configuracion</code>).</p>
+        <p>Sin pasos. Abre el <strong>Proyecto aplicado 1 · Calcula y guarda precios</strong> del Bloque 3 (<code>bloques/bloque3/recursos/proyecto/</code>: <code>main.py</code> + <code>analizador.py</code> + <code>persistencia.py</code>, solo librería estándar) y entrega: archivo de entrada · 2 funciones localizadas · el viaje de un dato (precio_base → precio_final → estado) · dónde sale el resultado · qué archivo tocarías para cambiar el cálculo del precio. Si lo ejecutas, escribe <code>salir</code> a la primera pregunta: la salida técnica heredada indica que el programa ha terminado y solo se crea <code>config.json</code> con valores por defecto.</p>
       </section>
 
       <section class="lab-panel">
@@ -98,7 +99,7 @@
   → persistencia.cargar_configuracion (config.json)
   → analizador.cargar_datos (datos_hardware.csv)
   → analizador.calcular_precio_final + filtrar_stock_bajo
-  → generador_pdf.describir_informe
+  → generador_pdf.describir_informe (resumen de consola)
   → consola (+ logs/ si falla)</code></pre>
         <p>Y de viva voz, en menos de 60 segundos: “este proyecto recibe ___, pasa por ___, transforma ___ y produce ___”.</p>
       </section>
@@ -111,7 +112,7 @@
 [ ] describir_informe localizada (dónde nace la salida)
 [ ] sé qué NO se usa (scraper.comprobar_pagina)
 [ ] mapa de 6 líneas + explicación de 60 segundos
-[ ] respondo qué archivo tocar para stock mínimo y para el PDF
+[ ] respondo qué archivo tocar para stock mínimo y para el resumen
 [ ] cero archivos modificados</code></pre>
       </section>
 

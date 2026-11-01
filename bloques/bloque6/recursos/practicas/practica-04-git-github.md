@@ -24,5 +24,5 @@ Confundir `commit` con `push`: el commit guarda version local; push sincroniza c
 
 ## Validar
 
-Redacta un mensaje de commit claro para una mejora de SAMI-Local.
+Redacta un mensaje de commit claro para una mejora de la base de herramientas.
 

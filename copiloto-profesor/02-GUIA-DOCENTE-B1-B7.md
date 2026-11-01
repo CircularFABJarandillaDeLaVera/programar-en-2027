@@ -316,7 +316,7 @@ Selecciona una ruta coherente; no intentes comprimir todas las librerías en una
 # BLOQUE 6: TRABAJO COMO DEVELOPER
 
 ## 6.1. Objetivo Operativo
-Trabajar dentro de una copia personal de SAMI-Local siguiendo las [seis experiencias de B6](../bloques/bloque6/inicio.html): orientarse, preparar entorno, comprender el flujo, romper y depurar sobre copia segura, modificar sin romper y registrar con Git. La salida final es un cambio funcional comprobado y un commit local explicado. La ruta publicada no exige GitHub, remoto ni `push`.
+Trabajar dentro de una copia personal de la base de herramientas de B6 siguiendo las [seis experiencias](../bloques/bloque6/inicio.html): orientarse, preparar entorno, comprender el flujo, romper y depurar sobre copia segura, modificar sin romper y registrar con Git. La salida final es un cambio funcional comprobado y un commit local explicado. La ruta publicada no exige GitHub, remoto ni `push`.
 
 ---
 

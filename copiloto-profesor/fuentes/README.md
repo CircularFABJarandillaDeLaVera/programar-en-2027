@@ -19,7 +19,7 @@ Esta carpeta conserva la ingeniería de origen de Python 2027 como respaldo peda
 | [Bloque 3](ingenieria-python-bloque3-final.md) | Funciones, errores, JSON/CSV y arquitectura comercial de SAMI-Lite. | Apoyo conceptual; contrastar las firmas y ejercicios con la copia de trabajo de B3. |
 | [Bloque 4](ingenieria-python-bloque4-final.md) | POO, composición, herencia y productos de SAMI-OOP. | Explicar responsabilidades; no exigir todos los ejemplos ni patrones de la ingeniería. |
 | [Bloque 5](ingenieria-python-bloque5-final.md) | NumPy, Pandas, Playwright y ReportLab Platypus. | La fuente desarrolla sobre todo ReportLab. El SAMI-Applied práctico actual parte de CSV y no exige scraping. |
-| [Bloque 6](ingenieria-python-bloque6-refinada.md) | Entorno local, Git, depuración y diseño de SAMI-Local. | Diseño histórico: la ruta actual tiene seis experiencias, Git local y salida descriptiva por consola. |
+| [Bloque 6](ingenieria-python-bloque6-refinada.md) | Entorno local, Git, depuración y base de herramientas. | Diseño histórico: la ruta actual tiene seis experiencias, Git local y salida descriptiva por consola. |
 | [Bloque 7](ingenieria-python-bloque7.md) | Contexto, revisión crítica, defensa y grafos. | Diseño histórico: contrastar con los proyectos publicados de Harness, agente real, LangGraph e IA bajo control. |
 | [Lab original](ingenieria-lab-python-en-accion.md) | OpenCV, Pillow, archivos, openpyxl y Tkinter. | Solo las cinco experiencias iniciales; el mapa ampliado está en 08 y en el portal del Lab. |
 

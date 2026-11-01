@@ -9,7 +9,7 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 - Se actualizaron únicamente los siete índices autorizados: la portada, el índice del Recorrido práctico y los índices B3–B7.
 - La portada ofrece `Empieza por aquí`, una Ruta A para crear proyectos con agentes y una Ruta B para aprender programación con Python. Ambas sitúan los proyectos aplicados de B3, B4 y B5 y continúan hacia B6 y B7.
 - B3–B5 muestran los nombres públicos acordados sin renombrar archivos técnicos, cuadernos, ZIP ni PDF.
-- B6 ya no enlaza al ZIP inexistente `proyecto-b6-trabajo-developer.zip`; presenta sus seis experiencias reales como entrada.
+- B6 presenta sus seis experiencias reales como entrada y enlaza, desde EXP-01, la descarga existente `proyecto-b6-entorno-control.zip`.
 - B7 conserva sus materiales actuales y marca LangGraph como ampliación en desarrollo, no como requisito obligatorio.
 - El Laboratorio se presenta como `Recorrido práctico · Construye y conecta tus proyectos`, con acceso libre posterior y seis etapas descriptivas; no se han eliminado sus recursos.
 - Se conservaron sin tocar los cambios no seguidos de `Cambios_portada_2027/`.
@@ -140,6 +140,35 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 - JSON B3–B5 válido y `git diff --check` correcto. El verificador general mantiene `pytest` como no disponible/no ejecutado.
 - Se conserva `Cambios_portada_2027/` sin incluir ni descartar.
+
+## Microfase 5 — Herramientas para trabajar con tus proyectos
+
+### Comprobado ahora
+
+- Punto de partida confirmado: `21692d9` en `main`, con el tag `v2027-b5-m4`. Se revisaron las seis experiencias de B6, su guía rápida, prácticas, mapas, datos y proyecto base sin modificar EduSDK ni B7.
+- El nombre público de B6 es `Herramientas para trabajar con tus proyectos`. Se sustituyeron nombres heredados en las entradas públicas por descripciones concretas, conservando `sami_local`, `generador_pdf.py` y otras rutas como identificadores técnicos o antecedentes.
+- La base canónica es `bloques/bloque6/recursos/proyecto-seguro/`; `recursos/proyecto/sami_local/` se comprobó archivo a archivo y coincide por SHA-256. La descarga principal es `proyecto-b6-entorno-control.zip`, sin carpeta raíz; sus diez archivos coinciden con la fuente canónica y se extraen correctamente.
+- EXP-01 explica crear una carpeta propia (`mi-proyecto-b6`), extraer allí el ZIP y abrir esa carpeta en VS Code. Las seis experiencias mantienen la misma copia, aclaran cuándo se reutiliza y describen el comando real `python main.py`, cuyo resultado es un resumen en consola; B6 no se presenta como una cuarta práctica aplicada ni promete generar un PDF.
+- La base solo declara `pandas`, porque el flujo real usa esa dependencia. Playwright y ReportLab no son requisitos de inicio; el módulo técnico `generador_pdf.py` construye un resumen, no un archivo PDF.
+- Se añadió un acceso contextual y opcional al recurso Docker del Laboratorio: requiere Docker Desktop instalado y en ejecución, con comprobaciones `docker --version` y `docker info`; no es necesario para empezar B6. También se distingue lo trabajado ahora de la profundización posterior en `Construye y conecta tus proyectos`.
+
+### Evidencia y límites
+
+- En una extracción limpia se comprobó la igualdad del ZIP con la fuente, la compilación de Python y la ejecución de `main.py` con salida normal: tres filas y resumen con `filas: 3` y `alertas: 1`. No se ejecutaron suites con `pytest`.
+- El verificador del repositorio confirmó JSON válido, sintaxis Python y rutas; su resultado queda limitado por las pruebas `pytest` no ejecutadas/no disponibles. Docker no se ejecutó: solo se verificaron el recurso enlazado y sus requisitos documentados.
+- Se revisaron B6 y las seis experiencias en escritorio y móvil (390 px), claro y oscuro, mediante servidor local. Tras el ajuste acotado de EXP-05, `documentElement.scrollWidth` y `body.scrollWidth` quedaron en 390 px, sin desbordamiento horizontal; los enlaces, control de tema y textos siguen accesibles.
+- No se añadió interfaz, funcionalidad nueva ni se revisaron B7. `Cambios_portada_2027/` y los cambios ajenos permanecen fuera del alcance.
+
+### Siguiente paso
+
+- Abrir `http://localhost:8000/bloques/bloque6/inicio.html` para revisar la guía y sus seis experiencias. La microfase queda pendiente de cierre Git; no se ha hecho commit, tag, push ni publicación.
+
+## Corrección de navegación B6 — pendiente de cierre
+
+- En las seis experiencias, `Volver al bloque 6` apunta a `../../../inicio.html` y `Inicio del curso` a `../../../../../inicio.html`. En la portada de B6, `Inicio del curso` apunta a `../../inicio.html`; se conservaron las seis entradas a experiencias.
+- Se sustituyeron los enlaces ambiguos `Inicio`/`Inicio B6` sin usar `history.back()`, enlaces a la propia página ni rutas absolutas de dominio. Las rutas son relativas y conservan el funcionamiento bajo una base como `/programar-en-2027/`.
+- Mediante clics reales en servidor HTTP y navegador móvil a 390 px se verificó `curso → B6 → EXP-01 → B6 → curso`. También se abrió directamente EXP-04 y se comprobó `Volver al bloque 6` hasta la portada del bloque; el documento mantuvo 390 px de ancho.
+- No se hizo commit ni tag.
 
 ## Histórico
 
