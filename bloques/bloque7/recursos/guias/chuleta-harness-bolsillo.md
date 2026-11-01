@@ -1,6 +1,6 @@
 # Chuleta - Harness de bolsillo (1 pagina)
 
-Del prompt al control. Llevala a SAMI Final.
+Del prompt al control. Llevala a cierre de B7.
 
 ## ANTES DE PROGRAMAR
 

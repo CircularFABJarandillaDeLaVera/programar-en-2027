@@ -59,7 +59,7 @@ La ayuda disminuye de forma progresiva: el docente o el Copiloto modela, acompa�
 
 La ruta publicada empieza en los [inicios de los bloques](../inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
 
-El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven una ruta pública de seis experiencias y materiales separados de SAMI Final; su integración definitiva sigue pendiente de decisión curricular.
+El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven una ruta pública de seis experiencias y un material opcional de evidencia y defensa; no se exige una base final nueva.
 
 ```
 [B1: Fundamentos y Lógica]
@@ -81,8 +81,8 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
         │
         ▼
 [B7: Trabajo como developer con agentes]
-        ├─► [Ruta publicada: Harness, agente real, LangGraph e IA-Control]
-        └─► [Material disponible: SAMI Final, registro, validación y defensa]
+        ├─► [Ruta publicada: arnés, repositorio, grafo opcional e IA bajo control]
+        └─► [Material opcional: evidencia, validación y defensa]
 ```
 
 ---
@@ -97,7 +97,7 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 | **B4** | **POO (Orientada a Objetos)**<br>Modelado robusto | Colab / VS Code | Clases vs instancias, `__init__`, `self`, métodos de instancia, atributos públicos y privados (convención `_`), composición ("tiene un"), herencia ("es un"), `super()`, polimorfismo. | **SAMI-OOP**: Refactorización completa del sistema a arquitectura de clases jerárquicas y polimórficas. |
 | **B5** | **Python Aplicado y Librerías**<br>Ecosistema de datos | Colab / VS Code | NumPy (arrays `ndarray`, operaciones vectorizadas, estadísticas), Pandas (Series, DataFrames, filtros booleanos, dataset GoT `got_1.csv` como práctica didáctica), Playwright (automatización web), ReportLab Platypus (generación real de PDF). | **SAMI-Applied**: CSV de hardware → Pandas/NumPy → ReportLab. Playwright queda fuera del flujo de este proyecto. |
 | **B6** | **Herramientas para trabajar con tus proyectos**<br>Desarrollo local | VS Code Local | Seis experiencias: orientación, entorno y dependencias, flujo, depuración, cambio acotado y Git local. | **Base de trabajo B6**: copia personal con un cambio funcional comprobado y un commit local explicado; no exige `push`. |
-| **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: Harness, agente real, depuración, refactor y diff, LangGraph sin LLM e IA-Control con Ollama opcional. | Cuatro proyectos de práctica publicados. SAMI Final conserva guía y documentos de defensa separados; no se fija todavía su integración definitiva ni la obligatoriedad de LangGraph. |
+| **B7** | **Trabajo como developer con agentes**<br>Desarrollo asistido y validación | VS Code + agente | Seis experiencias: arnés, repositorio de participantes, depuración, refactor y diff, grafo sin LLM e IA bajo control con Ollama opcional. | Cuatro proyectos de práctica publicados. El cierre heredado no es obligatorio; LangGraph sigue siendo opcional y pendiente de validación específica. |
 
 ---
 
@@ -109,7 +109,7 @@ El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven u
 2. **B4 · SAMI-OOP:** productos, hardware y licencias; composición en AuditoriaMercado y persistencia en ManejadorDatos.
 3. **B5 · SAMI-Applied:** CSV local de hardware, análisis con Pandas/NumPy y PDF con ReportLab Platypus.
 4. **B6 · Herramientas para trabajar con tus proyectos:** copia personal para orientarse, preparar entorno, depurar, modificar y guardar un cambio con Git.
-5. **B7 · material SAMI Final:** conserva una propuesta de cierre, registro de IA, plan de validación y defensa. La portada de B7 publica además seis experiencias con proyectos propios. Hasta resolver su integración, el Copiloto debe identificar qué ruta o material se está usando y no mezclarlos.
+5. **B7 · material opcional de evidencia y defensa:** se aplica sobre un proyecto ya ejecutado. La portada de B7 publica además seis experiencias con proyectos propios; no se añade una base final nueva.
 
 Consulta [06 · SAMI](06-SAMI.md) para las diferencias entre versiones. No atribuyas a una copia los archivos, las clases ni los resultados de otra.
 

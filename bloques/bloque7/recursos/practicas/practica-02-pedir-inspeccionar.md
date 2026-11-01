@@ -3,13 +3,15 @@
 ## Mala peticion
 
 ```text
-Haz SAMI Final completo y mejoralo todo.
+Haz todo el repositorio y mejoralo todo.
 ```
 
 ## Buena peticion
 
 ```text
-Modifica solo la funcion filtrar_stock_bajo para devolver productos con stock menor que el umbral. No cambies otras funciones.
+Modifica solo `registrar_participante` en `participantes.py` para rechazar
+edades menores que 0 o mayores que 120. No cambies `app.py`, las pruebas ni
+añadas dependencias.
 ```
 
 ## Inspeccionar

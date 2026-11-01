@@ -1,7 +1,7 @@
 # Guia docente - Practica 00: Del prompt al Harness
 
-Previa a SAMI Final. El alumno dirige a un agente sobre un inventario minimo
-aislado (`practicas/harness-bolsillo/`). No toca SAMI. Sin red obligatoria.
+Previa a cierre de B7. El alumno dirige a un agente sobre un inventario minimo
+aislado (`proyectos-b7/harness-bolsillo/`). No toca otro proyecto. Sin red obligatoria.
 
 ## Intencion pedagogica
 

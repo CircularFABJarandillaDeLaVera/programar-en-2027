@@ -26,7 +26,8 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
         <a class="cf-nav__link" href="../exp-04-refactor-pruebas-diff/index.html">← Anterior</a>
-        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 7</a>
+        <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-06-ia-local-bajo-control/index.html">Siguiente: EXP-06 →</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -40,25 +41,25 @@
         <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
         <div class="lab-experience__header">
           <div>
-            <p class="lab-kicker">EXP-05 · 60-90 min · LangGraph real · Sin LLM · Sin red</p>
-            <h1 class="lab-experience__title">LangGraph: Python orquesta</h1>
+            <p class="lab-kicker">EXP-05 · ampliación opcional · LangGraph · Sin LLM · Sin red</p>
+            <h1 class="lab-experience__title">Grafo de flujo: Python orquesta</h1>
           </div>
         </div>
-        <p>Objetivo: entrar de verdad en LangGraph — no como documento opcional, sino como grafo ejecutable. Y con una idea clara: no es la IA quien controla el programa. Python decide el flujo.</p>
+        <p>Objetivo opcional: distinguir un grafo ejecutable sin modelo de lenguaje de una ampliación con IA. LangGraph organiza los pasos; Python decide el flujo. Esta experiencia queda pendiente de validación específica y no es necesaria para cerrar B7.</p>
         <pre class="lab-code"><code>estado → nodo → condición → ruta A / ruta B → resultado observable</code></pre>
       </section>
 
       <section class="lab-panel">
         <h2>PREPARAR</h2>
-        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-langgraph.zip" download>Descargar proyecto B7-LangGraph</a></p>
-        <p><strong>Descarga el ZIP, descomprímelo y abre PowerShell dentro de <code>langgraph-taller/</code>.</strong> Solo hay 5 archivos:</p>
-        <pre class="lab-code"><code>langgraph-taller/
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-langgraph.zip" download>Descargar grafo de flujo opcional</a></p>
+        <p><strong>El ZIP es plano:</strong> si quieres probar esta ampliación, crea o elige una carpeta vacía, por ejemplo <code>mi-grafo-b7/</code>, descomprímelo directamente dentro y abre PowerShell en esa carpeta. No es una instalación obligatoria para B7. Solo hay 5 archivos:</p>
+        <pre class="lab-code"><code>mi-grafo-b7/
 ├── flujo_taller.py      # estado -&gt; nodos -&gt; condición -&gt; ruta -&gt; resultado
 ├── datos_demo.json      # contexto local (pieza, stock, mínimo)
 ├── test_flujo_taller.py # pruebas con unittest (librería estándar)
 ├── requirements.txt     # solo langgraph
 └── README.md            # guía del proyecto</code></pre>
-        <p>Instala la única dependencia:</p>
+        <p>Solo si vas a probar el grafo completo en un entorno autorizado, instala la única dependencia declarada:</p>
         <pre class="lab-code"><code>pip install -r requirements.txt</code></pre>
       </section>
 

@@ -170,6 +170,47 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 - Mediante clics reales en servidor HTTP y navegador móvil a 390 px se verificó `curso → B6 → EXP-01 → B6 → curso`. También se abrió directamente EXP-04 y se comprobó `Volver al bloque 6` hasta la portada del bloque; el documento mantuvo 390 px de ancho.
 - No se hizo commit ni tag.
 
+## Microfase 7 — agentes y procedimientos reutilizables en B7
+
+### Resultado de la auditoría de la microfase 6
+
+- Se confirmó el punto de partida `b8e4aa5` con `v2027-b6-m5`. B7 contiene seis experiencias y cuatro ZIP: arnés de bolsillo, repositorio de participantes, grafo LangGraph e IA bajo control.
+- Las cuatro extracciones limpias coinciden por SHA-256 con sus fuentes canónicas, excluyendo únicamente `__pycache__` generados durante ejecuciones previas. Los ZIP son planos: no incluyen una carpeta raíz.
+- La ejecución previa y la repetida en esta microfase dejaron el arnés en `3 APTO`, `2 NO_APTO` y `1 NO_VERIFICADO`; el repositorio de participantes en su estado inicial falla dos pruebas intencionadamente; IA-Control pasa 11 pruebas y funciona sin red; LangGraph pasa las reglas y nodos puros, pero omite el grafo por no estar instalada la dependencia.
+- La auditoría separó el grafo sin LLM, la ampliación con IA y un sistema multiagente. No había un sistema multiagente implementado ni se da por validado LangGraph.
+
+### Decisiones docentes aplicadas
+
+- B7 reutiliza los proyectos existentes y no crea otra base de proyecto final.
+- El cierre heredado se convierte en material opcional de evidencia y defensa sobre un proyecto ya ejecutado; no es obligatorio ni sustituye las seis experiencias.
+- LangGraph queda como ampliación opcional pendiente de validación específica.
+- No se presenta ningún sistema multiagente como implementado.
+- La portada y la guía conectan con `Recorrido práctico · Construye y conecta tus proyectos` como continuación posterior y no obligatoria.
+- La práctica mínima usa `agente-real`: petición acotada al agente habitual, especialización explícita solo si aporta responsabilidad y límites, procedimiento reutilizable, ejecución, contraste y decisión humana. Se distingue una guía Markdown de una `skill` reconocida por una herramienta.
+
+### Cambios y comprobaciones de la microfase 7
+
+- Se retiraron las referencias públicas a SAMI y sus variantes de las páginas, guías, prácticas, mapas, datos JS/JSON, mensajes y documentos vigentes de B7. El material de cierre se renombró a `cierre-b7.md` y la práctica a `practica-05-defensa-proyecto-b7.md`.
+- Los nombres públicos describen la función real: arnés de bolsillo, repositorio de participantes, grafo de flujo opcional y explicaciones con IA bajo control. No se cambió el código de ejecución ni se presentó otra expansión de una sigla.
+- Se añadió `recursos/guias/procedimiento-agente-reutilizable.md`, aplicado documentalmente al caso real de validación de edad de EXP-02, con responsabilidad, contexto, herramientas permitidas, límites, entradas, procedimiento, salida y verificación.
+- Se corrigieron las instrucciones de extracción de EXP-01, EXP-02, EXP-05 y EXP-06: el alumno crea o elige la carpeta y extrae directamente los archivos del ZIP plano. Se sincronizaron los README de `agente-real`, `ia-control` y `langgraph-taller` con sus ZIP.
+- Se añadieron accesos explícitos `Volver al bloque 7` e `Inicio del curso` en las seis experiencias y `Inicio del curso` en la portada. La portada enlaza también al Recorrido práctico.
+- Se revisaron 178 enlaces locales de B7: ninguno apunta a una ruta inexistente; los cuatro enlaces de descarga existen.
+- Desde extracciones limpias se ejecutaron `inventario_taller.py`, `comprobar.py`, las pruebas del repositorio de participantes, las 11 pruebas de IA-Control, sus casos sin IA y las pruebas de LangGraph. No se instalaron dependencias.
+
+### Referencias retiradas y excepciones técnicas
+
+- `SAMI` ya no aparece en los materiales de B7. Se conservan las carpetas técnicas de las fuentes (`agente-real`, `harness-bolsillo`, `ia-control`, `langgraph-taller`) porque son rutas internas del código y de la sincronización de ZIP; no se ofrecen como nombres pedagógicos principales.
+- `copiloto-profesor/06-SAMI.md` conserva su nombre y contenido histórico para B3-B6. Su sección B7 y su enlace se actualizaron al material opcional `cierre-b7.md`; no se interpreta como retirada global del curso.
+- Los identificadores de descarga `proyecto-b7-*.zip` no contienen SAMI y se conservan para compatibilidad con enlaces existentes.
+
+### Límites y siguiente paso
+
+- No se ejecutó la prueba completa del grafo LangGraph: la dependencia no estaba instalada y no se instaló. Ollama, `requests` en su ruta real y cualquier sistema multiagente siguen sin validarse.
+- No se ejecutó un agente externo ni se usaron credenciales; la evidencia de intervención humana queda pendiente de la práctica del alumno. La revisión visual humana de B7 queda pendiente.
+- No se implementaron las microfases 8–9, no se modificó EduSDK ni otros bloques y se conserva `Cambios_portada_2027/` fuera del alcance.
+- Siguiente paso: revisar B7 en `http://localhost:8000/bloques/bloque7/inicio.html`, sus seis experiencias y el Recorrido práctico; después decidir si se autoriza la microfase 8.
+
 ## Histórico
 
 - La antigua FASE 3 se realizó en la rama `feature/harness-python-2027` en septiembre de 2026.

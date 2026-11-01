@@ -16,7 +16,7 @@ PROBLEMA -> PLAN -> CONTEXTO -> IA -> CODIGO -> EJECUTAR -> ENTENDER -> DEPURAR 
 - Validacion: ejecutar con datos conocidos.
 - Depuracion: traceback y fragmento minimo.
 - Refactorizacion: conservar comportamiento.
-- SAMI Final: defensa, registro IA y plan de validacion.
+- cierre de B7: defensa, registro IA y plan de validacion.
 - LangGraph: ampliacion opcional no evaluable.
 
 ## Regla

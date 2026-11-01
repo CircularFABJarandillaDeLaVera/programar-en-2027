@@ -1,6 +1,6 @@
 # Practica 00 - Del prompt al Harness: programa con un agente sin perder el control
 
-Experiencia previa a SAMI Final. No toca SAMI. No instala nada. Solo libreria estandar.
+Experiencia previa a cierre de B7. No toca proyecto. No instala nada. Solo libreria estandar.
 
 ## Objetivo
 
@@ -22,7 +22,8 @@ Frase de cierre esperada: "aprendi a no perder el control cuando programo con un
 
 ## El proyecto
 
-Carpeta `harness-bolsillo/` junto a esta practica:
+Proyecto plano `harness-bolsillo/` en `recursos/proyectos-b7/`; al descargarlo,
+elige una carpeta de trabajo y extrae allí sus cuatro archivos:
 
 - `inventario_taller.py`: inventario minimo de taller (carga, anade, total, guarda).
 - `datos_ejemplo.json`: 5 piezas de ejemplo.
@@ -64,7 +65,7 @@ Pega el contenido de `inventario_taller.py` si tu herramienta lo necesita. Nada 
    - Que cambio sin que se lo pidieras?
    - Como sabes si termino bien?
    - Que tendrias que preguntarle ahora para entenderlo?
-   - Lo aceptarias para SAMI Final? Por que?
+   - Lo aceptarias para cierre de B7? Por que?
 
 No corrijas el codigo en esta fase. El objetivo es observar, no acertar.
 
@@ -177,7 +178,7 @@ No es obligatorio corregirlo en clase.
 
 ## MINI-RETO
 
-Aplica la chuleta a una micro-tarea real de tu SAMI (ej. redondear a 2 decimales
+Aplica la chuleta a una micro-tarea real de tu proyecto (ej. redondear a 2 decimales
 en una funcion). Trae por escrito: que pediste, que NO pediste, que comprobacion
 ejecutaste y tu decision (acepto / modifico / rechazo).
 
@@ -192,4 +193,4 @@ Responde en voz alta o en 3 lineas:
 ## Que no entra
 
 Jira, ramas Git, MCP, OpenSpec, Specboot, TypeScript, coverage, PRs,
-LangGraph, dependencias nuevas ni tocar SAMI. La idea, no la maquinaria.
+LangGraph, dependencias nuevas ni tocar proyecto. La idea, no la maquinaria.

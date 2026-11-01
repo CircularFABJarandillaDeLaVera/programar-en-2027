@@ -2,7 +2,7 @@
 
 ## LangGraph
 
-LangGraph no forma parte de SAMI Final y no es requisito para aprobar.
+LangGraph no forma parte de cierre de B7 y no es requisito para aprobar.
 
 ## Conceptos mencionados
 

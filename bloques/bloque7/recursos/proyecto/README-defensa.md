@@ -1,34 +1,25 @@
-# Defensa de SAMI Final
+# Defensa de cierre B7 · opcional
 
-## Explica el proyecto
+Usa esta ficha sobre un proyecto de B7 que ya hayas ejecutado. No describe una
+base común obligatoria ni exige instalar herramientas nuevas.
 
-- Que problema resuelve.
-- Que datos entran.
-- Que resultados salen.
-- Que archivos son relevantes.
-- Donde se localizaria un fallo.
-- Como evoluciona desde SAMI-Local.
-- Que papel tienen Playwright, Pandas, NumPy y ReportLab.
-- Que dependencia declara cada parte del proyecto.
+## Explica el caso
 
-## Explica tu uso de IA
+- Qué necesidad resolvías.
+- Qué proyecto, carpeta y archivos utilizaste.
+- Qué entradas y salidas comprobaste.
+- Qué propuso o modificó el agente.
+- Qué ejecutaste tú y qué decidió finalmente la persona.
+- Qué resultado quedó aceptado, modificado o rechazado.
 
-- Que pediste.
-- Que aceptaste.
-- Que modificaste.
-- Que rechazaste.
-- Que comprobaste personalmente.
-- Propuestas incorrectas o fallos de la IA que observaste realmente; nunca inventados. Si no aparecieron tres, explica las intervenciones, sus comprobaciones y por que las aceptaste, modificaste o rechazaste.
-- Como usaste tracebacks, pruebas o impresiones de variables para comprobar la solucion.
+## Evidencia
 
-## Demostracion
+- petición acotada y procedimiento reutilizable;
+- salida antes/después;
+- pruebas o comprobaciones reales;
+- `git diff` y decisión final;
+- límites y pendientes honestos.
 
-No expliques cada linea. Explica el flujo, las decisiones y las validaciones.
-
-## Preguntas esperables
-
-- Que ocurre si falta `got_1.csv`?
-- Donde se cierra el navegador de Playwright?
-- Que datos calcula NumPy?
-- Que parte genera el PDF?
-- Por que una propuesta de la IA fue aceptada, modificada o rechazada?
+No inventes fallos de la IA. Si no observaste uno, registra las intervenciones
+realizadas, sus comprobaciones y por qué las aceptaste, modificaste o
+rechazaste.

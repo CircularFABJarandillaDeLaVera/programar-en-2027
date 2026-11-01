@@ -26,7 +26,8 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
         <a class="cf-nav__link" href="../exp-01-del-prompt-al-harness/index.html">← Anterior</a>
-        <a class="cf-nav__link" href="../../../inicio.html">Inicio B7</a>
+        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 7</a>
+        <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-03-depura-con-agente/index.html">Siguiente: EXP-03 →</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -45,14 +46,16 @@
           </div>
         </div>
         <p>Objetivo: aprender a dirigir un agente que trabaja sobre un repositorio — no a aprender una herramienta. El gesto (contexto → PLAN → autorización → cambio pequeño → diff → decisión) funciona igual con OpenCode, Codex, Copilot, Claude Code u otro.</p>
+        <p><a class="lab-action lab-action--secondary" href="../../guias/procedimiento-agente-reutilizable.md">Abrir procedimiento reutilizable</a></p>
+        <p>La práctica mínima usa este mismo repositorio: primero resuelve la validación de edad con una petición acotada al agente habitual; después decide si conservar las instrucciones especializadas y aplica el procedimiento con evidencia. No necesitas instalar otro agente ni crear una skill de herramienta.</p>
         <pre class="lab-code"><code>abrir repo → leer AGENTS.md → explicar objetivo → QUIERO/NO QUIERO → PLAN → autorizar → 1 cambio → ejecutar → git diff → ACEPTAR/MODIFICAR/RECHAZAR</code></pre>
       </section>
 
       <section class="lab-panel">
         <h2>PREPARAR</h2>
-        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-agente-real.zip" download>Descargar proyecto B7-Agente-Real</a></p>
-        <p><strong>Descarga el ZIP, descomprímelo en tu carpeta de trabajo y abre esa carpeta en tu agente.</strong> Esta misma copia te acompaña en EXP-02, EXP-03 y EXP-04: no la descargues tres veces. Estructura (mírala, no la memorices):</p>
-        <pre class="lab-code"><code>agente-real/
+        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-agente-real.zip" download>Descargar repositorio de participantes</a></p>
+        <p><strong>El ZIP es plano:</strong> crea o elige una carpeta vacía, por ejemplo <code>mi-repo-agente-b7/</code>, descomprímelo directamente dentro y abre esa carpeta en tu agente. Esta misma copia te acompaña en EXP-02, EXP-03 y EXP-04: no la descargues tres veces. Estructura (mírala, no la memorices):</p>
+        <pre class="lab-code"><code>mi-repo-agente-b7/
 ├── app.py                # entrada del programa
 ├── participantes.py      # lógica (contiene el fallo)
 ├── test_participantes.py # pruebas automáticas

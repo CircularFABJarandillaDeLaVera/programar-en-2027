@@ -63,9 +63,9 @@ El flujo real de `main.py` carga configuración y datos, calcula precios, filtra
 
 Evidencia: cambio funcional comprobado y commit local explicado. La experiencia de Git no exige remoto ni push. Si falta entorno o ejecución, se documenta como no verificado.
 
-## B7 · SAMI Final y ruta publicada de agentes
+## B7 · Cierre opcional y ruta publicada de agentes
 
-La guía de **SAMI Final** se conserva en [recursos/proyecto](../bloques/bloque7/recursos/proyecto/sami-final.md) con una primera intervención puente: mostrar un mensaje claro cuando falta `data/got_1.csv`. Por otra parte, la [portada publicada de B7](../bloques/bloque7/inicio.html) organiza seis experiencias y cuatro proyectos propios. La integración definitiva de SAMI Final como conductor de esa ruta está pendiente; identifica siempre qué material utiliza el grupo.
+El [material opcional de cierre](../bloques/bloque7/recursos/proyecto/cierre-b7.md) propone una intervención pequeña sobre un proyecto ya ejecutado. Por otra parte, la [portada publicada de B7](../bloques/bloque7/inicio.html) organiza seis experiencias y cuatro proyectos propios. No es una base nueva ni un requisito; identifica siempre qué material utiliza el grupo.
 
 Ciclo de cada intervención: reproducir necesidad → punto seguro Git → tarea acotada → contexto → agente → `git status`/`git diff` → ejecutar → comprobar → revisión humana → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
 

@@ -14,7 +14,7 @@ Registra las propuestas incorrectas o fallos de la IA que observes realmente. Nu
 
 ## Via avanzada con agente (una linea por intervencion)
 
-Si usas la via avanzada sobre SAMI (ver `sami-final.md`), anade una fila por
+Si usas la via avanzada sobre proyecto (ver `cierre-b7.md`), anade una fila por
 cada intervencion del agente con: tarea pedida, contexto dado, que cambio,
 resultado de la comprobacion y decision (ACEPTAR / MODIFICAR / RECHAZAR) con
 motivo breve. Ejemplo de formato en una sola linea:

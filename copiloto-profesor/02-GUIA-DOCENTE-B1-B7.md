@@ -367,13 +367,13 @@ Las seis experiencias duran 30–45 minutos cada una y reutilizan la misma copia
 # BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
 ## 7.1. Objetivo Operativo
-Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. La [ruta publicada](../bloques/bloque7/inicio.html) contiene seis experiencias y cuatro proyectos de práctica: Harness, agente real —reutilizado en EXP-02→04—, LangGraph sin LLM e IA-Control. La [guía de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) y sus documentos de defensa se conservan como material separado. No mezcles ambas rutas ni decidas todavía si SAMI Final será su conductor definitivo.
+Dirigir cambios con contexto, límites, plan y autorización; comprobarlos y decidir si se aceptan. La [ruta publicada](../bloques/bloque7/inicio.html) contiene seis experiencias y cuatro proyectos de práctica: arnés de bolsillo, repositorio de participantes —reutilizado en EXP-02→04—, grafo de flujo opcional e IA bajo control. El [material opcional de cierre](../bloques/bloque7/recursos/proyecto/cierre-b7.md) sirve como ficha de evidencia sobre un proyecto ya ejecutado; no es obligatorio ni una base nueva.
 
 ---
 
 ## 7.2. Mesa del Instructor y Preparación
 * **Entorno:** VS Code con asistente de IA integrado o interfaz conversacional abierta en paralelo.
-* **Materiales:** el proyecto indicado por la experiencia elegida, con instrucciones, pruebas y evidencia antes/después. Si se trabaja SAMI Final, sus plantillas `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` documentan qué se pidió, qué cambió el agente, qué se comprobó y qué se decidió.
+* **Materiales:** el proyecto indicado por la experiencia elegida, con instrucciones, pruebas y evidencia antes/después. El material opcional de cierre usa `registro-ia.md`, `plan-validacion.md` y `README-defensa.md` para documentar qué se pidió, qué cambió el agente, qué se comprobó y qué se decidió.
 * **Frase clave:** *"La IA es un copiloto brillante pero ciego: tú eres el capitán del barco y el único responsable de que el código no se hunda."*
 
 ---

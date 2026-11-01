@@ -2,7 +2,7 @@
 
 ## Problema
 
-SAMI Final necesita validar precios antes de generar resultados.
+El repositorio de participantes necesita rechazar edades fuera de 0–120.
 
 ## Plan
 
@@ -15,11 +15,11 @@ SAMI Final necesita validar precios antes de generar resultados.
 ## Contexto para IA
 
 ```text
-Archivo: src/analizador.py
-Funcion: calcular_precio_final
+Archivo: participantes.py
+Funcion: registrar_participante
 Restriccion: no anadir dependencias
-Objetivo: redondear a 2 decimales
-Validacion: precio 10 con IVA 0.21 devuelve 12.1
+Objetivo: rechazar -15 y 130, conservar una edad válida
+Validacion: 35 se registra; -15 y 130 devuelven el mensaje de error esperado
 ```
 
 ## Validar

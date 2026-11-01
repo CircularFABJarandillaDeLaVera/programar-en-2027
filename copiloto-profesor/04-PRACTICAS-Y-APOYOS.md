@@ -14,9 +14,9 @@ Esta tabla identifica los recursos actuales; las fichas posteriores son apoyos t
 | B4 | [Cuaderno de objetos](../bloques/bloque4/cuadernos/objetos-diseno-b4.ipynb) · [SAMI-OOP](../bloques/bloque4/proyecto-sami-oop/README_PROYECTO.md) | Decidir responsabilidades y comprobar peso e IVA en las clases reales. |
 | B5 | [Cuaderno de datos](../bloques/bloque5/cuadernos/explorar-datos-b5.ipynb) · [SAMI-Applied](../bloques/bloque5/proyecto-sami-applied/README_PROYECTO.md) | CSV → análisis → PDF; comprobar estructura y revisar visualmente el informe. |
 | B6 | [Seis experiencias](../bloques/bloque6/inicio.html) · [Base de trabajo](../bloques/bloque6/recursos/proyecto-seguro/) | Orientarse → entorno → flujo → romper y depurar → modificar sin romper → Git local. |
-| B7 | [Seis experiencias y cuatro proyectos](../bloques/bloque7/inicio.html) · [Material de SAMI Final](../bloques/bloque7/recursos/proyecto/sami-final.md) | Ruta publicada de agentes y material SAMI separado; en ambos, contexto → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
+| B7 | [Seis experiencias y cuatro proyectos](../bloques/bloque7/inicio.html) · [Material opcional de evidencia](../bloques/bloque7/recursos/proyecto/cierre-b7.md) | Ruta publicada de agentes y ficha opcional de cierre; en ambos, contexto → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. |
 
-B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. SAMI Final conserva guía y plantillas propias, pero su integración definitiva en la ruta publicada está pendiente. No exijas conexiones reales para las alternativas locales previstas.
+B6 conserva la misma copia personal durante sus seis experiencias. B7 reutiliza `agente-real` en EXP-02→04; EXP-05 usa LangGraph sin LLM y EXP-06 puede completarse sin Ollama. El cierre opcional usa una ficha de evidencia sobre un proyecto ya ejecutado y no es obligatorio. No exijas conexiones reales para las alternativas locales previstas.
 
 **Materiales de autor que se conservan:** las prácticas numeradas, trazabilidades y plantillas SAMI de `bloques/bloqueN/recursos/` ofrecen apoyo adicional. Algunas no reflejan las copias prácticas nuevas; no las combines sin identificar la versión. [06](06-SAMI.md) detalla SAMI y [07](07-LAGUNAS-Y-LIMITES.md) recoge los conflictos de evaluación.
 
@@ -389,7 +389,7 @@ La ruta publicada se titula **Trabajo como developer** y usa este orden: EXP-01 
 
 # BLOQUE 7: TRABAJO COMO DEVELOPER CON AGENTES
 
-La portada de B7 publica seis experiencias y cuatro proyectos: Harness; `agente-real`, que se reutiliza en EXP-02→04; LangGraph sin LLM; e IA-Control. Las prácticas 7.1–7.5 y la guía de SAMI Final son materiales conservados aparte. Hasta que se decida su integración, no presentes una ruta como sustituta de la otra.
+La portada de B7 publica seis experiencias y cuatro proyectos: arnés de bolsillo; `agente-real`, que se reutiliza en EXP-02→04; grafo de flujo sin LLM; e IA bajo control. El material opcional de cierre y defensa se aplica sobre un proyecto ya ejecutado; no es obligatorio ni sustituye la ruta publicada.
 
 Cuando intervenga un agente, el ciclo común es: reproducir necesidad → punto seguro Git → hipótesis propia → tarea acotada → contexto → plan → autorización → agente → `git status`/`git diff` → ejecutar → comprobar → ACEPTAR/MODIFICAR/RECHAZAR → commit solo de lo validado.
 
@@ -413,17 +413,17 @@ Cuando intervenga un agente, el ciclo común es: reproducir necesidad → punto 
 
 ---
 
-## Práctica 7.5: Defensa Técnica de SAMI Final
-* **Objetivo:** Presentación oral donde el alumno explica su proyecto ante el formador justificando su arquitectura y demostrando que no ha caído en el "desarrollo zombi".
+## Práctica 7.5: Defensa opcional de un proyecto B7
+* **Objetivo:** Presentación oral donde el alumno explica un proyecto ya ejecutado, justifica sus decisiones y demuestra que no ha caído en el "desarrollo zombi".
 
 ---
 
-## Material de B7: SAMI Final y documentación
+## Material opcional de B7: evidencia y defensa
 
-Este material existe y puede utilizarse como cierre y defensa, pero la documentación actual no resuelve todavía si será el conductor definitivo de las seis experiencias publicadas.
+Este material puede utilizarse como cierre y defensa sobre cualquiera de los proyectos publicados, pero no es una base nueva ni un requisito para completar las seis experiencias.
 
 * **Entregables:**
-  1. SAMI del alumno (código fuente modular ejecutable en VS Code).
+  1. Proyecto B7 elegido y su código ejecutable.
   2. `registro-ia.md` (una línea por intervención: tarea, contexto, cambio, comprobación y decisión ACEPTAR/MODIFICAR/RECHAZAR).
   3. `plan-validacion.md` (casos de prueba y resultados obtenidos).
   4. `README-defensa.md` (justificación arquitectónica del sistema).
@@ -440,7 +440,7 @@ Este material existe y puede utilizarse como cierre y defensa, pero la documenta
 
 # LAB FINAL OPCIONAL: LABORATORIO DE PROGRAMACIÓN
 
-* **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de SAMI.
+* **Carácter:** Recurso final opcional. No es B8, no es evaluable y no forma parte de la ruta obligatoria de B7.
 * **Flujo común:** VER -> PROBAR -> MODIFICAR -> MINI-RETO.
 * **Contenido:** recorrido práctico y laboratorios adicionales. Las cinco experiencias originales se conservan junto con recursos posteriores; consultar el mapa de 08 y el portal.
 * **Uso docente:** emplear como cierre motivador del itinerario, no como nuevo bloque académico.

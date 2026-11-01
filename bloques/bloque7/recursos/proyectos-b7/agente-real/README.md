@@ -1,8 +1,12 @@
-# Proyecto B7 · El agente entra en un repositorio real
+# Proyecto B7 · Repositorio de participantes y agente bajo control
 
 Pequeño proyecto preparado para practicar un flujo seguro con un agente
 de programación. Funciona con cualquier agente (OpenCode, Codex, Copilot,
 Claude Code u otro) que tenga acceso a la carpeta del proyecto.
+
+El ZIP descargable es plano: crea o elige una carpeta vacía, descomprímelo
+directamente dentro y abre esa carpeta en tu agente. La carpeta no se crea
+automáticamente con el nombre `agente-real`.
 
 ## Objetivo observable
 
@@ -27,7 +31,7 @@ Además, las pruebas deben terminar correctamente.
 ## Archivos
 
 ```text
-agente-real/
+mi-repo-agente-b7/
 ├── app.py                  # entrada del programa
 ├── participantes.py        # logica (contiene el fallo)
 ├── test_participantes.py   # pruebas automaticas

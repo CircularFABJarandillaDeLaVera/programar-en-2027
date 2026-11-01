@@ -1,8 +1,12 @@
-# Proyecto B7 · IA local bajo control (Ollama opcional)
+# Proyecto B7 · Explicaciones con IA bajo control (Ollama opcional)
 
 Integrar una IA sin entregarle el control del programa.
 Esto no es un curso de Ollama: Ollama es un backend real opcional,
 nunca un requisito para completar la experiencia.
+
+El ZIP descargable es plano: crea o elige una carpeta vacía, descomprímelo
+directamente dentro y abre esa carpeta en tu terminal. La carpeta no se crea
+automáticamente con el nombre `ia-control`.
 
 ## Arquitectura
 
@@ -15,7 +19,7 @@ Python -> llama al modelo si esta disponible -> recibe respuesta
 ## Archivos
 
 ```text
-ia-control/
+mi-explicador-b7/
 ├── explicar.py                       # decide, llama, valida, fallback
 ├── test_explicar.py                  # pruebas sin red ni Ollama
 ├── ejemplo-respuesta-valida.json     # modelo simulado: se acepta

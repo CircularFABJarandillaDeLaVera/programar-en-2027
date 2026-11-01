@@ -1,6 +1,11 @@
-# Proyecto B7 · LangGraph: Python orquesta (sin LLM)
+# Proyecto B7 · Grafo de flujo: Python orquesta (sin LLM)
 
 Grafo sencillo y ejecutable. Sin modelo de lenguaje, sin red, sin FIWARE.
+
+Es una ampliación opcional y pendiente de validación específica. El ZIP
+descargable es plano: si decides probarlo, crea o elige una carpeta vacía,
+descomprímelo directamente dentro y abre esa carpeta en tu terminal. No se
+crea automáticamente una carpeta `langgraph-taller`.
 
 ## Idea en una frase
 
@@ -10,7 +15,7 @@ LangGraph organiza los pasos y una funcion Python pura elige la ruta.
 ## Archivos
 
 ```text
-langgraph-taller/
+mi-grafo-b7/
 ├── flujo_taller.py      # estado -> nodos -> condicion -> ruta -> resultado
 ├── datos_demo.json      # contexto local (pieza, stock, minimo)
 ├── test_flujo_taller.py # pruebas con unittest (libreria estandar)

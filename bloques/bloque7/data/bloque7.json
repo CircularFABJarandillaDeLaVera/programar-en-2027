@@ -17,7 +17,7 @@
     "Inspeccionar codigo generado y detectar propuestas incorrectas.",
     "Ejecutar, romper, depurar y corregir con ayuda critica.",
     "Aceptar, modificar o rechazar sugerencias de IA con criterio.",
-    "Preparar SAMI Final partiendo de SAMI-Local.",
+    "Preparar cierre de B7 partiendo de base de herramientas de B6.",
     "Defender el proyecto explicando decisiones, flujo y validaciones.",
     "Reconocer LangGraph como ampliacion opcional no evaluable."
   ],
@@ -37,13 +37,13 @@
     {
       "titulo": "Problema y plan",
       "objetivo": "Convertir una necesidad en pasos antes de abrir el asistente.",
-      "guion": "Usa SAMI Final: primero describir entrada, salida y criterio de validacion.",
+      "guion": "Usa cierre de B7: primero describir entrada, salida y criterio de validacion.",
       "pregunta": "Que debe existir antes del prompt?",
       "ejemplo": "problema = \"validar precios\"\nplan = [\"leer csv\", \"filtrar\", \"calcular\", \"mostrar resumen\"]\nprint(plan)",
       "modificar": "Anade una prueba esperada a cada paso.",
       "predecir": "La IA dara mejor codigo con o sin plan?",
       "error_util": "Pedir 'hazme el proyecto' sin descomponer.",
-      "reto": "Planifica una mejora pequena de SAMI.",
+      "reto": "Planifica una mejora pequena de proyecto.",
       "comprobar": "Hay plan y no solo peticion."
     },
     {
@@ -63,11 +63,11 @@
       "objetivo": "Pedir codigo pequeno y revisable.",
       "guion": "Compara mala peticion con buena peticion.",
       "pregunta": "Cual es mas revisable: todo el proyecto o una funcion?",
-      "ejemplo": "mala = \"haz SAMI entero\"\nbuena = \"modifica solo calcular_precio_final para redondear a 2 decimales\"\nprint(buena)",
+      "ejemplo": "mala = \"haz proyecto entero\"\nbuena = \"modifica solo calcular_precio_final para redondear a 2 decimales\"\nprint(buena)",
       "modificar": "Reescribe una peticion vaga en una peticion verificable.",
       "predecir": "Que salida esperas de una buena peticion?",
       "error_util": "Aceptar una refactorizacion gigante sin necesidad.",
-      "reto": "Formula tres prompts pequenos para SAMI Final.",
+      "reto": "Formula tres prompts pequenos para cierre de B7.",
       "comprobar": "La peticion tiene limite y prueba."
     },
     {
@@ -91,7 +91,7 @@
       "modificar": "Anade un caso limite.",
       "predecir": "Que debe pasar si el stock es cero?",
       "error_util": "Dar por bueno codigo no ejecutado.",
-      "reto": "Crea dos pruebas manuales para SAMI Final.",
+      "reto": "Crea dos pruebas manuales para cierre de B7.",
       "comprobar": "Hay resultado esperado antes de ejecutar."
     },
     {
@@ -131,15 +131,15 @@
       "comprobar": "La salida se conserva."
     },
     {
-      "titulo": "SAMI Final",
+      "titulo": "cierre de B7",
       "objetivo": "Cerrar el proyecto integrando metodo IA responsable.",
-      "guion": "Partir de SAMI-Local. La IA ayuda a planificar, explicar, modificar, depurar, documentar y validar.",
+      "guion": "Partir de base de herramientas de B6. La IA ayuda a planificar, explicar, modificar, depurar, documentar y validar.",
       "pregunta": "Que delegaste y que comprobaste personalmente?",
       "ejemplo": "registro_ia = [\n    \"pidio explicacion\",\n    \"modifico una funcion\",\n    \"ejecuto prueba manual\",\n    \"valido salida\"\n]\nprint(registro_ia)",
       "modificar": "Anade una entrada al registro de decisiones.",
       "predecir": "Que evidencia defiende el proyecto?",
       "error_util": "No registrar que se acepto de la IA.",
-      "reto": "Crear README de defensa de SAMI Final.",
+      "reto": "Crear README de defensa de cierre de B7.",
       "comprobar": "El proyecto incluye defensa, validacion y decisiones."
     },
     {
@@ -157,7 +157,7 @@
     {
       "titulo": "LangGraph opcional",
       "objetivo": "Presentar StateGraph, nodos, aristas, estado, reducers, memoria y human-in-the-loop como ampliacion no evaluable.",
-      "guion": "Identificar visualmente como AMPLIACION OPCIONAL - NO EVALUABLE. No entra en SAMI Final.",
+      "guion": "Identificar visualmente como AMPLIACION OPCIONAL - NO EVALUABLE. No entra en cierre de B7.",
       "pregunta": "LangGraph es requisito para aprobar?",
       "ejemplo": "ampliacion = \"opcional\"\nprint(ampliacion)",
       "modificar": "Enumera conceptos sin implementarlos.",
@@ -209,12 +209,12 @@
       "Mejorar estructura sin cambiar comportamiento esperado."
     ],
     [
-      "Defensa SAMI",
+      "Defensa del proyecto",
       "Explicar flujo, decisiones, errores, IA usada y validaciones."
     ],
     [
       "LangGraph B7",
-      "Ampliacion opcional no evaluable, fuera de SAMI Final."
+      "Ampliacion opcional no evaluable, fuera de cierre de B7."
     ]
   ],
   "casos": [
@@ -265,10 +265,10 @@
     },
     {
       "titulo": "LangGraph brillante",
-      "situacion": "Un equipo quiere meter grafos en SAMI Final.",
+      "situacion": "Un equipo quiere meter grafos en cierre de B7.",
       "preguntas": [
         "Es evaluable?",
-        "Debe entrar en SAMI?",
+        "Debe entrar en proyecto?",
         "Como lo dejarian como ampliacion?"
       ]
     }
@@ -374,15 +374,15 @@
       "explicacion": "Las APIs deben existir y estar dentro del alcance autorizado."
     },
     {
-      "tipo": "sami",
-      "pregunta": "SAMI Final parte de...",
+      "tipo": "cierre",
+      "pregunta": "cierre de B7 parte de...",
       "opciones": [
-        "SAMI-Local",
+        "base de herramientas de B6",
         "un framework nuevo",
         "LangGraph obligatorio"
       ],
       "correcta": 0,
-      "explicacion": "SAMI Final evoluciona desde SAMI-Local."
+      "explicacion": "cierre de B7 evoluciona desde base de herramientas de B6."
     },
     {
       "tipo": "defensa",
@@ -401,29 +401,24 @@
       "opciones": [
         "ampliacion opcional no evaluable",
         "requisito para aprobar",
-        "parte obligatoria de SAMI Final"
+        "parte obligatoria de cierre de B7"
       ],
       "correcta": 0,
       "explicacion": "Debe quedar separado del proyecto evaluable."
     }
   ],
   "proyecto": {
-    "titulo": "SAMI Final",
-    "evolucion": "SAMI-Lite -> SAMI-OOP -> SAMI-Applied -> SAMI-Local -> SAMI Final",
+    "titulo": "Evidencia y defensa opcionales",
+    "evolucion": "proyectos aplicados B3-B5 -> herramientas B6 -> decisiones y comprobaciones en B7",
     "estructura": [
-      "main.py",
-      "src/scraper.py",
-      "src/analizador.py",
-      "src/generador_pdf.py",
-      "data/got_1.csv",
-      "requirements.txt",
-      ".gitignore",
-      "sami_final/README-defensa.md",
-      "sami_final/registro-ia.md",
-      "sami_final/plan-validacion.md"
+      "proyecto elegido",
+      "README-defensa.md",
+      "registro-ia.md",
+      "plan-validacion.md",
+      "evidencia del resultado"
     ],
-    "evidencia": "Ejecucion por terminal, informe generado, defensa del proyecto, registro de propuestas incorrectas o fallos de IA realmente observados, validaciones manuales y decisiones aceptar/modificar/rechazar. Si no aparecen tres fallos, se documentan las intervenciones, sus comprobaciones y el motivo de cada decision.",
-    "alcance": "Cerrar SAMI-Local como SAMI Final con Playwright, Pandas, NumPy y ReportLab, sin introducir tecnologias nuevas ni dependencias no autorizadas."
+    "evidencia": "Ejecucion por terminal, salida antes y despues, pruebas o comprobaciones reales, diff revisado, defensa del proyecto y decisiones aceptar/modificar/rechazar.",
+    "alcance": "Aplicar una peticion acotada y un procedimiento reutilizable sobre un proyecto B7 ya ejecutado; no crea una base final nueva ni exige LangGraph."
   },
   "mapa_mental_fuente": "recursos/mapa-mental.md"
 }
