@@ -586,3 +586,42 @@ solo los cinco pendientes solicitados y no se hizo commit, tag, push ni publicac
   columnas se apilan y los textos, botones y enlaces permanecen legibles.
 - No se modificaron preparación, copiloto, bloques, proyectos ni descargas;
   `Cambios_portada_2027/` y los cambios ajenos se conservaron.
+
+## Microfase 12 — revisión final del curso
+
+- Confirmado mediante Git: `HEAD` es `51800d00eeb1450617a95aff588217e04c6e1495` y el tag anotado
+  `v2027-materiales-m11` apunta a ese commit. `Cambios_portada_2027/` y
+  `Preparar_curso_2027.zip` siguen conservados fuera del commit.
+- Se probó la navegación mediante clics reales bajo el prefijo local
+  `/programar-en-2027/`: portada → preparación → PDF y ZIP Windows → portada;
+  portada → práctica del copiloto → pack → B3 → portada; proyectos B3–B5 → B6
+  → B7 → Recorrido práctico; y la ruta de fundamentos B1 → B2 → B3.
+  También se comprobó el regreso desde una experiencia de B6 al bloque, desde una
+  experiencia de B7 al bloque y desde una experiencia del Recorrido al propio
+  Recorrido y al inicio.
+- Se detectó y corrigió un defecto concreto: B6 no enlazaba directamente con B7.
+  Ahora su continuidad ofrece B6 → B7 → Recorrido práctico. Se alineó asimismo la
+  descripción antigua de `AGENTS.md` con `Recorrido práctico`.
+- Se verificaron mediante descarga real el PDF, el paquete Windows, el pack del
+  copiloto y los ZIP de proyectos B3, B4 y B5. Se revisaron las entradas esperadas
+  de los ZIP de Windows, copiloto, B3–B7 y los cuatro proyectos de B7.
+- Revisión visual con Chrome en móvil (390 px) y escritorio (1440 px), claro y oscuro,
+  sobre portada, preparación y copiloto: sin desbordamiento horizontal, controles de
+  tema utilizables y con foco de teclado. El PDF abre en Chrome con dos páginas; se
+  revisó visualmente la primera página y no se observó clipping aparente.
+- No se encontraron referencias públicas vigentes a SAMI en las páginas y documentos
+  revisados. Permanecen identificadores técnicos y antecedentes históricos fuera de
+  la identidad pública. No se añadieron evaluaciones, candados ni avisos repetidos.
+
+### Límites y pendientes reales de la microfase 12
+
+- El instalador Windows solo se inspeccionó estáticamente; no se ejecutó ninguna
+  instalación, WinGet, VS Code, Git ni servicio externo.
+- No se ejecutó un modelo externo ni se hicieron pruebas nuevas con personas.
+- La revisión visual del PDF fue una comprobación en Chrome de la salida disponible,
+  no una revisión humana página por página. La ruta exacta para esa revisión es
+  `assets/descargas/guia-inicio-python.pdf`.
+- No se hizo commit, tag, push ni publicación en esta microfase.
+- Aceptación del punto de control: aceptada por la persona responsable del curso,
+  manteniendo explícitos los límites pendientes anteriores y sin presentarlos como
+  comprobaciones realizadas.

@@ -1,7 +1,7 @@
 # Programar en 2027
 
 Curso en castellano para aprender a programar haciendo, con Python como lenguaje
-principal (B1-B7 + lab opcional): fundamentos, proyectos reales, debugging,
+principal (B1-B7 + Recorrido práctico): fundamentos, proyectos reales, debugging,
 comprobación y validación, Git, e IA y agentes bajo revisión humana.
 
 > El repositorio es la fuente de verdad. No dupliques contenido aquí; sigue los enlaces.
