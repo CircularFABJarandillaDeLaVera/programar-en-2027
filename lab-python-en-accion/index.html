@@ -36,7 +36,7 @@
       <img class="lab-pattern" src="../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--accent">Continuación posterior · acceso libre</span>
       <h1>Construye y conecta tus proyectos</h1>
-      <p>Convierte un programa en una aplicación que guarda datos, conecta herramientas y puede utilizarse desde distintos dispositivos. Aquí puedes profundizar sin repetir obligatoriamente las prácticas de B3 a B7.</p>
+      <p>Convierte un programa en una aplicación que guarda datos, conecta herramientas y puede utilizarse desde distintos dispositivos. En cada etapa identifica la necesidad, la pieza que la resuelve, sus conexiones y la comprobación que necesitas.</p>
     </section>
 
       <section class="lab-pathway" aria-label="Recorrido práctico: construye y conecta tus proyectos">
@@ -44,24 +44,30 @@
         <span class="cf-chip cf-chip--accent">Recorrido práctico</span>
         <h2>CONSTRUYE Y CONECTA TUS PROYECTOS</h2>
         <p>Un recorrido progresivo para reconocer qué pieza necesitas, cómo se conecta y cuándo puedes prescindir de ella.</p>
+        <p class="lab-phase__note"><strong>Continuidad real:</strong> el control horario sirve como hilo de ejemplo desde EXP 11, pero cada descarga es una carpeta independiente. Abre la carpeta que descomprimas y sigue su README; no se presupone que una copia admita automáticamente los archivos de otra.</p>
       </div>
 
       <section class="lab-phase" aria-labelledby="phase-developer-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 1</span>
+          <span class="lab-phase__number">ETAPA 1</span>
           <div>
-            <h3 id="phase-developer-title">TRABAJA CON CONTROL</h3>
+            <h3 id="phase-developer-title">Trabaja con control</h3>
             <p>Aprende a colaborar con un agente de programación manteniendo el control del proyecto.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Controlar un cambio con ayuda de un agente y conservar una versión revisada.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>Extrae <code>agentes-programacion.zip</code>, abre <code>agente-programacion/</code> y usa su proyecto, diff y pruebas.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Ejecuta <code>python app.py</code> y <code>python -m unittest -v</code>; revisa el diff antes de guardar.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 7</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Agentes de programación · Trabajar con control</h2>
-            <p>Analizar -> autorizar -> revisar -> probar -> guardar.</p>
+            <ul class="lab-card__sequence" aria-label="Secuencia de trabajo"><li>Analizar</li><li>Autorizar</li><li>Revisar</li><li>Probar</li><li>Guardar</li></ul>
             <div class="lab-card__actions" aria-label="Acciones Agentes de programación">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/07-agentes-programacion.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/agentes-programacion.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/07-agentes-programacion.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/agentes-programacion.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
@@ -69,29 +75,34 @@
 
       <section class="lab-phase" aria-labelledby="phase-services-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 2</span>
+          <span class="lab-phase__number">ETAPA 2</span>
           <div>
-            <h3 id="phase-services-title">HAZ QUE TUS PROGRAMAS SE COMUNIQUEN</h3>
+            <h3 id="phase-services-title">Haz que tus programas se comuniquen</h3>
             <p>Convierte tu código en una API y aprende a ejecutarla de forma reproducible.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Exponer un programa como API y ejecutarlo de forma reproducible.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>Extrae cada ZIP en su propia carpeta. FastAPI usa su entorno virtual y <code>requirements.txt</code>; Docker añade imagen, contenedor y puertos.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Ejecuta <code>uvicorn main:app --reload</code>, revisa Swagger y <code>test_api.py</code>. Docker requiere Docker Desktop.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 8</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>FastAPI · Tu primera API</h2>
             <p>GET -> POST -> Swagger -> tests -> mini-reto DELETE.</p>
             <div class="lab-card__actions" aria-label="Acciones FastAPI">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/08-fastapi.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/fastapi-participantes.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/08-fastapi.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/fastapi-participantes.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 9</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Docker · La misma API en cualquier equipo</h2>
             <p>Dockerfile -> imagen -> contenedor -> puertos -> Docker Hub.</p>
             <div class="lab-card__actions" aria-label="Acciones Docker">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/09-docker.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/docker-fastapi.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/09-docker.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/docker-fastapi.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
@@ -99,29 +110,34 @@
 
       <section class="lab-phase" aria-labelledby="phase-data-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 3</span>
+          <span class="lab-phase__number">ETAPA 3</span>
           <div>
-            <h3 id="phase-data-title">GUARDA Y RECUPERA INFORMACIÓN</h3>
+            <h3 id="phase-data-title">Guarda y recupera información</h3>
             <p>Haz que los datos persistan y aplica reglas de negocio sobre ellos.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Guardar datos y recuperarlos entre ejecuciones aplicando reglas de negocio.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>PostgreSQL y FastAPI. Extrae <code>postgresql-participantes.zip</code> o <code>control-horario.zip</code> en una carpeta nueva; EXP 11 descarga una base propia.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Abre la carpeta, sigue su README para iniciar PostgreSQL, instala requisitos y ejecuta Uvicorn; comprueba API, consultas y pruebas.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 10</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>PostgreSQL · Datos que permanecen</h2>
             <p>FastAPI -> PostgreSQL -> persistencia -> volumen Docker.</p>
             <div class="lab-card__actions" aria-label="Acciones PostgreSQL">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/10-postgresql.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/postgresql-participantes.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/10-postgresql.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/postgresql-participantes.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 11</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Control horario · De API de ejemplo a aplicación real</h2>
             <p>FastAPI -> reglas -> PostgreSQL -> aplicacion real.</p>
             <div class="lab-card__actions" aria-label="Acciones Control horario">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/11-control-horario.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/11-control-horario.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
@@ -129,56 +145,61 @@
 
       <section class="lab-phase" aria-labelledby="phase-app-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 4</span>
+          <span class="lab-phase__number">ETAPA 4</span>
           <div>
-            <h3 id="phase-app-title">CREA UNA APLICACIÓN QUE OTRAS PERSONAS PUEDAN USAR</h3>
+            <h3 id="phase-app-title">Crea una aplicación que otras personas puedan usar</h3>
             <p>Completa el recorrido desde la interfaz hasta una aplicación usable en distintos contextos.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Convertir la API en una aplicación usable desde navegador, móvil o dashboard.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>Interfaz, geolocalización, roles y dashboard conectados por <code>fetch()</code> a FastAPI y PostgreSQL. Cada ZIP va en su propia carpeta.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Sigue el README, instala requisitos y ejecuta el servidor; prueba interfaz, reglas, permisos y datos mostrados.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 12</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Interfaz para fichar · Del Swagger a una aplicación usable</h2>
             <p>Interfaz -> fetch() -> FastAPI -> PostgreSQL.</p>
             <div class="lab-card__actions" aria-label="Acciones Interfaz para fichar">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/12-interfaz-control-horario.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-web.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/12-interfaz-control-horario.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-web.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 13</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Geolocalización del fichaje · ¿Desde dónde estoy fichando?</h2>
             <p>Geolocation -> fetch() -> FastAPI -> PostgreSQL.</p>
             <div class="lab-card__actions" aria-label="Acciones Geolocalización del fichaje">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/13-geolocalizacion-fichaje.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-geolocalizado.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/13-geolocalizacion-fichaje.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-geolocalizado.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 14</span><span class="cf-chip cf-chip--neutral">60-75 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">60-75 min</span></div>
             <h2>Empresario y trabajador · Autenticación y autorización</h2>
             <p>Login -> roles -> FastAPI autoriza -> fichaje propio.</p>
             <div class="lab-card__actions" aria-label="Acciones Empresario y trabajador">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/14-empresario-trabajador.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-roles.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/14-empresario-trabajador.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-roles.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 15</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Del localhost al móvil · Red local y servidor</h2>
             <p>localhost -> IP del PC -> LAN -> móvil.</p>
             <div class="lab-card__actions" aria-label="Acciones Del localhost al móvil">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/15-localhost-movil.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-roles.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/15-localhost-movil.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-roles.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 16</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Del dato al dashboard · Información útil para la empresa</h2>
             <p>PostgreSQL -> Python -> resumen -> dashboard.</p>
             <div class="lab-card__actions" aria-label="Acciones Del dato al dashboard">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/16-dashboard.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-dashboard.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/16-dashboard.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-dashboard.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
@@ -186,59 +207,58 @@
 
       <section class="lab-phase" aria-labelledby="phase-connect-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 5</span>
+          <span class="lab-phase__number">ETAPA 5</span>
           <div>
-            <h3 id="phase-connect-title">CONECTA TU APLICACIÓN CON OTROS SISTEMAS</h3>
+            <h3 id="phase-connect-title">Conecta tu aplicación con otros sistemas</h3>
             <p>Conecta tu aplicación con un broker de contexto y servicios interoperables.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Compartir datos con un broker, un puente HTTP/JSON o un sistema de mensajería.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>Orion-LD, MQTT y puentes Python. Extrae cada ZIP en la carpeta indicada; los dispositivos amplían el hilo del control horario.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Ejecuta Docker Compose o el comando del README; revisa contenedores, mensajes y respuesta. EXP 20 requiere hardware real.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 17</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Broker de contexto · Orion-LD + NGSI-LD</h2>
             <p>histórico -> contexto actual -> entidad NGSI-LD.</p>
             <div class="lab-card__actions" aria-label="Acciones Broker de contexto">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/17-orion-ld.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/fiware-orion-ld.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/17-orion-ld.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/fiware-orion-ld.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 18</span><span class="cf-chip cf-chip--neutral">60-75 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">60-75 min</span></div>
             <h2>Python conecta PostgreSQL con FIWARE · HTTP + JSON desde Python</h2>
             <p>fichaje -> PostgreSQL -> httpx -> Orion-LD.</p>
             <div class="lab-card__actions" aria-label="Acciones Python conecta PostgreSQL con FIWARE">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/18-python-fiware.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-fiware.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/18-python-fiware.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-fiware.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
-      </section>
-
-      <section class="lab-phase" aria-labelledby="phase-devices-title">
-        <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 6</span>
-          <div>
-            <h3 id="phase-devices-title">CONECTA TU APLICACIÓN CON OTROS SISTEMAS · DISPOSITIVOS</h3>
-            <p>Descubre qué ocurre cuando los datos los genera continuamente una máquina o un sensor.</p>
-          </div>
+        <div class="lab-phase__continuation">
+          <h4>Extiende la conexión a dispositivos</h4>
+          <p>Cuando los datos los genera una máquina o un sensor, la conexión añade mensajería y un puente hacia el contexto.</p>
         </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 19</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Una compostera conectada</h2>
             <p>Simulador Python -> MQTT -> Mosquitto -> monitor Python.</p>
             <div class="lab-card__actions" aria-label="Acciones Una compostera conectada">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/19-compostera-mqtt.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/compostera-mqtt.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/19-compostera-mqtt.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/compostera-mqtt.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 21</span><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">45-60 min</span></div>
             <h2>Del sensor al contexto de la empresa</h2>
             <p>MQTT -> puente Python -> FIWARE -> contexto actual.</p>
             <div class="lab-card__actions" aria-label="Acciones Del sensor al contexto de la empresa">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/21-mqtt-fiware.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/mqtt-fiware-contexto.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/21-mqtt-fiware.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/mqtt-fiware-contexto.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
@@ -247,54 +267,59 @@
 
       <section class="lab-phase" aria-labelledby="phase-decision-title">
         <div class="lab-phase__header">
-          <span class="lab-phase__number">FASE 7</span>
+          <span class="lab-phase__number">ETAPA 6</span>
           <div>
-            <h3 id="phase-decision-title">INCORPORA IA DONDE APORTE VALOR</h3>
+            <h3 id="phase-decision-title">Incorpora IA donde aporte valor</h3>
             <p>Analiza el contexto actual, valida los datos y decide una ruta con un flujo determinista.</p>
           </div>
         </div>
+        <div class="lab-phase__guide">
+          <div class="lab-phase__guide-item"><h4>Qué vas a conseguir</h4><p>Decidir dónde una IA aporta valor y mantener la validación bajo control.</p></div>
+          <div class="lab-phase__guide-item"><h4>Con qué trabajarás</h4><p>Estado, LangGraph, Ollama y validación Python. Cada ZIP se extrae en su propia carpeta; los requisitos están en su README.</p></div>
+          <div class="lab-phase__guide-item"><h4>Cómo comprobarlo</h4><p>Ejecuta los casos demo y revisa decisión, explicación, estructura y fallback sin atribuir capacidades no comprobadas.</p></div>
+        </div>
         <div class="lab-grid">
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 22</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Del contexto a una decisión</h2>
             <p>FIWARE -> estado -> validación -> LangGraph -> camino de decisión.</p>
             <div class="lab-card__actions" aria-label="Acciones Del contexto a una decisión">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/22-langgraph-contexto.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/langgraph-contexto.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/22-langgraph-contexto.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/langgraph-contexto.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 23</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Una IA que explica, pero no decide</h2>
             <p>LangGraph decide -> Ollama explica -> Python valida -> fallback seguro.</p>
             <div class="lab-card__actions" aria-label="Acciones Una IA que explica, pero no decide">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/23-ollama-explicacion.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/ollama-explicacion.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/23-ollama-explicacion.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/ollama-explicacion.zip" download>Descargar práctica</a>
             </div>
           </article>
           <article class="lab-card cf-card">
-            <div class="lab-card__meta"><span class="cf-chip cf-chip--accent">EXP 24</span><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
+            <div class="lab-card__meta"><span class="cf-chip cf-chip--neutral">30-45 min</span></div>
             <h2>Una IA que responde con estructura</h2>
             <p>Ollama + JSON Schema -> estructura -> validación semántica.</p>
             <div class="lab-card__actions" aria-label="Acciones Una IA que responde con estructura">
-              <a class="lab-action lab-action--primary" href="recursos/experiencias/24-ollama-estructurado.html">VER</a>
-              <a class="lab-action lab-action--secondary" href="recursos/descargas/ollama-estructurado.zip" download>DESCARGAR PRÁCTICA</a>
+              <a class="lab-action lab-action--primary" href="recursos/experiencias/24-ollama-estructurado.html">Abrir práctica</a>
+              <a class="lab-action lab-action--secondary" href="recursos/descargas/ollama-estructurado.zip" download>Descargar práctica</a>
             </div>
           </article>
         </div>
       </section>
 
       <section class="lab-extension" aria-labelledby="masterclass-title">
-        <span class="cf-chip cf-chip--accent">Extensión opcional del recorrido</span>
+        <span class="cf-chip cf-chip--accent">Recursos complementarios</span>
         <h3 id="masterclass-title">MASTER CLASS PYTHON + FIWARE REAL</h3>
-        <p>Una ampliación técnica sobre un sandbox real autorizado, fuera de las fases obligatorias.</p>
+        <p>Una ampliación técnica sobre un sandbox real autorizado, separada de las seis etapas.</p>
         <article class="lab-card lab-card--masterclass cf-card">
-          <span class="cf-chip cf-chip--accent">MASTER CLASS · OPCIONAL</span>
+          <span class="cf-chip cf-chip--accent">MASTER CLASS</span>
           <h2>Python + FIWARE real · Del dato local al contexto interoperable</h2>
           <p>Técnico cFAB, sandbox real autorizado, NGSI v2 y contexto común compartible.</p>
           <div class="lab-card__actions" aria-label="Acciones Master Class FIWARE real">
-            <a class="lab-action lab-action--primary" href="recursos/experiencias/masterclass-fiware-real.html">VER</a>
-            <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-fiware-sandbox.zip" download>DESCARGAR PRÁCTICA</a>
+            <a class="lab-action lab-action--primary" href="recursos/experiencias/masterclass-fiware-real.html">Abrir práctica</a>
+            <a class="lab-action lab-action--secondary" href="recursos/descargas/control-horario-fiware-sandbox.zip" download>Descargar práctica</a>
           </div>
         </article>
       </section>
@@ -312,7 +337,7 @@
         <h2>OpenCV · Webcam interactiva</h2>
         <p>1 normal · 2 gris · 3 blur · 4 bordes · S captura · Q salir.</p>
         <div class="lab-card__actions" aria-label="Acciones OpenCV">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/01-opencv-webcam.html">VER</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/01-opencv-webcam.html">Abrir práctica</a>
           <a class="lab-action lab-action--secondary" href="recursos/scripts/webcam_gris.py" download>DESCARGAR</a>
         </div>
       </article>
@@ -321,7 +346,7 @@
         <h2>Pillow · Modifica una foto</h2>
         <p>Imagen -> transformacion -> nueva imagen.</p>
         <div class="lab-card__actions" aria-label="Acciones Pillow">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/02-pillow-foto.html">VER</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/02-pillow-foto.html">Abrir práctica</a>
           <a class="lab-action lab-action--secondary" href="recursos/scripts/editar_foto.py" download>DESCARGAR</a>
         </div>
       </article>
@@ -330,7 +355,7 @@
         <h2>Automatizacion · Ordena archivos</h2>
         <p>Carpeta segura -> clasificacion automatica.</p>
         <div class="lab-card__actions" aria-label="Acciones Automatizacion">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/03-automatizacion-archivos.html">VER</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/03-automatizacion-archivos.html">Abrir práctica</a>
           <a class="lab-action lab-action--secondary" href="recursos/scripts/organizar_carpeta_segura.py" download>DESCARGAR</a>
         </div>
       </article>
@@ -339,7 +364,7 @@
         <h2>OpenPyXL · Python trabaja con Excel</h2>
         <p>Datos -> formulas -> ventas_lab.xlsx.</p>
         <div class="lab-card__actions" aria-label="Acciones OpenPyXL">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/04-openpyxl-excel.html">VER</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/04-openpyxl-excel.html">Abrir práctica</a>
           <a class="lab-action lab-action--secondary" href="recursos/scripts/crear_excel.py" download>DESCARGAR</a>
         </div>
       </article>
@@ -348,7 +373,7 @@
         <h2>Tkinter · Convierte codigo en app</h2>
         <p>Ventana -> entrada -> boton -> resultado.</p>
         <div class="lab-card__actions" aria-label="Acciones Tkinter">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/05-tkinter-app.html">VER</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/05-tkinter-app.html">Abrir práctica</a>
           <a class="lab-action lab-action--secondary" href="recursos/scripts/mi_app_tkinter.py" download>DESCARGAR</a>
         </div>
       </article>
@@ -357,8 +382,8 @@
         <h2>RAG local · Tu primer chat con documentos</h2>
         <p>Documentos -> fragmentos -> contexto -> respuesta.</p>
         <div class="lab-card__actions" aria-label="Acciones RAG local">
-          <a class="lab-action lab-action--primary" href="recursos/experiencias/06-rag-local.html">VER</a>
-          <a class="lab-action lab-action--secondary" href="recursos/descargas/rag-local.zip" download>DESCARGAR PRÁCTICA</a>
+          <a class="lab-action lab-action--primary" href="recursos/experiencias/06-rag-local.html">Abrir práctica</a>
+          <a class="lab-action lab-action--secondary" href="recursos/descargas/rag-local.zip" download>Descargar práctica</a>
         </div>
       </article>
       </div>

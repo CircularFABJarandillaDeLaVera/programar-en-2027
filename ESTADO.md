@@ -268,3 +268,29 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 ### Siguiente paso
 
 - Revisar EXP-05 en `http://localhost:8000/bloques/bloque7/recursos/experiencias/exp-05-langgraph-orquesta/index.html` y la portada de B7. La microfase queda sin commit ni tag.
+
+## Microfase 10 — Recorrido práctico ordenado (pendiente de revisión)
+
+### Organización aplicada
+
+- La portada `lab-python-en-accion/index.html` usa el título `Recorrido práctico · Construye y conecta tus proyectos` y seis etapas: trabajar con control; comunicar programas; guardar y recuperar información; crear una aplicación usable; conectar con otros sistemas; e incorporar IA donde aporte valor.
+- La etapa 1 enlaza la práctica de agentes; la 2, FastAPI y Docker; la 3, PostgreSQL y el proyecto de control horario; la 4, interfaz, geolocalización, roles, móvil y dashboard; la 5 integra FIWARE, MQTT y dispositivos; la 6 reúne las prácticas de decisión, explicación y respuesta estructurada con IA.
+- Cada etapa indica necesidad, pieza, conexiones, actividad, resultado y comprobación. También aclara carpeta de extracción, continuidad real, comandos o README aplicable y dependencias técnicas.
+- El control horario queda como hilo conceptual desde EXP 11: las descargas posteriores son copias independientes y no se presupone que una carpeta admita automáticamente los archivos de otra. No se presentó una continuidad única que el código o los ZIP no demostraran.
+- La Experiencia 20 sigue identificada como pendiente de hardware real. Los recursos complementarios se conservan fuera de las seis etapas principales.
+- No se encontraron referencias públicas a SAMI en la portada del Recorrido ni en los materiales directamente modificados. No se hizo la retirada global de materiales de apoyo, reservada para la microfase 11.
+
+### Comprobaciones
+
+- Revisión documental: se comprobaron las experiencias y descargas enlazadas, las carpetas raíz de los ZIP y los comandos principales de los README. Las descargas afectadas responden por HTTP y los enlaces locales de la portada no apuntan a rutas inexistentes.
+- Navegación real mediante HTTP y clics en navegador: `curso → recorrido → experiencia 11 → recorrido → curso`, con estado final en `/inicio.html`.
+- Revisión responsive en navegador a 390 px y 1440 px, en claro y oscuro: `scrollWidth` coincide con el ancho de la ventana, se muestran las seis etapas y no se pierden los controles principales.
+- La portada se reorganizó visualmente sin alterar destinos: cada etapa tiene número, título y descripción; sus notas usan los bloques `Qué vas a conseguir`, `Con qué trabajarás` y `Cómo comprobarlo`; una actividad ocupa una tarjeta amplia y las múltiples se distribuyen en cuadrícula. Las acciones visibles pasan a `Abrir práctica` y `Descargar práctica`, y la secuencia de EXP 7 se muestra como pasos separados sin flechas partidas.
+- La comprobación visual final confirmó 6 etapas, 3 bloques de guía por etapa, tarjetas distribuidas `1 / 2 / 2 / 5 / 2+2 / 3`, 24 descargas y ningún botón `VER` en la portada, tanto en 390 px como en escritorio, claro y oscuro.
+- El usuario acepta la microfase 10 y su ajuste visual. Se mantiene el límite: los proyectos del Recorrido no se ejecutaron en esta microfase.
+- No se ejecutaron los proyectos del Recorrido ni se instalaron dependencias; esta microfase valida la organización documental, enlaces y navegación, no el funcionamiento de cada ZIP.
+
+### Pendientes y límites
+
+- Quedan por ejecutar, si se autoriza en una fase posterior, las prácticas del Recorrido en copias limpias y la revisión humana detallada de cada README. Docker, PostgreSQL, FIWARE, MQTT, Ollama y hardware no se activaron.
+- No se modificó EduSDK, no se sincronizaron los materiales globales de apoyo y no se inició la microfase 11. `Cambios_portada_2027/` y cualquier cambio ajeno permanecen fuera del alcance.

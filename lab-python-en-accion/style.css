@@ -405,6 +405,78 @@ img {
   margin: 0;
 }
 
+/* El recorrido usa una tarjeta amplia para una actividad y una cuadrícula
+   equilibrada cuando hay varias. */
+.lab-phase > .lab-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.lab-phase .lab-card {
+  min-height: 0;
+}
+
+.lab-phase__guide {
+  display: grid;
+  gap: var(--cf-space-3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lab-phase__guide-item {
+  background: var(--cf-color-surface-muted);
+  border: var(--cf-border-width) solid var(--cf-color-border);
+  border-radius: var(--cf-radius-sm);
+  display: grid;
+  gap: var(--cf-space-2);
+  padding: var(--cf-space-3);
+}
+
+.lab-phase__guide-item h4 {
+  color: var(--cf-color-text);
+  font-family: var(--cf-font-label);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.lab-card__sequence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lab-card__sequence li {
+  background: var(--cf-color-accent-soft);
+  border: var(--cf-border-width) solid color-mix(in srgb, var(--cf-color-accent) 28%, transparent);
+  border-radius: var(--cf-radius-sm);
+  color: var(--cf-color-text);
+  font-family: var(--cf-font-label);
+  font-size: 0.78rem;
+  font-weight: 750;
+  padding: 0.35rem 0.55rem;
+}
+
+.lab-card__actions .lab-action {
+  white-space: nowrap;
+}
+
+.lab-phase__continuation {
+  border-top: var(--cf-border-width) solid var(--cf-color-border);
+  display: grid;
+  gap: var(--cf-space-2);
+  padding-top: var(--cf-space-3);
+}
+
+.lab-phase__continuation h4 {
+  color: var(--cf-color-text);
+  font-family: var(--cf-font-heading);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
 .lab-panel ul,
 .lab-panel ol {
   display: grid;
@@ -461,6 +533,10 @@ img {
   .lab-experience__header,
   .lab-phase-grid,
   .lab-phase__header {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-phase__guide {
     grid-template-columns: 1fr;
   }
 }
