@@ -615,11 +615,9 @@ solo los cinco pendientes solicitados y no se hizo commit, tag, push ni publicac
 
 ### Límites y pendientes reales de la microfase 12
 
-- El instalador Windows solo se inspeccionó estáticamente; no se ejecutó ninguna
-  instalación, WinGet, VS Code, Git ni servicio externo.
-- La prueba del instalador Windows y el uso real del copiloto se realizarán en la
-  siguiente clase. Hasta entonces permanecen pendientes y no bloquean este punto
-  de control.
+- El instalador Windows se probó realmente en Windows y el resultado fue
+  satisfactorio.
+- El uso real del copiloto se probó en otro chat y el resultado fue satisfactorio.
 - No se ejecutó un modelo externo ni se hicieron pruebas nuevas con personas.
 - La revisión visual del PDF fue una comprobación en Chrome de la salida disponible,
   no una revisión humana página por página. La ruta exacta para esa revisión es
