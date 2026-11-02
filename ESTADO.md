@@ -4,6 +4,31 @@ Actualizado: 2026-11-01. Fuentes canónicas: ver `AGENTS.md`.
 
 ## Microfase 1 — entrada común y dos rutas
 
+## Auditoria de botones - pasada cerrada sin cobertura global
+
+- Correcciones CSS aplicadas en `assets/edusdk-design-system/components/components.css`, `assets/edusdk-map/edusdk-map-viewer.css` y `lab-python-en-accion/style.css`, manteniendo tokens semanticos y sin modificar Python, pruebas ni el anexo visual.
+- Verificacion prioritaria en navegador real, con recarga sin cache: `lab-python-en-accion/index.html` y EXP-02, claro y oscuro, normal/hover/foco. Recorrido y descarga EXP-02: 6.38:1 claro y 7.72:1 oscuro; foco visible de 3 px; texto completo y sin desbordamiento.
+- Cobertura alcanzada: inventario estatico de 122 paginas candidatas y ejecucion parcial del arnes real sobre 936 controles/estados. La pasada completa se cerro por duracion antes de consolidar resultado valido; no se declara revision global completada.
+- Pendiente: terminar la auditoria de todas las paginas y variantes con el arnes ampliado, corregir excepciones estabilizadas y volver a ejecutar `git diff --check`.
+- No hay bloqueo tecnico; la limitacion es temporal de esta pasada. No se hizo commit, tag, push ni publicacion.
+- Cierre: la extraccion limpia de `proyecto-b7-agente-real.zip` coincide byte a byte con sus fuentes para `app.py`, `participantes.py`, `test_participantes.py`, `README.md`, `AGENTS.md` y la skill; no contiene `.venv` ni cachés y Python/pruebas siguen sin cambios frente a HEAD. El aviso previo «Diferencia proyecto: app.py» no puede atribuirse a una discrepancia actual; se desconoce si procedio de una comparación que tomó otra carpeta, una copia de Descargas o una validación anterior defectuosa.
+
+## Cabecera del Recorrido practico
+
+- `lab-python-en-accion/index.html` conserva un unico panel superior con la trama Circular FAB, la etiqueta «Recorrido práctico», el unico `h1` «Construye y conecta tus proyectos», una descripcion combinada y la nota «Continuidad real».
+- Se elimino la cabecera inferior duplicada y la etiqueta «Continuación posterior · acceso libre». Las seis etapas comienzan despues de la cabecera, conservando sus enlaces y descargas.
+- La nota usa un panel semántico con ancho de lectura limitado y contraste sobre la trama; no se aumento la opacidad de la trama.
+- Navegador local: escritorio y movil, claro y oscuro; un `h1`, seis etapas, sin desbordamiento horizontal y sin recorte de la trama. `git diff --check` pasa.
+- No se hizo commit, tag, push ni publicacion de este ajuste.
+
+## Infografia de EXP-05 - Python, agentes y LangGraph
+
+- Se identifico por el contenido «Python, agentes y LangGraph», se comprobo como PNG de 1.701.113 bytes y se renombro a `bloques/bloque7/recursos/descargas/python-agentes-langgraph.png`. La infografia anterior `ecosistema-desarrollo-con-ia.png` se conserva.
+- Se incorporo despues de la introduccion de EXP-05 y antes de PREPARAR, con apertura a tamano completo, descarga, imagen completa sin recorte ni filtros y resumen HTML accesible.
+- Contraste documental con `langgraph-taller/README.md`, `flujo_taller.py`, sus pruebas y la guia de ampliacion: no se encontro discrepancia sustancial. El proyecto real funciona sin LLM; los nodos son funciones, no agentes por definicion; 0, 3 y 20 son ejemplos; no implementa multiagente ni autocorreccion. No se ejecuto ni instalo LangGraph.
+- Navegador local: imagen cargada en escritorio y movil, claro y oscuro; dimensiones naturales 1024x1536; proporciones conservadas; enlaces de apertura y descarga correctos; sin desbordamiento horizontal. `git diff --check` pasa.
+- La prueba acompañada con el usuario queda pendiente para el martes y no se presenta como realizada. No se hizo commit, tag, push ni publicacion.
+
 ### Comprobado ahora
 
 - Se actualizaron únicamente los siete índices autorizados: la portada, el índice del Recorrido práctico y los índices B3–B7.
@@ -626,3 +651,67 @@ solo los cinco pendientes solicitados y no se hizo commit, tag, push ni publicac
 - Aceptación del punto de control: aceptada por la persona responsable del curso,
   manteniendo explícitos los límites pendientes anteriores y sin presentarlos como
   comprobaciones realizadas.
+
+## EXP-01 — guía guiada del arnés de bolsillo
+
+- Alcance: se reescribió `bloques/bloque7/recursos/experiencias/exp-01-del-prompt-al-harness/index.html`
+  como una práctica secuenciada de ocho pasos: preparación, ejecución del programa,
+  diagnóstico inicial, plan y autorización del agente, revisión, regresión controlada
+  y restauración. Se conservaron la identidad visual, el tema claro/oscuro y la
+  navegación a B7, al inicio y a EXP-02.
+- Alcance: se alineó `bloques/bloque7/recursos/proyectos-b7/harness-bolsillo/chuleta-harness.md`
+  con la secuencia de la guía y se regeneró `bloques/bloque7/proyecto-b7-harness.zip`
+  desde sus cuatro fuentes canónicas. No se modificaron `inventario_taller.py`,
+  `datos_ejemplo.json` ni `comprobar.py`; el ZIP conserva deliberadamente los dos
+  fallos pedagógicos iniciales.
+- Comprobaciones realizadas: ejecución del arnés sin cambios, con resultado inicial
+  real `3 APTO, 2 NO_APTO` y un `NO_VERIFICADO`; inspección de `comprobar.py` para
+  confirmar que el pendiente es rendimiento con miles de piezas; revisión de las
+  salidas y cifras de la regresión documentada contra código y datos.
+- Comprobaciones realizadas: el ZIP extraído en una carpeta limpia contiene solo sus
+  cuatro archivos y cada uno coincide byte a byte con su fuente canónica. No contiene
+  temporales. `git diff --check` no informó errores.
+- Límites reales: no se repitió la batería funcional de las correcciones porque el
+  código y los datos no cambiaron; queda reutilizada la evidencia funcional anterior.
+  La revisión visual de esta guía se hizo por inspección del HTML y sus estilos; no
+  se ejecutó en este cambio una revisión con navegador automatizado a 390/1440 px.
+- No se hizo commit, tag, push ni publicación. Se conservaron `Cambios_portada_2027/`,
+  `Preparar_curso_2027.zip` y los cambios ajenos.
+
+## Anexo práctico — De lo aprendido a tu proyecto
+
+- Alcance: se añadió `lab-python-en-accion/recursos/experiencias/08-de-lo-aprendido-a-tu-proyecto.html`, una guía independiente sobre cómo crear y mejorar una primera versión de un videojuego 2D con nave lateral, meteoritos, tres vidas y fin de partida.
+- Contenido: incluye definición de alcance, MVC sin sobrearquitectura, incrementos jugables, comprobación funcional/visual/humana, ejemplo de arnés que llama al comportamiento real, bucle de supervisión humana con infografía responsive, prompts copiables y ficha de cierre.
+- Navegación: se añadió un acceso discreto desde la portada de B7 y desde la sección final de la portada del Recorrido práctico. No se modificaron ni duplicaron las seis etapas del Recorrido.
+- Límites: no se construyó un videojuego, no se modificaron proyectos, ZIP, código de prácticas, EduSDK ni el pack del copiloto. La revisión de este punto cubre el material documental y sus enlaces, no la ejecución de un videojuego mediante el anexo.
+- Revisión del material realizada: `git diff --check`, revisión de rutas relativas y enlaces, y revisión visual del anexo en navegador local a 390/1440 px en claro; se corrigió un desbordamiento responsive detectado en la primera captura. La revisión de tema oscuro se limita a la inspección de los estilos y del control de tema; no se ejecutan proyectos ni se repiten pruebas funcionales ajenas.
+- Ejecución real: no se ha construido ni validado un videojuego mediante este anexo. Las comprobaciones descritas son material pedagógico y el ejemplo de arnés no se ha ejecutado porque no existe un juego de este cambio.
+- No se hizo commit, tag, push ni publicación.
+
+## Recurso visual — Cómo se conectan las herramientas
+
+- Se incorporó la infografía aportada en `bloques/bloque7/recursos/descargas/`, comprobada como PNG de 1024×1536, y se renombró a `ecosistema-desarrollo-con-ia.png` sin alterar sus píxeles ni su fondo original.
+- Se creó `bloques/bloque7/recursos/como-se-conectan-las-herramientas.html` con imagen completa sin recorte, apertura a tamaño completo, descarga, resumen HTML accesible, ciclo humano de decisión, ejemplo de revista digital y aclaración sobre copiar y pegar entre chats.
+- La portada B7 enlaza la página antes de EXP-01 sin numerarla; EXP-02 incluye un enlace discreto. No se muestran imágenes gigantes en la portada.
+- Alcance limitado a documentación y recurso visual de B7. No se modificaron skill, ZIP, prácticas ni EduSDK.
+- Pendiente de esta revisión: comprobación final en navegador de móvil/escritorio y temas claro/oscuro, además de `git diff --check`.
+
+## Ajuste posterior de EXP-02 — orientación, contraste y evidencia de usuario
+
+- La portada de B7 etiqueta las descargas como «Inventario del taller · EXP-01» y «Registro de participantes · EXP-02–04». EXP-02 explica el cambio de proyecto, la carpeta nueva, la extracción completa con `.agents/`, Archivo > Abrir carpeta, los archivos esperados, la terminal y la reutilización en EXP-03/04; la skill independiente queda al final y es opcional.
+- La skill canónica y su copia distribuida, `AGENTS.md`, `README.md` y la guía indican reutilizar un intérprete Python disponible, no crear entornos ni instalar dependencias por rutina, ejecutar `python -m unittest -v`, interpretar correctamente los fallos del detector del editor y documentar archivo, líneas, comprobaciones y pendientes después de una autorización. Git es un punto de control útil, no un requisito.
+- Evidencia aportada por el usuario: el agente leyó `SKILL.md`, `AGENTS.md`, `README.md` y los Python; detectó la falta de rango de edad; preparó objetivo, evidencia, alcance, criterios y plan; pidió autorización; después informó de la corrección en `participantes.py` y tres pruebas unittest superadas; comunicó que no había repositorio Git; creó `.venv` mediante herramientas del editor; no mostró diff final. Es evidencia del usuario, no una ejecución realizada ahora ni una validación de todos los agentes.
+- Ahora: la batería inicial conserva deliberadamente 1 prueba correcta y 2 fallos pedagógicos; ambos ZIP se extrajeron en limpio y coincidieron byte a byte con sus fuentes, sin `.venv`, cachés ni solución.
+- Contraste: EXP-02 usa `--cf-color-accent-hover` en claro y `--cf-color-accent` en oscuro con tokens semánticos; el alcance es local al botón. El arnés EduSDK registra 6.38:1 en claro y 7.72:1 en oscuro para normal, hover y foco; texto normal y grande pasan. El self-test detectó el defecto mutado y el estilo restaurado pasó.
+- Límites: no se repitió la sesión real autorizada del usuario; no se modificaron Python ni pruebas. La revisión visual humana adicional de EXP-02 queda pendiente. El anexo del videojuego y otros cursos permanecen intactos.
+- No se hizo commit, tag, push ni publicación.
++
+## EXP-02 — Preparar un cambio y skill portátil
+
+- Alcance: se reorganizó `bloques/bloque7/recursos/experiencias/exp-02-agente-en-repo-real/index.html` como práctica guiada sobre el repositorio real de participantes: descarga y extracción completa, observación del fallo, preparación con agente, ficha, plan, autorización, comprobaciones, decisión humana, ampliación aislada de `edad = 120` y continuidad a EXP-03.
+- Skill: se creó una única fuente canónica en `bloques/bloque7/recursos/proyectos-b7/skills/preparar-cambio/`, con `SKILL.md` y `agents/openai.yaml` para el nombre visible «Preparar un cambio». La copia distribuida está en `agente-real/.agents/skills/preparar-cambio/`; `agente-real/AGENTS.md` la conecta por ubicación y conserva la autorización ya concedida. `README.md` distingue la guía de la persona, las instrucciones del agente y la skill.
+- Portabilidad: se generaron `bloques/bloque7/recursos/descargas/preparar-cambio-codex.zip` y el nuevo `bloques/bloque7/proyecto-b7-agente-real.zip` desde las fuentes actuales. El ZIP independiente contiene únicamente `.agents/skills/preparar-cambio/SKILL.md`; el del proyecto conserva Python, pruebas, README, AGENTS.md, skill y los fallos pedagógicos iniciales.
+- Retirada: se eliminó `bloques/bloque7/recursos/guias/procedimiento-agente-reutilizable.md` y se actualizó `guia-rapida-b7.md`; no quedan enlaces públicos a ese archivo. No se modificaron EXP-01, el anexo del videojuego, EXP-03/04, el pack del copiloto ni EduSDK.
+- Comprobaciones realizadas: extracción de ambos ZIP en carpetas limpias; comparación byte a byte de `SKILL.md` y `agents/openai.yaml` entre la fuente canónica, la copia del proyecto y ambas distribuciones; comprobación de que el ZIP independiente conserva AGENTS.md y README.md preexistentes al extraerse y funciona en una carpeta sin AGENTS.md; inspección de contenidos para excluir cachés y soluciones; revisión visual de EXP-02 en escritorio y móvil, tema claro y control/estilos de tema oscuro; `git diff --check`.
+- Pendientes: el validador oficial de skill-creator no se pudo ejecutar porque el entorno no tiene instalado el módulo Python `yaml`; no se instaló nada globalmente. No se ejecutaron `app.py` ni `python -m unittest -v` en este cambio, porque el Python y las pruebas no se modificaron; queda pendiente la sesión real de Codex para observar reconocimiento, invocación, consulta explicativa y continuación de un plan autorizado.
+- No se hizo commit, tag, push ni publicación.

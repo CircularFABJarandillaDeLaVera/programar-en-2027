@@ -1,0 +1,6 @@
+interface:
+  display_name: "Preparar un cambio"
+  short_description: "Prepara objetivos, límites y planes antes de editar"
+  default_prompt: "Usa $preparar-cambio para preparar este cambio antes de modificar código."
+policy:
+  allow_implicit_invocation: true

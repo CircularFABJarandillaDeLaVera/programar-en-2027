@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EXP-01 · Del prompt al Harness</title>
+  <title>EXP-01 · Del prompt al arnés</title>
   <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/tokens.css">
   <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
   <link rel="stylesheet" href="../../../../../assets/edusdk-design-system/components/components.css">
@@ -11,9 +11,11 @@
   <style>
     .lab-hero { overflow: hidden; position: relative; }
     .lab-hero > :not(.lab-pattern) { position: relative; }
-    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
-    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: .16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: .10; }
     a.lab-action--primary { color: var(--cf-color-accent-text); }
+    .lab-step { border-left: .3rem solid var(--cf-color-accent, #147d92); }
+    .lab-result { background: var(--cf-color-surface-subtle, rgba(20,125,146,.08)); padding: 1rem; }
   </style>
   <script src="../../../../../assets/js/theme-toggle.js" defer></script>
 </head>
@@ -22,10 +24,10 @@
     <header class="cf-topbar cf-topbar--course lab-topbar">
       <a class="lab-brand" href="../../../../../inicio.html" aria-label="Volver al curso">
         <img src="../../../../../assets/branding/logo-circular-fab.png" alt="Circular FAB">
-        <span><b>Programar en 2027 · Bloque 7</b><span>EXP-01 · Del prompt al Harness</span></span>
+        <span><b>Programar en 2027 · Bloque 7</b><span>EXP-01 · Del prompt al arnés</span></span>
       </a>
-      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegacion">
-        <a class="cf-nav__link" href="../../../inicio.html">Volver al bloque 7</a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación">
+        <a class="cf-nav__link" href="../../../inicio.html">Volver a B7</a>
         <a class="cf-nav__link" href="../../../../../inicio.html">Inicio del curso</a>
         <a class="cf-nav__link" href="../exp-02-agente-en-repo-real/index.html">Siguiente: EXP-02 →</a>
       </nav>
@@ -38,139 +40,132 @@
     <article class="lab-experience">
       <section class="lab-hero">
         <img class="lab-pattern" src="../../../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
-        <div class="lab-experience__header">
-          <div>
-            <p class="lab-kicker">EXP-01 · 60-90 min · Solo librería estándar · Sin red obligatoria</p>
-            <h1 class="lab-experience__title">Del prompt al Harness</h1>
-          </div>
-        </div>
-        <p>Objetivo: comprobar que dirigir a un agente no es escribir un prompt mejor. Es rodearlo de límites, criterios y verificación — y decidir tú.</p>
-        <pre class="lab-code"><code>prompt vago → propuesta → QUIERO/NO QUIERO → criterios → PLAN → OK humano → cambio pequeño → comprobar.py → ACEPTO/MODIFICO/RECHAZO</code></pre>
+        <div class="lab-experience__header"><div><p class="lab-kicker">EXP-01 · Del prompt al arnés</p><h1 class="lab-experience__title">Del prompt al arnés</h1></div></div>
+        <p>Vas a pedir dos cambios a un programa de inventario, revisar lo que propone un agente y usar un comprobador para detectar errores y regresiones.</p>
       </section>
 
       <section class="lab-panel">
-        <h2>PREPARAR</h2>
-        <p><a class="lab-action lab-action--primary" href="../../../proyecto-b7-harness.zip" download>Descargar arnés de bolsillo</a></p>
-        <p><strong>El ZIP es plano:</strong> crea o elige una carpeta vacía, por ejemplo <code>mi-arnes-b7/</code>, descomprímelo directamente dentro y abre PowerShell en esa carpeta. No aparecerá otra carpeta <code>harness-bolsillo/</code> automáticamente. Solo hay 4 archivos:</p>
-        <pre class="lab-code"><code>mi-arnes-b7/
-├── inventario_taller.py   # taller mínimo: carga, añade, total, guarda
-├── datos_ejemplo.json     # 5 piezas de ejemplo
-├── comprobar.py           # solo informa APTO/NO_APTO/NO_VERIFICADO. No corrige.
-└── chuleta-harness.md     # tu chuleta de bolsillo (1 página)</code></pre>
-        <p>La mejora (igual en Fase A y Fase B): descuento 10% si <code>stock &gt; 10</code>, validar <code>precio &gt;= 0</code> y <code>stock &gt;= 0</code>, sin romper el JSON.</p>
+        <h2>1. Qué vas a hacer</h2>
+        <p>Trabajarás con un inventario de taller. Primero verás cómo funciona; después pedirás al agente dos cambios concretos; por último ejecutarás un comprobador para saber qué se cumple y qué se rompe.</p>
+        <p>Estos son los cuatro archivos del proyecto:</p>
+        <ul>
+          <li><code>inventario_taller.py</code>: el <strong>proyecto</strong>, un programa que carga piezas, las añade, calcula su valor y guarda el inventario.</li>
+          <li><code>datos_ejemplo.json</code>: cinco piezas de ejemplo que usa el programa y el comprobador.</li>
+          <li><code>comprobar.py</code>: el <strong>arnés</strong>. Ejecuta comprobaciones repetibles sobre comportamientos concretos e informa de su estado.</li>
+          <li><code>chuleta-harness.md</code>: una guía breve para pedir, revisar y comprobar cambios con ayuda de un agente.</li>
+        </ul>
+        <p>Un <strong>agente</strong> es un asistente de programación que propone y modifica código bajo dirección humana. El arnés ayuda a comprobar; no sustituye leer el cambio, revisar el diff ni decidir si lo aceptas.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>VER</h2>
-        <p>Lee <code>inventario_taller.py</code> entero (~50 líneas) y ejecuta:</p>
-        <pre class="lab-code"><code>python inventario_taller.py
-python comprobar.py</code></pre>
-        <p>Verás el programa funcionar pero <code>comprobar.py</code> en <strong>NO_APTO en 2 criterios</strong>. Esos 2 pendientes son tu tarea. No los resuelvas a mano todavía.</p>
-      </section>
-
-      <section class="lab-panel">
-        <h2>ARNÉS FUNCIONAL · CAMBIO CONTROLADO</h2>
-        <p>Trabaja siempre sobre una copia limpia. El arnés funcional es <code>comprobar.py</code>: ejecuta comprobaciones repetibles y solo informa; no modifica <code>inventario_taller.py</code> ni decide por ti.</p>
+      <section class="lab-panel lab-step">
+        <h2>2. Preparar la carpeta</h2>
         <ol>
-          <li><strong>Base:</strong> ejecuta los dos comandos de VER y guarda la salida. El estado inicial esperado es <strong>3 APTO, 2 NO_APTO y 1 NO_VERIFICADO</strong>.</li>
-          <li><strong>Cambio controlado:</strong> modifica únicamente <code>valor_total</code> para aplicar el 10% cuando <code>stock &gt; 10</code>. Ejecuta <code>python comprobar.py</code> antes de tocar la validación: debe desaparecer solo ese <code>NO_APTO</code>.</li>
-          <li><strong>Fallo observable:</strong> comprueba que queda <code>valida_entradas</code> en <strong>NO_APTO</strong>. Ese resultado demuestra que el arnés detecta una regla todavía incumplida.</li>
-          <li><strong>Corrección:</strong> modifica después únicamente <code>anadir_pieza</code> para lanzar <code>ValueError</code> con precio o stock negativos. Vuelve a ejecutar el arnés.</li>
+          <li>Pulsa <a class="lab-action lab-action--primary" href="../../../proyecto-b7-harness.zip" download>Descargar proyecto-b7-harness.zip</a>.</li>
+          <li>Crea una carpeta propia, por ejemplo <code>mi-arnes-b7</code>, y extrae dentro el ZIP. Debe quedar una carpeta plana con estos cuatro archivos: <code>inventario_taller.py</code>, <code>datos_ejemplo.json</code>, <code>comprobar.py</code> y <code>chuleta-harness.md</code>.</li>
+          <li>Abre esa carpeta en VS Code: <strong>Archivo → Abrir carpeta…</strong>.</li>
+          <li>Abre <strong>Terminal → Nueva terminal</strong>. Comprueba que la terminal está situada en la carpeta que contiene los cuatro archivos. En PowerShell puedes escribir <code>dir</code> y comprobar que aparecen sus nombres.</li>
         </ol>
-        <p>El resultado esperado al final es <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. No conviertas <code>NO_VERIFICADO</code> en <code>APTO</code> cambiando el comprobador: significa que el rendimiento con miles de piezas queda pendiente.</p>
-        <p><strong>El script comprueba automáticamente</strong> la carga de las cinco piezas, el descuento, el borde <code>stock == 10</code>, los valores negativos y el ciclo guardar/cargar. <strong>Tú revisas</strong> el diff, que solo cambiaste las funciones autorizadas, los mensajes y tipos de error, el caso manual y si los criterios representan realmente el encargo. Después decides <strong>ACEPTO / MODIFICO / RECHAZO</strong>.</p>
-        <p>Este proyecto no tiene interfaz de usuario: no se añade comparación visual. La revisión humana del código y de la salida sigue siendo necesaria aunque todo lo comprobable aparezca como <code>APTO</code>.</p>
-        <p><strong>Regresión reproducible:</strong> con las dos correcciones aplicadas y desde la carpeta extraída, ejecuta <code>python comprobar.py</code> y conserva el resultado <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. Cambia temporalmente en <code>valor_total</code> <code>stock &gt; 10</code> por <code>stock &gt;= 10</code>. Es código válido, pero vuelve a ejecutar el comando: <code>descuento_stock_alto</code> y <code>borde_stock_10</code> deben pasar a <strong>NO_APTO</strong>, con resumen <strong>3 APTO, 2 NO_APTO y 1 NO_VERIFICADO</strong>. Restaura <code>stock &gt; 10</code> y repite el comando: debe volver a <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. No uses un error de sintaxis para provocar la regresión ni edites <code>comprobar.py</code>.</p>
-        <p><strong>¿Por qué fallan dos comprobaciones?</strong> La única línea mutada es <code>if pieza[&quot;stock&quot;] &gt;= 10:</code>; el estado corregido usa <code>if pieza[&quot;stock&quot;] &gt; 10:</code>. Con los datos del JSON, Broca 20 y Filamento 12 cumplen ambas condiciones y siguen aportando 180.0 y 270.0. La Placa base tiene stock 10: antes aporta 500.0 y con la mutación aporta 450.0. Por eso el total agregado esperado de <code>descuento_stock_alto</code> es 960.0 y el obtenido pasa a 910.0. El comprobador de borde usa otra pieza con stock 10 y espera 500.0, pero obtiene 450.0. La regresión no es un error de sintaxis y la copia temporal solo cambia ese operador.</p>
+        <p>El proyecto usa solo Python y su librería estándar. No instales dependencias ni crees entornos para esta práctica.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>PROBAR — Fase A: SIN HARNESS (10-20 min)</h2>
-        <p>Pide esto a tu agente (OpenCode, Codex, Copilot, Claude Code u otro), tal cual, sin nada más (pega el .py si tu herramienta lo necesita):</p>
-        <pre class="lab-code"><code>Mejora este programa para que gestione descuentos y sea mas robusto.</code></pre>
-        <p>Acepta la primera propuesta razonable como copia (<code>intento_A.py</code>), sin borrar el original. Ejecuta <code>comprobar.py</code> y anota en 5 líneas:</p>
-        <pre class="lab-code"><code>1. ¿Qué supuestos hizo sin preguntar?
-2. ¿Qué cambió sin pedírselo?
-3. ¿Cómo sé si terminó bien?
-4. ¿Qué tendría que preguntarle para entenderlo?
-5. ¿Lo aceptaría para un proyecto real? ¿Por qué?</code></pre>
-        <p>No corrijas código aquí. El objetivo es observar, no acertar.</p>
+      <section class="lab-panel lab-step">
+        <h2>3. Ejecutar el inventario</h2>
+        <p>Lee <code>inventario_taller.py</code> y después ejecuta el programa:</p>
+        <pre class="lab-code"><code>python inventario_taller.py</code></pre>
+        <p>Debería aparecer una línea por cada pieza y este total:</p>
+        <pre class="lab-code"><code>Broca 5mm | 10.0 | 20
+Tornillo M4 | 2.0 | 5
+Placa base | 50.0 | 10
+Filamento PLA | 25.0 | 12
+Sensor DHT22 | 8.0 | 0
+Total: 1010.0</code></pre>
+        <p>Esto significa que el programa se ejecutó y calculó el inventario actual. Todavía no has comprobado si cumple las reglas nuevas. Ejecutar el programa y ejecutar <code>comprobar.py</code> son acciones distintas.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>MODIFICAR — Fase B: CON MINI-HARNESS (25-35 min)</h2>
-        <p><strong>B1. Prepara bien la tarea.</strong> Después de observar la petición vaga, responde estas cinco preguntas con la información que ya tienes:</p>
-        <pre class="lab-code"><code>1. ¿Qué quiero conseguir?
-   Descuento 10% si stock &gt; 10; validar precio &gt;= 0 y stock &gt;= 0.
-2. ¿En qué proyecto, archivo o función estoy trabajando?
-   arnés de bolsillo · inventario_taller.py · valor_total y anadir_pieza.
-3. ¿Qué puede cambiar?
-   Solo valor_total y anadir_pieza, una tarea cada vez.
-4. ¿Qué debe dejar intacto?
-   cargar/guardar, comprobar.py, formato JSON y dependencias; sin menús ni funciones extra.
-5. ¿Cómo voy a comprobar que funciona?
-   Total 960.0 · stock 10 = 500.0 · negativos → ValueError · guardar/cargar idéntico.</code></pre>
-        <p><strong>B2. Divide el trabajo y marca su estado:</strong></p>
-        <pre class="lab-code"><code>T1 descuento en valor_total -&gt; pendiente
-T2 validación en anadir_pieza -&gt; pendiente
-T3 verificar con comprobar.py -&gt; pendiente</code></pre>
-        <p><strong>B3. Reutiliza tus respuestas y pide PLAN, no código:</strong></p>
-        <pre class="lab-code"><code>Proyecto: arnés de bolsillo. Archivo: inventario_taller.py.
-Objetivo: &lt;respuesta 1&gt;. Contexto: &lt;respuesta 2&gt;.
-Puede cambiar: &lt;respuesta 3&gt;. Debe dejar intacto: &lt;respuesta 4&gt;.
-Comprobación: &lt;respuesta 5&gt;.
-Propón un plan por pasos para T1. No escribas código todavía.</code></pre>
-        <p><strong>B4. OK humano (obligatorio).</strong> Lee el plan y escribe <code>OK - seguir con T1</code> o <code>NO - ajustar: …</code>. Sin tu OK no hay implementación. Marca <code>T1 en curso</code>.</p>
-        <pre class="lab-code"><code>Implementa solo T1 según el plan aprobado. No toques nada más.</code></pre>
+      <section class="lab-panel lab-step">
+        <h2>4. Ejecutar el diagnóstico</h2>
+        <p>Ahora ejecuta el arnés:</p>
         <pre class="lab-code"><code>python comprobar.py</code></pre>
-        <p>Marca <code>T1 verificado</code> o <code>T1 bloqueado</code>. Solo entonces pasa a T2 y repite. Al final decide: <strong>ACEPTO / MODIFICO / RECHAZO</strong> (no defiendas lo que no entiendes).</p>
-      </section>
-
-      <section class="lab-panel">
-        <h2>MINI-RETO (autonomía)</h2>
-        <p>Aplica la <code>chuleta-harness.md</code> a una micro-tarea real (ej. redondear a 2 decimales en una función). Trae por escrito: qué pediste, qué NO pediste, qué comprobación ejecutaste y tu decisión.</p>
-      </section>
-
-      <section class="lab-panel">
-        <h2>RESULTADO OBSERVABLE</h2>
-        <p>Terminas viendo esto en tu terminal:</p>
+        <p>El resultado inicial real resume seis comprobaciones:</p>
         <pre class="lab-code"><code>[APTO] carga_ejemplo: se cargan 5 piezas
-[APTO] descuento_stock_alto: total 960.0 con descuento aplicado
+[NO_APTO] descuento_stock_alto: total 1010.0, se esperaba 960.0
 [APTO] borde_stock_10: stock 10 sin descuento: 500.0
-[APTO] valida_entradas: precio/stock negativos lanzan ValueError
-[APTO] guardar_cargar: el JSON guardado carga idéntico
-[NO_VERIFICADO] rendimiento_volumen: no probado con miles de piezas; pendiente, no es fallo
+[NO_APTO] valida_entradas: acepta entradas invalidas: Mala1, Mala2
+[APTO] guardar_cargar: el JSON guardado carga identico
+[NO_VERIFICADO] rendimiento_volumen: no probado con miles de piezas; pendiente de comprobar, no es fallo
 
-Resumen: 5 APTO, 0 NO_APTO, resto NO_VERIFICADO.</code></pre>
-        <p>Y entiendes: <strong>APTO</strong> = criterio cumplido · <strong>NO_APTO</strong> = criterio rojo, decides tú · <strong>NO_VERIFICADO</strong> = no probado, no es fallo. “La IA dice que funciona” no es evidencia.</p>
+Resumen: 3 APTO, 2 NO_APTO, resto NO_VERIFICADO.</code></pre>
+        <p>Los dos fallos deliberados de partida son <code>descuento_stock_alto</code> y <code>valida_entradas</code>. Son el trabajo que vas a pedir al agente. El caso <code>rendimiento_volumen</code> queda <strong>NO_VERIFICADO</strong> porque <code>comprobar.py</code> dice exactamente que no se ha probado con miles de piezas. No es un caso superado ni un fallo: sigue pendiente.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>COMPROBAR</h2>
+      <section class="lab-panel lab-step">
+        <h2>5. Pedir un plan al agente</h2>
+        <p>Copia este prompt en tu agente. Pide primero un plan: leer el plan no autoriza todavía a modificar archivos.</p>
+        <pre class="lab-code"><code>Lee estos tres archivos antes de responder: inventario_taller.py, comprobar.py y datos_ejemplo.json. También puedes consultar chuleta-harness.md para seguir el procedimiento.
+
+Necesito mejorar únicamente inventario_taller.py con estas dos reglas:
+
+1. En valor_total, aplicar un descuento del 10 % al valor de cada pieza cuyo stock sea estrictamente mayor que 10. Si el stock es 10, no se aplica el descuento.
+2. En anadir_pieza, rechazar un precio negativo o un stock negativo lanzando ValueError. Las entradas no negativas deben seguir funcionando.
+
+Límite: solo puedes modificar inventario_taller.py. No modifiques comprobar.py, datos_ejemplo.json, chuleta-harness.md ni los resultados esperados para hacer pasar las comprobaciones. No añadas dependencias ni cambies otras funciones sin justificarlo.
+
+Antes de editar, propón un plan breve que indique qué vas a cambiar y cómo comprobarás cada regla. No escribas ni modifiques código todavía. Después del plan, espera mi autorización explícita.
+
+Cuando autorice el plan, aplica los cambios, explica qué has cambiado y ejecuta python inventario_taller.py y python comprobar.py para comprobar el resultado.</code></pre>
+        <p><strong>Revisa el plan:</strong> debe mencionar <code>valor_total</code>, la condición estricta <code>stock &gt; 10</code>, <code>anadir_pieza</code>, <code>ValueError</code> y el límite de un solo archivo. Si propone editar el comprobador o los datos, corrige el plan antes de continuar.</p>
+        <p><strong>Autoriza solo cuando estés de acuerdo:</strong></p>
+        <pre class="lab-code"><code>Autorizo este plan. Aplica ahora los cambios únicamente en inventario_taller.py.</code></pre>
+      </section>
+
+      <section class="lab-panel lab-step">
+        <h2>6. Revisar y comprobar</h2>
+        <p>Cuando el agente termine, abre el control de código fuente de VS Code y revisa el diff de <code>inventario_taller.py</code>. Debes reconocer estas dos reglas: descuento del 10 % solo con <code>stock &gt; 10</code>; <code>ValueError</code> para precio o stock negativos. El comprobador, los datos y los resultados esperados deben seguir intactos.</p>
+        <p>Guarda el archivo con <strong>Ctrl+S</strong>. Ejecuta de nuevo:</p>
         <pre class="lab-code"><code>python inventario_taller.py
 python comprobar.py</code></pre>
-        <p>Checklist de salida: ¿una diferencia A/B escrita? ¿1 regla repetida convertida en procedimiento? ¿ficha A + estado T1-T3 + OK escrito? ¿decisión ACEPTO/MODIFICO/RECHAZO?</p>
+        <p>El inventario debe mostrar ahora <code>Total: 960.0</code>. El comprobador debe mostrar:</p>
+        <pre class="lab-code"><code>Resumen: 5 APTO, 0 NO_APTO, resto NO_VERIFICADO.</code></pre>
+        <p>En total: <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>.</p>
+        <p>Los cinco criterios comprobables están APTO. Mantén visible <code>rendimiento_volumen</code> como <strong>NO_VERIFICADO</strong>: el arnés no ha probado miles de piezas y eso sigue pendiente.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>PLAN B (sin red / sin agente)</h2>
-        <p>Sin agente: trabaja lectura crítica — el docente (o tu compañero) te da un diff impreso “sin harness” con 3 desviaciones típicas (<code>&gt;= 10</code> en vez de <code>&gt; 10</code> · valida con <code>assert</code> · añade dependencias/menú · reescribe <code>guardar</code> · toca <code>comprobar.py</code>) y un plan “con harness”. Clasifica cada línea contra los 5 criterios y ejecuta <code>comprobar.py</code> en local. Sin escribir en disco: modo simulación <code>esperado vs real</code> por consola.</p>
+      <section class="lab-panel lab-step">
+        <h2>7. Provocar una regresión controlada</h2>
+        <p>Hazlo solo después de tener las dos correcciones aplicadas y el resultado anterior. En <code>valor_total</code>, cambia temporalmente:</p>
+        <pre class="lab-code"><code>if pieza["stock"] &gt; 10:</code></pre>
+        <p>por:</p>
+        <pre class="lab-code"><code>if pieza["stock"] &gt;= 10:</code></pre>
+        <p>Guarda y ejecuta:</p>
+        <pre class="lab-code"><code>python comprobar.py</code></pre>
+        <p>El resultado real debe ser <strong>3 APTO, 2 NO_APTO y 1 NO_VERIFICADO</strong>. Fallan <code>descuento_stock_alto</code> y <code>borde_stock_10</code>.</p>
+        <div class="lab-result"><p><strong>Qué ha pasado:</strong> los stocks 20 y 12 cumplen las dos condiciones, así que no cambian. La Placa base tiene stock 10 y ahora recibe indebidamente el descuento: su valor pasa de 500.0 a 450.0. Por eso el total agregado pasa de 960.0 a 910.0. El arnés detecta el problema tanto en el total (<code>descuento_stock_alto</code>) como en el caso aislado de borde (<code>borde_stock_10</code>).</p></div>
+        <p>Es una regresión válida: el programa sigue siendo sintácticamente correcto, pero cambió el significado de la regla. No edites <code>comprobar.py</code>.</p>
       </section>
 
-      <section class="lab-panel">
-        <h2>CONTINUAR</h2>
-        <p>Frase de cierre: “aprendí a no perder el control cuando programo con un agente”. Siguiente: EXP-02 (el agente entra en un repositorio real y tú autorizas). Esta experiencia no toca ningún otro proyecto. No entra: Jira, ramas Git, MCP, LangGraph, coverage, PRs.</p>
+      <section class="lab-panel lab-step">
+        <h2>8. Restaurar y cerrar</h2>
+        <p>Restaura la condición estricta:</p>
+        <pre class="lab-code"><code>if pieza["stock"] &gt; 10:</code></pre>
+        <p>Guarda y comprueba la recuperación:</p>
+        <pre class="lab-code"><code>python comprobar.py</code></pre>
+        <p>Debe volver a aparecer <strong>5 APTO, 0 NO_APTO y 1 NO_VERIFICADO</strong>. Para cerrar, responde brevemente:</p>
+        <ol>
+          <li>¿Qué cambió el agente?</li>
+          <li>¿Qué error detectó el arnés?</li>
+          <li>¿Qué sigue sin comprobarse?</li>
+        </ol>
       </section>
 
       <nav class="lab-pager" aria-label="Anterior y siguiente">
-        <a class="lab-action lab-action--secondary" href="../../../inicio.html">← Volver al bloque 7</a>
+        <a class="lab-action lab-action--secondary" href="../../../inicio.html">← Volver a B7</a>
         <a class="lab-action lab-action--primary" href="../exp-02-agente-en-repo-real/index.html">Siguiente: EXP-02 →</a>
       </nav>
     </article>
-  <footer class="corp-band" aria-label="Logos institucionales">
-    <img class="corp-band__logo corp-logo--light" src="../../../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
-    <img class="corp-band__logo corp-logo--dark" src="../../../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
-  </footer>
+    <footer class="corp-band" aria-label="Logos institucionales">
+      <img class="corp-band__logo corp-logo--light" src="../../../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales" loading="lazy">
+      <img class="corp-band__logo corp-logo--dark" src="../../../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales" loading="lazy">
+    </footer>
   </main>
 </body>
 </html>

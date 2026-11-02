@@ -14,6 +14,10 @@
     .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: 0.16; pointer-events: none; position: absolute; width: 100%; }
     [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: 0.10; }
     a.lab-action--primary { color: var(--cf-color-accent-text); }
+    .langgraph-infographic { background: #fff; border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-md); padding: var(--cf-space-2); }
+    .langgraph-infographic img { display: block; height: auto; max-width: 100%; width: 100%; }
+    .langgraph-infographic-actions { align-items: center; display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
+    .langgraph-summary { color: var(--cf-color-text-muted); line-height: 1.6; }
   </style>
   <script src="../../../../../assets/js/theme-toggle.js" defer></script>
 </head>
@@ -47,6 +51,18 @@
         </div>
         <p>Objetivo: representar y ejecutar un flujo pequeño con estado, nodos y rutas. LangGraph organiza los pasos; Python decide el flujo. Al terminar podrás explicar qué aporta el grafo y cuándo basta una secuencia normal de Python.</p>
         <pre class="lab-code"><code>estado → nodo → condición → ruta A / ruta B → resultado observable</code></pre>
+      </section>
+
+      <section class="lab-panel" aria-labelledby="infografia-langgraph-title">
+        <h2 id="infografia-langgraph-title">Python, agentes y LangGraph</h2>
+        <div class="langgraph-infographic-actions">
+          <a class="lab-action lab-action--primary" href="../../descargas/python-agentes-langgraph.png" target="_blank" rel="noopener">Abrir a tamaño completo</a>
+          <a class="lab-action lab-action--secondary" href="../../descargas/python-agentes-langgraph.png" download>Descargar infografía</a>
+        </div>
+        <figure class="langgraph-infographic">
+          <img src="../../descargas/python-agentes-langgraph.png" width="1024" height="1536" alt="Infografía sobre Python, agentes y LangGraph: reglas explícitas en Python, un agente con herramientas y un grafo con estado, nodos y transiciones. El ejemplo de B7 muestra las rutas sin stock, pedir material y disponible, con los valores 0, 3 y 20 como ejemplos de entrada.">
+        </figure>
+        <p class="langgraph-summary"><strong>Resumen accesible:</strong> la imagen presenta tres ideas relacionadas. Python puede expresar reglas explícitas; un agente puede proponer el uso de herramientas bajo control del programa; y LangGraph puede organizar un estado, nodos y transiciones. En este proyecto de B7 el grafo funciona sin modelo de lenguaje: Python decide la ruta y LangGraph organiza la ejecución. Un nodo es una función o paso del flujo, no necesariamente un agente. Los valores 0, 3 y 20 son ejemplos de entrada de la infografía, no una lista completa de las condiciones de transición. Este proyecto no implementa un sistema multiagente ni autocorrección.</p>
       </section>
 
       <section class="lab-panel">

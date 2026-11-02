@@ -87,7 +87,7 @@ body {
   min-height: 40px;
   border: 0;
   border-radius: 8px;
-  background: var(--edusdk-map-accent);
+  background: var(--edusdk-map-blue);
   color: #fff;
   padding: 10px 14px;
   font: inherit;

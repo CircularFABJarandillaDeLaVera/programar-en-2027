@@ -138,6 +138,16 @@ img {
   max-width: 780px;
 }
 
+.lab-hero__note {
+  background: color-mix(in srgb, var(--cf-color-surface) 88%, var(--cf-color-accent));
+  border-left: 4px solid var(--cf-color-accent);
+  border-radius: var(--cf-radius-sm);
+  color: var(--cf-color-text) !important;
+  font-size: 1rem !important;
+  max-width: 780px !important;
+  padding: var(--cf-space-3);
+}
+
 .lab-grid {
   display: grid;
   gap: var(--cf-space-3);
@@ -356,8 +366,13 @@ img {
 }
 
 .lab-action--primary {
+  background: var(--cf-color-accent-hover);
+  color: var(--cf-color-accent-text);
+}
+
+[data-theme="dark"] .lab-action--primary {
   background: var(--cf-color-accent);
-  color: var(--cf-color-on-accent);
+  color: var(--cf-color-accent-text);
 }
 
 .lab-action--secondary {

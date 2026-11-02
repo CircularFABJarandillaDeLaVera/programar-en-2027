@@ -1,38 +1,38 @@
-# Chuleta - Harness de bolsillo (1 pagina)
+# Chuleta - Harness de bolsillo
 
-Del prompt al control. Llevala a tus proyectos.
+Del prompt al control. Úsala durante EXP-01.
 
 ## ANTES DE PROGRAMAR
 
 ```text
-1. QUE QUIERO (1-3 frases):
-   archivo: ______  funcion: ______  objetivo: ______
+1. QUÉ QUIERO (1-3 frases):
+   archivo: ______  función: ______  objetivo: ______
 
-2. QUE NO QUIERO:
+2. QUÉ NO QUIERO:
    [ ] sin nuevas dependencias  [ ] no reescribir todo
    [ ] no cambiar formato        [ ] no tocar: ______
 
-3. COMO SABRE QUE FUNCIONA (3-5 criterios):
+3. CÓMO SABRÉ QUE FUNCIONA (3-5 criterios):
    entrada ______ -> salida esperada ______
 ```
 
 ## DURANTE
 
 ```text
-- Repo = verdad: mira antes de pedir.
+- Lee el programa, el comprobador y los datos antes de pedir.
 - Una tarea cada vez. Estado: pendiente / en curso / verificado / bloqueado.
-- Pide PLAN primero. Sin tu OK no hay codigo:
+- Pide PLAN primero. Revisarlo no autoriza cambios.
   OK - seguir / NO - ajustar: ______
-- Cambios pequenos.
+- Autoriza después de revisar. Cambios pequeños.
 ```
 
 ## DESPUES
 
 ```text
-1. EJECUTAR (comprobar.py + caso manual).
+1. EJECUTAR (programa + comprobar.py).
 2. VERIFICAR: APTO / NO_APTO / NO_VERIFICADO.
    "La IA dice que funciona" no es evidencia.
-   Verde no demuestra todo. No probado = NO_VERIFICADO, no fallo.
+   Verde no demuestra todo. No probado = NO_VERIFICADO, sigue pendiente.
 3. REVISAR (otro ojo): supuestos / bordes / pedido vs hecho.
 4. DECIDIR TU: ACEPTO / MODIFICO / RECHAZO.
    No defiendas lo que no entiendes.
@@ -44,7 +44,8 @@ Del prompt al control. Llevala a tus proyectos.
 
 ```text
 BASE: ejecuta primero y conserva la salida.
-CAMBIO: una función y una regla cada vez.
+PLAN: pide un plan y espera tu OK explícito.
+CAMBIO: autoriza solo el archivo y la regla acordados.
 FALLO: comprueba que aparece el NO_APTO previsto.
 CORRECCIÓN: ejecuta de nuevo y compara la salida.
 CIERRE: APTO / NO_APTO / NO_VERIFICADO + decisión humana.
@@ -53,10 +54,10 @@ CIERRE: APTO / NO_APTO / NO_VERIFICADO + decisión humana.
 Regresión, desde la carpeta donde descomprimiste el ZIP:
 
 ```text
-1. Con las correcciones aplicadas: python comprobar.py -> 5 APTO, 0 NO_APTO, 1 NO_VERIFICADO.
-2. Cambia temporalmente stock > 10 por stock >= 10 en valor_total.
-3. Ejecuta de nuevo -> descuento_stock_alto y borde_stock_10 = NO_APTO; resumen 3 APTO, 2 NO_APTO, 1 NO_VERIFICADO.
-4. Restaura stock > 10 y ejecuta otra vez -> vuelve a 5 APTO, 0 NO_APTO, 1 NO_VERIFICADO.
+1. Tras las dos correcciones: `python comprobar.py` -> 5 APTO, 0 NO_APTO, 1 NO_VERIFICADO.
+2. Cambia temporalmente `if pieza["stock"] > 10:` por `if pieza["stock"] >= 10:`.
+3. Ejecuta de nuevo -> `descuento_stock_alto` y `borde_stock_10` = NO_APTO; resumen 3 APTO, 2 NO_APTO, 1 NO_VERIFICADO.
+4. Restaura `stock > 10` y ejecuta otra vez -> vuelve a 5 APTO, 0 NO_APTO, 1 NO_VERIFICADO.
 ```
 
 Es una regresión de código válida, no un error de sintaxis. No edites `comprobar.py` para hacerla pasar.
@@ -67,4 +68,4 @@ Es una regresión de código válida, no un error de sintaxis. No edites `compro
 
 La persona comprueba también el diff, el alcance del cambio, los casos límite y si los criterios representan el encargo.
 
-Si se repite, conviertelo en regla / procedimiento / futura skill.
+Si se repite, conviértelo en regla o procedimiento.

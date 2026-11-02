@@ -21,20 +21,36 @@ instales otro agente ni configures una cuenta externa para completar B7.
 
 No aceptes codigo que no puedas explicar, probar y defender.
 
-## Agente habitual, especialización y procedimiento
+## Agente habitual y skill de preparación
 
 Una petición de depuración al agente habitual no es por sí sola un agente
 especializado. La especialización solo merece conservarse cuando define una
 responsabilidad, contexto, herramientas permitidas, límites y resultado
 esperado. Puede aplicarse con la herramienta que ya utilizas.
 
-La guía [Procedimiento reutilizable](procedimiento-agente-reutilizable.md)
-aplica esa decisión sobre el repositorio de participantes de EXP-02. El alumno
-entrega la petición usada, el procedimiento, el diff, las pruebas, los casos
-manuales y su decisión. Ese Markdown es una guía del curso, no una `skill`
-reconocida automáticamente por una herramienta.
+EXP-02 aplica esa decisión sobre el repositorio de participantes con la skill
+portátil `preparar-cambio`, incluida en `.agents/skills/preparar-cambio/`.
+La persona conserva la petición usada, la ficha, el plan, el diff, las pruebas,
+los casos manuales y su decisión. La skill prepara el cambio; no lo autoriza ni
+lo publica por sí sola.
+
+Antes de ejecutar, inspecciona un intérprete Python disponible y reutilízalo. No
+crees entornos, instales dependencias ni cambies configuración por rutina. En
+EXP-02, `unittest` forma parte de Python y se ejecuta con `python -m unittest -v`;
+un fallo del detector de pruebas del editor no demuestra que las pruebas no
+existan. Si el entorno no permite ejecutar algo, explica el impedimento y marca
+el resultado como `NO_VERIFICADO`.
+
+Tras una autorización, informa del archivo modificado, las líneas cambiadas
+mediante `git diff` o comparación equivalente, las comprobaciones y resultados,
+y lo que siga sin verificarse. Si no hay Git, no lo inicialices automáticamente
+ni finjas disponer de `git diff`: compara antes/después cuando conserves el
+original y declara la limitación si no es posible.
 
 ## Cierre y continuidad
+
+Mantén preparado un punto de control Git cuando sea posible, pero no lo
+conviertas en requisito de acceso ni bloquees la práctica por no tenerlo.
 
 El material de evidencia y defensa es opcional. LangGraph es una ampliación
 opcional pendiente de validación específica; no se presenta un sistema

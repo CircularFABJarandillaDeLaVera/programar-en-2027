@@ -70,8 +70,8 @@
 }
 
 .cf-button--primary {
-  background: var(--cf-color-accent);
-  border-color: var(--cf-color-accent);
+  background: var(--cf-color-accent-hover);
+  border-color: var(--cf-color-accent-hover);
   color: var(--cf-color-accent-text);
 }
 

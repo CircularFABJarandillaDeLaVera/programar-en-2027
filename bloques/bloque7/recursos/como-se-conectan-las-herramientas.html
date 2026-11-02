@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cómo se conectan las herramientas · B7</title>
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/tokens/semantic-tokens.css">
+  <link rel="stylesheet" href="../../../assets/edusdk-design-system/components/components.css">
+  <link rel="stylesheet" href="../../../lab-python-en-accion/style.css">
+  <style>
+    .lab-hero { overflow: hidden; position: relative; }
+    .lab-hero > :not(.lab-pattern) { position: relative; }
+    .lab-hero .lab-pattern { height: 100%; inset: 0; mix-blend-mode: multiply; object-fit: cover; opacity: .16; pointer-events: none; position: absolute; width: 100%; }
+    [data-theme="dark"] .lab-hero .lab-pattern { mix-blend-mode: screen; opacity: .1; }
+    .tool-page { display: grid; gap: var(--cf-space-4); }
+    .tool-page .lab-panel { min-width: 0; }
+    .tool-image { background: #fff; border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-md); padding: var(--cf-space-2); }
+    .tool-image img { display: block; height: auto; max-width: 100%; width: 100%; }
+    .tool-actions { align-items: center; display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
+    .tool-summary { display: grid; gap: var(--cf-space-3); }
+    .tool-summary h2, .tool-summary h3 { color: var(--cf-color-text); margin: 0; }
+    .tool-summary p, .tool-summary li { color: var(--cf-color-text-muted); line-height: 1.6; }
+    .tool-summary ul, .tool-summary ol { display: grid; gap: var(--cf-space-2); margin: 0; padding-left: 1.3rem; }
+    .tool-callout { background: var(--cf-color-accent-soft); border-left: .3rem solid var(--cf-color-accent); border-radius: var(--cf-radius-sm); padding: var(--cf-space-3); }
+    .tool-callout p { margin: 0; }
+    .lab-shell, .lab-experience, .lab-panel, .lab-hero, .lab-topbar { max-width: 100%; min-width: 0; width: 100%; }
+    @media (max-width: 560px) { body { overflow-x: hidden; } .lab-topbar { display: grid; } .lab-nav { display: grid; grid-template-columns: 1fr; } .lab-nav .cf-nav__link { width: 100%; } .lab-hero h1, .lab-hero p, .lab-hero .lab-kicker { max-width: 100%; overflow-wrap: anywhere; width: 100%; } }
+  </style>
+  <script src="../../../assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <main class="lab-shell">
+    <header class="cf-topbar cf-topbar--course lab-topbar">
+      <a class="lab-brand" href="../../../inicio.html" aria-label="Volver al curso"><img src="../../../assets/branding/logo-circular-fab.png" alt="Circular FAB"><span><b>Circular FAB · Programar en 2027</b><span>Cómo se conectan las herramientas</span></span></a>
+      <nav class="cf-nav cf-nav--horizontal lab-nav" aria-label="Navegación"><a class="cf-nav__link" href="../inicio.html">B7</a><a class="cf-nav__link" href="../../../inicio.html">Inicio del curso</a></nav>
+      <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">&#9790;</span><span data-theme-label>Modo dark</span></button>
+    </header>
+    <article class="lab-experience tool-page">
+      <section class="lab-hero"><img class="lab-pattern" src="../../../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true"><p class="lab-kicker">B7 · recurso visual de orientación</p><h1 class="lab-experience__title">Cómo se conectan las herramientas</h1><p>Una vista general para pasar de una idea a un encargo, trabajar en el proyecto, comprobar resultados y conservar la decisión humana.</p></section>
+      <section class="lab-panel" aria-labelledby="imagen-title">
+        <h2 id="imagen-title">Del objetivo al encargo y la decisión</h2>
+        <div class="tool-actions"><a class="lab-action lab-action--primary" href="descargas/ecosistema-desarrollo-con-ia.png" target="_blank" rel="noopener">Abrir imagen a tamaño completo</a><a class="lab-action lab-action--secondary" href="descargas/ecosistema-desarrollo-con-ia.png" download>Descargar infografía PNG</a></div>
+        <figure class="tool-image"><img src="descargas/ecosistema-desarrollo-con-ia.png" width="1024" height="1536" alt="Infografía sobre cómo se conectan la persona, el copiloto del curso, VS Code, Codex o agente de programación, AGENTS.md, skills, archivos del proyecto, arneses, Git y GitHub. Incluye el ciclo definir, planificar, autorizar, implementar, comprobar y decidir, y las decisiones aceptar, ajustar o descartar."></figure>
+      </section>
+      <section class="lab-panel tool-summary" aria-labelledby="resumen-title">
+        <h2 id="resumen-title">Resumen accesible</h2>
+        <p>La persona mantiene el objetivo, autoriza cambios, revisa evidencias y decide. Las herramientas aportan capacidad, contexto y resultados; no sustituyen ese criterio.</p>
+        <h3>Cómo se reparten las responsabilidades</h3>
+        <ul><li><strong>Orientar:</strong> ChatGPT o el copiloto del curso ayuda a entender la idea, aclarar objetivos, contexto y criterios.</li><li><strong>Trabajar en el proyecto:</strong> VS Code reúne archivos, terminal y herramientas. Codex o el agente inspecciona archivos, propone un plan y aplica solo cambios autorizados. `AGENTS.md` aporta instrucciones del proyecto y las skills describen procedimientos reutilizables.</li><li><strong>Comprobar y conservar:</strong> los arneses funcionales comprueban reglas y resultados; el arnés visual compara pantallas; Git permite revisar y recuperar cambios; GitHub sirve para compartir y colaborar cuando se publica de forma autorizada.</li></ul>
+        <h3>El ciclo humano de decisión</h3>
+        <ol><li>Definir objetivo, contexto y criterios.</li><li>Planificar y analizar lo necesario.</li><li>Autorizar el plan y los cambios.</li><li>Implementar el alcance autorizado.</li><li>Comprobar resultados y evidencias.</li><li>Decidir: aceptar y conservar, ajustar y volver al plan, o descartar y recuperar un estado anterior.</li></ol>
+        <div class="tool-callout"><p><strong>Copiar y pegar traslada contexto.</strong> No es un requisito y no implica que dos chats compartan automáticamente archivos o información. Si llevas un encargo o un resultado de un chat a otro, comprueba qué has trasladado y qué debe volver a revisarse.</p></div>
+      </section>
+      <section class="lab-panel tool-summary" aria-labelledby="revista-title">
+        <h2 id="revista-title">Ejemplo: una revista digital</h2>
+        <ol><li><strong>Con el copiloto del curso:</strong> concretas la idea de una revista digital para los negocios de la comarca, sus contenidos, una primera versión y sus criterios.</li><li><strong>Al agente:</strong> llevas el encargo y el contexto del proyecto. El agente inspecciona archivos, propone un plan y aplica únicamente los cambios autorizados.</li><li><strong>De vuelta al copiloto:</strong> compartes resultados, capturas, diferencias o errores. Los interpretas y decides el siguiente paso.</li></ol>
+      </section>
+      <nav class="lab-pager" aria-label="Volver a la navegación"><a class="lab-action lab-action--secondary" href="../inicio.html">← Volver a B7</a><a class="lab-action lab-action--secondary" href="../../../inicio.html">Inicio del curso</a></nav>
+    </article>
+    <footer class="corp-band" aria-label="Logos institucionales"><img class="corp-band__logo corp-logo--light" src="../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales" loading="lazy"><img class="corp-band__logo corp-logo--dark" src="../../../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales" loading="lazy"></footer>
+  </main>
+</body>
+</html>
