@@ -27,11 +27,12 @@
     .card { color: inherit; display: flex; flex-direction: column; gap: var(--cf-space-3); min-height: 220px; text-decoration: none; }
     .card h2 { font-size: 1.1rem; line-height: 1.2; margin: 0; }
     .card p { color: var(--cf-color-text-muted); line-height: 1.45; margin: 0; }
-    .journey { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .journey { display: grid; gap: var(--cf-space-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .journey__item { background: transparent; border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-md); display: grid; align-content: start; gap: var(--cf-space-2); padding: var(--cf-space-4); }
     .journey__item h2 { font-family: var(--cf-font-label); font-size: .95rem; font-weight: 850; letter-spacing: .02em; margin: 0; text-transform: uppercase; }
     .journey__item p { color: var(--cf-color-text-muted); font-size: .95rem; line-height: 1.55; margin: 0; }
     .journey__item a { color: var(--cf-color-accent); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .journey__links { display: flex; flex-wrap: wrap; gap: var(--cf-space-2) var(--cf-space-3); }
     .journey__kicker { color: var(--cf-color-accent); font-family: var(--cf-font-label); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     [hidden] { display: none !important; }
     .course-panel { background: var(--cf-color-surface); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-lg); padding: var(--cf-space-5); }
@@ -92,35 +93,39 @@
       <img class="cf-center-hero__pattern portal-hero__pattern" src="assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--accent">Aprender haciendo + IA</span>
       <h1>Programar en 2027</h1>
-      <p><strong>Aprende a crear tus propios proyectos con IA y a mantener el control de lo que construyes.</strong> Con Python como lenguaje principal, conocerás VS Code, Git, GitHub y los agentes de programación para convertir tus ideas en proyectos reales: organizar archivos, entender y modificar el código, probarlo y guardar versiones. Podrás continuar con distintas herramientas y modelos de IA, sin depender de una conversación.</p>
-      <p style="margin-top: 1rem"><strong>La IA te ayuda; tú entiendes, revisas, pruebas y decides.</strong></p>
+      <p>Aprende a programar haciendo proyectos con Python y ayuda de la IA, mientras entiendes, revisas y decides cada cambio.</p>
     </section>
 
     <section class="journey" aria-label="Elige por dónde empezar">
       <div class="journey__item">
         <span class="journey__kicker">Prepara tu equipo</span>
         <h2>Empieza por aquí</h2>
-        <p>Prepara las herramientas y tu cuenta de GitHub. Sigue la guía y pide ayuda si te atascas.</p>
-        <a href="preparacion.html">Ver guía de preparación</a>
+        <p>Consulta la guía o descarga el paquete para tu sistema.</p>
+        <div class="journey__links" aria-label="Guía y descargas de preparación">
+          <a href="preparacion.html">Abrir guía</a>
+          <a href="assets/descargas/preparar-python-windows-2027.zip" download>Windows</a>
+          <a href="assets/descargas/Programar_2027_Instalacion_Ubuntu.zip" download>Ubuntu</a>
+          <a href="assets/descargas/Programar_2027_Instalacion_macOS.zip" download>macOS</a>
+        </div>
       </div>
       <div class="journey__item">
-        <span class="journey__kicker">Consulta</span>
+        <span class="journey__kicker">Tu recorrido</span>
+        <h2>Elige cómo aprender</h2>
+        <p>Abre las rutas y proyectos y sigue el camino que prefieras.</p>
+        <a href="#rutas" data-course-panel="rutas" aria-controls="rutas" aria-expanded="false">Ver rutas y proyectos</a>
+      </div>
+      <div class="journey__item">
+        <span class="journey__kicker">Teoría y cuadernos</span>
         <h2>Los siete bloques</h2>
-        <p>Vuelve a la teoría y a los cuadernos cuando necesites reforzar una idea de tu ruta.</p>
-        <a href="#bloques" data-course-panel="bloques" aria-controls="bloques" aria-expanded="false">Ver los siete bloques</a>
-      </div>
-      <div class="journey__item">
-        <span class="journey__kicker">Apoyo libre</span>
-        <h2>Prácticas del laboratorio</h2>
-        <p>Explora experiencias adicionales cuando quieras ampliar un proyecto o consultar una herramienta.</p>
-        <a href="lab-python-en-accion/recursos/index.html">Abrir prácticas</a>
+        <p>Consulta la teoría y los cuadernos de B1 a B7.</p>
+        <a href="#bloques" data-course-panel="bloques" aria-controls="bloques" aria-expanded="false">Abrir teoría y cuadernos</a>
       </div>
     </section>
 
-    <section class="course-panel route-grid" id="rutas" aria-labelledby="rutas-title">
+    <section class="course-panel route-grid" id="rutas" aria-labelledby="rutas-title" hidden>
       <article class="route-card">
         <span class="cf-chip cf-chip--accent">Ruta A · Crear proyectos con agentes</span>
-        <h2 id="rutas-title">Construye primero; estudia cuando lo necesites</h2>
+        <h2 id="rutas-title" tabindex="-1">Construye primero; estudia cuando lo necesites</h2>
         <ul>
           <li>Construye una primera versión con ayuda del agente.</li>
           <li>Revisa los cambios y comprueba el resultado.</li>
@@ -168,7 +173,7 @@
       </div>
     </section>
 
-    <noscript><style>.course-panel[hidden] { display: block !important; }</style><p>JavaScript está desactivado: los bloques se muestran a continuación de los accesos.</p></noscript>
+    <noscript><style>.course-panel[hidden] { display: block !important; }</style><p>JavaScript está desactivado: las rutas y los bloques se muestran a continuación de los accesos.</p></noscript>
 
     <footer class="corp-band" aria-label="Logos institucionales">
       <img class="corp-band__logo corp-logo--light" src="assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
