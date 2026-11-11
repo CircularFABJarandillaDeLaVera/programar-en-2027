@@ -41,3 +41,11 @@ comprobación y validación, Git, e IA y agentes bajo revisión humana.
 4. Valida después de modificar (JSON, rutas relativas, pruebas que apliquen).
 5. Español descriptivo en ejemplos, variables y funciones cuando sea razonable.
 6. No inventes tecnologías fuera del alcance descrito en límites.
+
+## Cambios visuales
+
+- Respeta la identidad corporativa existente en cualquier cambio visual. Usa los recursos originales de `assets/edusdk-design-system/` y comprueba sus rutas; no improvises logotipos, tramas ni sustitutos genéricos.
+- En modificaciones de HTML, CSS o componentes, ejecuta obligatoriamente `node visual-harness/run.mjs RUTA/DE/PAGINA.html` desde la raíz. Consulta `visual-harness/README.md`; revisa `visual-harness/.out/<pagina>/informe.json` y sus cuatro capturas. El ejecutor adapta el procedimiento Chrome/CDP del proyecto hermano EduSDK sin modificarlo.
+- Compara capturas de escritorio y móvil con la última referencia visual válida del repositorio. Comprueba que cargan logotipos, tramas, tipografías y estilos, también en los temas que admita la página.
+- No des por terminada una microfase visual solo porque pasen las pruebas técnicas: revisa las capturas y corrige cualquier pérdida de identidad o composición.
+- Si no existe una referencia visual válida o el arnés visual no está disponible o falla, detente e informa antes de improvisar cambios.

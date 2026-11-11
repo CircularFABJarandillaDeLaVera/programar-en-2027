@@ -15,15 +15,21 @@
     .brand img { height: 52px; width: auto; }
     .brand strong { min-width: 0; }
     .brand strong span { color: var(--cf-color-text-muted); display: block; font-family: var(--cf-font-label); font-size: .82rem; font-weight: 800; text-transform: uppercase; }
-    .copilot-content { background: var(--cf-color-surface); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-sizing: border-box; min-width: 0; overflow-wrap: anywhere; padding: clamp(24px, 5vw, 48px); width: 100%; }
+    .copilot-content { background: linear-gradient(135deg, var(--cf-color-surface), var(--cf-color-surface-muted)); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-lg); box-sizing: border-box; min-width: 0; overflow: hidden; overflow-wrap: anywhere; padding: clamp(24px, 5vw, 48px); position: relative; width: 100%; }
+    .copilot-content > :not(.cf-center-hero__pattern) { position: relative; }
+    .copilot-content .portal-hero__pattern { height: 300px; mask-image: linear-gradient(to bottom, #000 70%, transparent); mix-blend-mode: multiply; opacity: 0.16; }
+    [data-theme="dark"] .copilot-content .portal-hero__pattern { mix-blend-mode: screen; opacity: 0.10; }
+    .copilot-shell > .cf-topbar { min-width: 0; width: 100%; }
+    .copilot-shell .cf-nav__link { min-width: 0; overflow-wrap: anywhere; }
     .copilot-content h1 { margin-top: 0; }
     .copilot-content h2 { border-bottom: 1px solid var(--cf-color-border); margin-top: 2rem; padding-bottom: .45rem; }
     .copilot-content p, .copilot-content li { line-height: 1.6; }
     .copilot-content a:not(.cf-button) { color: var(--cf-color-accent); }
+    .copilot-content a.cf-button--primary,
+    .copilot-content a.cf-button--primary:visited,
+    .copilot-content a.cf-button--primary:hover,
+    .copilot-content a.cf-button--primary:focus-visible { color: var(--cf-color-accent-text); }
     .copilot-actions { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); margin: var(--cf-space-4) 0; }
-    .copilot-note { background: var(--cf-color-accent-soft); border-left: 4px solid var(--cf-color-accent); padding: var(--cf-space-3); }
-    .copilot-code { background: var(--cf-color-surface-muted); border: 1px solid var(--cf-color-border); border-radius: var(--cf-radius-md); overflow-x: auto; padding: var(--cf-space-3); white-space: pre-wrap; }
-    .copilot-footer { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); justify-content: space-between; }
     @media (max-width: 560px) {
       .copilot-shell { padding: var(--cf-space-3); }
       .copilot-actions .cf-button { width: 100%; }
@@ -39,7 +45,6 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal" aria-label="Navegación del curso">
         <a class="cf-nav__link" href="inicio.html">Inicio del curso</a>
-        <a class="cf-nav__link" href="preparacion.html">Preparación</a>
         <a class="cf-nav__link is-active" href="prepara-tu-copiloto.html" aria-current="page">Copiloto</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
@@ -49,52 +54,31 @@
     </header>
 
     <article class="copilot-content">
-      <span class="cf-chip cf-chip--accent">Práctica temprana</span>
+      <img class="cf-center-hero__pattern portal-hero__pattern" src="assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
+      <span class="cf-chip cf-chip--accent">Apoyo opcional</span>
       <h1>Prepara tu copiloto del curso</h1>
-      <p>Prepara una conversación que te ayude a orientarte, entender una práctica y decidir el siguiente paso. El copiloto consulta materiales y explica; el agente de programación es la herramienta que puede modificar archivos cuando tú se lo autorizas.</p>
+      <p>El copiloto te ayuda a resolver dudas tanto en la Ruta A, proyectos con agentes, como en la Ruta B, fundamentos de Python. Puedes configurarlo antes de elegir una ruta o usarlo más adelante.</p>
 
       <div class="copilot-actions">
         <a class="cf-button cf-button--primary" href="copiloto-profesor/copiloto-profesor-python-2027.zip" download>Descargar pack del copiloto</a>
-        <a class="cf-button cf-button--secondary" href="bloques/bloque3/inicio.html">Abrir Proyecto aplicado 1</a>
       </div>
 
-      <h2>Qué contiene el pack</h2>
-      <ul>
-        <li><code>00-INSTRUCCIONES-AGENTE.md</code>: rol, límites, fuentes y forma de responder.</li>
-        <li><code>01-GUIA-CURSO.md</code> y <code>07-LAGUNAS-Y-LIMITES.md</code>: rutas, prácticas y límites actuales.</li>
-        <li><code>04-PRACTICAS-Y-APOYOS.md</code>: mapa de actividades y materiales.</li>
-        <li><code>05-COMPROBACIONES-Y-ERRORES.md</code>: errores, comprobaciones formativas y evidencias.</li>
-        <li><code>06-CONTEXTO-PROYECTOS.md</code> y <code>fuentes/README.md</code>: contexto técnico y procedencia.</li>
-      </ul>
-
-      <h2>Cómo configurarlo en una herramienta disponible</h2>
+      <h2>Configúralo en una herramienta de conversación</h2>
       <ol>
-        <li>Abre ChatGPT, Copilot Chat u otra herramienta de conversación que permita adjuntar archivos.</li>
-        <li>Adjunta el pack o, si la herramienta no acepta ZIP, descomprímelo y añade <code>00-INSTRUCCIONES-AGENTE.md</code>, <code>01-GUIA-CURSO.md</code>, <code>04-PRACTICAS-Y-APOYOS.md</code> y <code>07-LAGUNAS-Y-LIMITES.md</code>.</li>
-        <li>No necesitas crear un GPT personalizado ni disponer de una suscripción especial. Puedes pegar las instrucciones y adjuntar solo los materiales de la práctica que vas a consultar.</li>
-        <li>Indica siempre el bloque, la carpeta, el archivo de entrada y lo que ya has comprobado.</li>
+        <li>Abre una herramienta de conversación que permita adjuntar archivos.</li>
+        <li>Adjunta el pack descargado. Si no admite ZIP, descomprímelo y añade <code>00-INSTRUCCIONES-AGENTE.md</code>, <code>01-GUIA-CURSO.md</code>, <code>04-PRACTICAS-Y-APOYOS.md</code> y <code>07-LAGUNAS-Y-LIMITES.md</code>.</li>
+        <li>Pide que consulte esos materiales para responder a tus dudas. Cuando trabajes en una práctica, añade su material y explica qué has intentado.</li>
       </ol>
-      <pre class="copilot-code">Ayúdame con el Proyecto aplicado 1 · Calcula y guarda precios.
-He abierto la carpeta extraída del ZIP y estoy revisando main.py.
-Antes de proponer cambios, identifica el punto de entrada y consulta los materiales actuales.
-Propón un siguiente paso pequeño. Si falta contexto o aparece un error, pídeme el mensaje exacto.</pre>
-
-      <h2>Comprueba la primera ayuda</h2>
-      <p>Usa el prompt anterior sobre <a href="bloques/bloque3/inicio.html">B3 · Proyecto aplicado 1</a> y revisa que la respuesta:</p>
-      <ul>
-        <li>identifica el proyecto y su punto de entrada;</li>
-        <li>orienta con el README y la guía actuales;</li>
-        <li>propone un siguiente paso pequeño y comprobable;</li>
-        <li>pide el error, la salida o el contexto que falta, en lugar de inventarlo.</li>
-      </ul>
-      <p class="copilot-note"><strong>Distinción importante:</strong> el copiloto orienta al alumno mediante conversación y materiales. Un agente de programación trabaja dentro de un repositorio y puede proponer o modificar archivos con permisos; sus cambios requieren revisión y comprobación humana.</p>
-      <p>Guarda la respuesta y anota qué material consultó, qué paso propuso y qué dato tuviste que aportar. Esa evidencia sirve para mejorar la siguiente petición.</p>
+      <p>Para comprobarlo, puedes preguntar: «¿Qué materiales del curso tienes disponibles y cómo puedes ayudarme en cada ruta?». No necesitas comenzar ningún ejercicio para completar la configuración.</p>
+      <div class="copilot-actions">
+        <a class="cf-button cf-button--primary" href="inicio.html#rutas">Volver a las rutas de aprendizaje</a>
+      </div>
     </article>
 
-    <nav class="copilot-footer" aria-label="Navegación del copiloto">
-      <a class="cf-button cf-button--secondary" href="preparacion.html">Volver a preparación</a>
-      <a class="cf-button cf-button--secondary" href="inicio.html">Inicio del curso</a>
-    </nav>
+    <footer class="corp-band" aria-label="Logos institucionales">
+      <img class="corp-band__logo corp-logo--light" src="assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
+      <img class="corp-band__logo corp-logo--dark" src="assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
+    </footer>
   </main>
 </body>
 </html>
