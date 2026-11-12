@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Copiloto Programar · Programar en 2027</title>
+  <title>Tu profesor particular de Programar en 2027</title>
   <link rel="stylesheet" href="../assets/edusdk-design-system/tokens/tokens.css">
   <link rel="stylesheet" href="../assets/edusdk-design-system/tokens/semantic-tokens.css">
   <link rel="stylesheet" href="../assets/edusdk-design-system/components/components.css">
   <script src="../assets/js/theme-toggle.js" defer></script>
   <style>
     body { margin: 0; background: var(--cf-color-background); color: var(--cf-color-text); font-family: var(--cf-font-body); }
-    .shell { display: grid; gap: var(--cf-space-5); margin: 0 auto; padding: var(--cf-space-5); width: min(1120px, 100%); }
+    .shell { box-sizing: border-box; display: grid; gap: var(--cf-space-5); margin: 0 auto; min-width: 0; padding: var(--cf-space-5); width: min(1120px, 100%); }
     .brand { align-items: center; color: inherit; display: flex; gap: var(--cf-space-2); text-decoration: none; }
     .brand img { height: 52px; width: auto; }
     .brand span { color: var(--cf-color-text-muted); display: block; font-family: var(--cf-font-label); font-size: .82rem; font-weight: 800; text-transform: uppercase; }
@@ -18,7 +18,7 @@
     .hero > :not(.cf-center-hero__pattern) { position: relative; }
     .hero .portal-hero__pattern { mix-blend-mode: multiply; opacity: 0.16; }
     [data-theme="dark"] .hero .portal-hero__pattern { mix-blend-mode: screen; opacity: 0.10; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: .95; margin: 10px 0 16px; max-width: 850px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; margin: 10px 0 16px; max-width: 850px; overflow-wrap: anywhere; }
     .hero p { color: var(--cf-color-text-muted); font-size: 1.15rem; line-height: 1.6; margin: 0; max-width: 780px; }
     .section { display: grid; gap: var(--cf-space-3); }
     .section h2 { font-family: var(--cf-font-heading); font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.08; margin: 0; }
@@ -34,7 +34,7 @@
     .quote-list li { background: var(--cf-color-surface); border: var(--cf-border-width) solid var(--cf-color-border); border-radius: var(--cf-radius-lg); color: var(--cf-color-text); list-style: none; padding: var(--cf-space-3); }
     .actions { display: flex; flex-wrap: wrap; gap: var(--cf-space-2); }
     @media (max-width: 960px) { .process, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 720px) { .shell { padding: var(--cf-space-3); } .grid, .process, .cards { grid-template-columns: 1fr; } .step { min-height: auto; } }
+    @media (max-width: 720px) { .shell { padding: var(--cf-space-3); } .grid, .process, .cards { grid-template-columns: 1fr; } .step { min-height: auto; } .cf-topbar--course { flex-wrap: wrap; } .cf-topbar--course .cf-nav { max-width: 100%; order: 3; width: 100%; } }
   </style>
 </head>
 <body>
@@ -46,7 +46,7 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal" aria-label="Navegacion del recurso">
         <a class="cf-nav__link" href="../inicio.html">Curso</a>
-        <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Copiloto Programar</a>
+        <a class="cf-nav__link is-active" href="inicio.html" aria-current="page">Profesor particular</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
         <span data-theme-icon aria-hidden="true">&#9790;</span>
@@ -57,8 +57,8 @@
     <section class="hero">
       <img class="cf-center-hero__pattern portal-hero__pattern" src="../assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--info">Pack portable</span>
-      <h1>COPILOTO PROGRAMAR</h1>
-      <p>Pack portable de conocimiento para crear tu propio asistente especializado en Programar en 2027, tanto para aprender como para enseñar. Reúne instrucciones, fuentes, tareas, límites y criterios pedagógicos, con supervisión humana.</p>
+      <h1>Tu profesor particular de Programar en 2027</h1>
+      <p>Un asistente educativo que te acompaña desde la preparación del equipo, durante las rutas A y B y al empezar proyectos propios. El pack reúne instrucciones, conocimiento del curso y criterios de comprobación bajo revisión humana.</p>
     </section>
 
     <section class="cards" aria-label="Que es, para que sirve y como puede ayudarte">
@@ -70,26 +70,26 @@
       <article class="cf-card">
         <span class="cf-chip cf-chip--success">Para qué sirve</span>
         <h2>Acompañamiento para aprender y enseñar</h2>
-        <p>Ayuda a resolver dudas, repasar contenidos, practicar, preparar materiales, adaptar una sesión, revisar evidencias y distinguir entre contenido del curso y explicación complementaria.</p>
+        <p>Ayuda a preparar el equipo, explicar conceptos, resolver dudas durante las prácticas, interpretar errores, preparar materiales, adaptar sesiones y revisar evidencias.</p>
       </article>
       <article class="cf-card">
         <span class="cf-chip cf-chip--info">Cómo puede ayudarte</span>
         <h2>Alumno y docente</h2>
-        <p><strong>Alumno:</strong> entender conceptos, recibir pistas, practicar, depurar código, preparar repasos y ampliar contenidos.<br><strong>Docente:</strong> preparar sesiones, adaptar actividades, generar apoyos, revisar evidencias y planificar alternativas.</p>
+        <p><strong>Alumno:</strong> elegir entre las rutas A y B, recibir pistas, comprobar resultados y diseñar proyectos propios.<br><strong>Docente:</strong> preparar sesiones, adaptar actividades, generar apoyos, revisar evidencias y planificar alternativas.</p>
       </article>
-      <p class="cards__note">El Copiloto diferencia sus respuestas entre <strong>[SEGÚN EL CURSO]</strong>, contenido respaldado directamente por Programar en 2027, y <strong>[EXPLICACIÓN COMPLEMENTARIA]</strong>, ampliaciones útiles que no forman parte del contenido oficial del curso.</p>
+      <p class="cards__note">El profesor particular distingue <strong>[SEGÚN EL CURSO]</strong>, contenido respaldado por Programar en 2027, de <strong>[EXPLICACIÓN COMPLEMENTARIA]</strong>, propuestas que no forman parte del contenido oficial.</p>
     </section>
 
     <section class="section" aria-label="Proceso">
       <h2>Proceso sencillo</h2>
       <div class="process">
         <article class="step"><strong>DESCARGA EL PACK</strong><span>Obtén el ZIP autocontenido.</span></article>
-        <article class="step"><strong>CREA UN ASISTENTE / PROYECTO / AGENTE</strong><span>Usa la herramienta compatible que prefieras.</span></article>
+        <article class="step"><strong>CREA TU PROFESOR PARTICULAR</strong><span>Usa una herramienta compatible con instrucciones y archivos.</span></article>
         <article class="step"><strong>SUBE LOS ARCHIVOS</strong><span>Añade los documentos del pack como conocimiento.</span></article>
         <article class="step"><strong>USA 00-INSTRUCCIONES-AGENTE.md</strong><span>Pégalo o configúralo como instrucciones base.</span></article>
-        <article class="step"><strong>EMPIEZA A PREGUNTAR</strong><span>Consulta clases, prácticas, errores y Plan B.</span></article>
+        <article class="step"><strong>PIDE AYUDA CUANDO LA NECESITES</strong><span>Consulta preparación, rutas, prácticas o proyectos propios.</span></article>
       </div>
-      <p>La estructura es portable a ChatGPT, Codex, Copilot, Antigravity, OpenCode y otras herramientas. Facilita las instrucciones y fuentes con los mecanismos que admita cada una y comprueba qué archivos puede leer. El pack no incluye una integración.</p>
+      <p>Facilita las instrucciones y documentos mediante los mecanismos que admita tu herramienta y comprueba qué archivos puede leer. El profesor particular es distinto de GitHub Copilot y de agentes de programación como Codex, Antigravity o Claude Code. El pack no incluye una integración.</p>
     </section>
 
     <section class="section" aria-label="Conocimiento incluido">
@@ -102,12 +102,14 @@
         <article class="cf-card"><strong>Proyectos aplicados</strong><p>En B3, B4 y B5 se practican funciones, clases y datos con tres proyectos concretos: calcular precios, organizar productos y generar un informe PDF.</p></article>
         <article class="cf-card"><strong>IA y agentes bajo revisión</strong><p>Hipótesis, plan, autorización, diff, pruebas y decisión humana. Las decisiones curriculares pendientes siguen abiertas.</p></article>
         <article class="cf-card"><strong>Recorrido práctico · Construye y conecta tus proyectos</strong><p>Recorrido y laboratorios adicionales.</p></article>
+        <article class="cf-card"><strong>Preparación del equipo</strong><p>Orientación para Windows, Ubuntu y macOS antes de elegir una ruta y durante la instalación de herramientas.</p></article>
+        <article class="cf-card"><strong>Proyectos propios</strong><p>Ayuda a definir objetivos y microfases y a preparar kits con README.md, AGENTS.md, código y pruebas. Skills y configuraciones solo cuando aporten valor.</p></article>
       </div>
     </section>
 
-    <section class="section" aria-label="Construye tu propio copiloto">
-      <h2>Construye tu propio copiloto</h2>
-      <p>Un copiloto necesita más que conversación: instrucciones, contexto, fuentes, límites, tareas y una forma de reconocer lo que no sabe. El README del pack explica qué aporta cada archivo y cuándo consultarlo.</p>
+    <section class="section" aria-label="Adapta tu profesor particular">
+      <h2>Adapta tu profesor particular</h2>
+      <p>Un asistente educativo necesita instrucciones, contexto, fuentes, límites, tareas y una forma de reconocer lo que no sabe. El README del pack explica qué aporta cada archivo y cuándo consultarlo.</p>
       <ol>
         <li><strong>Define la función:</strong> qué curso impartes y a quién ayudas.</li>
         <li><strong>Da instrucciones:</strong> rol, objetivos, tono, límites y cómo reconocer dudas.</li>
@@ -120,6 +122,7 @@
       <p>Adapta una copia para otra especialidad. No basta con cambiar el nombre: sustituye fuentes, ejemplos, nivel y límites.</p>
       <p>Al crear materiales: contexto → objetivo y límites → plan → aprobación → cambio → validación → guardado. Una autorización explícita ya concedida no necesita repetirse.</p>
       <p>Conserva siempre la distinción <strong>[SEGÚN EL CURSO]</strong> / <strong>[EXPLICACIÓN COMPLEMENTARIA]</strong>. Si falta evidencia, el agente debe decirlo.</p>
+      <p>Si la herramienta puede crear archivos, el profesor particular puede preparar un ZIP descargable de un proyecto inicial. Si no puede, entrega los contenidos y los pasos para crearlo sin afirmar que existe un archivo.</p>
     </section>
 
     <section class="section" aria-label="Preguntas de ejemplo">
@@ -131,17 +134,23 @@
         <li>“Dame un Plan B si esta práctica falla.”</li>
         <li>“¿Esto forma parte del curso o es una explicación complementaria?”</li>
         <li>“Solo tengo 60 minutos. ¿Qué priorizo?”</li>
+        <li>“Quiero hacer un juego de ajedrez. Ayúdame a preparar un kit inicial para trabajar con un agente en VS Code.”</li>
       </ul>
     </section>
 
     <section class="section" aria-label="Descarga">
       <h2>Descarga el pack</h2>
-      <p>El ZIP contiene el README con el mapa del agente, la guía de adaptación, las instrucciones y las fuentes. Los proyectos del curso se consultan aparte: aporta la práctica concreta si tu herramienta solo recibe este pack.</p>
+      <p>El ZIP contiene 12 documentos Markdown: instrucciones, guía del curso, mapa de 17 experiencias, apoyo para proyectos propios y fuentes de consulta. Los proyectos y su código se consultan aparte; aporta la práctica concreta cuando la herramienta solo reciba este pack.</p>
       <div class="actions">
-        <a class="cf-button cf-button--primary" href="copiloto-profesor-python-2027.zip" download>DESCARGAR PACK</a>
+        <a class="cf-button cf-button--primary" href="profesor-particular-programar-2027.zip" download>DESCARGAR PACK DEL PROFESOR PARTICULAR</a>
         <a class="cf-button cf-button--secondary" href="../inicio.html">VOLVER AL CURSO</a>
       </div>
     </section>
+
+    <footer class="corp-band" aria-label="Logos institucionales">
+      <img class="corp-band__logo corp-logo--light" src="../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
+      <img class="corp-band__logo corp-logo--dark" src="../assets/edusdk-design-system/fuentes/logos/Logos_CFAB_2026_con-Ministerio_blanco.png" alt="Logos institucionales: Red CIT Circular FAB, Diputación de Cáceres, Gobierno de España Ministerio y CIT" loading="lazy">
+    </footer>
   </main>
 </body>
 </html>

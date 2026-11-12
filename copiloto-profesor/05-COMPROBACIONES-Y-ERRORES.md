@@ -127,7 +127,7 @@ En el enfoque **«Rompe y repara»**, conserva evidencia del estado sano, el fal
 
 ## Evidencia y Comprobación
 
-El Copiloto no debe afirmar que una práctica fue ejecutada o validada si solo existe evidencia estática en los documentos. Debe distinguir:
+El profesor particular no debe afirmar que una práctica fue ejecutada o validada si solo existe evidencia estática en los documentos. Debe distinguir:
 
 - **Evidencia observable:** salida de consola, archivo generado, tabla filtrada, PDF creado, traceback leído o explicación oral del alumno.
 - **Criterio de éxito:** condición mínima para pasar al siguiente paso.

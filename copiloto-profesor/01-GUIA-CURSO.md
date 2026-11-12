@@ -6,6 +6,12 @@ El curso **"Programar en 2027"** es un programa formativo modular desarrollado p
 
 Su propósito es capacitar a ciudadanos, emprendedores, técnicos y profesionales en el uso de Python como herramienta de computación moderna, automatización, análisis de datos y desarrollo de software asistido por Inteligencia Artificial generativa.
 
+### Orden vigente para empezar
+
+1. **Prepara el equipo:** [preparacion.html](../preparacion.html) reúne la guía y los paquetes para [Windows](../assets/descargas/preparar-python-windows-2027.zip), [Ubuntu](../assets/descargas/Programar_2027_Instalacion_Ubuntu.zip) y [macOS](../assets/descargas/Programar_2027_Instalacion_macOS.zip). Orienta la preparación de GitHub, VS Code, Python y las herramientas necesarias según sistema y práctica. El profesor particular acompaña y comprueba con el alumno; el pack documental no instala programas.
+2. **Elige ruta:** [inicio.html#rutas](../inicio.html#rutas) ofrece la **Ruta A**, proyectos con agentes desde la [Experiencia 1](../lab-python-en-accion/recursos/experiencias/07-agentes-programacion.html), y la **Ruta B**, fundamentos de Python desde [Bloque 1](../bloques/bloque1/inicio.html). En la Ruta A se puede empezar con la práctica sin estudiar antes los bloques.
+3. **Continúa según evidencias:** pregunta qué actividad ha completado, qué funciona y qué duda queda. Usa los siete bloques de esta guía o las [17 experiencias del recorrido](08-LAB-PYTHON-EN-ACCION.md), respetando los requisitos de cada página. El profesor particular puede acompañar también un [proyecto propio](09-PROYECTOS-PROPIOS.md).
+
 ### Objetivos Generales
 1. **Desmitificar la programación:** Transformar la barrera técnica inicial en una habilidad práctica accesible mediante entornos interactivos inmediatos (Google Colab / Jupyter Notebooks).
 2. **Dominar las estructuras esenciales del lenguaje:** Comprender la lógica algorítmica, las colecciones de datos, el paradigma funcional/modular y los fundamentos de la Programación Orientada a Objetos (POO).
@@ -51,13 +57,13 @@ Se denomina **programador zombi** a quien copia y pega fragmentos de código aut
 
 ### Acompañamiento y autonomía
 
-La ayuda disminuye de forma progresiva: el docente o el Copiloto modela, acompaña una primera ejecución, ofrece pistas graduadas y retira apoyo hasta que el alumno puede formular una hipótesis, modificar, probar y explicar su decisión. El enfoque transversal **«Rompe y repara»** parte de un estado sano y recuperable, provoca un fallo controlado, localiza su causa y repite pruebas después de repararlo. Conserva los títulos de las actividades, como **Rompe, entiende y depura** en B6.
+La ayuda disminuye de forma progresiva: el docente o el profesor particular modela, acompaña una primera ejecución, ofrece pistas graduadas y retira apoyo hasta que el alumno puede formular una hipótesis, modificar, probar y explicar su decisión. El enfoque transversal **«Rompe y repara»** parte de un estado sano y recuperable, provoca un fallo controlado, localiza su causa y repite pruebas después de repararlo. Conserva los títulos de las actividades, como **Rompe, entiende y depura** en B6.
 
 ---
 
 ## 3. Mapa Curricular del Curso (B1 a B7)
 
-La ruta publicada empieza en los [inicios de los bloques](../inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
+La Ruta B empieza en el [Bloque 1](../bloques/bloque1/inicio.html). B1-B5 ofrecen cuadernos prácticos y B3-B5 copias de proyectos; B6 y B7 se organizan en seis experiencias cada uno. El [mapa de recursos de 04](04-PRACTICAS-Y-APOYOS.md) enlaza esas entradas. Las duraciones de 150/90/60/30 minutos de las guías son adaptaciones, no sustituyen las duraciones de cada página.
 
 El siguiente esquema resume la progresión confirmada hasta B6. En B7 conviven una ruta pública de seis experiencias y un material opcional de evidencia y defensa; no se exige una base final nueva.
 
@@ -115,7 +121,7 @@ Consulta [06 · Contexto de proyectos](06-CONTEXTO-PROYECTOS.md) solo para antec
 
 ## 6. Lab · Laboratorio de programación: recorrido y laboratorios
 
-[Recorrido práctico · Construye y conecta tus proyectos](../lab-python-en-accion/index.html) es una continuación práctica independiente para experimentar y ampliar.
+[Recorrido práctico · Construye y conecta tus proyectos](../lab-python-en-accion/index.html) es la Ruta A, independiente de los bloques; permite empezar con su primera experiencia sin cursarlos antes.
 
 El portal contiene un recorrido desde agentes y API hasta datos persistentes, interfaces, contexto conectado e IA controlada, además de laboratorios como OpenCV, Pillow, archivos, Excel, Tkinter y RAG local. Consulta [08 · Mapa y apoyos](08-LAB-PYTHON-EN-ACCION.md) y los prerrequisitos de cada experiencia.
 

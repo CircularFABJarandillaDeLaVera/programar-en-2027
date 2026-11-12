@@ -29,7 +29,7 @@ Para cada práctica se detalla:
 * **Plan B / Adaptación:** Qué hacer si falta tiempo o el grupo tiene dificultades.
 * **Validación:** resultado esperado, evidencia observable, criterio de éxito, método de comprobación y artefacto cuando exista.
 
-Ficha mínima de validación que debe usar el Copiloto cuando una práctica no la detalle:
+Ficha mínima de validación que debe usar el profesor particular cuando una práctica no la detalle:
 
 - **Resultado esperado:** qué debe verse al ejecutar o revisar la práctica.
 - **Evidencia observable:** salida de consola, archivo generado, tabla filtrada, error controlado o explicación oral del alumno.

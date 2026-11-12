@@ -1,13 +1,13 @@
 # 08 · RECORRIDO PRÁCTICO · CONSTRUYE Y CONECTA TUS PROYECTOS
 
-Este documento orienta el uso docente del **Laboratorio de programación**, una continuación práctica con recorrido, demos, experiencias y masterclass. No es B8. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
+Este documento orienta el uso docente del **Laboratorio de programación**, la Ruta A con recorrido, demos, experiencias y masterclass. Se puede comenzar por su primera experiencia sin cursar antes los bloques. No es B8. Conserva las cinco fichas originales, que ya no representan todo el catálogo.
 
 ## Identidad Curricular
 
-- Es una continuación práctica independiente de los bloques.
+- Es una ruta práctica independiente de los bloques; se puede empezar por la Experiencia 1 sin cursarlos antes.
 - No forma parte de la progresión principal B1-B7.
 - No pertenece a los proyectos aplicados B3–B5.
-- Su objetivo es motivar: "Ya sabes Python. Ahora mira todo lo que puedes hacer con él".
+- Su objetivo es aprender haciendo proyectos y conectar herramientas con revisión y comprobación humana.
 
 El flujo base, ampliado por los pasos propios de cada experiencia, es:
 
@@ -15,7 +15,7 @@ El flujo base, ampliado por los pasos propios de cada experiencia, es:
 VER -> PROBAR -> MODIFICAR -> MINI-RETO
 ```
 
-El Copiloto debe indicar resultado esperado, evidencia observable, criterio de éxito y Plan B. No debe afirmar que una experiencia fue ejecutada si solo está descrita en los materiales.
+El profesor particular debe indicar resultado esperado, evidencia observable, criterio de éxito y Plan B. No debe afirmar que una experiencia fue ejecutada si solo está descrita en los materiales.
 
 ## Mapa actual: consulta antes de preparar
 
@@ -23,11 +23,33 @@ El [portal del Lab](../lab-python-en-accion/index.html) es la entrada al recorri
 
 El portal separa tres capas:
 
-- **Recorrido práctico:** experiencias 07–24, desde agentes y API hasta contexto conectado e IA bajo control.
+- **Recorrido práctico:** 17 experiencias publicadas, numeradas 07–19 y 21–24, desde agentes y API hasta contexto conectado e IA bajo control. La Experiencia 20 está pendiente de hardware real.
 - **Prácticas adicionales:** OpenCV, Pillow, archivos, Excel, Tkinter y RAG local.
 - **Extensiones:** masterclass y recursos técnicos opcionales.
 
-El JSON antiguo solo enumera las seis prácticas iniciales; no es el inventario del portal actual.
+El JSON antiguo solo enumera las seis prácticas iniciales; no es el inventario del portal actual. La siguiente tabla sigue los enlaces del portal. **Experiencia 1 del recorrido** es la página 07; el número 08 corresponde a FastAPI, mientras que el anexo `08-de-lo-aprendido-a-tu-proyecto.html` no es una experiencia adicional del recorrido.
+
+| Orden | Experiencia publicada | Página |
+| --- | --- | --- |
+| 1 · 07 | Agentes de programación · Trabajar con control | [Abrir](../lab-python-en-accion/recursos/experiencias/07-agentes-programacion.html) |
+| 2 · 08 | FastAPI · Tu primera API | [Abrir](../lab-python-en-accion/recursos/experiencias/08-fastapi.html) |
+| 3 · 09 | Docker · La misma API en cualquier equipo | [Abrir](../lab-python-en-accion/recursos/experiencias/09-docker.html) |
+| 4 · 10 | PostgreSQL · Datos que permanecen | [Abrir](../lab-python-en-accion/recursos/experiencias/10-postgresql.html) |
+| 5 · 11 | Control horario · De API de ejemplo a aplicación real | [Abrir](../lab-python-en-accion/recursos/experiencias/11-control-horario.html) |
+| 6 · 12 | Interfaz para fichar | [Abrir](../lab-python-en-accion/recursos/experiencias/12-interfaz-control-horario.html) |
+| 7 · 13 | Geolocalización del fichaje | [Abrir](../lab-python-en-accion/recursos/experiencias/13-geolocalizacion-fichaje.html) |
+| 8 · 14 | Empresario y trabajador · Autenticación y autorización | [Abrir](../lab-python-en-accion/recursos/experiencias/14-empresario-trabajador.html) |
+| 9 · 15 | Del localhost al móvil | [Abrir](../lab-python-en-accion/recursos/experiencias/15-localhost-movil.html) |
+| 10 · 16 | Del dato al dashboard | [Abrir](../lab-python-en-accion/recursos/experiencias/16-dashboard.html) |
+| 11 · 17 | Broker de contexto · Orion-LD + NGSI-LD | [Abrir](../lab-python-en-accion/recursos/experiencias/17-orion-ld.html) |
+| 12 · 18 | Python conecta PostgreSQL con FIWARE | [Abrir](../lab-python-en-accion/recursos/experiencias/18-python-fiware.html) |
+| 13 · 19 | Una compostera conectada | [Abrir](../lab-python-en-accion/recursos/experiencias/19-compostera-mqtt.html) |
+| 14 · 21 | Del sensor al contexto de la empresa | [Abrir](../lab-python-en-accion/recursos/experiencias/21-mqtt-fiware.html) |
+| 15 · 22 | Del contexto a una decisión | [Abrir](../lab-python-en-accion/recursos/experiencias/22-langgraph-contexto.html) |
+| 16 · 23 | Una IA que explica, pero no decide | [Abrir](../lab-python-en-accion/recursos/experiencias/23-ollama-explicacion.html) |
+| 17 · 24 | Una IA que responde con estructura | [Abrir](../lab-python-en-accion/recursos/experiencias/24-ollama-estructurado.html) |
+
+Las seis etapas del portal agrupan las experiencias; el orden de la tabla orienta, pero cada página y su README determinan preparación y comprobaciones. Cada ZIP de práctica se extrae en su propia carpeta; no supongas que una descarga actualiza automáticamente la anterior.
 
 | Tramo existente | Recursos publicados | Uso docente |
 | --- | --- | --- |
@@ -37,9 +59,9 @@ El JSON antiguo solo enumera las seis prácticas iniciales; no es el inventario 
 | Contexto conectado | [Orion-LD](../lab-python-en-accion/recursos/experiencias/17-orion-ld.html), Python–FIWARE, compostera MQTT y puente MQTT–FIWARE. | Distinguir datos persistidos, mensajes y contexto; consultar requisitos de cada página. |
 | Decisión e IA | [LangGraph con contexto](../lab-python-en-accion/recursos/experiencias/22-langgraph-contexto.html), [Ollama explica](../lab-python-en-accion/recursos/experiencias/23-ollama-explicacion.html), [respuesta estructurada](../lab-python-en-accion/recursos/experiencias/24-ollama-estructurado.html). | Comprender decisión, explicación y validación según sus prácticas. |
 | Extensión técnica | [Masterclass FIWARE real](../lab-python-en-accion/recursos/experiencias/masterclass-fiware-real.html). | Extensión opcional para técnicos, con el entorno previsto en su guía. |
-| Laboratorios adicionales | OpenCV, Pillow, archivos, Excel, Tkinter y [RAG local](../lab-python-en-accion/recursos/experiencias/06-rag-local.html). | Seleccionar una experiencia adecuada al grupo; RAG no es un requisito para usar el Copiloto. |
+| Laboratorios adicionales | OpenCV, Pillow, archivos, Excel, Tkinter y [RAG local](../lab-python-en-accion/recursos/experiencias/06-rag-local.html). | Seleccionar una experiencia adecuada al grupo; RAG no es un requisito para usar el profesor particular. |
 
-No deduzcas el número de experiencias del subtítulo o del JSON antiguo: hay diferencias documentadas en [07](07-LAGUNAS-Y-LIMITES.md). Este mapa no convierte las tecnologías del recorrido en contenidos de B1-B7.
+Este mapa no convierte las tecnologías del recorrido en contenidos de B1-B7. Si el portal cambia, vuelve a contar sus enlaces y actualiza esta tabla antes de recomendar una experiencia por número.
 
 No mezcles los usos de LangGraph: B7 EXP-05 orquesta rutas de stock sin LLM; el Lab 22 decide a partir de contexto conectado; el Lab 23–24 separa decisión, explicación con Ollama y validación Python. Todo el Lab sigue siendo opcional aunque una tecnología aparezca también en B7.
 
@@ -142,7 +164,7 @@ Qué demuestra:
 Python puede revisar una carpeta y ordenar archivos por extensión.
 
 Regla de seguridad:
-La práctica trabaja exclusivamente sobre `lab_archivos_prueba/`. El Copiloto nunca debe recomendar ejecutar esta experiencia sobre Descargas, Documentos, Escritorio ni carpetas reales del alumno.
+La práctica trabaja exclusivamente sobre `lab_archivos_prueba/`. El profesor particular nunca debe recomendar ejecutar esta experiencia sobre Descargas, Documentos, Escritorio ni carpetas reales del alumno.
 
 Conocimientos previos que reutiliza:
 diccionarios, condicionales, bucles, funciones, rutas y lectura de extensiones.

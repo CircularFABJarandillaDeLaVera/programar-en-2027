@@ -20,7 +20,7 @@ La persona entiende, revisa, prueba y decide.
 - **Bloques B1–B7.** Recorrido principal del curso, de los fundamentos a la programación con IA. Empieza en [inicio.html](inicio.html).
 - **Proyectos aplicados B3–B5.** Tres prácticas independientes y relacionadas por los conceptos: calcular precios, organizar productos con clases y generar un informe PDF.
 - **Laboratorio de programación** ([Recorrido](lab-python-en-accion/index.html) · [Prácticas](lab-python-en-accion/recursos/index.html)). Espacio opcional para explorar y experimentar más allá del recorrido principal. **No constituye un Bloque 8** ni es evaluable por defecto.
-- **[Copiloto Programar](copiloto-profesor/inicio.html) para alumnado y profesorado.** Pack portable de conocimiento para crear un asistente especializado en el curso, tanto para aprender como para enseñar.
+- **[Tu profesor particular de Programar en 2027](copiloto-profesor/inicio.html).** Pack portable para acompañar la preparación del equipo, ambas rutas, las prácticas y los proyectos propios; también aporta apoyo al profesorado.
 
 ## v0.1.0 — Primera iteración
 
@@ -53,7 +53,7 @@ No requiere servidor, instalación ni conexión salvo las dependencias propias d
 - `inicio.html` — portada del curso.
 - `bloques/` — bloques B1–B7 del recorrido principal.
 - `lab-python-en-accion/` — Laboratorio de programación (Recorrido y catálogo de Prácticas).
-- `copiloto-profesor/` — Copiloto Programar: pack portable y su presentación.
+- `copiloto-profesor/` — Tu profesor particular de Programar en 2027: pack portable y presentación.
 - `profesor-plus/` — materiales de apoyo para formadores.
 - `assets/` — sistema de diseño, marcas y recursos gráficos.
 - `config-bloque1.json` … `config-bloque7.json` — configuración de cada bloque.
@@ -66,9 +66,9 @@ Laboratorio opcional para explorar y experimentar con Python: webcam, imágenes,
 - **Recorrido** ([lab-python-en-accion/index.html](lab-python-en-accion/index.html)): recorrido progresivo de estudiante a developer.
 - **Prácticas** ([lab-python-en-accion/recursos/index.html](lab-python-en-accion/recursos/index.html)): catálogo de experiencias, masterclass y descargables.
 
-## Copiloto Programar
+## Tu profesor particular de Programar en 2027
 
-Asistente para alumnado y profesorado, construido a partir de un pack portable de conocimiento del curso. Ayuda a resolver dudas, repasar, practicar, preparar sesiones y revisar evidencias, distinguiendo siempre entre `[SEGÚN EL CURSO]` y `[EXPLICACIÓN COMPLEMENTARIA]`. Presentación y descarga en [copiloto-profesor/inicio.html](copiloto-profesor/inicio.html).
+Asistente educativo para alumnado y profesorado, construido a partir de un pack portable de conocimiento del curso. Ayuda a preparar el equipo, explicar las rutas A y B, resolver dudas, revisar evidencias y diseñar proyectos propios. Puede preparar kits iniciales y ZIP descargables cuando la herramienta utilizada permita crear archivos. Presentación y descarga en [copiloto-profesor/inicio.html](copiloto-profesor/inicio.html).
 
 ## Licencia
 

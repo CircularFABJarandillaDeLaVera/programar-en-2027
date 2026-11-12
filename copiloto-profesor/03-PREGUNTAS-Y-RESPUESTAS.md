@@ -297,7 +297,7 @@ Para cada cuestión, el formador de la **Red Circular FAB** dispone de:
 * **Naturaleza:** `[SEGÚN EL CURSO · Adaptación docente]`
 * **Respuesta para el Formador:** Elige una sola experiencia, muestra el resultado final en 3 minutos, ejecuta el script con el grupo, cambia un parámetro pequeño y cierra con un mini-reto. No intentes cubrir todo el catálogo en 30 minutos; consulta [08](08-LAB-PYTHON-EN-ACCION.md).
 
-### L4. ¿El Copiloto necesita RAG porque hay un Lab de RAG local?
+### L4. ¿El profesor particular necesita RAG porque hay un Lab de RAG local?
 
 * **Naturaleza:** `[SEGÚN EL CURSO]`
 * **Respuesta:** No. El Lab es una práctica independiente. Este pack funciona como instrucciones y conocimiento documental, sin construir un sistema RAG. Consulta el [README](README.md).

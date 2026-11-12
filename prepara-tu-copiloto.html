@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Prepara tu copiloto del curso · Programar en 2027</title>
+  <title>Tu profesor particular de Programar en 2027</title>
   <link rel="stylesheet" href="assets/edusdk-design-system/tokens/tokens.css">
   <link rel="stylesheet" href="assets/edusdk-design-system/tokens/semantic-tokens.css">
   <link rel="stylesheet" href="assets/edusdk-design-system/components/components.css">
@@ -45,7 +45,7 @@
       </a>
       <nav class="cf-nav cf-nav--horizontal" aria-label="Navegación del curso">
         <a class="cf-nav__link" href="inicio.html">Inicio del curso</a>
-        <a class="cf-nav__link is-active" href="prepara-tu-copiloto.html" aria-current="page">Copiloto</a>
+        <a class="cf-nav__link is-active" href="prepara-tu-copiloto.html" aria-current="page">Profesor particular</a>
       </nav>
       <button class="cf-button cf-button--secondary theme-toggle" type="button" data-theme-toggle aria-label="Activar modo oscuro" aria-pressed="false">
         <span data-theme-icon aria-hidden="true">&#9790;</span>
@@ -56,22 +56,33 @@
     <article class="copilot-content">
       <img class="cf-center-hero__pattern portal-hero__pattern" src="assets/edusdk-design-system/fuentes/tramas/Trama_CFab.png" alt="" aria-hidden="true">
       <span class="cf-chip cf-chip--accent">Apoyo opcional</span>
-      <h1>Prepara tu copiloto del curso</h1>
-      <p>El copiloto te ayuda a resolver dudas tanto en la Ruta A, proyectos con agentes, como en la Ruta B, fundamentos de Python. Puedes configurarlo antes de elegir una ruta o usarlo más adelante.</p>
+      <h1>Tu profesor particular de Programar en 2027</h1>
+      <p>Es un asistente educativo que puedes crear desde la preparación del equipo y consultar durante las rutas A y B. Te acompaña al aprender, practicar y preparar tus propios proyectos.</p>
 
       <div class="copilot-actions">
-        <a class="cf-button cf-button--primary" href="copiloto-profesor/copiloto-profesor-python-2027.zip" download>Descargar pack del copiloto</a>
+        <a class="cf-button cf-button--primary" href="copiloto-profesor/profesor-particular-programar-2027.zip" download>Descargar pack del profesor particular</a>
       </div>
 
-      <h2>Configúralo en una herramienta de conversación</h2>
+      <h2>Cómo puede ayudarte</h2>
+      <ul>
+        <li>Orientarte al preparar el equipo con GitHub, VS Code, Python y las herramientas de tu práctica.</li>
+        <li>Explicarte los contenidos de las rutas A y B con la profundidad que necesites.</li>
+        <li>Resolver dudas, interpretar errores y ayudarte a comprobar resultados durante las prácticas.</li>
+        <li>Diseñar proyectos propios y preparar kits de inicio con <code>README.md</code>, <code>AGENTS.md</code>, código y pruebas. Puede añadir skills o configuraciones cuando aporten valor.</li>
+        <li>Generar un ZIP descargable del kit cuando la herramienta utilizada permita crear archivos; si no, darte los contenidos y pasos para prepararlo.</li>
+      </ul>
+
+      <h2>Crea tu profesor particular</h2>
       <ol>
-        <li>Abre una herramienta de conversación que permita adjuntar archivos.</li>
-        <li>Adjunta el pack descargado. Si no admite ZIP, descomprímelo y añade <code>00-INSTRUCCIONES-AGENTE.md</code>, <code>01-GUIA-CURSO.md</code>, <code>04-PRACTICAS-Y-APOYOS.md</code> y <code>07-LAGUNAS-Y-LIMITES.md</code>.</li>
-        <li>Pide que consulte esos materiales para responder a tus dudas. Cuando trabajes en una práctica, añade su material y explica qué has intentado.</li>
+        <li>Abre una herramienta de conversación que admita instrucciones y archivos de conocimiento.</li>
+        <li>Descarga el pack de 12 documentos Markdown. Si la herramienta no lee archivos ZIP, descomprímelo y adjunta sus documentos.</li>
+        <li>Configura <code>00-INSTRUCCIONES-AGENTE.md</code> como instrucciones base. Facilita <code>01-GUIA-CURSO.md</code>, <code>07-LAGUNAS-Y-LIMITES.md</code>, <code>08-LAB-PYTHON-EN-ACCION.md</code> y <code>09-PROYECTOS-PROPIOS.md</code> como conocimiento; añade los demás documentos según tu consulta.</li>
+        <li>Cuando trabajes en una práctica, aporta su página, código o error y explica qué has intentado. Comprueba que la herramienta puede leer los archivos antes de confiar en su respuesta.</li>
       </ol>
-      <p>Para comprobarlo, puedes preguntar: «¿Qué materiales del curso tienes disponibles y cómo puedes ayudarme en cada ruta?». No necesitas comenzar ningún ejercicio para completar la configuración.</p>
+      <p>Para comprobarlo, pregunta: «¿Cómo me ayudas a preparar el equipo, elegir una ruta y empezar un proyecto propio?». El profesor particular orienta y revisa; GitHub Copilot, Codex, Antigravity o Claude Code son herramientas de programación distintas.</p>
       <div class="copilot-actions">
         <a class="cf-button cf-button--primary" href="inicio.html#rutas">Volver a las rutas de aprendizaje</a>
+        <a class="cf-button cf-button--secondary" href="preparacion.html">Preparar mi equipo</a>
       </div>
     </article>
 

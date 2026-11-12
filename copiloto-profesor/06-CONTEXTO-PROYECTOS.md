@@ -89,4 +89,4 @@ Si se trabaja el proyecto final heredado, su defensa usa [registro IA](../bloque
 
 No se exige recitar el código ni inventar errores de la IA para rellenar un registro. La persona revisa las evidencias reales.
 
-El **Laboratorio de programación** es una continuación práctica independiente y no se convierte en B8. Consulta [08 · Lab y recorrido](08-LAB-PYTHON-EN-ACCION.md).
+El **Laboratorio de programación** ofrece la Ruta A, independiente de los bloques, y no se convierte en B8. Consulta [08 · Lab y recorrido](08-LAB-PYTHON-EN-ACCION.md).

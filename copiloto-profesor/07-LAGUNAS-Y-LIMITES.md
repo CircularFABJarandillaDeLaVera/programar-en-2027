@@ -4,7 +4,7 @@
 
 Este documento establece las **fronteras exactas** entre lo que constituye el currículo canónico oficial del curso **"Programar en 2027"** y aquellos conceptos, herramientas o detalles técnicos que pertenecen al ámbito de la **explicación complementaria**.
 
-Su objetivo es salvaguardar la coherencia del curso y evitar que el Copiloto, el alumnado o el formador conviertan contenidos externos o decisiones pendientes en instrucciones para todo el recorrido.
+Su objetivo es salvaguardar la coherencia del curso y evitar que el profesor particular, el alumnado o el formador conviertan contenidos externos o decisiones pendientes en instrucciones para todo el recorrido.
 
 El pack debe contrastarse con las actividades actuales. La ingeniería de origen conserva diseños y lagunas históricas: consulta su [índice](fuentes/README.md). Si hay una contradicción, identifica ambas fuentes; no presentes la síntesis como evidencia superior al código actual ni decidas por tu cuenta nuevos requisitos.
 
@@ -12,7 +12,7 @@ El pack debe contrastarse con las actividades actuales. La ingeniería de origen
 
 ## 2. La Regla de Oro de la Doble Etiqueta
 
-Cada vez que Copiloto Programar proporcione información técnica al alumnado o al formador de la Red Circular FAB, debe respetar el siguiente marco:
+Cada vez que el profesor particular proporcione información técnica al alumnado o al formador de la Red Circular FAB, debe respetar el siguiente marco:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -36,7 +36,7 @@ Cada vez que Copiloto Programar proporcione información técnica al alumnado o 
 
 | Área Técnica | Alcance Canónico `[SEGÚN EL CURSO]` | Límite / `[EXPLICACIÓN COMPLEMENTARIA]` |
 | :--- | :--- | :--- |
-| **Instalación de Python en el SO** | Uso inmediato de **Google Colab** en B1-B5. En B6 se asume Python 3.10+ preinstalado o provisto por el taller para la creación de entornos virtuales (`venv`). | No se incluye un manual paso a paso del instalador ejecutable de Windows/macOS/Linux (variables de entorno PATH, compilación desde código fuente, etc.). Si un alumno lo requiere, se le asiste como apoyo complementario. |
+| **Preparación del equipo** | [preparacion.html](../preparacion.html) reúne la guía de inicio y paquetes para Windows, Ubuntu y macOS; acompaña la preparación de GitHub, VS Code, Python y las herramientas necesarias. B1-B5 también permiten trabajar con Google Colab. | Las guías de preparación no prueban que el equipo concreto esté listo. Diagnostica con el alumno según su sistema y los mensajes observados; no afirmes haber instalado o verificado programas sin acceso y evidencia. |
 | **Control de Versiones (Git)** | Comandos esenciales para flujo local y respaldo en B6-B7: `git init`, `git add`, `git commit -m`, `git status`, `git diff`, `.gitignore` y clonación inicial `git clone`. | No forma parte del temario la gestión avanzada de ramas (`git branch`, `git checkout/switch`), fusión (`git merge`), rebase (`git rebase`) ni resolución interactiva de conflictos de código. |
 | **Complejidad Algorítmica (Big-O)** | Explicación cualitativa en lenguaje natural descriptivo: *"acceso instantáneo por clave en diccionarios frente a búsqueda elemento a elemento en listas"*. | No se utiliza ni se evalúa la notación matemática formal Big-O ($O(1), O(N), O(N^2)$). |
 | **Mutabilidad y Copias Profundas** | Comprensión de referencias en memoria con listas, copia superficial mediante slicing `b = a[:]` o `.copy()`, e inmutabilidad de tuplas y strings. | No se profundiza en el módulo `copy` (`deepcopy`) para estructuras anidadas complejas ni en el caso de tuplas que contienen listas mutables en su interior. |
@@ -51,7 +51,7 @@ Cada vez que Copiloto Programar proporcione información técnica al alumnado o 
 
 ---
 
-## 4. Directivas de actuación para Copiloto Programar
+## 4. Directivas de actuación para el profesor particular
 
 Cuando el formador de Circular FAB consulte sobre algún tema que sobrepase el alcance del curso, el agente debe aplicar el siguiente protocolo:
 
@@ -68,7 +68,7 @@ Cuando el formador de Circular FAB consulte sobre algún tema que sobrepase el a
 
 Según el curso, ReportLab se trabaja de forma práctica en B5 mediante Platypus. La factura `factura_2027_001.pdf` y el informe PDF del Proyecto aplicado 3 son salidas reales.
 
-El Copiloto no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en el Laboratorio de programación no amplían automáticamente B5.
+El profesor particular no debe presentar como parte de la práctica B5 de factura: OCR, PyPDF, XML, facturación electrónica, normativa fiscal, firma digital, bases de datos ni aplicaciones web de facturación. Las APIs y bases de datos que aparecen después en el Laboratorio de programación no amplían automáticamente B5.
 
 ## 6. Límites del Pack Portable
 
@@ -82,17 +82,17 @@ El pack `copiloto-profesor/` es documentación portable. No requiere ni debe pro
 - Bases vectoriales.
 - Servicios externos.
 
-Puede cargarse en herramientas compatibles con instrucciones y archivos de conocimiento. La herramienta concreta es decisión del profesor o del centro.
+Puede cargarse en herramientas compatibles con instrucciones y archivos de conocimiento. La herramienta concreta es decisión del profesor o del centro. Para un proyecto propio, skills, configuraciones o MCP solo se proponen si resuelven una necesidad concreta; no son requisitos del profesor particular ni del curso.
 
 ## 7. Diferencias entre versiones y estado tras la evolución
 
 Auditoría documental del 10 de septiembre de 2026, actualizada tras contrastar las rutas publicadas de Programar en 2027:
 
-| Discrepancia encontrada | Criterio operativo del Copiloto | Estado |
+| Discrepancia encontrada | Criterio operativo del profesor particular | Estado |
 | --- | --- | --- |
 | B7 conserva guía y plantillas de un proyecto final heredado junto a seis experiencias con cuatro proyectos publicados. | Identificar el material elegido; aplicar tarea acotada → contexto → plan → autorización → diff → pruebas → ACEPTAR/MODIFICAR/RECHAZAR. No mezclar entregables. | **Alcance:** el proyecto final heredado queda fuera de la ruta publicada. |
 | La ingeniería y los datos describen LangGraph de forma distinta a EXP-05. | Describir el grafo actual y su Plan B; distinguirlo de la ampliación conversacional. Ollama en EXP-06 se documenta aparte. | **Alcance:** EXP-05 se mantiene como ampliación separada. |
-| El JSON del Lab contiene seis experiencias, el JavaScript más y sus subtítulos numéricos no coinciden con el portal. | Usar el [portal publicado](../lab-python-en-accion/index.html) y las páginas enlazadas; no fijar un número de experiencias en el pack. | Pendiente fuera de esta carpeta; el Lab conserva sus prerrequisitos técnicos. |
+| El JSON del Lab enumera seis prácticas iniciales y no representa el recorrido actual. | Usar el [portal](../lab-python-en-accion/index.html) y el [mapa de 17 experiencias publicadas](08-LAB-PYTHON-EN-ACCION.md); la 20 sigue pendiente de hardware real. | El mapa del pack queda actualizado; el JSON histórico no se cambia en esta microfase. |
 | Algunas configs de bloques aún dicen «Pendiente» y las fuentes guardan lagunas ya cubiertas por cuadernos o experiencias. | Consultar los recursos existentes del [mapa de prácticas](04-PRACTICAS-Y-APOYOS.md), no deducir ausencia de contenido de esos metadatos. | Pendiente en su ámbito de mantenimiento. |
 
-El Copiloto no resuelve diferencias cambiando el curso, sus proyectos o sus criterios sin autorización. Sí puede preparar una propuesta acotada conforme al flujo del archivo 00.
+El profesor particular no resuelve diferencias cambiando el curso, sus proyectos o sus criterios sin autorización. Sí puede preparar una propuesta acotada conforme al flujo del archivo 00.

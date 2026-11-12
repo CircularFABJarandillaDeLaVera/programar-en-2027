@@ -6,7 +6,7 @@ Esta guía conserva explicaciones, analogías, demostraciones y Plan B para los 
 
 ## Patrón de apoyo docente
 
-Cuando el Copiloto prepare una sesión, debe responder con esta estructura mínima:
+Cuando el profesor particular prepare una sesión, debe responder con esta estructura mínima:
 
 1. **Explicación rigurosa:** definición correcta del concepto y por qué se usa.
 2. **Explicación intuitiva:** versión sencilla, sin jerga innecesaria.
