@@ -34,7 +34,11 @@
     .course-panel a:not(.cf-button), .support-links a { color: var(--cf-color-accent); }
     .setup-actions, .support-links { display: flex; flex-wrap: wrap; gap: var(--cf-space-3); align-items: center; }
     .course-panel a:focus-visible, .support-links a:focus-visible { outline: 3px solid var(--cf-color-accent); outline-offset: 4px; }
-    .route-grid { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); scroll-margin-top: var(--cf-space-3); }
+    .starter-strip { align-items: center; background: var(--cf-color-accent-soft); border-color: var(--cf-color-accent); display: grid; gap: var(--cf-space-4); grid-template-columns: minmax(0, 1fr) auto; padding: var(--cf-space-4) var(--cf-space-5); scroll-margin-top: var(--cf-space-3); }
+    .starter-strip h2 { font-size: 1.25rem; line-height: 1.25; margin: 0 0 var(--cf-space-1); }
+    .starter-strip p { color: var(--cf-color-text-muted); margin: 0; }
+    .starter-strip .cf-button { text-align: center; }
+    .route-grid { display: grid; gap: var(--cf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .route-card { align-content: start; display: grid; gap: var(--cf-space-3); }
     .route-card h2, .route-card h3 { margin: 0; }
     .route-card p, .route-card li { line-height: 1.55; }
@@ -48,6 +52,8 @@
     @media (max-width: 1120px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 720px) {
       .grid, .route-grid, .project-strip { grid-template-columns: 1fr; }
+      .starter-strip { grid-template-columns: 1fr; }
+      .starter-strip .cf-button { width: 100%; }
       .shell { max-width: 100vw; padding: var(--cf-space-3); width: 100vw; }
       .cf-topbar--course { flex-wrap: wrap; }
       .cf-topbar--course .cf-nav { flex-direction: column; max-width: 100%; order: 3; overflow: hidden; width: 100%; }
@@ -84,7 +90,15 @@
       <p>Aprende a programar haciendo proyectos con Python y ayuda de la IA, mientras entiendes, revisas y decides cada cambio.</p>
     </section>
 
-    <section class="course-panel route-grid" id="rutas" aria-labelledby="rutas-title">
+    <section class="course-panel starter-strip" id="rutas" aria-labelledby="starter-title">
+      <div>
+        <h2 id="starter-title">¿Es tu primera vez? Empieza por aquí</h2>
+        <p>Prepara tu ordenador con las herramientas necesarias para realizar las prácticas</p>
+      </div>
+      <a class="cf-button cf-button--primary" href="preparacion.html">Preparar mi equipo</a>
+    </section>
+
+    <section class="course-panel route-grid" aria-labelledby="rutas-title">
       <article class="route-card">
         <span class="cf-chip cf-chip--accent">Ruta A · Crear proyectos con agentes</span>
         <h2 id="rutas-title" tabindex="-1">Construye primero; estudia cuando lo necesites</h2>
