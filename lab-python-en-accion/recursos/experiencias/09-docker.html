@@ -89,33 +89,7 @@ MISMA API</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>2. Lee el Dockerfile</h2>
-        <p>El archivo clave se llama <code>Dockerfile</code>:</p>
-        <pre class="lab-code"><code>FROM python:3.12-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 8000
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
-        <p>Lectura sencilla:</p>
-        <ul class="lab-list">
-          <li><code>FROM</code> -> parte de una imagen base con Python.</li>
-          <li><code>WORKDIR</code> -> define la carpeta de trabajo dentro del contenedor.</li>
-          <li><code>COPY</code> -> copia archivos desde tu carpeta hacia la imagen.</li>
-          <li><code>RUN</code> -> ejecuta una orden durante la construcción.</li>
-          <li><code>EXPOSE</code> -> documenta el puerto de la aplicación.</li>
-          <li><code>CMD</code> -> comando que arranca al iniciar el contenedor.</li>
-        </ul>
-      </section>
-
-      <section class="lab-panel">
-        <h2>3. Construye la imagen</h2>
+        <h2>2. Construye la imagen</h2>
         <p>En la carpeta de la práctica:</p>
         <pre class="lab-code"><code>docker build -t participantes-api .</code></pre>
         <p>Después comprueba que la imagen existe:</p>
@@ -124,7 +98,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>4. Arranca el contenedor</h2>
+        <h2>3. Arranca el contenedor</h2>
         <p>Ejecuta:</p>
         <pre class="lab-code"><code>docker run --rm -p 8000:8000 participantes-api</code></pre>
         <p>Abre:</p>
@@ -139,7 +113,7 @@ Windows -> Docker -> Python del contenedor -> FastAPI</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>5. Comprueba docker ps</h2>
+        <h2>4. Comprueba docker ps</h2>
         <p>Con el contenedor funcionando, abre otra terminal:</p>
         <pre class="lab-code"><code>docker ps</code></pre>
         <p>Durante la validación real apareció:</p>
@@ -152,7 +126,7 @@ PORTS: 0.0.0.0:8000->8000/tcp</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>6. Mini-reto de puertos</h2>
+        <h2>5. Mini-reto de puertos</h2>
         <p>Prueba la misma API usando otro puerto exterior:</p>
         <pre class="lab-code"><code>docker run --rm -p 8080:8000 participantes-api</code></pre>
         <p>Abre:</p>
@@ -163,7 +137,7 @@ PORTS: 0.0.0.0:8000->8000/tcp</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>7. Del contenedor local a otro ordenador</h2>
+        <h2>6. Del contenedor local a otro ordenador</h2>
         <p>Docker Hub es un registro donde podemos publicar imágenes Docker para que otros equipos puedan descargarlas.</p>
         <p>Busca tu nombre de usuario en Docker Hub y sustituye <code>TU_USUARIO_DOCKER</code> por ese nombre.</p>
         <p>Si tu usuario fuese <code>ana123</code>, el nombre sería <code>ana123/participantes-api:1.0</code>.</p>
@@ -183,7 +157,7 @@ PC 2</code></pre>
       </section>
 
       <section class="lab-panel">
-        <h2>8. Paso final: probar en otro ordenador</h2>
+        <h2>7. Paso final: probar en otro ordenador</h2>
         <p>En otro ordenador con Docker instalado y arrancado:</p>
         <pre class="lab-code"><code>docker pull TU_USUARIO_DOCKER/participantes-api:1.0
 docker run --rm -p 8000:8000 TU_USUARIO_DOCKER/participantes-api:1.0</code></pre>
